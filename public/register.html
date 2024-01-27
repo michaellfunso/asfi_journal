@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="registerForm">
+        <input type="text" placeholder="username" name="username" id="username"> <br><br>
+        <input type="text" placeholder="Enter Firstname" name="first_name" id="first_name"><br><br>
+        <input type="text" placeholder="Lastname" name="last_name" id="last_name"><br><br>
+        <input type="email" placeholder="email" name="email" id="email"><br><br>
+        <select name="accountType" id="accountType">
+            <option value="user_account">User Account</option>
+            <option value="reviewer_account">Reciewer Account</option>
+            <option value="editor_account">Editor Account</option>
+            <option value="author_account"> Author Account</option>
+        </select>
+        <br><br>
+        <input type="password" placeholder="password" name="password" id="password">
+        <br><br>
+
+        <input type="submit" value="Register">
+    </form>
+    <script src="./js/register.js" type="module"></script>
+</body>
+</html>
