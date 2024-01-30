@@ -1,16 +1,17 @@
 <?php
 
+require_once "./exportENV.php";
 
-$servername = "localhost:3306";
-$username = "root";
-$password = "r00t";
-$db = "asfi_journal";
+$servername = $_ENV['DB_HOST'];
+$username = $_ENV['DB_USER'];
+$password = $_ENV['DB_PASS'];
+$db = $_ENV["DB_NAME"];
 
-// $servername = "localhost";
-// $username = "bwtedjwe_hotel_administrator";
-// $password = "KGb2Ec]ndI&)";
-// $db = "bwtedjwe_h0tels";
 
+// $servername = "localhost:3306";
+// $username = "root";
+// $password = "r00t";
+// $db = "asfi_journal";
 
 // Create connection
 $con = mysqli_connect($servername, $username, $password,$db);

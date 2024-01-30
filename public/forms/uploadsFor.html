@@ -1,0 +1,155 @@
+<form id="uploadForm">
+                        
+    <div id="article-type" class="form-section">
+        <label for="article_type">Choose Article Type:</label>
+        <select name="article_type" id="article_type" class="form-control">
+            <option value="">Original Article</option>
+            <option value="">Review</option>
+            <option value="">Systematic Review</option>
+            <option value="">Letter to Editor</option>
+            <option value="">Editorial</option>
+            <option value="">Commentary</option>
+            <option value="">Protocol</option>
+            <option value="">Data</option>
+            <option value="">Opinion</option>
+            <option value="">Learning Corner</option>
+            <option value="">Field Story</option>
+            <option value="">Insight</option>
+        </select>
+
+        <span class="submit-next" onclick="showNext('upload-manuscript', 'article-type')">Next</span>
+    </div>
+    
+<div id="upload-manuscript" class="hidden">
+    <div>
+        <b style="text-align: center;">Upload Manuscript Files</b> <br>
+        <label for="">Main Manuscript File:</label>
+        <input type="file" class="form-control" id="manuscript_file">
+    </div>
+
+    <div>
+        <label for="">Cover Letter:</label>
+        <input type="file" class="form-control" id="cover_letter">
+    </div>
+
+    <div>
+        <label for="">Tables:</label>
+        <input type="file" class="form-control" id="tables">
+    </div>
+    
+    <div>
+        <label for="">Figuresx:</label>
+        <input type="file" class="form-control" id="figures">
+    </div>
+
+    <div>
+        <label for="">Supplementary Material:</label>
+        <input type="file" class="form-control" id="supplimentary_materials">
+    </div>
+
+    <div>
+        <label for="">Graphic Abstract:</label>
+        <input type="file" class="form-control" id="graphic_abstract">
+    </div> <br>
+
+    <span class="submit-next" onclick="showNext('title', 'upload-manuscript')">Next</span>
+</div>
+
+
+
+    <div id="title" class="form-section hidden">
+        <b style="text-align: center;">Manuscript Title</b>
+        <input type="text" class="form-control" placeholder="Full Title" id="manuscript_full_title"> <br>
+        <input type="text" class="form-control" placeholder="Running Title" id="manuscript_running_title">
+
+        <span class="submit-next" onclick="showNext('abstract', 'title')">Next</span>
+    </div>
+
+
+<div id="abstract" class="form-section hidden">
+    <div>
+        <b style="text-align: center;">Abstracts</b><br>
+        <b>Structured Abstract:</b> <br>
+        <label for="">Background:</label>
+        <textarea name="" id="" cols="30" rows="20" class="form-control" id="abstract_background"></textarea>
+        <label for="">Objective:</label>
+        <textarea name="" id="" cols="30" rows="20" class="form-control" id="abstract_objectives"></textarea>
+        <label for="">Methods:</label>
+        <textarea name="" id="" cols="30" rows="20" class="form-control" id="abstract_method"></textarea>
+        <label for="">Results:</label>
+        <textarea name="" id="" cols="30" rows="20" class="form-control" id="absctract_results"></textarea>
+        <label for="">Discussion:</label>
+        <textarea name="" id="" cols="30" rows="20" class="form-control" id="abstract_discussion"></textarea>
+    </div>
+
+    <div>
+        <b>Unstructured Abstract:</b> <br>
+        <textarea name="unstructured_abstract" id="unstructured_abstract" cols="30" rows="20" class="form-control"></textarea>
+    </div>
+
+    <span class="submit-next" onclick="showNext('author-information', 'abstract')">Next</span>
+</div>
+
+    <div id="author-information" class="form-section hidden">
+        <b style="text-align: center;">Author's Information</b>
+        <div>
+            <label for="prefix">Prefix:</label>
+            <select name="authors_prefix" id="authors_prefix" class="form-control">
+                <option value="">Prof.</option>
+                <option value="">Dr.</option>
+                <option value="">Mr.</option>
+                <option value="">Mrs.</option>
+                <option value="">Miss</option>
+            </select>
+        </div>
+        
+        <div>
+            <label for="">First Name:</label>
+            <input type="text" class="form-control" placeholder="First Name..." id="authors_first_name">
+        </div>
+
+        <div>
+            <label for="">Middle Name:</label>
+            <input type="text" class="form-control" placeholder="Middle Name..." id="authors_middle_name">
+        </div>
+
+        <div>
+            <label for="">Last Name:</label>
+            <input type="text" class="form-control" placeholder="Last Name..." id="authors_last_name">
+        </div>
+
+        
+        
+        <div>
+            <label for="">Highest Degree:</label>
+            <input type="text" class="form-control" placeholder="Highest Degree..." id="authors_highest_degree">
+        </div>
+
+        <span class="submit-next" onclick="showNext('affiliation', 'author-information')">Next</span>
+    </div>
+
+        <div id="affiliation" class="form-section hidden">
+            <b>Affiliation:</b> <br>
+            <label for="">Institution</label>
+            <input type="text" class="form-control" placeholder="Institution..." id="authors_institution">
+            <label for="">City</label>
+            <input type="text" class="form-control" placeholder="City..." id="institution_city">
+            <label for="">Country</label>
+            <input type="text" class="form-control" placeholder="Country..." id="institution_country">
+
+            <span class="submit-next" onclick="showNext('author-details', 'affiliation')">Next</span>
+        </div>
+
+        <div id="author-details" class="form-section hidden">
+            <b>Contacts:</b>
+            <label for="">Email</label>
+            <input type="email" class="form-control" placeholder="Email..." id="authors_email">
+            <label for="">Telephone</label>
+            <input type="number" class="form-control" id="authors_phonenumber" placeholder="Telephone...">
+            <label for="">WhatsApp Number (Optional)</label>
+            <input type="number" class="form-control" id="authors_whatsapp_number" placeholder="WhatsApp...">
+        </div>
+    
+    
+    <input type="submit" class="submit-signup" value="Submit">
+</form>
