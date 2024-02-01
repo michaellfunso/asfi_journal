@@ -6,6 +6,12 @@
     <title>ASFIRJ Manuscript Portal</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -64,14 +70,31 @@
                 <ul class="submit-nav">
                     <a href=""><li>Manuscripts with Decision</li></a>
                     <a href=""><li>Manuscripts Being processed/Under Review</li></a>
-                    <a href=""><li class="active">Submit New Manuscript</li></a>
+                    <li class="active">Submit New Manuscript <ul class="submit-nav" id="sectionNav">
+                        <a href="javascript:void(0)" onclick="navigateSection('article-type')"><li>Article Type</li></a>
+                        <a href="javascript:void(0)" onclick="navigateSection('upload-manuscript')" class="disabled"><li><i class="material-icons">lock</i>Upload Manuscript</li></a>
+                        <a href="javascript:void(0)" onclick="navigateSection('title')" class="disabled"><li><i class="material-icons">lock</i>Title</li></a>
+                        <a href="javascript:void(0)" onclick="navigateSection('abstract')" class="disabled"><li><i class="material-icons">lock</i>Abstract</li></a>
+                        <a href="javascript:void(0)" onclick="navigateSection('author-information')" class="disabled"><li><i class="material-icons">lock</i>Authors</li></a>
+                        <a href="javascript:void(0)" onclick="navigateSection('affiliation')" class="disabled"><li><i class="material-icons">lock</i>Affiliations</li></a>
+                        <a href="javascript:void(0)" onclick="navigateSection('author-details')" class="disabled"><li><i class="material-icons">lock</i>Author Details</li></a>
+                    </ul></li>
+                    
                 </ul>
             </div>
             <div class="submit-container">
                 <div class="submit-body">
-                    <form action="">
-                        <h4 class="sub-head" style="text-align: center;">PUBLISH YOUR RESEARCH</h4>
-                        <div>
+                    <div class="submit-start">
+                        <h4 class="sub-head">PUBLISH YOUR RESEARCH</h4> <br>
+                        <p>The step listing on the left will guide you through the submission steps</p> <br>
+                        <p>You cannot jump ahead or skip steps.</p> <br>
+                        <p>You may review or revise any previously completed steps before completing your submission</p>
+                    </div>
+                    
+
+                    <form action="" id="submitManuForm">
+                        
+                        <div id="article-type" class="form-section">
                             <label for="prefix">Choose Article Type:</label>
                             <select name="prefix" id="" class="form-control">
                                 <option value="">Original Article</option>
@@ -87,8 +110,11 @@
                                 <option value="">Field Story</option>
                                 <option value="">Insight</option>
                             </select>
+
+                            <span class="submit-next" onclick="showNext('upload-manuscript', 'article-type')">Next</span>
                         </div>
                         
+                    <div id="upload-manuscript" class="form-section hidden">
                         <div>
                             <b style="text-align: center;">Upload Manuscript Files</b> <br>
                             <label for="">Main Manuscript File:</label>
@@ -120,13 +146,21 @@
                             <input type="file" class="form-control">
                         </div> <br>
 
+                        <span class="submit-next" onclick="showNext('title', 'upload-manuscript')">Next</span>
+                    </div>
 
 
-                        <div>
+
+                        <div id="title" class="form-section hidden">
                             <b style="text-align: center;">Manuscript Title</b>
                             <input type="text" class="form-control" placeholder="Full Title"> <br>
                             <input type="text" class="form-control" placeholder="Running Title">
+
+                            <span class="submit-next" onclick="showNext('abstract', 'title')">Next</span>
                         </div>
+
+
+                    <div id="abstract" class="form-section hidden">
                         <div>
                             <b style="text-align: center;">Abstracts</b><br>
                             <b>Structured Abstract:</b> <br>
@@ -147,7 +181,10 @@
                             <textarea name="" id="" cols="30" rows="20" class="form-control"></textarea>
                         </div>
 
-                        <div>
+                        <span class="submit-next" onclick="showNext('author-information', 'abstract')">Next</span>
+                    </div>
+
+                        <div id="author-information" class="form-section hidden">
                             <b style="text-align: center;">Author's Information</b>
                             <div>
                                 <label for="prefix">Prefix:</label>
@@ -181,8 +218,11 @@
                                 <label for="">Highest Degree:</label>
                                 <input type="text" class="form-control" placeholder="Highest Degree...">
                             </div>
+
+                            <span class="submit-next" onclick="showNext('affiliation', 'author-information')">Next</span>
+                        </div>
     
-                            <div>
+                            <div id="affiliation" class="form-section hidden">
                                 <b>Affiliation:</b> <br>
                                 <label for="">Institution</label>
                                 <input type="text" class="form-control" placeholder="Institution...">
@@ -190,9 +230,11 @@
                                 <input type="text" class="form-control" placeholder="City...">
                                 <label for="">Country</label>
                                 <input type="text" class="form-control" placeholder="Country...">
+
+                                <span class="submit-next" onclick="showNext('author-details', 'affiliation')">Next</span>
                             </div>
     
-                            <div>
+                            <div id="author-details" class="form-section hidden">
                                 <b>Contacts:</b>
                                 <label for="">Email</label>
                                 <input type="email" class="form-control" placeholder="Email...">
@@ -201,7 +243,6 @@
                                 <label for="">WhatsApp Number (Optional)</label>
                                 <input type="number" class="form-control" placeholder="WhatsApp...">
                             </div>
-                        </div>
                         
                         
                         <input type="submit" class="submit-signup" value="Submit">
@@ -371,6 +412,44 @@
         }
     });
 });
+</script>
+
+<script>
+function navigateSection(sectionId) {
+            var currentSection = document.querySelector('.form-section:not(.hidden)');
+            var nextSection = document.getElementById(sectionId);
+
+            if (currentSection && nextSection && !nextSection.classList.contains('hidden')) {
+                currentSection.classList.add('hidden');
+                nextSection.classList.remove('hidden');
+                nextSection.classList.add('fade-in');
+
+                // Update navigation list
+                updateNavigationList(sectionId);
+            }
+        }
+
+        function updateNavigationList(currentSectionId) {
+            var navItems = document.querySelectorAll('#sectionNav li');
+            var currentIndex = Array.from(navItems).findIndex(item => item.textContent.toLowerCase() === currentSectionId);
+
+            for (var i = 0; i < navItems.length; i++) {
+                navItems[i].classList.remove('disabled');
+
+                if (i > currentIndex) {
+                    navItems[i].classList.add('disabled');
+                }
+            }
+        }
+
+
+
+    function showNext(nextSection, currentSection) {
+            document.getElementById(currentSection).classList.add('hidden');
+            document.getElementById(nextSection).classList.remove('hidden');
+            document.getElementById(nextSection).classList.add('fade-in');
+            scrollTo(0, 0);  // Scroll to the top of the page if needed
+        }
 </script>
 <!-- <script>
     $(document).ready(function() {
