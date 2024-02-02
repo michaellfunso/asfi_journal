@@ -14,7 +14,7 @@ const userData = JSON.parse(await GetUserInfo(username))
 const AccountType = userData.accountType
 
 
-if(AccountType != "author_account" || AcctCookie != "author_acccount"){
+if(AccountType != "author_account"){
     alert("Access Denied")
      window.location.href = `./../login.html`
 }else{

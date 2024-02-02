@@ -68,10 +68,15 @@
             <div class="submission-header">
                 <h3>John Doe | <span style="font-size: small; color: #404040;">Author</span></h3>
                 <ul class="submit-nav">
-                    <a href="/public/dashboard/authorDashboard.html"><li>Dashboard</li></a>
-                    <li class="active">Submit New Manuscript <ul class="submit-nav" id="sectionNav">
-                        <a href="javascript:void(0)" onclick="navigateSection('article-type')"><li>Article Type</li></a>
-                        <a href="javascript:void(0)" onclick="navigateSection('upload-manuscript')" class="disabled"><li><i class="material-icons">lock</i>Upload Manuscript</li></a>
+                    <a href="./"><li>Dashboard</li></a>
+                    <li class="active">Submit New Manuscript
+                        <ul class="submit-nav" id="sectionNav">
+                        <a href="javascript:void(0)"id="article_type_nav" >
+                            <li  > <i class="material-icons">lock</i>Article Type</li>
+                        </a>
+                        <a href="javascript:void(0)" onclick="navigateSection('upload-manuscript')" class="disabled">
+                            <li><i class="material-icons">lock</i>Upload Manuscript</li>
+                        </a>
                         <a href="javascript:void(0)" onclick="navigateSection('title')" class="disabled"><li><i class="material-icons">lock</i>Title</li></a>
                         <a href="javascript:void(0)" onclick="navigateSection('abstract')" class="disabled"><li><i class="material-icons">lock</i>Abstract</li></a>
                         <a href="javascript:void(0)" onclick="navigateSection('author-information')" class="disabled"><li><i class="material-icons">lock</i>Authors</li></a>
@@ -98,9 +103,10 @@
                         
                         <div id="article-type" class="form-section">
                             <label for="prefix">Choose Article Type:</label>
-                            <select name="prefix" id="" class="form-control">
-                                <option value="">Original Article</option>
-                                <option value="">Review</option>
+                            <select name="article_type" id="article_type" class="form-control">
+                                <option >Select Article Type</option>
+                                <option value="agag">Original Article</option>
+                                <option value="agagag">Review</option>
                                 <option value="">Systematic Review</option>
                                 <option value="">Letter to Editor</option>
                                 <option value="">Editorial</option>
@@ -113,7 +119,7 @@
                                 <option value="">Insight</option>
                             </select>
 
-                            <span class="submit-next" onclick="showNext('upload-manuscript', 'article-type')">Next</span>
+                            <button type="button" class="submit-next" onclick="showNext('upload-manuscript', 'article-type', 'article_type_nav')" disabled>Next</button>
                         </div>
                         
                     <div id="upload-manuscript" class="form-section hidden">
@@ -432,24 +438,40 @@ function navigateSection(sectionId) {
         }
 
         function updateNavigationList(currentSectionId) {
-            var navItems = document.querySelectorAll('#sectionNav li');
-            var currentIndex = Array.from(navItems).findIndex(item => item.textContent.toLowerCase() === currentSectionId);
+    
+           const item = document.getElementById(currentSectionId)
+        //     var navItems = document.querySelectorAll('#sectionNav li');
+        //     var currentIndex = Array.from(navItems).findIndex(item => item.textContent.toLowerCase() === currentSectionId);
+            item.removeAttribute("disabled")
+            item.setAttribute("class", "active-nav")
+            const Lock = item.querySelector("i")
+            Lock.innerHTML = "<span></span>";
 
-            for (var i = 0; i < navItems.length; i++) {
-                navItems[i].classList.remove('disabled');
+            // for (var i = 0; i < navItems.length; i++) {
+            //     navItems[i].removeAttribute('disabled');
 
-                if (i > currentIndex) {
-                    navItems[i].classList.add('disabled');
-                }
-            }
+            //     if (i > currentIndex) {
+            //         navItems[i].setAttribute('disabled');
+            //     }
+            // }
         }
+const article_type = document.getElementById("article-type")
+const prefix = document.getElementById("article_type")
+const article_type_nav = document.getElementById("article_type_nav")
 
+prefix.addEventListener("change", function() {
+    if(prefix.value != "" && prefix.value){
+        const nextButton = article_type.querySelector(".submit-next")
+        nextButton.removeAttribute("disabled")
+        article_type_nav.setAttribute("onclick","showNext('article-type', 'upload-manuscript', 'article_type_nav')")
+    }
+})
 
-
-    function showNext(nextSection, currentSection) {
+    function showNext(nextSection, currentSection, navItemId) {
             document.getElementById(currentSection).classList.add('hidden');
             document.getElementById(nextSection).classList.remove('hidden');
             document.getElementById(nextSection).classList.add('fade-in');
+            updateNavigationList(navItemId)
             scrollTo(0, 0);  // Scroll to the top of the page if needed
         }
 </script>
