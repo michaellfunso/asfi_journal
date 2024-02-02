@@ -473,10 +473,12 @@
     list-style-type: none;
     margin: 12px;
     padding: 15px;
+    border-bottom: 1px solid #404040;
 }
 
 .submit-nav a {
     color: black;
+    border-bottom: 1px solid #404040;
 }
 
 .submit-nav .active {
@@ -559,6 +561,24 @@
 
 .sub-active {
     background-color: #404040;
+}
+
+.dash-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.dash-item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #404040;
+    border-radius: 6px;
+    padding: 30px;
+    width: 15%;
+    color: whitesmoke;
+    margin-bottom: 20px;
 }
 
 form div .submit-next {

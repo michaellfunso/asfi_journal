@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASFIRJ Manuscript Portal</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
         .hidden {
@@ -20,13 +20,13 @@
                 <a href="index.html"><h4>ASFI Research Journal</h4></a>
             </div>
             <div class="nav">
-                <a href="issues.html">Browse Issues</a>
-                <a href="about.html">About</a>
-                <a href="">Meet The Editors</a>
-                <a href="authors.html">For Authors</a>
-                <a href="reviewers.html">For Reviewers</a>
+                <a href="../issues.html">Browse Issues</a>
+                <a href="../about.html">About</a>
+                <a href="../editors.html">Meet The Editors</a>
+                <a href="../authors.html">For Authors</a>
+                <a href="../reviewers.html">For Reviewers</a>
                 <a href="">Careers</a>
-                <a href="contact.html">Contact</a>
+                <a href="../contact.html">Contact</a>
             </div>
             <!-- <div class="profile">
                 <div class="profile-icon">
@@ -50,13 +50,13 @@
         <div class="mobile-body">
             <div class="mobile-menu-container">
                 <div class="mobile-menu">
-                    <a href="issues.html">Browse Issues</a>
-                    <a href="about.html">About</a>
-                    <a href="">Meet The Editors</a>
-                    <a href="authors.html">For Authors</a>
-                    <a href="reviewers.html">For Reviewers</a>
+                    <a href="../issues.html">Browse Issues</a>
+                    <a href="../about.html">About</a>
+                    <a href="../editors.html">Meet The Editors</a>
+                    <a href="../authors.html">For Authors</a>
+                    <a href="../reviewers.html">For Reviewers</a>
                     <a href="">Careers</a>
-                    <a href="contact.html">Contact</a>
+                    <a href="../contact.html">Contact</a>
                 </div>
             </div>
 
@@ -66,10 +66,9 @@
 
         <div class="main-submit-container">
             <div class="submission-header">
-                <h3>Submission Portal</h3>
+                <h3>John Doe | <span style="font-size: small; color: #404040;">Author</span></h3>
                 <ul class="submit-nav">
-                    <a href=""><li>Manuscripts with Decision</li></a>
-                    <a href=""><li>Manuscripts Being processed/Under Review</li></a>
+                    <a href="/public/dashboard/authorDashboard.html"><li>Dashboard</li></a>
                     <li class="active">Submit New Manuscript <ul class="submit-nav" id="sectionNav">
                         <a href="javascript:void(0)" onclick="navigateSection('article-type')"><li>Article Type</li></a>
                         <a href="javascript:void(0)" onclick="navigateSection('upload-manuscript')" class="disabled"><li><i class="material-icons">lock</i>Upload Manuscript</li></a>
@@ -79,6 +78,9 @@
                         <a href="javascript:void(0)" onclick="navigateSection('affiliation')" class="disabled"><li><i class="material-icons">lock</i>Affiliations</li></a>
                         <a href="javascript:void(0)" onclick="navigateSection('author-details')" class="disabled"><li><i class="material-icons">lock</i>Author Details</li></a>
                     </ul></li>
+                    <a href=""><li>My Manuscripts</li></a>
+                    <a href=""><li>View/Edit Profile</li></a>
+                    <a href=""><li>Logout</li></a>
                     
                 </ul>
             </div>
@@ -327,7 +329,7 @@
                 <h4>AUTHOR</h4>
                 <ul>
                   <li>
-                    <a href="">Submit Manuscript</a>
+                    <a href="submitNewManuscript.html">Submit Manuscript</a>
                   </li>
                   <li>
                     <a href="">Print Request</a>
@@ -338,7 +340,7 @@
                 <h4>EDITOR</h4>
                 <ul>
                   <li>
-                    <a href="">Editors</a>
+                    <a href="../editors.html">Editors</a>
                   </li>
                 </ul>
             </div>
@@ -358,7 +360,7 @@
                     <a href="">Terms of use</a>
                   </li>
                   <li>
-                    <a href="contact.html">Contact</a>
+                    <a href="../contact.html">Contact</a>
                   </li>
                 </ul>
             </div>
@@ -366,12 +368,12 @@
         </div>
 
         <div class="foot-base">
-            <p>(c) ASFI Research Journal 2023</p>
+            <p>(c) ASFI Research Journal 2024</p>
         </div>
 
     </footer>
 </body>
-<script src="js/jquery-3.4.2.min.js"></script>
+<script src="../js/jquery-3.4.2.min.js"></script>
 <script>
     $(document).ready(function() {
     $(".mobile-menu-icon").click(function() {

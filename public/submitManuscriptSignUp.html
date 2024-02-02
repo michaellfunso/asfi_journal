@@ -16,7 +16,7 @@
             <div class="nav">
                 <a href="" class="active">Browse Issues</a>
                 <a href="about.html">About</a>
-                <a href="">Meet The Editors</a>
+                <a href="editors.html">Meet The Editors</a>
                 <a href="authors.html">For Authors</a>
                 <a href="reviewers.html">For Reviewers</a>
                 <a href="">Careers</a>
@@ -46,7 +46,7 @@
                 <div class="mobile-menu">
                     <a href="issues.html">Browse Issues</a>
                     <a href="about.html">About</a>
-                    <a href="">Meet The Editors</a>
+                    <a href="editors.html">Meet The Editors</a>
                     <a href="authors.html">For Authors</a>
                     <a href="reviewers.html">For Reviewers</a>
                     <a href="">Careers</a>
@@ -68,10 +68,10 @@
             </div>
             <div class="submit-container">
                 <div class="submit-body">
-                    <form action="">
+                    <form action="" id="registerForm">
                         <div>
-                            <label for="prefix">Select Account Type:</label>
-                            <select name="prefix" id="" class="form-control">
+                            <label for="accountType">Select Account Type:</label>
+                            <select class="form-control" name="accountType" id="accountType">
                                 <option value="">Author</option>
                                 <option value="">Editor</option>
                             </select>
@@ -89,20 +89,25 @@
                         
                         <div>
                             <label for="">First Name:</label>
-                            <input type="text" class="form-control" placeholder="First Name...">
+                            <input type="text" class="form-control" placeholder="First Name..." name="first_name" id="first_name">
                         </div>
 
                         <div>
                             <label for="">Last Name:</label>
-                            <input type="text" class="form-control" placeholder="Last Name...">
+                            <input type="text" class="form-control" placeholder="Last Name..." name="last_name" id="last_name">
                         </div>
 
                         <div>
                             <label for="">User Name:</label>
-                            <input type="text" class="form-control" placeholder="User Name...">
+                            <input type="text" class="form-control" placeholder="User Name..." name="username" id="username">
+                        </div>
+
+                        <div>
+                            <label for="">Email</label>
+                            <input type="text" class="form-control" placeholder="Email..." name="email" id="email">
                         </div>
                         
-                        <div>
+                        <!-- <div>
                             <label for="">Highest Degree:</label>
                             <input type="text" class="form-control" placeholder="Highest Degree...">
                         </div>
@@ -115,7 +120,7 @@
                         <div>
                             <label for="">Field of Research</label>
                             <input type="text" class="form-control" placeholder="Field of research...">
-                        </div>
+                        </div> -->
 
                         <div>
                             <p>Are you available to review for ASFIRJ? (optional)</p>
@@ -126,11 +131,11 @@
                         </div>
                         <div>
                             <label for="">Create Password:</label>
-                            <input type="password" class="form-control" placeholder="Create Password...">
+                            <input type="password" class="form-control" placeholder="Create Password..." name="password" id="password">
                         </div>
                         <div>
                             <label for="">Confirm Password:</label>
-                            <input type="password" class="form-control" placeholder="Confirm Password...">
+                            <input type="password" class="form-control" placeholder="Confirm Password..." name="password2" id="password2">
                         </div>
                         
                         
@@ -142,7 +147,7 @@
                 <h4 class="sub-head">PUBLISH YOUR RESEARCH</h4>
                 <div class="submit-research">
                     <div class="sub-manuscript">
-                        <a href="https://forms.gle/3xH72FAe1QWsmWTm8"><button type="button">Submit Manuscript</button></a>
+                        <a href=""><button type="button">Submit Manuscript</button></a>
                     </div>
                 </div>
 
@@ -255,12 +260,13 @@
         </div>
 
         <div class="foot-base">
-            <p>(c) ASFI Research Journal 2023</p>
+            <p>(c) ASFI Research Journal 2024</p>
         </div>
 
     </footer>
 </body>
 <script src="js/jquery-3.4.2.min.js"></script>
+<script src="./js/register.js" type="module"></script>
 <script>
     $(document).ready(function() {
     $(".mobile-menu-icon").click(function() {
