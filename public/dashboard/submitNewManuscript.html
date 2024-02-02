@@ -74,7 +74,7 @@
                         <a href="javascript:void(0)"id="article_type_nav" >
                             <li  > <i class="material-icons">lock</i>Article Type</li>
                         </a>
-                        <a href="javascript:void(0)" onclick="navigateSection('upload-manuscript')" class="disabled">
+                        <a href="javascript:void(0)" id="upload_manuscript_nav" onclick="navigateSection('upload-manuscript')" class="disabled">
                             <li><i class="material-icons">lock</i>Upload Manuscript</li>
                         </a>
                         <a href="javascript:void(0)" onclick="navigateSection('title')" class="disabled"><li><i class="material-icons">lock</i>Title</li></a>
@@ -386,6 +386,7 @@
     </footer>
 </body>
 <script src="../js/jquery-3.4.2.min.js"></script>
+<script src="../js/forms/checkField.js"></script>
 <script>
     $(document).ready(function() {
     $(".mobile-menu-icon").click(function() {
@@ -428,60 +429,8 @@
 });
 </script>
 
-<script>
-function navigateSection(sectionId) {
-            var currentSection = document.querySelector('.form-section:not(.hidden)');
-            var nextSection = document.getElementById(sectionId);
 
-            if (currentSection && nextSection && !nextSection.classList.contains('hidden')) {
-                currentSection.classList.add('hidden');
-                nextSection.classList.remove('hidden');
-                nextSection.classList.add('fade-in');
-
-                // Update navigation list
-                updateNavigationList(sectionId);
-            }
-        }
-
-        function updateNavigationList(currentSectionId) {
-    
-           const item = document.getElementById(currentSectionId)
-        //     var navItems = document.querySelectorAll('#sectionNav li');
-        //     var currentIndex = Array.from(navItems).findIndex(item => item.textContent.toLowerCase() === currentSectionId);
-            item.removeAttribute("disabled")
-            item.setAttribute("class", "active-nav")
-            const Lock = item.querySelector("i")
-            Lock.innerHTML = "<span></span>";
-
-            // for (var i = 0; i < navItems.length; i++) {
-            //     navItems[i].removeAttribute('disabled');
-
-            //     if (i > currentIndex) {
-            //         navItems[i].setAttribute('disabled');
-            //     }
-            // }
-        }
-const article_type = document.getElementById("article-type")
-const prefix = document.getElementById("article_type")
-const article_type_nav = document.getElementById("article_type_nav")
-
-prefix.addEventListener("change", function() {
-    if(prefix.value != "" && prefix.value){
-        const nextButton = article_type.querySelector(".submit-next")
-        nextButton.removeAttribute("disabled")
-        article_type_nav.setAttribute("onclick","showNext('article-type', 'upload-manuscript', 'article_type_nav')")
-    }
-})
-
-    function showNext(nextSection, currentSection, navItemId) {
-            document.getElementById(currentSection).classList.add('hidden');
-            document.getElementById(nextSection).classList.remove('hidden');
-            document.getElementById(nextSection).classList.add('fade-in');
-            updateNavigationList(navItemId)
-            scrollTo(0, 0);  // Scroll to the top of the page if needed
-        }
-</script>
-<!-- <script>
+<!-- <script> 
     $(document).ready(function() {
         var submitManuscriptButton = $(".submit-manuscript");
     
