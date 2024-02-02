@@ -24,3 +24,7 @@ if(AccountType != "editor_account" || AcctCookie != "editor_account"){
 if(username && email){
     userFunction()
 }
+else{
+    window.location.href = `./../login.html`
+}
+
