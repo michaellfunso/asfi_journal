@@ -473,10 +473,12 @@
     list-style-type: none;
     margin: 12px;
     padding: 15px;
+    border-bottom: 1px solid #404040;
 }
 
 .submit-nav a {
     color: black;
+    border-bottom: 1px solid #404040;
 }
 
 .submit-nav .active {
@@ -503,9 +505,16 @@
     margin: 0 8px 0 8px;
 }
 
-.submit-body form div {
+.submit-body .submit-start {
+    background-color: white;
     display: flex;
     flex-direction: column;
+    padding: 20px;
+    padding-left: 40px;
+    margin: 0 8px 0 8px;
+}
+
+.submit-body form div {
     margin: 20px 60px 2px 60px;
 }
 
@@ -516,9 +525,20 @@
     border-radius: 6px;
     border: none;
     background-color: #e7e7e77a;
+    margin-bottom: 30px;
+}
+
+.submit-body form .form-section {
+    transition: opacity 0.5s ease-in-out;
+}
+
+
+.fade-in {
+    opacity: 1;
 }
 
 .submit-signup {
+    display: none;
     height: 40px;
     width: 40%;
     margin: 0 auto;
@@ -528,6 +548,80 @@
     border: none;
 }
 
+.signin-btn {
+    padding: 10px;
+    width: 20%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    border: none;
+    background-color: #404040;
+    color: whitesmoke;
+    border-radius: 6px;
+}
+
+.sub-active {
+    background-color: #404040;
+}
+
+.dash-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.dash-item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #404040;
+    border-radius: 6px;
+    padding: 30px;
+    width: 15%;
+    color: whitesmoke;
+    margin-bottom: 20px;
+}
+
+form div .submit-next {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    height: 30px;
+    width: 70px;
+    background-color: #80078b;
+    color: whitesmoke;
+    border: none;
+}
+
+.material-icons {
+    font-size: 3px;
+}
+
+.login-type ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    font-size: 20px;
+    color: #404040;
+    width: 50%;
+    margin: 0 auto;
+} 
+
+.login-type ul li {
+   padding: 10px;
+}
+
+.login-type ul a {
+    color: #0000008f;
+ }
+
+.login-type ul .login-active {
+    background-color: #404040;
+    color: whitesmoke;
+    border-radius: 6px;
+ }
 
 .contact-section {
     display: flex;
@@ -591,6 +685,7 @@
     align-items: center;
     color: #dbdadaa9;
 }
+
 
 
 
@@ -732,4 +827,8 @@
     position: absolute;
    }
 
+}
+
+.hidden {
+    display: none;
 }

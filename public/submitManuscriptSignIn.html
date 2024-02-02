@@ -16,7 +16,7 @@
             <div class="nav">
                 <a href="issues.html">Browse Issues</a>
                 <a href="about.html">About</a>
-                <a href="">Meet The Editors</a>
+                <a href="editors.html">Meet The Editors</a>
                 <a href="authors.html">For Authors</a>
                 <a href="reviewers.html">For Reviewers</a>
                 <a href="">Careers</a>
@@ -46,7 +46,7 @@
                 <div class="mobile-menu">
                     <a href="issues.html">Browse Issues</a>
                     <a href="about.html">About</a>
-                    <a href="">Meet The Editors</a>
+                    <a href="editors.html">Meet The Editors</a>
                     <a href="authors.html">For Authors</a>
                     <a href="reviewers.html">For Reviewers</a>
                     <a href="">Careers</a>
@@ -68,22 +68,33 @@
             </div>
             <div class="submit-container">
                 <div class="submit-body">
-                    <form action="">
+                    <form action="" id="loginForm" onsubmit="return false">
+
+                        <div class="login-type">
+                            <ul>
+                                <a href=""><li class="login-active">Author</li></a>|
+                                <a href=""><li>Editor</li></a>|
+                                <a href=""><li>Reviewer</li></a>
+                            </ul>
+                        </div>
 
                         <div>
                             <label for="">User Name:</label>
-                            <input type="text" class="form-control" placeholder="Enter UserName...">
+                            <input type="text" class="form-control" placeholder="Enter UserName or Email..." name="email" id="email" required>
                         </div>
                         
                         <div>
                             <label for="">Password:</label>
-                            <input type="password" class="form-control" placeholder="Enter Password...">
+                            <input type="password" class="form-control" placeholder="Enter Password..." name="pass" id="pass" required>
                         </div>
 
-                        <p>Forgotten Password? Cick <a href="">here</a> to retrieve.</p>
+                        <input type="submit" class="signin-btn" value="Sign In">
+
+                        <p style="margin: auto;">Forgotten Password? Cick <a href="" style="color: blueviolet;">here</a> to retrieve.</p>
                         
                         
-                        <input type="submit" class="submit-signup" value="SignIn">
+                        
+                        
                     </form>
                 </div>
             </div>
@@ -91,7 +102,7 @@
                 <h4 class="sub-head">PUBLISH YOUR RESEARCH</h4>
                 <div class="submit-research">
                     <div class="sub-manuscript">
-                        <a href="https://forms.gle/3xH72FAe1QWsmWTm8"><button type="button">Submit Manuscript</button></a>
+                        <a href=""><button type="button">Submit Manuscript</button></a>
                     </div>
                 </div>
 
@@ -176,7 +187,7 @@
                 <h4>EDITOR</h4>
                 <ul>
                   <li>
-                    <a href="">Editors</a>
+                    <a href="editors.html">Editors</a>
                   </li>
                 </ul>
             </div>
@@ -204,12 +215,13 @@
         </div>
 
         <div class="foot-base">
-            <p>(c) ASFI Research Journal 2023</p>
+            <p>(c) ASFI Research Journal 2024</p>
         </div>
 
     </footer>
 </body>
 <script src="js/jquery-3.4.2.min.js"></script>
+<script type="module" src="./js/login.js"></script>
 <script>
     $(document).ready(function() {
     $(".mobile-menu-icon").click(function() {
