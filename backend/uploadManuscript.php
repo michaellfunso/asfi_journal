@@ -12,7 +12,6 @@ $graphicAbstractDir = "../public/useruploads/graphic_abstracts/";
 $supplementaryMaterialsDir = "../public/useruploads/supplementary_materials/";
 
 
-
 // Get the filename and append it to the target directory
 $manuscriptFile = basename($_FILES["manuscript_file"]["name"]);
 $targetFile = $targetDir . $manuscriptFile;
@@ -37,10 +36,6 @@ $targetGraphics = $graphicAbstractDir  . $graphicAbstract;
 // Initialize variables
 $uploadOk = 1;
 $fileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-$first_name = $_POST["authors_first_name"];
-$last_name = $_POST["authors_last_name"];
-$middle_name = $_POST["authors_middle_name"];
-$authors_prefix = $_POST["authors_prefix"];
 
 // Receive all data from form inputs
 $articleType = $_POST["article_type"];
@@ -53,21 +48,11 @@ $abstractMethod = $_POST["abstract_method"];
 $abstractResults = $_POST["abstract_results"];
 $abstractDiscussion = $_POST["abstract_discussion"];
 $unstructuredAbstract = $_POST["unstructured_abstract"];
-$authorsPrefix = $_POST["authors_prefix"];
-$authorsFirstName = $_POST["authors_first_name"];
-$authorsLastName = $_POST["authors_last_name"];
-$authorsMiddleName = $_POST["authors_middle_name"];
-$authorsHighestDegree = $_POST["authors_highest_degree"];
-$authorsInstitution = $_POST["authors_institution"];
-$institutionCity = $_POST["institution_city"];
-$institutionCountry = $_POST["institution_country"];
-$authorsEmail = $_POST["authors_email"];
-$authorsPhonenumber = $_POST["authors_phonenumber"];
-$authorsWhatsappNumber = $_POST["authors_whatsapp_number"];
+
 
 // Generate Random Id for article 
 $Buffer = bin2hex(random_bytes(10)); // 10 bytes = 20 characters in hexadecimal representation
-
+$articleID = $Buffer;
 // Generate a new unique filename (e.g., using timestamp)
 $newFileName = time() . '_' . $manuscriptFile;
 $coverLetterName = time() . '-' . $coverLetter;
@@ -78,26 +63,97 @@ $graphicAbstractName = time(). '-' . $graphicAbstract;
 
 // Check if file already exists
 if (file_exists($targetFile)) {
-    echo "Sorry, file already exists.";
+    $response = array('status'=> 'error', 'message' => 'Sorry, file already exists.');
+    echo json_encode($response);
     $uploadOk = 0;
 }
 
 // Check file size (optional)
 if ($_FILES["manuscript_file"]["size"] > 50000000) {
-    echo "Sorry, your file is too large. Choose a file less than 50MB";
+    $response = array('status'=> 'error', 'message' => 'Sorry, your file is too large. Choose a file less than 50MB');
+    echo json_encode($response);
     $uploadOk = 0;
 }
 
-// Allow only certain file formats (optional)
-if ($fileType != "docx" && $fileType != "xml" && $fileType != "xhtml"
-    && $fileType != "pdf") {
-    echo "Sorry, only Documents are allowed.";
-    $uploadOk = 0;
+// Get all Authors information 
+// Check if the file already exists 
+try {
+    $stmt = $con->prepare("SELECT * FROM `journals` WHERE `manuscript_full_title` =? OR `manuscript_running_title` = ?");
+    if (!$stmt) {
+        throw new Exception("Failed to prepare statement: " . $con->error);
+    }
+
+    $stmt->bind_param("ss", $manuscriptFullTitle, $manuscriptRunningTitle);
+
+    if (!$stmt->execute()) {
+        throw new Exception("Failed to execute statement Author: " . $stmt->error);
+    }else{
+
+    $result = $stmt->get_result();
+   
+    $run_query = $result;
+    $count = mysqli_num_rows($run_query);
+
+    if($count > 0){
+        $response = array('status'=> 'error', 'message' => 'This Manuscript already exists');
+        echo json_encode($response);
+    }else{
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $authorsPrefix = $_POST["authors_prefix"];
+    $authorsFirstName = $_POST["authors_first_name"];
+    $authorsLastName = $_POST["authors_last_name"];
+    $authorsMiddleName = $_POST["authors_middle_name"];
+    $authorsHighestDegree = $_POST["authors_highest_degree"];
+    $authorsInstitution = $_POST["authors_institution"];
+    $institutionCity = $_POST["institution_city"];
+    $institutionCountry = $_POST["institution_country"];
+    $authorsEmail = $_POST["authors_email"];
+    $authorsPhonenumber = $_POST["authors_phonenumber"];
+    $authorsWhatsappNumber = $_POST["authors_whatsapp_number"];
+
+    
+
+    for ($i = 0; $i<count($authorsPrefix); $i++){
+
+        try {
+            $stmt = $con->prepare("INSERT INTO `authors` (`authors_prefix`, `authors_firstname`, `authors_middlename`, `authors_lastname`,  `highest_degree`, `authors_email`, `authors_phonenumber`, `authors_whatsappnumber`,`authors_institution`, `institution_country`, `institution_city`, `article_id`) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        
+            if (!$stmt) {
+                throw new Exception("Failed to prepare statement: " . $con->error);
+            }
+        
+            $stmt->bind_param("ssssssssssss", $authorsPrefix[$i], $authorsFirstName[$i], $authorsMiddleName[$i],$authorsLastName[$i],  $authorsHighestDegree[$i], $authorsEmail[$i], $authorsPhonenumber[$i], $authorsWhatsappNumber[$i], $authorsInstitution[$i], $institutionCountry[$i], $institutionCity[$i], $articleID);
+        
+            if (!$stmt->execute()) {
+                throw new Exception("Failed to execute statement Author: " . $stmt->error);
+            }
+        
+        } catch (Exception $e) {
+   
+            $response = array('status'=> 'error', 'message' => 'ErrorAuthor:'  . $e->getMessage());
+            echo json_encode($response);
+        }
+
+    }
 }
+
+
+// Allow only certain file formats (optional)
+// if ($fileType != "docx" && $fileType != "xml" && $fileType != "xhtml"
+//     && $fileType != "pdf") {
+    
+//     $response = array('status'=> 'error', 'message' => "Sorry, only Documents are allowed.");
+//     echo json_encode($response);
+//     $uploadOk = 0;
+// }
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
+
+    $response = array('status'=> 'error', 'message' => 'Sorry, your file was not uploaded.');
+    echo json_encode($response);
 // If everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["manuscript_file"]["tmp_name"], $targetFile)) {
@@ -120,26 +176,39 @@ if ($uploadOk == 0) {
         rename($graphicAbstractDir.$_FILES["graphic_abstract"]["name"], $graphicAbstractDir.$graphicAbstractName);
 
         try {
-            $stmt = $con->prepare("INSERT INTO `journals` (`article_type`, `manuscript_file`, `cover_letter`, `manuscript_tables`, `figures`, `supplimentary_materials`, `graphic_abstract`, `manuscript_full_title`, `manuscript_running_title`, `abstract_background`, `abstract_objectives`, `abstract_method`, `abstract_results`, `abstract_discussion`, `unstructured_abstract`, `authors_prefix`, `authors_first_name`, `authors_last_name`, `authors_middle_name`, `authors_highest_degree`, `authors_institution`, `institution_city`, `institution_country`, `authors_email`, `authors_phonenumber`, `authors_whatsapp_number`, `buffer`) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt = $con->prepare("INSERT INTO `journals` (`article_type`, `manuscript_file`, `cover_letter`, `manuscript_tables`, `figures`, `supplimentary_materials`, `graphic_abstract`, `manuscript_full_title`, `manuscript_running_title`, `abstract_background`, `abstract_objectives`, `abstract_method`, `abstract_results`, `abstract_discussion`, `unstructured_abstract`, `buffer`) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         
             if (!$stmt) {
                 throw new Exception("Failed to prepare statement: " . $con->error);
             }
         
-            $stmt->bind_param("sssssssssssssssssssssssssss", $articleType, $newFileName, $coverLetterName, $tableName, $figuresName, $supplementaryMaterialsName, $graphicAbstractName, $manuscriptFullTitle, $manuscriptRunningTitle, $abstractBackground, $abstractObjectives, $abstractMethod, $abstractResults, $abstractDiscussion, $unstructuredAbstract, $authorsPrefix, $authorsFirstName, $authorsLastName, $authorsMiddleName, $authorsHighestDegree, $authorsInstitution, $institutionCity, $institutionCountry, $authorsEmail, $authorsPhonenumber, $authorsWhatsappNumber, $Buffer);
+            $stmt->bind_param("ssssssssssssssss", $articleType, $newFileName, $coverLetterName, $tableName, $figuresName, $supplementaryMaterialsName, $graphicAbstractName, $manuscriptFullTitle, $manuscriptRunningTitle, $abstractBackground, $abstractObjectives, $abstractMethod, $abstractResults, $abstractDiscussion, $unstructuredAbstract, $articleID);
         
             if (!$stmt->execute()) {
                 throw new Exception("Failed to execute statement: " . $stmt->error);
             }
-        
-            echo "Success";
+
+            $response = array('status'=> 'success', 'message' => 'Manuscript Uploaded Successfully');
+            echo json_encode($response);
         } catch (Exception $e) {
-            echo "Error: " . $e->getMessage();
+    
+            $response = array('status'=> 'internalError', 'message' => "Error: " . $e->getMessage());
+            echo json_encode($response);
         }
         
 
     } else {
-        echo "Sorry, there was an error uploading your file.";
+
+        $response = array('status'=> 'error', 'message' => 'Sorry, there was an error uploading your file.');
+        echo json_encode($response);
     }
+    
+}
+
+}
+    }
+} catch (Exception $e) {
+    $response = array('status'=> 'internalError', 'message' => "ErrorAuthor: " . $e->getMessage());
+    echo json_encode($response);
 }
 ?>

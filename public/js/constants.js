@@ -8,7 +8,7 @@ const segments = pathname.split('/');
 // const parentDirectoryName = segments[segments.length - 1];
 const parentDirectoryName = segments[1];
 
-console.log(parentDirectoryName)
+// console.log(parentDirectoryName)
 // Concatenate with the desired directory name
 const EndPoint = `/${parentDirectoryName}/backend`;
 

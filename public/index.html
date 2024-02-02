@@ -33,8 +33,8 @@
                 </div>
             </div> -->
             <div class="search-container">
-                <input type="text" placeholder="Search">
-                <button type="submit">Search</button>
+                <input type="text" placeholder="Search" id="search" name="search">
+                <button type="button" id="searchArticle">Search</button>
             </div>
             <div class="submit-manuscript">
                 <a href="https://forms.gle/3xH72FAe1QWsmWTm8"><button type="button">Submit Manuscript</button></a>
@@ -94,10 +94,13 @@
             </div>
         </div>
 
-        <div class="main-section">
+        <div class="main-section" id="articleListContainer">
             <div class="events-header">
                 <h3>Recent Articles | <a href="issues.html" class="browse-all-link">Browse all Issues &rarr;</a></h3>
             </div>
+           <!-- List of Articles come here  -->
+           
+<!-- 
             <div class="article-container">
                 <div class="article-info1">
                     <h4>RESEARCH ARTICLE</h4>
@@ -110,21 +113,7 @@
                     <h3 class="funder">FUNDER <span class="funder-name">ASFI</span></h3>
                     <h3 class="p-date">PUBLISHED 14 NOV 2023</h3>
                 </div>
-            </div>
-
-            <div class="article-container">
-                <div class="article-info1">
-                    <h4>RESEARCH ARTICLE</h4>
-                    <a href="" class="article-title"><h2>Functional socio-economic systems in Africa: A process-led project for economic diversity and inclusion.</h2></a>
-                    <p>
-                        Bale Cole, Famiho Jumil, Brad Camil, Bimba Fadebome
-                    </p>
-                </div>
-                <div class="article-info2">
-                    <h3 class="funder">FUNDER <span class="funder-name">ASFI</span></h3>
-                    <h3 class="p-date">PUBLISHED 14 NOV 2023</h3>
-                </div>
-            </div>
+            </div> -->
 
         </div>
 
@@ -322,4 +311,6 @@
             });
         });
     </script>
+
+    <script src="./js/queries/allArticles.js" type="module"></script>
 </html>

@@ -12,8 +12,8 @@
         <input type="text" placeholder="Lastname" name="last_name" id="last_name"><br><br>
         <input type="email" placeholder="email" name="email" id="email"><br><br>
         <select name="accountType" id="accountType">
-            <option value="user_account">User Account</option>
-            <option value="reviewer_account">Reciewer Account</option>
+           
+            <option value="reviewer_account">Reviewer Account</option>
             <option value="editor_account">Editor Account</option>
             <option value="author_account"> Author Account</option>
         </select>
@@ -23,6 +23,10 @@
 
         <input type="submit" value="Register">
     </form>
-    <script src="./js/register.js" type="module"></script>
+    <script>
+        window.location.href = "./submitManuscriptSignUp.html"
+    </script>
+    <!-- <script src="./js/register.js" type="module"></script> -->
+ 
 </body>
 </html>
