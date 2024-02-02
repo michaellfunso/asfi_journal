@@ -21,5 +21,6 @@ if(AccountType != "reviewer_account" || AcctCookie != "reviewer_account"){
     console.log("Reviewer Login")
 }
 }
-
-userFunction()
+if(username && email){
+    userFunction()
+}

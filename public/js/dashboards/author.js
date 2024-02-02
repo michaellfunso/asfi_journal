@@ -22,4 +22,6 @@ if(AccountType != "author_account" || AcctCookie != "author_acccount"){
 }
 }
 
-userFunction()
+if(username && email){
+    userFunction()
+}
