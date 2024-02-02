@@ -21,5 +21,6 @@ if(AccountType != "editor_account" || AcctCookie != "editor_account"){
     console.log("Editor Login")
 }
 }
-
-userFunction()
+if(username && email){
+    userFunction()
+}

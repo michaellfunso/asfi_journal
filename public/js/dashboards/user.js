@@ -8,11 +8,11 @@ const email = GetCookie("email")
 const fullname = `${GetCookie("firstname")} + ${GetCookie("lastname")}`
 const AcctCookie = GetCookie("accountType")
 
+
 async function userFunction(){
 const userData = JSON.parse(await GetUserInfo(username))
 
 const AccountType = userData.accountType
-
 
 if(AccountType != "user_account" || AcctCookie != "user_account"){
     alert("Access Denied")
@@ -22,4 +22,6 @@ if(AccountType != "user_account" || AcctCookie != "user_account"){
 }
 }
 
-userFunction()
+if(username && email){
+    userFunction()
+}

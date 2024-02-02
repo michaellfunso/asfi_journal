@@ -13,7 +13,6 @@ loginForm.addEventListener("submit", function(e){
         email: email.value,
         pass: pass.value
     }
-
     fetch(`${EndPoint}/login.php`, {
         method: "POST",
         body: JSON.stringify(Form),
@@ -24,7 +23,6 @@ loginForm.addEventListener("submit", function(e){
     .then(data => {
         if(data.status === "success"){
             const user_data = data.user_data
-
             const username = user_data.username
             const email = user_data.email
             const first_name = user_data.first_name
@@ -49,6 +47,3 @@ loginForm.addEventListener("submit", function(e){
         console.error('Fetch error:', error);
     });
 })
-
-
-
