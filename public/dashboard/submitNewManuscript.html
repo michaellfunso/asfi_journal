@@ -74,7 +74,7 @@
                         <a href="javascript:void(0)"id="article_type_nav" >
                             <li  > <i class="material-icons">lock</i>Article Type</li>
                         </a>
-                        <a href="javascript:void(0)" onclick="navigateSection('upload-manuscript')" class="disabled">
+                        <a href="javascript:void(0)" id="upload_manuscript_nav" onclick="navigateSection('upload-manuscript')" class="disabled">
                             <li><i class="material-icons">lock</i>Upload Manuscript</li>
                         </a>
                         <a href="javascript:void(0)" onclick="navigateSection('title')" class="disabled"><li><i class="material-icons">lock</i>Title</li></a>
@@ -99,25 +99,25 @@
                     </div>
                     
 
-                    <form action="" id="submitManuForm">
+                    <form action="" id="uploadForm">
                         
                         <div id="article-type" class="form-section">
-                            <label for="prefix">Choose Article Type:</label>
-                            <select name="article_type" id="article_type" class="form-control">
-                                <option >Select Article Type</option>
-                                <option value="origina_artice">Original Article</option>
-                                <option value="review">Review</option>
-                                <option value="systematic_review">Systematic Review</option>
-                                <option value="letter_to_editor">Letter to Editor</option>
-                                <option value="editorial">Editorial</option>
-                                <option value="commentary">Commentary</option>
-                                <option value="protocol">Protocol</option>
-                                <option value="data">Data</option>
-                                <option value="opinion">Opinion</option>
-                                <option value="learning_corner">Learning Corner</option>
-                                <option value="fiedlStory">Field Story</option>
-                                <option value="insight">Insight</option>
-                            </select>
+                            <label for="article_type">Choose Article Type:</label>
+                                <select name="article_type" id="article_type" class="form-control">
+                                    <option value="">Select and Option</option>
+                                    <option value="Original Article">Original Article</option>
+                                    <option value="Review">Review</option>
+                                    <option value="Systematic Review">Systematic Review</option>
+                                    <option value="Letter to Editor">Letter to Editor</option>
+                                    <option value="Editorial">Editorial</option>
+                                    <option value="Commentary">Commentary</option>
+                                    <option value="Protocol">Protocol</option>
+                                    <option value="Data">Data</option>
+                                    <option value="Opinion">Opinion</option>
+                                    <option value="Learning Corner">Learning Corner</option>
+                                    <option value="Field Story">Field Story</option>
+                                    <option value="Insight">Insight</option>
+                                </select>
 
                             <button type="button" class="submit-next" onclick="showNext('upload-manuscript', 'article-type', 'article_type_nav')" disabled>Next</button>
                         </div>
@@ -386,6 +386,7 @@
     </footer>
 </body>
 <script src="../js/jquery-3.4.2.min.js"></script>
+<script src="../js/forms/checkField.js"></script>
 <script>
     $(document).ready(function() {
     $(".mobile-menu-icon").click(function() {
@@ -428,60 +429,8 @@
 });
 </script>
 
-<script>
-function navigateSection(sectionId) {
-            var currentSection = document.querySelector('.form-section:not(.hidden)');
-            var nextSection = document.getElementById(sectionId);
 
-            if (currentSection && nextSection && !nextSection.classList.contains('hidden')) {
-                currentSection.classList.add('hidden');
-                nextSection.classList.remove('hidden');
-                nextSection.classList.add('fade-in');
-
-                // Update navigation list
-                updateNavigationList(sectionId);
-            }
-        }
-
-        function updateNavigationList(currentSectionId) {
-    
-           const item = document.getElementById(currentSectionId)
-        //     var navItems = document.querySelectorAll('#sectionNav li');
-        //     var currentIndex = Array.from(navItems).findIndex(item => item.textContent.toLowerCase() === currentSectionId);
-            item.removeAttribute("disabled")
-            item.setAttribute("class", "active-nav")
-            const Lock = item.querySelector("i")
-            Lock.innerHTML = "<span></span>";
-
-            // for (var i = 0; i < navItems.length; i++) {
-            //     navItems[i].removeAttribute('disabled');
-
-            //     if (i > currentIndex) {
-            //         navItems[i].setAttribute('disabled');
-            //     }
-            // }
-        }
-const article_type = document.getElementById("article-type")
-const prefix = document.getElementById("article_type")
-const article_type_nav = document.getElementById("article_type_nav")
-
-prefix.addEventListener("change", function() {
-    if(prefix.value != "" && prefix.value){
-        const nextButton = article_type.querySelector(".submit-next")
-        nextButton.removeAttribute("disabled")
-        article_type_nav.setAttribute("onclick","showNext('article-type', 'upload-manuscript', 'article_type_nav')")
-    }
-})
-
-    function showNext(nextSection, currentSection, navItemId) {
-            document.getElementById(currentSection).classList.add('hidden');
-            document.getElementById(nextSection).classList.remove('hidden');
-            document.getElementById(nextSection).classList.add('fade-in');
-            updateNavigationList(navItemId)
-            scrollTo(0, 0);  // Scroll to the top of the page if needed
-        }
-</script>
-<!-- <script>
+<!-- <script> 
     $(document).ready(function() {
         var submitManuscriptButton = $(".submit-manuscript");
     
