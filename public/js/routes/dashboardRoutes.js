@@ -15,4 +15,7 @@ else if(AccountType == "reviewer_account"){
     window.location.href = "../dashboard/reviewerDashboard.html"    
 }else if(AccountType == "editor_account"){
     window.location.href = "../dashboard/editorDashboard.html"
+}else{
+    alert("Pleas Login")
+    window.location.href = "../../login.html"
 }

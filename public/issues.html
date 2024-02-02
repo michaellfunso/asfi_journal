@@ -32,8 +32,8 @@
                 </div>
             </div> -->
             <div class="search-container">
-                <input type="text" placeholder="Search">
-                <button type="submit">Search</button>
+                <input type="text" placeholder="Search" id="search" name="search">
+                <button type="button" id="searchArticle">Search</button>
             </div>
             <div class="mobile-menu-icon">
                 <div class="bar"></div>
@@ -62,37 +62,11 @@
             <div class="short-nav">
                 <a href="index.html">Home</a><span>>>></span><a href="">Issues</a>
             </div>
-        <div class="main-article-container">
+        <div class="main-article-container" id="articleListContainer">
             <div class="events-header">
                 <h3>Articles</h3>
             </div>
-            <div class="article-container">
-                <div class="article-info1">
-                    <h4>RESEARCH ARTICLE</h4>
-                    <a href="" class="article-title"><h2>Functional socio-economic systems in Africa: A process-led project for economic diversity and inclusion.</h2></a>
-                    <p>
-                        Bale Cole, Famiho Jumil, Brad Camil, Bimba Fadebome
-                    </p>
-                </div>
-                <div class="article-info2">
-                    <h3 class="funder">FUNDER <span class="funder-name">ASFI</span></h3>
-                    <h3 class="p-date">PUBLISHED 14 NOV 2023</h3>
-                </div>
-            </div>
-
-            <div class="article-container">
-                <div class="article-info1">
-                    <h4>RESEARCH ARTICLE</h4>
-                    <a href="" class="article-title"><h2>Functional socio-economic systems in Africa: A process-led project for economic diversity and inclusion.</h2></a>
-                    <p>
-                        Bale Cole, Famiho Jumil, Brad Camil, Bimba Fadebome
-                    </p>
-                </div>
-                <div class="article-info2">
-                    <h3 class="funder">FUNDER <span class="funder-name">ASFI</span></h3>
-                    <h3 class="p-date">PUBLISHED 14 NOV 2023</h3>
-                </div>
-            </div>
+          
         </div>
         <div class="submit-research-container">
             <h4 class="sub-head">PUBLISH YOUR RESEARCH</h4>
@@ -299,4 +273,6 @@
             });
         });
     </script>
+
+<script src="./js/queries/allArticles.js" type="module"></script>
 </html>
