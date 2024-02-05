@@ -2,14 +2,10 @@
 include "db.php";
 include "";
 
-
 $articleBuffer = $_GET["q"];
 $articleTitle = $_GET["tite"];
 
-
-
 if(isset($articleTitle) && isset($articleBuffer)){
-    
     try {
         $stmt = $con->prepare("SELECT * FROM `journalls` WHERE `buffer` = ? AND manuscript_full_title = ?");
     
