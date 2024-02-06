@@ -54,8 +54,8 @@ FIleFIelds.forEach(field =>{
         const FileSize = field.files[0].size
         const FileType = field.files[0].type
         if(field.files[0]){
-        if(FileSize > 50000000){
-            alert("File is too large. Please upload a file with a maximum size of 50 MB.")
+        if(FileSize > 50000){
+            alert("File is too large")
         }
         if (!(FileType === "application/msword" || FileType === "application/vnd.openxmlformats-officedocument.wordprocessingml.document" || FileType === "application/pdf")){
             alert("Invalid file type. Please upload a Word document (.doc, .docx) or a PDF file (.pdf).");

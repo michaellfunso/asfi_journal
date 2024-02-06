@@ -24,3 +24,6 @@ if(AccountType != "reviewer_account" || AcctCookie != "reviewer_account"){
 if(username && email){
     userFunction()
 }
+else{
+    window.location.href = `./../login.html`
+}

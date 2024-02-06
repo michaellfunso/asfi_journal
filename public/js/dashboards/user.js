@@ -24,4 +24,7 @@ if(AccountType != "user_account" || AcctCookie != "user_account"){
 
 if(username && email){
     userFunction()
+}else{
+    window.location.href = `./../login.html`
 }
+
