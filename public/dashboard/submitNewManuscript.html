@@ -74,14 +74,24 @@
                         <a href="javascript:void(0)"id="article_type_nav" >
                             <li  > <i class="material-icons">lock</i>Article Type</li>
                         </a>
-                        <a href="javascript:void(0)" id="upload_manuscript_nav" onclick="navigateSection('upload-manuscript')" class="disabled">
+                        <a href="javascript:void(0)" id="upload_manuscript_nav" class="disabled">
                             <li><i class="material-icons">lock</i>Upload Manuscript</li>
                         </a>
-                        <a href="javascript:void(0)" onclick="navigateSection('title')" class="disabled"><li><i class="material-icons">lock</i>Title</li></a>
-                        <a href="javascript:void(0)" onclick="navigateSection('abstract')" class="disabled"><li><i class="material-icons">lock</i>Abstract</li></a>
-                        <a href="javascript:void(0)" onclick="navigateSection('author-information')" class="disabled"><li><i class="material-icons">lock</i>Authors</li></a>
-                        <a href="javascript:void(0)" onclick="navigateSection('affiliation')" class="disabled"><li><i class="material-icons">lock</i>Affiliations</li></a>
-                        <a href="javascript:void(0)" onclick="navigateSection('author-details')" class="disabled"><li><i class="material-icons">lock</i>Author Details</li></a>
+                        <a href="javascript:void(0)" id="title_nav" class="disabled">
+                            <li><i class="material-icons">lock</i>Title</li>
+                        </a>
+                        <a href="javascript:void(0)" id="abstract_nav" class="disabled">
+                            <li><i class="material-icons">lock</i>Abstract</li>
+                        </a>
+                        <a href="javascript:void(0)" id="author_information_nav" class="disabled">
+                            <li><i class="material-icons">lock</i>Authors</li>
+                        </a>
+                        <a href="javascript:void(0)" id="affiliation_nav" class="disabled">
+                            <li><i class="material-icons">lock</i>Affiliations</li>
+                        </a>
+                        <a href="javascript:void(0)" id="author_detail_nav" class="disabled">
+                            <li><i class="material-icons">lock</i>Author Details</li>
+                        </a>
                     </ul></li>
                     <a href=""><li>My Manuscripts</li></a>
                     <a href=""><li>View/Edit Profile</li></a>
@@ -102,7 +112,7 @@
                     <form id="uploadForm">
                         
                         <div id="article-type" class="form-section">
-                            <label for="article_type">Choose Article Type:</label>
+                            <h3 class="manu_head">Choose Article Type:</h3>
                                 <select name="article_type" id="article_type" class="form-control">
                                     <option value="">Select and Option</option>
                                     <option value="Original Article">Original Article</option>
@@ -124,7 +134,7 @@
                         
                         <div id="upload-manuscript" class="form-section hidden">
                             <div>
-                                <b style="text-align: center;">Upload Manuscript Files</b> <br>
+                                <h3 class="manu_head">Upload Manuscript Files</h3> <br>
                                 <label for="">Main Manuscript File:</label>
                                 <input type="file" class="form-control" name="manuscript_file">
                             </div>
@@ -154,7 +164,7 @@
                                 <input type="file" class="form-control" name="graphic_abstract">
                             </div> <br>
     
-                            <span class="submit-next" onclick="showNext('title', 'upload-manuscript')">Next</span>
+                            <button type="button" class="submit-next" onclick="showNext('title', 'upload-manuscript', 'upload_manuscript_nav')" disabled>Next</button>
                         </div>
     
     
@@ -165,14 +175,14 @@
                                 <input type="text" class="form-control" placeholder="Running Title" name="manuscript_running_title">
                         
     
-                                <span class="submit-next" onclick="showNext('abstract', 'title')">Next</span>
+                                <button type="button" class="submit-next" onclick="showNext('abstract', 'title', 'title_nav')" disabled>Next</button>
                             </div>
     
     
                         <div id="abstract" class="form-section hidden">
                             <div>
-                                <b style="text-align: center;">Abstracts</b><br>
-                                <b>Structured Abstract:</b> <br>
+                                <h3 class="manu_head">Abstracts</h3><br>
+                                <b>Structured Abstract:</b> <br><br>
                                 <label for="">Background:</label>
                                 <textarea  cols="30" rows="20" class="form-control" name="abstract_background"></textarea>
                                 <label for="">Objective:</label>
@@ -191,14 +201,14 @@
                             </div>
                         
     
-                            <span class="submit-next" onclick="showNext('author-information', 'abstract')">Next</span>
+                            <button type="button" class="submit-next" onclick="showNext('author-information', 'abstract', 'abstract_nav')" disabled>Next</button>
                         </div>
 
                         <div id="author-information" class="form-section hidden">
-                            <b style="text-align: center;">Author's Information</b>
+                            <h3 class="manu_head">Author's Information</h3>
                             <div>
                                 <label for="prefix">Prefix:</label>
-                                <select name="authors_prefix[]" name="authors_prefix[]" class="form-control">
+                                <select id="author_information_prefix" name="authors_prefix[]" name="authors_prefix[]" class="form-control">
                                     <option value="">Select and Option</option>
                                     <option value="Prof">Prof.</option>
                                     <option value="Dr">Dr.</option>
@@ -231,14 +241,21 @@
                             
                             <div>
                                 <label for="">Highest Degree:</label>
-                                <input type="text" class="form-control" placeholder="Highest Degree..." name="authors_highest_degree[]">
+                                <input type="text" class="form-control" placeholder="Highest Degree..." name="authors_highest_degree[]" id="hd">
                             </div>
+
+                            <div id="addAuthor">
+                                <h5 style="text-align: center;">Add An Author</h5> <br><br>
+
+                            </div>
+
+                            <button type="button" class="add-author-btn" onclick="addAuthorInput()">Add an Author</button>
                     
-                            <span class="submit-next" onclick="showNext('affiliation', 'author-information')">Next</span>
+                            <button type="button" class="submit-next" onclick="showNext('affiliation', 'author-information', 'author_information_nav')" disabled>Next</button>
                         </div>
                     
                             <div id="affiliation" class="form-section hidden">
-                                <b>Affiliation:</b> <br>
+                                <h3 class="manu_head">Affiliation:</h3> <br>
                                 <label for="">Institution</label>
                                 <input type="text" class="form-control" placeholder="Institution..." name="authors_institution[]">
                                 <label for="">City</label>
@@ -246,21 +263,23 @@
                                 <label for="">Country</label>
                                 <input type="text" class="form-control" placeholder="Country..." name="institution_country[]">
                     
-                                <span class="submit-next" onclick="showNext('author-details', 'affiliation')">Next</span>
+                                <button type="button" class="submit-next" onclick="showNext('author-details', 'affiliation', 'affiliation_nav')" disabled>Next</button>
                             </div>
                     
                             <div id="author-details" class="form-section hidden">
-                                <b>Contacts:</b>
+                                <h3 class="manu_head">Contacts:</h3>
                                 <label for="">Email</label>
                                 <input type="email" class="form-control" placeholder="Email..." name="authors_email[]">
                                 <label for="">Telephone</label>
                                 <input type="number" class="form-control" name="authors_phonenumber[]" placeholder="Telephone...">
                                 <label for="">WhatsApp Number (Optional)</label>
                                 <input type="number" class="form-control" name="authors_whatsapp_number[]" placeholder="WhatsApp...">
+
+                                <input type="submit" class="submit-next" value="Submit">
                             </div>
                         
                         
-                        <input type="submit" class="submit-signup" value="Submit">
+                        
                     </form>
                 </div>
             </div>
@@ -472,5 +491,5 @@
             });
         });
     </script>
-    <script src="../js/forms/uploadManuscript.js"></script>
+    <script src="../js/forms/uploadManuscript.js" type="module"></script>
 </html>

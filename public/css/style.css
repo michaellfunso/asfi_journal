@@ -564,6 +564,7 @@
     background-color: #404040;
 }
 
+
 .dash-options {
     display: flex;
     flex-wrap: wrap;
@@ -589,6 +590,21 @@ form div .submit-next {
     margin: 0 auto;
     height: 30px;
     width: 70px;
+    background-color: #404040;
+    color: whitesmoke;
+    border: none;
+    border-radius: 6px;
+}
+
+form div .add-author-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: smaller;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    height: 20px;
+    padding: 12px;
     background-color: #80078b;
     color: whitesmoke;
     border: none;
@@ -687,8 +703,15 @@ form div .submit-next {
     color: #dbdadaa9;
 }
 
+.active-nav li{
+    background-color: blueviolet;
+    color: whitesmoke;
+}
 
-
+.manu_head {
+    text-align: center;
+    margin-bottom: 6px;
+}
 
 
 
