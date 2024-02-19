@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASFIRJ Manuscript Portal</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+
+<link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="header-container" id="header">
+            <div class="logo">
+                <a href="../index.html"><img src="../images/logo.png" alt=""></a>
+            </div>
+            <div class="nav">
+                <a href="../issues.html">Browse Issues</a>
+                <a href="../about.html">About</a>
+                <a href="../editors.html">Meet The Editors</a>
+                <a href="../authors.html">For Authors</a>
+                <a href="../reviewers.html">For Reviewers</a>
+                <a href="../events.html">Events</a>
+                <a href="../contact.html">Contact</a>
+            </div>
+            <!-- <div class="profile">
+                <div class="profile-icon">
+                    <img src="/public/images/user-avatar.png" alt="User Profile">
+                </div>
+                <div class="profile-dropdown">
+                    <a href="#">Login</a>
+                    <a href="#">Signup</a>
+                </div>
+            </div> -->
+            <div class="search-container">
+                <input type="text" placeholder="Search">
+                <button type="submit">Search</button>
+            </div>
+            <div class="mobile-menu-icon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+        <div class="mobile-body">
+            <span class="close-mobile-menu">X</span>
+            <div class="mobile-menu-container">
+                <div class="mobile-menu">
+                    <a href="../issues.html">Browse Issues</a>
+                    <a href="../about.html">About</a>
+                    <a href="../editors.html">Meet The Editors</a>
+                    <a href="../authors.html">For Authors</a>
+                    <a href="../reviewers.html">For Reviewers</a>
+                    <a href="../events.html">Events</a>
+                    <a href="../contact.html">Contact</a>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <main>
+
+        <div class="main-submit-container">
+            <div class="submission-header">
+                <h3>John Doe | <span style="font-size: small; color: #404040;">Author</span></h3>
+                <ul class="submit-nav">
+                    <a href="./"><li>Dashboard</li></a>
+                    <li class="active">Submit New Manuscript
+                        <ul class="submit-nav" id="sectionNav">
+                        <a href="javascript:void(0)"id="article_type_nav" >
+                            <li  > <i class="material-icons">lock</i>Article Type</li>
+                        </a>
+                        <a href="javascript:void(0)" id="upload_manuscript_nav" class="disabled">
+                            <li><i class="material-icons">lock</i>Upload Manuscript</li>
+                        </a>
+                        <a href="javascript:void(0)" id="title_nav" class="disabled">
+                            <li><i class="material-icons">lock</i>Title</li>
+                        </a>
+                        <a href="javascript:void(0)" id="abstract_nav" class="disabled">
+                            <li><i class="material-icons">lock</i>Abstract</li>
+                        </a>
+                        <a href="javascript:void(0)" id="author_information_nav" class="disabled">
+                            <li><i class="material-icons">lock</i>Authors</li>
+                        </a>
+                        <a href="javascript:void(0)" id="affiliation_nav" class="disabled">
+                            <li><i class="material-icons">lock</i>Affiliations</li>
+                        </a>
+                        <a href="javascript:void(0)" id="author_detail_nav" class="disabled">
+                            <li><i class="material-icons">lock</i>Author Details</li>
+                        </a>
+                    </ul></li>
+                    <a href=""><li>My Manuscripts</li></a>
+                    <a href=""><li>View/Edit Profile</li></a>
+                    <a href=""><li>Logout</li></a>
+                    
+                </ul>
+            </div>
+            <div class="submit-container">
+                <div class="submit-body">
+                    <div class="submit-start">
+                        <h4 class="sub-head">PUBLISH YOUR RESEARCH</h4> <br>
+                        <p>The step listing on the left will guide you through the submission steps</p> <br>
+                        <p>You cannot jump ahead or skip steps.</p> <br>
+                        <p>You may review or revise any previously completed steps before completing your submission</p>
+                    </div>
+                    
+
+                    <form id="uploadForm">
+                        
+                        <div id="article-type" class="form-section">
+                            <h3 class="manu_head">Choose Article Type:</h3>
+                                <select name="article_type" id="article_type" class="form-control">
+                                    <option value="">Select and Option</option>
+                                    <option value="Original Article">Original Article</option>
+                                    <option value="Review">Review</option>
+                                    <option value="Systematic Review">Systematic Review</option>
+                                    <option value="Letter to Editor">Letter to Editor</option>
+                                    <option value="Editorial">Editorial</option>
+                                    <option value="Commentary">Commentary</option>
+                                    <option value="Protocol">Protocol</option>
+                                    <option value="Data">Data</option>
+                                    <option value="Opinion">Opinion</option>
+                                    <option value="Learning Corner">Learning Corner</option>
+                                    <option value="Field Story">Field Story</option>
+                                    <option value="Insight">Insight</option>
+                                </select>
+
+                            <button type="button" class="submit-next" onclick="showNext('upload-manuscript', 'article-type', 'article_type_nav')" disabled>Next</button>
+                        </div>
+                        
+                        <div id="upload-manuscript" class="form-section hidden">
+                            <div>
+                                <h3 class="manu_head">Upload Manuscript Files</h3> <br>
+                                <label for="">Main Manuscript File:</label>
+                                <input type="file" class="form-control" name="manuscript_file">
+                            </div>
+    
+                            <div>
+                                <label for="">Cover Letter:</label>
+                                <input type="file" class="form-control" name="cover_letter">
+                            </div>
+                        
+                            <div>
+                                <label for="">Tables:</label>
+                                <input type="file" class="form-control" name="tables">
+                            </div>
+                            
+                            <div>
+                                <label for="">Figuresx:</label>
+                                <input type="file" class="form-control" name="figures">
+                            </div>
+                        
+                            <div>
+                                <label for="">Supplementary Material:</label>
+                                <input type="file" class="form-control" name="supplementary_materials">
+                            </div>
+                        
+                            <div>
+                                <label for="">Graphic Abstract:</label>
+                                <input type="file" class="form-control" name="graphic_abstract">
+                            </div> <br>
+    
+                            <button type="button" class="submit-next" onclick="showNext('title', 'upload-manuscript', 'upload_manuscript_nav')" disabled>Next</button>
+                        </div>
+    
+    
+    
+                            <div id="title" class="form-section hidden">
+                                <b style="text-align: center;">Manuscript Title</b>
+                                <input type="text" class="form-control" placeholder="Full Title" name="manuscript_full_title"> <br>
+                                <input type="text" class="form-control" placeholder="Running Title" name="manuscript_running_title">
+                        
+    
+                                <button type="button" class="submit-next" onclick="showNext('abstract', 'title', 'title_nav')" disabled>Next</button>
+                            </div>
+    
+    
+                        <div id="abstract" class="form-section hidden">
+                            <div>
+                                <h3 class="manu_head">Abstracts</h3><br>
+                                <b>Structured Abstract:</b> <br><br>
+                                <label for="">Background:</label>
+                                <textarea  cols="30" rows="20" class="form-control" name="abstract_background"></textarea>
+                                <label for="">Objective:</label>
+                                <textarea  cols="30" rows="20" class="form-control" name="abstract_objectives"></textarea>
+                                <label for="">Methods:</label>
+                                <textarea   cols="30" rows="20" class="form-control" name="abstract_method"></textarea>
+                                <label for="">Results:</label>
+                                <textarea   cols="30" rows="20" class="form-control" name="abstract_results"></textarea>
+                                <label for="">Discussion:</label>
+                                <textarea   cols="30" rows="20" class="form-control" name="abstract_discussion"></textarea>
+                            </div>
+    
+                            <div>
+                                <b>Unstructured Abstract:</b> <br>
+                                <textarea name="unstructured_abstract" id="unstructured_abstract" cols="30" rows="20" class="form-control"></textarea>
+                            </div>
+                        
+    
+                            <button type="button" class="submit-next" onclick="showNext('author-information', 'abstract', 'abstract_nav')" disabled>Next</button>
+                        </div>
+
+                        <div id="author-information" class="form-section hidden">
+                            <h3 class="manu_head">Author's Information</h3>
+                            <div>
+                                <label for="prefix">Prefix:</label>
+                                <select id="author_information_prefix" name="authors_prefix[]" name="authors_prefix[]" class="form-control">
+                                    <option value="">Select and Option</option>
+                                    <option value="Prof">Prof.</option>
+                                    <option value="Dr">Dr.</option>
+                                    <option value="Mr">Mr.</option>
+                                    <option value="Mrs">Mrs.</option>
+                                    <option value="Miss">Miss</option>
+                                
+                                </select>
+                
+                      
+                            </div>
+                       
+                   
+                            <div>
+                                <label for="">First Name:</label>
+                                <input type="text" class="form-control" placeholder="First Name..." name="authors_first_name[]">
+                            </div>
+                    
+                            <div>
+                                <label for="">Middle Name:</label>
+                                <input type="text" class="form-control" placeholder="Middle Name..." name="authors_middle_name[]">
+                            </div>
+                    
+                            <div>
+                                <label for="">Last Name:</label>
+                                <input type="text" class="form-control" placeholder="Last Name..." name="authors_last_name[]">
+                            </div>
+                    
+                            
+                            
+                            <div>
+                                <label for="">Highest Degree:</label>
+                                <input type="text" class="form-control" placeholder="Highest Degree..." name="authors_highest_degree[]" id="hd">
+                            </div>
+
+                            <div id="addAuthor">
+                                <h5 style="text-align: center;">Add An Author</h5> <br><br>
+
+                            </div>
+
+                            <button type="button" class="add-author-btn" onclick="addAuthorInput()">Add an Author</button>
+                    
+                            <button type="button" class="submit-next" onclick="showNext('affiliation', 'author-information', 'author_information_nav')" disabled>Next</button>
+                        </div>
+                    
+                            <div id="affiliation" class="form-section hidden">
+                                <h3 class="manu_head">Affiliation:</h3> <br>
+                                <label for="">Institution</label>
+                                <input type="text" class="form-control" placeholder="Institution..." name="authors_institution[]">
+                                <label for="">City</label>
+                                <input type="text" class="form-control" placeholder="City..." name="institution_city[]">
+                                <label for="">Country</label>
+                                <input type="text" class="form-control" placeholder="Country..." name="institution_country[]">
+                    
+                                <button type="button" class="submit-next" onclick="showNext('author-details', 'affiliation', 'affiliation_nav')" disabled>Next</button>
+                            </div>
+                    
+                            <div id="author-details" class="form-section hidden">
+                                <h3 class="manu_head">Contacts:</h3>
+                                <label for="">Email</label>
+                                <input type="email" class="form-control" placeholder="Email..." name="authors_email[]">
+                                <label for="">Telephone</label>
+                                <input type="number" class="form-control" name="authors_phonenumber[]" placeholder="Telephone...">
+                                <label for="">WhatsApp Number (Optional)</label>
+                                <input type="number" class="form-control" name="authors_whatsapp_number[]" placeholder="WhatsApp...">
+
+                                <input type="submit" class="submit-next" value="Submit">
+                            </div>
+                        
+                        
+                        
+                    </form>
+                </div>
+            </div>
+            <!-- <div class="submit-research-container">
+                <h4 class="sub-head">PUBLISH YOUR RESEARCH</h4>
+                <div class="submit-research">
+                    <div class="sub-manuscript">
+                        <a href=""><button type="button">Submit New Manuscript</button></a>
+                    </div>
+                </div>
+
+            </div> -->
+
+        </div>
+
+        <!-- <div class="main-section">
+            <div class="info-1">
+              <div class="info-img">
+                <img src="/public/images/user-avatar.png" alt="">
+              </div>
+              
+              <div class="info">
+                <h4>Benefits for Researchers</h4>
+                <ul>
+                    <li>All types of research can be published rapidly: articles, data
+                        sets, null results, protocols, case reports, incremental findings
+                        and more.
+                    </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="info-2">
+                <div class="info">
+                  <h4>Benefits for Research</h4>
+                  <ul>
+                      <li>Aims to shift the way research and researchers are evaluated.
+                      </li>
+                  </ul>
+                </div>
+                <div class="info-img">
+                    <img src="/public/images/user-avatar.png" alt="">
+                </div>
+                  
+            </div>
+
+            <div class="info-3">
+                <div class="info-img">
+                  <img src="/public/images/user-avatar.png" alt="">
+                </div>
+                
+                <div class="info">
+                  <h4>Benefits for Researchers</h4>
+                  <ul>
+                      <li>All types of research can be published rapidly: articles, data
+                          sets, null results, protocols, case reports, incremental findings
+                          and more.
+                      </li>
+                  </ul>
+                </div>
+            </div>
+        </div> -->
+    </main>
+    <footer class="footer-section">
+        <div class="foot-head">
+            <div class="logo">
+                <a href="../index.html"><img src="../images/logo.png" alt=""></a>
+            </div>
+            <button class="footer-submitManuscript">
+              Submit Your Manuscript
+            </button>
+
+            <a href="https://africansciencefrontiers.com/">ASFI</a>
+            <a href="https://asfischolar.org">ASFIScholar</a>
+        </div>
+
+        <div class="foot-body">
+            <div class="foot-author">
+                <h4>AUTHOR</h4>
+                <ul>
+                  <li>
+                    <a href="submitNewManuscript.html">Submit Manuscript</a>
+                  </li>
+                  <li>
+                    <a href="">Print Request</a>
+                  </li>
+                </ul>
+            </div>
+            <div class="foot-editor">
+                <h4>EDITOR</h4>
+                <ul>
+                  <li>
+                    <a href="../editors.html">Editors</a>
+                  </li>
+                </ul>
+            </div>
+            <div class="foot-about">
+                <h4>ABOUT</h4>
+                <ul>
+                  <li>
+                    <a href="about.html">About Us</a>
+                  </li>
+                  <li>
+                    <a href="https://africansciencefrontiers.com/">Africa Science Frontiers Initiatives</a>
+                  </li>
+                  <li>
+                    <a href="">Support Center</a>
+                  </li>
+                  <li>
+                    <a href="">Terms of use</a>
+                  </li>
+                  <li>
+                    <a href="../contact.html">Contact</a>
+                  </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="foot-base">
+            <p>(c) ASFI Research Journal 2024</p>
+        </div>
+
+    </footer>
+</body>
+
+<script src="../js/jquery-3.4.2.min.js"></script>
+
+<script src="../js/forms/checkField.js"></script>
+<script src="../js/forms/uploadManuscript.js" type="module"></script>
+
+<script>
+    let prevScrollpos = window.pageYOffset;
+
+window.onscroll = function() {
+    let currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+        document.getElementById("header").style.top = "0"; /* Show the header when scrolling up */
+    } else {
+        document.getElementById("header").style.top = "-100%"; /* Hide the header when scrolling down */
+    }
+    prevScrollpos = currentScrollPos;
+}
+</script>
+
+
+<script>
+    $(document).ready(function() {
+    $(".mobile-menu-icon").click(function() {
+        $(".mobile-body").css("display", "flex");
+
+        // Toggle the 'active' class to change the icon to an "X"
+        $(this).toggleClass('active');
+
+        // Adjusted the positions to slide in and out from the right
+        $(".mobile-menu-container").css("right", "0");
+        $(".mobile-body").css("right", "0");
+    });
+
+    $(".mobile-menu-container").click(function(e) {
+        if (e.target === this) {
+            // Adjusted the positions to slide out to the right
+            $(this).css("right", "-80%");
+            $(".mobile-body").css("right", "-100%");
+
+            // Remove the 'active' class to change the icon back to the burger
+            $(".mobile-menu-icon").removeClass('active');
+
+            // Used hide() instead of setting display to none
+            $(".mobile-body").hide();
+        }
+    });
+
+    $(".mobile-body").click(function(e) {
+        if (e.target === this) {
+            // Adjusted the positions to slide out to the right
+            $(this).css("right", "-100%");
+
+            // Remove the 'active' class to change the icon back to the burger
+            $(".mobile-menu-icon").removeClass('active');
+
+            // Used hide() instead of setting display to none
+            $(this).hide();
+        }
+    });
+
+    $(".close-mobile-menu").click(function(e) {
+        if (e.target === this) {
+            // Adjusted the positions to slide out to the right
+            $(".mobile-body").css("right", "-100%");
+
+            // Remove the 'active' class to change the icon back to the burger
+            $(".mobile-menu-icon").removeClass('active');
+
+            // Used hide() instead of setting display to none
+            $(".mobile-body").hide();
+        }
+    });
+});
+</script>
+
+
+<!-- <script> 
+    $(document).ready(function() {
+        var submitManuscriptButton = $(".submit-manuscript");
+    
+        // Calculate the initial offset of the button
+        var initialOffset = submitManuscriptButton.offset().top;
+    
+        $(window).scroll(function() {
+            // Check if the user has scrolled past the initial offset
+            if ($(window).scrollTop() > initialOffset) {
+                submitManuscriptButton.addClass("sticky");
+            } else {
+                submitManuscriptButton.removeClass("sticky");
+            }
+        });
+    });
+    </script> -->
+    <script>
+        $(document).ready(function() {
+            var videoId = 'w5TynGMJ1SI?si=7eaWWsuXpH9xBiWz'; // Replace 'VIDEO_ID' with your actual YouTube video ID
+            var videoUrl = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+        
+            $(".play-button").click(function() {
+                // Show the video overlay
+                $(".video-overlay").show();
+        
+                // Append the YouTube video iframe to the video container
+                $(".video-container").html("<iframe width='100%' height='300px' src='" + videoUrl + "' frameborder='0' allowfullscreen></iframe>");
+            });
+        
+            // Close the video overlay when clicking outside the video
+            $(document).on('click', '.video-overlay', function(e) {
+                if (e.target !== this)
+                    return;
+        
+                $(".video-overlay").hide();
+                // Remove the YouTube video iframe from the video container
+                $(".video-container").html("");
+            });
+        });
+    </script>
+</html>

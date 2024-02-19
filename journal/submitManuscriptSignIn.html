@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASFIRJ Manuscript Submission Portal</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="header-container" id="header">
+            <div class="logo">
+                <a href="index.html"><img src="images/logo.png" alt=""></a>
+            </div>
+            <div class="nav">
+                <a href="issues.html">Browse Issues</a>
+                <a href="about.html">About</a>
+                <a href="editors.html">Meet The Editors</a>
+                <a href="authors.html">For Authors</a>
+                <a href="reviewers.html">For Reviewers</a>
+                <a href="events.html">Events</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <!-- <div class="profile">
+                <div class="profile-icon">
+                    <img src="/public/images/user-avatar.png" alt="User Profile">
+                </div>
+                <div class="profile-dropdown">
+                    <a href="#">Login</a>
+                    <a href="#">Signup</a>
+                </div>
+            </div> -->
+            <div class="search-container">
+                <input type="text" placeholder="Search">
+                <button type="submit">Search</button>
+            </div>
+            <div class="mobile-menu-icon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+        <div class="mobile-body">
+            <span class="close-mobile-menu">X</span>
+            <div class="mobile-menu-container">
+                <div class="mobile-menu">
+                    <a href="issues.html">Browse Issues</a>
+                    <a href="about.html">About</a>
+                    <a href="editors.html">Meet The Editors</a>
+                    <a href="authors.html">For Authors</a>
+                    <a href="reviewers.html">For Reviewers</a>
+                    <a href="events.html">Events</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <main>
+
+        <div class="main-submit-container">
+            <div class="submission-header">
+                <h3>Submission Portal</h3>
+                <ul class="submit-nav">
+                    <a href="submitManuscriptSignUp.html"><li>SignUp</li></a>
+                    <a href=""><li class="active">SignIn</li></a>
+                </ul>
+            </div>
+            <div class="submit-container">
+                <div class="submit-body">
+                    <form id="loginForm" onsubmit="return false">
+
+                        <!-- <div class="login-type">
+                            <ul>
+                                <a href=""><li class="login-active">Author</li></a>|
+                                <a href=""><li>Editor</li></a>|
+                                <a href=""><li>Reviewer</li></a>
+                            </ul>
+                        </div> -->
+
+                        <div>
+                            <label for="">User Name:</label>
+                            <input type="text" class="form-control" placeholder="Enter UserName or Email..." name="email" id="email" required>
+                        </div>
+                        
+                        <div>
+                            <label for="">Password:</label>
+                            <input type="password" class="form-control" placeholder="Enter Password..." name="pass" id="pass" required>
+                        </div>
+
+                        <input type="submit" class="signin-btn" value="Sign In">
+
+                        <p style="margin: auto;">Forgotten Password? Cick <a href="./forms/passwwordResetForm.html" style="color: blueviolet;">here</a> to retrieve.</p>
+                        
+                        
+                        
+                        
+                    </form>
+                </div>
+            </div>
+            <div class="submit-research-container">
+                <h4 class="sub-head">PUBLISH YOUR RESEARCH</h4>
+                <div class="submit-research">
+                    <div class="sub-manuscript">
+                        <a href=""><button type="button">Submit Manuscript</button></a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- <div class="main-section">
+            <div class="info-1">
+              <div class="info-img">
+                <img src="/public/images/user-avatar.png" alt="">
+              </div>
+              
+              <div class="info">
+                <h4>Benefits for Researchers</h4>
+                <ul>
+                    <li>All types of research can be published rapidly: articles, data
+                        sets, null results, protocols, case reports, incremental findings
+                        and more.
+                    </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="info-2">
+                <div class="info">
+                  <h4>Benefits for Research</h4>
+                  <ul>
+                      <li>Aims to shift the way research and researchers are evaluated.
+                      </li>
+                  </ul>
+                </div>
+                <div class="info-img">
+                    <img src="/public/images/user-avatar.png" alt="">
+                </div>
+                  
+            </div>
+
+            <div class="info-3">
+                <div class="info-img">
+                  <img src="/public/images/user-avatar.png" alt="">
+                </div>
+                
+                <div class="info">
+                  <h4>Benefits for Researchers</h4>
+                  <ul>
+                      <li>All types of research can be published rapidly: articles, data
+                          sets, null results, protocols, case reports, incremental findings
+                          and more.
+                      </li>
+                  </ul>
+                </div>
+            </div>
+        </div> -->
+    </main>
+    <footer class="footer-section">
+        <div class="foot-head">
+            <div class="logo">
+                <a href="index.html"><img src="images/logo.png" alt=""></a>
+            </div>
+            <a href="submitManuscriptSignIn.html"><button class="footer-submitManuscript">Submit Your Manuscript
+              
+            </button>
+</a>
+
+            <a href="https://africansciencefrontiers.com/">ASFI</a>
+            <a href="https://asfischolar.org">ASFIScholar</a>
+        </div>
+
+        <div class="foot-body">
+            <div class="foot-author">
+                <h4>AUTHOR</h4>
+                <ul>
+                  <li>
+                    <a href="">Submit Manuscript</a>
+                  </li>
+                  <li>
+                    <a href="">Print Request</a>
+                  </li>
+                </ul>
+            </div>
+            <div class="foot-editor">
+                <h4>EDITOR</h4>
+                <ul>
+                  <li>
+                    <a href="editors.html">Editors</a>
+                  </li>
+                </ul>
+            </div>
+            <div class="foot-about">
+                <h4>ABOUT</h4>
+                <ul>
+                  <li>
+                    <a href="about.html">About Us</a>
+                  </li>
+                  <li>
+                    <a href="https://africansciencefrontiers.com/">Africa Science Frontiers Initiatives</a>
+                  </li>
+                  <li>
+                    <a href="">Support Center</a>
+                  </li>
+                  <li>
+                    <a href="">Terms of use</a>
+                  </li>
+                  <li>
+                    <a href="contact.html">Contact</a>
+                  </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="foot-base">
+            <p>(c) ASFI Research Journal 2024</p>
+        </div>
+
+    </footer>
+</body>
+<script src="js/jquery-3.4.2.min.js"></script>
+<script type="module" src="./js/login.js"></script>
+
+<script>
+    let prevScrollpos = window.pageYOffset;
+
+window.onscroll = function() {
+    let currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+        document.getElementById("header").style.top = "0"; /* Show the header when scrolling up */
+    } else {
+        document.getElementById("header").style.top = "-100%"; /* Hide the header when scrolling down */
+    }
+    prevScrollpos = currentScrollPos;
+}
+</script>
+
+<script>
+    $(document).ready(function() {
+    $(".mobile-menu-icon").click(function() {
+        $(".mobile-body").css("display", "flex");
+
+        // Toggle the 'active' class to change the icon to an "X"
+        $(this).toggleClass('active');
+
+        // Adjusted the positions to slide in and out from the right
+        $(".mobile-menu-container").css("right", "0");
+        $(".mobile-body").css("right", "0");
+    });
+
+    $(".mobile-menu-container").click(function(e) {
+        if (e.target === this) {
+            // Adjusted the positions to slide out to the right
+            $(this).css("right", "-80%");
+            $(".mobile-body").css("right", "-100%");
+
+            // Remove the 'active' class to change the icon back to the burger
+            $(".mobile-menu-icon").removeClass('active');
+
+            // Used hide() instead of setting display to none
+            $(".mobile-body").hide();
+        }
+    });
+
+    $(".mobile-body").click(function(e) {
+        if (e.target === this) {
+            // Adjusted the positions to slide out to the right
+            $(this).css("right", "-100%");
+
+            // Remove the 'active' class to change the icon back to the burger
+            $(".mobile-menu-icon").removeClass('active');
+
+            // Used hide() instead of setting display to none
+            $(this).hide();
+        }
+    });
+
+    $(".close-mobile-menu").click(function(e) {
+        if (e.target === this) {
+            // Adjusted the positions to slide out to the right
+            $(".mobile-body").css("right", "-100%");
+
+            // Remove the 'active' class to change the icon back to the burger
+            $(".mobile-menu-icon").removeClass('active');
+
+            // Used hide() instead of setting display to none
+            $(".mobile-body").hide();
+        }
+    });
+});
+</script>
+<!-- <script>
+    $(document).ready(function() {
+        var submitManuscriptButton = $(".submit-manuscript");
+    
+        // Calculate the initial offset of the button
+        var initialOffset = submitManuscriptButton.offset().top;
+    
+        $(window).scroll(function() {
+            // Check if the user has scrolled past the initial offset
+            if ($(window).scrollTop() > initialOffset) {
+                submitManuscriptButton.addClass("sticky");
+            } else {
+                submitManuscriptButton.removeClass("sticky");
+            }
+        });
+    });
+    </script> -->
+    <script>
+        $(document).ready(function() {
+            var videoId = 'w5TynGMJ1SI?si=7eaWWsuXpH9xBiWz'; // Replace 'VIDEO_ID' with your actual YouTube video ID
+            var videoUrl = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+        
+            $(".play-button").click(function() {
+                // Show the video overlay
+                $(".video-overlay").show();
+        
+                // Append the YouTube video iframe to the video container
+                $(".video-container").html("<iframe width='100%' height='300px' src='" + videoUrl + "' frameborder='0' allowfullscreen></iframe>");
+            });
+        
+            // Close the video overlay when clicking outside the video
+            $(document).on('click', '.video-overlay', function(e) {
+                if (e.target !== this)
+                    return;
+        
+                $(".video-overlay").hide();
+                // Remove the YouTube video iframe from the video container
+                $(".video-container").html("");
+            });
+        });
+    </script>
+</html>
