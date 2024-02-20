@@ -14,7 +14,7 @@ $db = $_ENV["DB_NAME"];
 // $db = "asfi_journal";
 
 // Create connection
-$con = mysqli_connect($servername, $username, $password,$db);
+$con = mysqli_connect($servername, $username, $password, $db);
 
 // Check connection
 if (!$con) {
