@@ -3,16 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>ASFIRJ Manuscript Forgot Password</title>
+    <title>ASFIRJ Manuscript Portal</title>
 
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+
+<link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
 </head>
 <body>
     <header>
-        <div class="header-container">
+        <div class="header-container" id="header">
             <div class="logo">
-                <a href="../index.html"><h4>ASFI Research Journal</h4></a>
+                <a href="../index.html"><img src="../images/logo.png" alt=""></a>
             </div>
             <div class="nav">
                 <a href="../issues.html">Browse Issues</a>
@@ -20,7 +27,7 @@
                 <a href="../editors.html">Meet The Editors</a>
                 <a href="../authors.html">For Authors</a>
                 <a href="../reviewers.html">For Reviewers</a>
-                <a href="">Careers</a>
+                <a href="../events.html">Events</a>
                 <a href="../contact.html">Contact</a>
             </div>
             <!-- <div class="profile">
@@ -43,6 +50,7 @@
             </div>
         </div>
         <div class="mobile-body">
+            <span class="close-mobile-menu">X</span>
             <div class="mobile-menu-container">
                 <div class="mobile-menu">
                     <a href="../issues.html">Browse Issues</a>
@@ -50,7 +58,7 @@
                     <a href="../editors.html">Meet The Editors</a>
                     <a href="../authors.html">For Authors</a>
                     <a href="../reviewers.html">For Reviewers</a>
-                    <a href="">Careers</a>
+                    <a href="../events.html">Events</a>
                     <a href="../contact.html">Contact</a>
                 </div>
             </div>
@@ -61,85 +69,66 @@
 
         <div class="main-submit-container">
             <div class="submission-header">
-                <h3>Submission Portal</h3>
+                <h3>John Doe | <span style="font-size: small; color: #404040;">Editor</span></h3>
+                
+                
                 <ul class="submit-nav">
-                    <a href="../submitManuscriptSignUp.html"><li>SignUp</li></a>
-                    <a href="../submitManuscriptSignIn.html"><li>SignIn</li></a>
+                    <a href=""><li>Dashboard</li></a>
+                    <a href=""><li>Pending Manuscripts</li></a>
+                    <a href=""><li>Edited Manuscripts</li></a>
+                    <a href=""><li>View/Edit Profile</li></a>
+                    <a href="" id="logout"><li>Logout</li></a>
+                    
                 </ul>
             </div>
             <div class="submit-container">
                 <div class="submit-body">
-                    <form id="resetPass">
-                        <h3 style="text-align: center;">Forgot Password</h3> <br>
-                        <input type="email" class="form-control" placeholder="Enter Registered Email" id="resetEmail" required>
-                        <button type="submit" class="signin-btn">Reset Password</button>
-                    </form>
-                </div>
-            </div>
-            <!-- <div class="submit-research-container">
-                <h4 class="sub-head">PUBLISH YOUR RESEARCH</h4>
-                <div class="submit-research">
-                    <div class="sub-manuscript">
-                        <a href=""><button type="button">Submit Manuscript</button></a>
+                    <div class="submit-start">
+                        <h2 class="sub-head">DASHBOARD</h2> <br>
+                        <div style="background-color: rgb(93, 165, 207); border: 1px solid rgb(75, 171, 226); border-radius: 2px; padding: 10px; color: whitesmoke;"><p id="nameContainer">Welcome, </p></div> <br>
+                        <div class="dash-options">
+                           <div class="dash-item">
+                               <span>NEW MANUSCRIPTS</span>
+                               <span>0</span>
+                               <a href="">View All</a>
+                           </div>
+
+                           <div class="dash-item">
+                            <span>PENDING MANUSCRIPTS</span>
+                            <span>0</span>
+                            <a href="">View All</a>
+                           </div>
+
+                           <div class="dash-item">
+                            <span>EDITED MANUSCRIPTS</span>
+                            <span>0</span>
+                            <a href="">View All</a>
+                           </div>
+
+                           <div class="dash-item">
+                            <span>PUBLISHED MANUSCRIPTS</span>
+                            <span>0</span>
+                            <a href="">View All</a>
+                           </div>
+
+                           <div class="dash-item">
+                            <span>SUSPENDED MANUSCRIPTS</span>
+                            <span>0</span>
+                            <a href="">View All</a>
+                           </div>
+                        </div>
                     </div>
-                </div>
-
-            </div> -->
-
-        </div>
-
-        <!-- <div class="main-section">
-            <div class="info-1">
-              <div class="info-img">
-                <img src="/public/images/user-avatar.png" alt="">
-              </div>
-              
-              <div class="info">
-                <h4>Benefits for Researchers</h4>
-                <ul>
-                    <li>All types of research can be published rapidly: articles, data
-                        sets, null results, protocols, case reports, incremental findings
-                        and more.
-                    </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="info-2">
-                <div class="info">
-                  <h4>Benefits for Research</h4>
-                  <ul>
-                      <li>Aims to shift the way research and researchers are evaluated.
-                      </li>
-                  </ul>
-                </div>
-                <div class="info-img">
-                    <img src="/public/images/user-avatar.png" alt="">
-                </div>
-                  
-            </div>
-
-            <div class="info-3">
-                <div class="info-img">
-                  <img src="/public/images/user-avatar.png" alt="">
-                </div>
-                
-                <div class="info">
-                  <h4>Benefits for Researchers</h4>
-                  <ul>
-                      <li>All types of research can be published rapidly: articles, data
-                          sets, null results, protocols, case reports, incremental findings
-                          and more.
-                      </li>
-                  </ul>
+                    
                 </div>
             </div>
-        </div> -->
+                    
+
+                   
     </main>
     <footer class="footer-section">
         <div class="foot-head">
             <div class="logo">
-                <h4>ASFIRJ</h4>
+                <a href="../index.html"><img src="../images/logo.png" alt=""></a>
             </div>
             <button class="footer-submitManuscript">
               Submit Your Manuscript
@@ -154,7 +143,7 @@
                 <h4>AUTHOR</h4>
                 <ul>
                   <li>
-                    <a href="">Submit Manuscript</a>
+                    <a href="submitNewManuscript.html">Submit Manuscript</a>
                   </li>
                   <li>
                     <a href="">Print Request</a>
@@ -198,9 +187,21 @@
 
     </footer>
 </body>
-<script src="../js/jquery-3.4.2.min.js"></script>
-<script type="module" src="../js/login.js"></script>
-<script src="../js/forms/resetPasswordEmail.js" type="module"></script>
+<script src="./../js/jquery-3.4.2.min.js"></script>
+
+<script>
+    let prevScrollpos = window.pageYOffset;
+
+window.onscroll = function() {
+    let currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+        document.getElementById("header").style.top = "0"; /* Show the header when scrolling up */
+    } else {
+        document.getElementById("header").style.top = "-100%"; /* Hide the header when scrolling down */
+    }
+    prevScrollpos = currentScrollPos;
+}
+</script>
 <script>
     $(document).ready(function() {
     $(".mobile-menu-icon").click(function() {
@@ -240,48 +241,21 @@
             $(this).hide();
         }
     });
+    $(".close-mobile-menu").click(function(e) {
+        if (e.target === this) {
+            // Adjusted the positions to slide out to the right
+            $(".mobile-body").css("right", "-100%");
+
+            // Remove the 'active' class to change the icon back to the burger
+            $(".mobile-menu-icon").removeClass('active');
+
+            // Used hide() instead of setting display to none
+            $(".mobile-body").hide();
+        }
+    });
 });
 </script>
-<!-- <script>
-    $(document).ready(function() {
-        var submitManuscriptButton = $(".submit-manuscript");
-    
-        // Calculate the initial offset of the button
-        var initialOffset = submitManuscriptButton.offset().top;
-    
-        $(window).scroll(function() {
-            // Check if the user has scrolled past the initial offset
-            if ($(window).scrollTop() > initialOffset) {
-                submitManuscriptButton.addClass("sticky");
-            } else {
-                submitManuscriptButton.removeClass("sticky");
-            }
-        });
-    });
-    </script> -->
-    <script>
-        $(document).ready(function() {
-            var videoId = 'w5TynGMJ1SI?si=7eaWWsuXpH9xBiWz'; // Replace 'VIDEO_ID' with your actual YouTube video ID
-            var videoUrl = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
-        
-            $(".play-button").click(function() {
-                // Show the video overlay
-                $(".video-overlay").show();
-        
-                // Append the YouTube video iframe to the video container
-                $(".video-container").html("<iframe width='100%' height='300px' src='" + videoUrl + "' frameborder='0' allowfullscreen></iframe>");
-            });
-        
-            // Close the video overlay when clicking outside the video
-            $(document).on('click', '.video-overlay', function(e) {
-                if (e.target !== this)
-                    return;
-        
-                $(".video-overlay").hide();
-                // Remove the YouTube video iframe from the video container
-                $(".video-container").html("");
-            });
-        });
-    </script>
+
+    <script src="../js/dashboards/editor.js" type="module"></script>
 
 </html>

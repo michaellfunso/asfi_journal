@@ -3,24 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>ASFIRJ Manuscript Forgot Password</title>
+    <title>ASFIRJ Manuscript Submission Portal</title>
 
     <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
 </head>
 <body>
     <header>
-        <div class="header-container">
+        <div class="header-container" id="header">
             <div class="logo">
-                <a href="../index.html"><h4>ASFI Research Journal</h4></a>
+                <a href="../index.html"><img src="../images/logo.png" alt=""></a>
             </div>
             <div class="nav">
-                <a href="../issues.html">Browse Issues</a>
+                <a href="../issues.html" class="active">Browse Issues</a>
                 <a href="../about.html">About</a>
                 <a href="../editors.html">Meet The Editors</a>
                 <a href="../authors.html">For Authors</a>
                 <a href="../reviewers.html">For Reviewers</a>
-                <a href="">Careers</a>
+                <a href="../events.html">Events</a>
                 <a href="../contact.html">Contact</a>
             </div>
             <!-- <div class="profile">
@@ -36,6 +37,9 @@
                 <input type="text" placeholder="Search">
                 <button type="submit">Search</button>
             </div>
+            <div class="submit-manuscript" id="author-submit-manuscript">
+                <a href="../submitManuscriptSignIn.html"><button type="button">Submit Manuscript</button></a>
+            </div>
             <div class="mobile-menu-icon">
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -43,6 +47,7 @@
             </div>
         </div>
         <div class="mobile-body">
+            <span class="close-mobile-menu">X</span>
             <div class="mobile-menu-container">
                 <div class="mobile-menu">
                     <a href="../issues.html">Browse Issues</a>
@@ -50,7 +55,7 @@
                     <a href="../editors.html">Meet The Editors</a>
                     <a href="../authors.html">For Authors</a>
                     <a href="../reviewers.html">For Reviewers</a>
-                    <a href="">Careers</a>
+                    <a href="../events.html">Events</a>
                     <a href="../contact.html">Contact</a>
                 </div>
             </div>
@@ -61,30 +66,47 @@
 
         <div class="main-submit-container">
             <div class="submission-header">
-                <h3>Submission Portal</h3>
+                <h3>Issues</h3>
                 <ul class="submit-nav">
-                    <a href="../submitManuscriptSignUp.html"><li>SignUp</li></a>
-                    <a href="../submitManuscriptSignIn.html"><li>SignIn</li></a>
+                    <a href=""><li class="active">Abstract</li></a>
+                    <a href=""><li>Full-Text (PDF)</li></a>
+                    <a href=""><li>Authors</li></a>
                 </ul>
             </div>
-            <div class="submit-container">
-                <div class="submit-body">
-                    <form id="resetPass">
-                        <h3 style="text-align: center;">Forgot Password</h3> <br>
-                        <input type="email" class="form-control" placeholder="Enter Registered Email" id="resetEmail" required>
-                        <button type="submit" class="signin-btn">Reset Password</button>
-                    </form>
+            <div class="submit-container" style="background-color: white; height: 100vh;">
+                <div class="preview-head">
+                    <h2 style="margin-bottom: 16px;" id="manu-title"><span>Title</span></h2>
+                    <h4 style="margin-bottom: 6px;" id="manu-authors">Authors</h4>
+                    <p>Published: <span id="published-date"></span></p>
+
+                </div>
+                <div class="submit-body" style="display: flex; flex-direction: column; justify-content: space-around; padding: 12px;">
+                    <h3>Abstract</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero laudantium similique dolorum molestiae. In minus porro fugiat dolorum similique! Eligendi ipsam voluptates fugiat laudantium laboriosam libero repellat atque hic cum.</p> <br>
+
+                    <h4>Authors</h4>
+                        <ul class="authors-list">
+                            <li>Dr. John Doe</li>
+                            <li>Dr. Johana Doe</li>
+                        </ul>
+
+                    <a href="" style="background-color: blueviolet; color: whitesmoke; padding: 12px; width: 25%;">Download Full-Text (PDF)</a>
+                   
                 </div>
             </div>
-            <!-- <div class="submit-research-container">
-                <h4 class="sub-head">PUBLISH YOUR RESEARCH</h4>
+            <div class="submit-research-container" style="margin-left: 12px;">
+                <h4 class="sub-head">Issue Information</h4>
                 <div class="submit-research">
-                    <div class="sub-manuscript">
-                        <a href=""><button type="button">Submit Manuscript</button></a>
+                    <div class="sub-manuscript" style="background-color: #4040407a;">
+                        <div style="display: flex; flex-direction: column; color: #80078b; background-color: whitesmoke; border-radius: 4px; padding: 6px; font-weight: bolder;">
+                            <span>0 views</span>
+                        <span>0 Downloads</span>
+                        </div>
+                        
                     </div>
                 </div>
 
-            </div> -->
+            </div>
 
         </div>
 
@@ -139,11 +161,12 @@
     <footer class="footer-section">
         <div class="foot-head">
             <div class="logo">
-                <h4>ASFIRJ</h4>
+                <a href="../index.html"><img src="../images/logo.png" alt=""></a>
             </div>
-            <button class="footer-submitManuscript">
-              Submit Your Manuscript
+            <a href="../submitManuscriptSignIn.html"><button class="footer-submitManuscript">Submit Your Manuscript
+              
             </button>
+</a>
 
             <a href="https://africansciencefrontiers.com/">ASFI</a>
             <a href="https://asfischolar.org">ASFIScholar</a>
@@ -165,7 +188,7 @@
                 <h4>EDITOR</h4>
                 <ul>
                   <li>
-                    <a href="../editors.html">Editors</a>
+                    <a href="editors.html">Editors</a>
                   </li>
                 </ul>
             </div>
@@ -173,7 +196,7 @@
                 <h4>ABOUT</h4>
                 <ul>
                   <li>
-                    <a href="../about.html">About Us</a>
+                    <a href="about.html">About Us</a>
                   </li>
                   <li>
                     <a href="https://africansciencefrontiers.com/">Africa Science Frontiers Initiatives</a>
@@ -185,7 +208,7 @@
                     <a href="">Terms of use</a>
                   </li>
                   <li>
-                    <a href="../contact.html">Contact</a>
+                    <a href="contact.html">Contact</a>
                   </li>
                 </ul>
             </div>
@@ -200,7 +223,21 @@
 </body>
 <script src="../js/jquery-3.4.2.min.js"></script>
 <script type="module" src="../js/login.js"></script>
-<script src="../js/forms/resetPasswordEmail.js" type="module"></script>
+
+<script>
+    let prevScrollpos = window.pageYOffset;
+
+window.onscroll = function() {
+    let currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+        document.getElementById("header").style.top = "0"; /* Show the header when scrolling up */
+    } else {
+        document.getElementById("header").style.top = "-100%"; /* Hide the header when scrolling down */
+    }
+    prevScrollpos = currentScrollPos;
+}
+</script>
+
 <script>
     $(document).ready(function() {
     $(".mobile-menu-icon").click(function() {
@@ -238,6 +275,19 @@
 
             // Used hide() instead of setting display to none
             $(this).hide();
+        }
+    });
+
+    $(".close-mobile-menu").click(function(e) {
+        if (e.target === this) {
+            // Adjusted the positions to slide out to the right
+            $(".mobile-body").css("right", "-100%");
+
+            // Remove the 'active' class to change the icon back to the burger
+            $(".mobile-menu-icon").removeClass('active');
+
+            // Used hide() instead of setting display to none
+            $(".mobile-body").hide();
         }
     });
 });
@@ -283,5 +333,4 @@
             });
         });
     </script>
-
 </html>

@@ -1,5 +1,8 @@
 import { EndPoint } from "../constants"
 
+
+let manu_title = document.getElementById("manu-title");
+
 function GetArtice(articeID, title){
     fetch(`${EndPoint}/retrieveArticle.php?q=${articeID}&title=${title}`, {
         method : "GET"
@@ -26,7 +29,16 @@ function GetArtice(articeID, title){
             const status = Article[0].status
             const DateUploaded = Article[0].date_uploaded
             const buffer = Article[0].buffer
-            
+
+            var newManuTitle = document.createElement('span');
+            newManuTitle.innerHTML = ArticleTitle `
+                
+            `;
+        
+            // Append the new author inputs to the container
+            manu_title.appendChild(newManuTitle);
+
+
         }else{
             alert("File Not found on server")
         }
