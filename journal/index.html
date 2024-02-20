@@ -94,22 +94,22 @@
             </div>
             
             <div class="why-items">
-                <div class="why-item">
+                <div class="why-item animate-slide">
                     <h4>High Quality Peer Review</h4>
                     <p>With ASFIRJ, expect high quality and prompt peer review and editorial assessment of all submissions, accepting only articles that meet the highest scientific standards. </p>
                 </div>
 
-                <div class="why-item">
+                <div class="why-item animate-slide">
                     <h4>Easy and User-Friendly Manuscript Submission</h4>
                     <p>With our easy and user-friendly manuscript submission system and process, researchers/authors can seamlessly publish their works with high quality post-acceptance editorial standards to improve accepted manuscript's accuracy, reliability, and readability. </p>
                 </div>
 
-                <div class="why-item">
+                <div class="why-item animate-slide">
                     <h4>Modest Article Processing Fee</h4>
                     <p>Our affordable article processing charges for perpetual open access, which are very modest, with judicious discounts for ASFI members. </p>
                 </div>
 
-                <div class="why-item">
+                <div class="why-item animate-slide">
                     <h4>Immediate Social Media Attention</h4>
                     <p>All accepted submission are immediately promoted across all ASFIRJ, ASFIScholar, and ASFI social media platforms. </p>
                 </div>
@@ -271,6 +271,29 @@
     
 </body>
 <script src="js/jquery-3.4.2.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('DOMContentLoaded event fired');
+    const whyItems = document.querySelectorAll('.why-item');
+
+    function checkSlide() {
+        whyItems.forEach((whyItem, index) => {
+            const slideInAt = (window.scrollY + window.innerHeight) - whyItem.clientHeight / 2;
+            const whyItemBottom = whyItem.offsetTop + whyItem.clientHeight;
+            const isHalfShown = slideInAt > whyItem.offsetTop;
+            const isNotScrolledPast = window.scrollY < whyItemBottom;
+
+            if (isHalfShown && isNotScrolledPast) {
+                whyItem.style.opacity = '1';
+                whyItem.style.transform = 'translateY(0)';
+            }
+        });
+    }
+
+    window.addEventListener('scroll', checkSlide);
+});
+</script>
 
 <script>
     let prevScrollpos = window.pageYOffset;

@@ -135,48 +135,48 @@
                 </div>
                 
                 <div class="why-items">
-                    <div class="why-item">
+                    <div class="why-item animate-slide">
                         <h4>High Quality Peer Review:</h4>
                         <p>High quality and prompt peer review and editorial assessment of all submissions, accepting only articles that meet the highest scientific standards. </p>
                     </div>
     
-                    <div class="why-item">
+                    <div class="why-item animate-slide">
                         <h4>Easy and User-Friendly Manuscript Submission:</h4>
                         <p>With our easy and user-friendly manuscript submission system and process, researchers/authors can seamlessly publish their works with high quality post-acceptance editorial standards to improve accepted manuscript's accuracy, reliability, and readability. </p>
                     </div>
     
-                    <div class="why-item">
+                    <div class="why-item animate-slide">
                         <h4>Modest Article Processing Fee:</h4>
                         <p>Our affordable article processing charges for perpetual open access, which are very modest, with judicious discounts for ASFI members. <br> <br>Open access means free public access in perpetuality. </p>
                     </div>
 
-                    <div class="why-item">
+                    <div class="why-item animate-slide">
                         <h4>Early View Articles Immediately Following Acceptance:</h4>
                         <p>All articles are immediately made freely on the ASFIRJ website in Early View pending post-acceptance editorial corrections. </p>
                     </div>
     
-                    <div class="why-item">
+                    <div class="why-item animate-slide">
                         <h4>Immediate Social Media Attention:</h4>
                         <p>All accepted submission are immediately promoted across all ASFIRJ, ASFIScholar, and ASFI social media platforms. </p>
                     </div>
 
-                    <div class="why-item">
+                    <div class="why-item animate-slide">
                         <h4>Augmented Editor-Selected Articles & Article Views:</h4>
                         <p>Editor-selected articles augmented with expert illustrations, interactive features, videos, and graphical abstracts. <br> With
                             article views, downloads, and other essential metrics displayed with every article. </p>
                     </div>
 
-                    <div class="why-item">
+                    <div class="why-item animate-slide">
                         <h4>Deposit Contents in ASFIScholar:</h4>
                         <p>Authors may post accepted articles in ASFIScholar with link to the published article on the journal website. </p>
                     </div>
 
-                    <div class="why-item">
+                    <div class="why-item animate-slide">
                         <h4>Published Proceedings of ASFI Annual Conference:</h4>
                         <p>All accepted oral and poster abstracts at the ASFI Annual Conference are published in ASFIRJ. </p>
                     </div>
 
-                    <div class="why-item">
+                    <div class="why-item animate-slide">
                         <h4>Fast and device-responsiveness:</h4>
                         <p>Fast and device-responsive website for publication of accepted submissions. </p>
                     </div>
@@ -285,6 +285,30 @@
     </footer>
 </body>
 <script src="js/jquery-3.4.2.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log('DOMContentLoaded event fired');
+        const whyItems = document.querySelectorAll('.why-item');
+    
+        function checkSlide() {
+            whyItems.forEach((whyItem, index) => {
+                const slideInAt = (window.scrollY + window.innerHeight) - whyItem.clientHeight / 2;
+                const whyItemBottom = whyItem.offsetTop + whyItem.clientHeight;
+                const isHalfShown = slideInAt > whyItem.offsetTop;
+                const isNotScrolledPast = window.scrollY < whyItemBottom;
+    
+                if (isHalfShown && isNotScrolledPast) {
+                    whyItem.style.opacity = '1';
+                    whyItem.style.transform = 'translateY(0)';
+                }
+            });
+        }
+    
+        window.addEventListener('scroll', checkSlide);
+    });
+    </script>
+
 <script>
     let prevScrollpos = window.pageYOffset;
 
