@@ -81,18 +81,19 @@
                         <div>
                             <label for="accountType">Select Account Type:</label>
                             <select class="form-control" name="accountType" id="accountType">
-                                <option value="">Author</option>
-                                <option value="">Editor</option>
+                                <option value="author_account">Author</option>
+                                <option value="editor_account">Editor</option>
                             </select>
                         </div>
                         <div>
                             <label for="prefix">Prefix:</label>
-                            <select name="prefix" id="" class="form-control">
-                                <option value="">Prof.</option>
-                                <option value="">Dr.</option>
-                                <option value="">Mr.</option>
-                                <option value="">Mrs.</option>
-                                <option value="">Miss</option>
+                            <select name="prefix" id="prefix" class="form-control" required>
+                                <option value="">Select Preferred Prefix</option>
+                                <option value="Prof.">Prof.</option>
+                                <option value="Dr.">Dr.</option>
+                                <option value="Mr.">Mr.</option>
+                                <option value="Mrs.">Mrs.</option>
+                                <option value="Miss">Miss</option>
                             </select>
                         </div>
                         
@@ -134,8 +135,8 @@
                         <div>
                             <p>Are you available to review for ASFIRJ? (optional)</p>
                             <div class="review-option">
-                                <span>Yes</span> <input type="radio" name="review">
-                                <span>No</span> <input type="radio" name="review">
+                                <span>Yes</span> <input type="radio" id="reviewYes" name="review" value="yes">
+                                <span>No</span> <input type="radio" id="reviewNo" name="review" value="no">
                             </div>
                         </div>
                         <div>
