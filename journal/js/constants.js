@@ -10,7 +10,8 @@ const parentDirectoryName = segments[1];
 
 // console.log(parentDirectoryName)
 // Concatenate with the desired directory name
-const EndPoint = `/${parentDirectoryName}/backend`;
+
+const EndPoint = `/backend`;
 
 export { 
     EndPoint,

@@ -6,6 +6,7 @@ function navigateSection(sectionId) {
         currentSection.classList.add('hidden');
         nextSection.classList.remove('hidden');
         nextSection.classList.add('fade-in');
+
         updateNavigationList(sectionId);
     }
 }
@@ -31,6 +32,7 @@ function updateNavigationList(currentSectionId) {
 const article_type = document.getElementById("article-type")
 const prefix = document.getElementById("article_type")
 const article_type_nav = document.getElementById("article_type_nav")
+
 const upload_manuscript_nav = document.getElementById("upload_manuscript_nav")
 const title_nav = document.getElementById("title_nav")
 const abstract_nav = document.getElementById("abstract_nav")
@@ -49,6 +51,7 @@ article_type_nav.setAttribute("onclick","showNext('article-type', 'upload-manusc
 const upload_manuscript = document.getElementById("upload-manuscript")
 const FIleFIelds = upload_manuscript.querySelectorAll("input[type=file]")
     
+
 FIleFIelds.forEach(field =>{
     field.addEventListener("change", function(){
         const FileSize = field.files[0].size
@@ -58,6 +61,7 @@ FIleFIelds.forEach(field =>{
             alert("File is too large")
         }
         if (!(FileType === "application/msword" || FileType === "application/vnd.openxmlformats-officedocument.wordprocessingml.document" || FileType === "application/pdf")){
+
             alert("Invalid file type. Please upload a Word document (.doc, .docx) or a PDF file (.pdf).");
             field.value = ''; // Clear the file input
 
@@ -133,6 +137,19 @@ Affiliations.forEach(affiliations =>{
     title_nav.setAttribute("onclick","showNext('affiliation', 'author-detials', 'affiliation_nav')")
     }
 })
+
+        }else{
+            alert(field.name  + " Cannot Be Empty")
+        }
+
+       
+            const nextButton = upload_manuscript.querySelector(".submit-next")
+            nextButton.removeAttribute("disabled")
+            article_type_nav.setAttribute("onclick","showNext('article-type', 'upload-manuscript', 'article_type_nav')")
+    
+    }
+    })
+
 })
 
 function showNext(nextSection, currentSection, navItemId) {
@@ -141,6 +158,7 @@ function showNext(nextSection, currentSection, navItemId) {
     document.getElementById(nextSection).classList.add('fade-in');
     updateNavigationList(navItemId)
     scrollTo(0, 0);  // Scroll to the top of the page if needed
+
 }
 
 function addAuthorInput() {
@@ -178,4 +196,5 @@ function addAuthorInput() {
 
     // Append the new author inputs to the container
     addAuthor.appendChild(newAuthorInputs);
+
 }
