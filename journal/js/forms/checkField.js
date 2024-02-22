@@ -137,9 +137,7 @@ Affiliations.forEach(affiliations =>{
     nextButton.removeAttribute("disabled")
     title_nav.setAttribute("onclick","showNext('affiliation', 'author-detials', 'affiliation_nav')")
     }
-})
-
-        }else{
+    else{
             alert(field.name  + " Cannot Be Empty")
         }
 
@@ -148,7 +146,6 @@ Affiliations.forEach(affiliations =>{
             nextButton.removeAttribute("disabled")
             article_type_nav.setAttribute("onclick","showNext('article-type', 'upload-manuscript', 'article_type_nav')")
     
-    }
     })
 
 })
@@ -199,4 +196,3 @@ function addAuthorInput() {
     addAuthor.appendChild(newAuthorInputs);
 
 }
->>>>>>> 9111146b30537f382615301ab4001a39734ebb5c
