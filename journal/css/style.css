@@ -1,6 +1,7 @@
 /* Developed by @Weperch Technologies */
 
 *{
+
     /* margin: 0; */
     padding: 0;
 }
@@ -13,6 +14,7 @@
 body{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 0;
+
 }
 
 .logo {
@@ -31,6 +33,7 @@ body{
     box-shadow: 4px 0px 13px rgba(0, 0, 0, 0.377);
 }
 
+
 .header-container {
     display: flex;
     justify-content: space-between;
@@ -48,6 +51,7 @@ body{
 
 .header-hidden {
     top: -100px; /* Move the header above the viewport to hide it */
+
 }
 
 .nav {
@@ -85,6 +89,7 @@ body{
 
 .short-nav a {
     color: #80078b;
+
     font-weight: bolder;
     margin: 6px;
 }
@@ -122,10 +127,12 @@ body{
 .submit-manuscript {
     position: absolute;
     top: 90px;
+
     left: 5%;
     background-color: #80078b;
     padding: 15px;
     border-radius: 0 0 6px 6px;
+
 }
 
 .submit-manuscript button {
@@ -137,9 +144,11 @@ body{
     cursor: pointer;
 }
 
+
 #author-submit-manuscript {
     display: none;
 }
+
 
 .main {
     max-width: 1200px;
@@ -151,7 +160,9 @@ body{
     align-items: center;
     padding: 50px;
     background-color: #efedf0a8;
+
     padding-top: 180px;
+
 }
 
 .all-event-section {
@@ -216,6 +227,7 @@ body{
 .left-section {
     flex: 1;
     padding-right: 50px;
+
     margin-top: 70px;
 }
 .left-section .welcome-head {
@@ -241,6 +253,7 @@ body{
     color: #000;
     padding: 6px;
     border-radius: 6px;
+
 }
 
 .right-section {
@@ -266,7 +279,9 @@ body{
 
 .right-section {
     flex: 1;
+
     /* position: relative; */
+
 }
 
 .video-container {
@@ -286,6 +301,7 @@ body{
     border-radius: 50%;
     cursor: pointer;
 }
+
 
 .why-section {
     display: flex;
@@ -347,10 +363,12 @@ body{
     margin-bottom: 50px;
 }
 
+
 .events-header {
     display: flex;
     justify-content: center;
 }
+
 
 .events-header h3 {
     font-size: 24px;
@@ -397,6 +415,7 @@ body{
     margin: 0 auto;
     overflow: hidden;
     border-radius: 18px;
+
 }
 
 .see-more-link {
@@ -418,6 +437,7 @@ body{
     padding: 50px;
     background-color: #efedf0a8;
 }
+
 
 .main-section .info {
     display: flex;
@@ -486,6 +506,7 @@ body{
     height: 100vh;
 }
 
+
 .article-container {
     display: flex;
     flex-direction: column;
@@ -498,7 +519,6 @@ body{
 .article-container:hover {
     box-shadow: 5px 3px 12px #00000069;
 }
-
 
 
 .info-1 {
@@ -602,8 +622,10 @@ body{
     flex-direction: row;
     padding: 50px;
     background-color: #efedf0a8;
+
     justify-content: space-between;
     padding-top: 220px;
+
 }
 
 .submit-research-container {
@@ -661,14 +683,17 @@ body{
     display: flex;
     flex-direction: row;
     padding: 90px;
+
     padding-top: 190px;
     background-color: #f3f3f3;
     height: 100%;
+
 }
 
 .submission-header {
     border-right: 1px solid rgba(0, 0, 0, 0.37);
     width: 30%;
+
 }
 
 .submission-header h3 {
@@ -716,6 +741,7 @@ body{
     margin: 0 8px 0 8px;
 }
 
+
 .submit-container .preview-head{
    display: flex;
    justify-content: center;
@@ -724,6 +750,7 @@ body{
    background-color: #4040407a; 
    color: whitesmoke;
 }
+
 
 .submit-body .submit-start {
     background-color: white;
@@ -752,6 +779,7 @@ body{
     transition: opacity 0.5s ease-in-out;
 }
 
+
 .submit-body .authors-list {
     display: flex;
 }
@@ -763,6 +791,7 @@ body{
     padding: 3px;
     border-radius: 4px;
 }
+
 
 .fade-in {
     opacity: 1;
@@ -836,6 +865,7 @@ form div .add-author-btn {
     margin-bottom: 20px;
     height: 20px;
     padding: 12px;
+
     background-color: #80078b;
     color: whitesmoke;
     border: none;
@@ -878,6 +908,7 @@ form div .add-author-btn {
     padding: 10px 120px 60px 120px;
     background-color: white;
     border-bottom: 120px;
+
 }
 
 .contact-section a {
@@ -887,9 +918,6 @@ form div .add-author-btn {
 .contact-info {
     margin: 20px 0 15px 0;
 }
-
-
-
 
 .active-nav li{
     background-color: blueviolet;
@@ -961,6 +989,7 @@ form div .add-author-btn {
 }
 
 
+
 .foot-body ul li,a {
     list-style-type: none;
     text-decoration: none;
@@ -968,6 +997,7 @@ form div .add-author-btn {
 }
 
 /* Footer Base */
+
 .foot-base {
     width: 95%;
     margin: 0 auto;
@@ -1030,24 +1060,29 @@ form div .add-author-btn {
 }
 @media screen and (max-width: 840px) {
 
+
     .logo {
         font-size: 20px;
         margin-left: -6px;
     }
+
 
     .search-container {
        display: none;
         
     }
 
+
     .search-container input {
         width: 30%;
     }
+
 
     .mobile-menu-icon {
         display: block; /* Display the mobile menu icon */
         cursor: pointer;
         margin-right: 80px;
+
     }
 
     .mobile-menu-icon .bar {
@@ -1082,6 +1117,7 @@ form div .add-author-btn {
     .mobile-menu-container {
         display: flex;
         flex-direction: column;
+
         position: fixed;
         /* top: 0; */
         right: -80%; 
@@ -1091,11 +1127,13 @@ form div .add-author-btn {
         z-index: 1;
         transition: right 0.5s;
         overflow-y: auto;
+
     }
     .mobile-menu {
         display: flex;
         flex-direction: column;
         padding-top: 20px;
+
     }
     .mobile-menu a {
         color: rgba(0,0,0,.54);
@@ -1123,6 +1161,7 @@ form div .add-author-btn {
         right: -100%; 
         width: 100%;
         height: 100vh;
+
         background: #00000049;
         z-index: 1;
         transition: right 0.5s;
@@ -1157,6 +1196,7 @@ form div .add-author-btn {
         padding: 40px;
         border-radius: 12px;
         margin-bottom: 28px;
+
     }
 
 }
@@ -1351,6 +1391,7 @@ form div .add-author-btn {
     }
 }
     
+
 .hidden {
     display: none;
 }

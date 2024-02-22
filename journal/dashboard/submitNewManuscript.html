@@ -20,6 +20,7 @@
         <div class="header-container" id="header">
             <div class="logo">
                 <a href="../index.html"><img src="../images/logo.png" alt=""></a>
+
             </div>
             <div class="nav">
                 <a href="../issues.html">Browse Issues</a>
@@ -27,7 +28,9 @@
                 <a href="../editors.html">Meet The Editors</a>
                 <a href="../authors.html">For Authors</a>
                 <a href="../reviewers.html">For Reviewers</a>
+<
                 <a href="../events.html">Events</a>
+
                 <a href="../contact.html">Contact</a>
             </div>
             <!-- <div class="profile">
@@ -50,7 +53,9 @@
             </div>
         </div>
         <div class="mobile-body">
+
             <span class="close-mobile-menu">X</span>
+
             <div class="mobile-menu-container">
                 <div class="mobile-menu">
                     <a href="../issues.html">Browse Issues</a>
@@ -58,7 +63,9 @@
                     <a href="../editors.html">Meet The Editors</a>
                     <a href="../authors.html">For Authors</a>
                     <a href="../reviewers.html">For Reviewers</a>
+
                     <a href="../events.html">Events</a>
+
                     <a href="../contact.html">Contact</a>
                 </div>
             </div>
@@ -95,6 +102,7 @@
                         <a href="javascript:void(0)" id="author_detail_nav" class="disabled">
                             <li><i class="material-icons">lock</i>Author Details</li>
                         </a>
+
                     </ul></li>
                     <a href=""><li>My Manuscripts</li></a>
                     <a href=""><li>View/Edit Profile</li></a>
@@ -116,6 +124,7 @@
                         
                         <div id="article-type" class="form-section">
                             <h3 class="manu_head">Choose Article Type:</h3>
+
                                 <select name="article_type" id="article_type" class="form-control">
                                     <option value="">Select and Option</option>
                                     <option value="Original Article">Original Article</option>
@@ -137,7 +146,9 @@
                         
                         <div id="upload-manuscript" class="form-section hidden">
                             <div>
+
                                 <h3 class="manu_head">Upload Manuscript Files</h3> <br>
+
                                 <label for="">Main Manuscript File:</label>
                                 <input type="file" class="form-control" name="manuscript_file">
                             </div>
@@ -167,7 +178,9 @@
                                 <input type="file" class="form-control" name="graphic_abstract">
                             </div> <br>
     
+
                             <button type="button" class="submit-next" onclick="showNext('title', 'upload-manuscript', 'upload_manuscript_nav')" disabled>Next</button>
+
                         </div>
     
     
@@ -178,14 +191,18 @@
                                 <input type="text" class="form-control" placeholder="Running Title" name="manuscript_running_title">
                         
     
+
                                 <button type="button" class="submit-next" onclick="showNext('abstract', 'title', 'title_nav')" disabled>Next</button>
+
                             </div>
     
     
                         <div id="abstract" class="form-section hidden">
                             <div>
+
                                 <h3 class="manu_head">Abstracts</h3><br>
                                 <b>Structured Abstract:</b> <br><br>
+
                                 <label for="">Background:</label>
                                 <textarea  cols="30" rows="20" class="form-control" name="abstract_background"></textarea>
                                 <label for="">Objective:</label>
@@ -204,6 +221,7 @@
                             </div>
                         
     
+
                             <button type="button" class="submit-next" onclick="showNext('author-information', 'abstract', 'abstract_nav')" disabled>Next</button>
                         </div>
 
@@ -212,6 +230,7 @@
                             <div>
                                 <label for="prefix">Prefix:</label>
                                 <select id="author_information_prefix" name="authors_prefix[]" name="authors_prefix[]" class="form-control">
+
                                     <option value="">Select and Option</option>
                                     <option value="Prof">Prof.</option>
                                     <option value="Dr">Dr.</option>
@@ -244,6 +263,7 @@
                             
                             <div>
                                 <label for="">Highest Degree:</label>
+
                                 <input type="text" class="form-control" placeholder="Highest Degree..." name="authors_highest_degree[]" id="hd">
                             </div>
 
@@ -259,6 +279,7 @@
                     
                             <div id="affiliation" class="form-section hidden">
                                 <h3 class="manu_head">Affiliation:</h3> <br>
+
                                 <label for="">Institution</label>
                                 <input type="text" class="form-control" placeholder="Institution..." name="authors_institution[]">
                                 <label for="">City</label>
@@ -266,11 +287,13 @@
                                 <label for="">Country</label>
                                 <input type="text" class="form-control" placeholder="Country..." name="institution_country[]">
                     
+
                                 <button type="button" class="submit-next" onclick="showNext('author-details', 'affiliation', 'affiliation_nav')" disabled>Next</button>
                             </div>
                     
                             <div id="author-details" class="form-section hidden">
                                 <h3 class="manu_head">Contacts:</h3>
+
                                 <label for="">Email</label>
                                 <input type="email" class="form-control" placeholder="Email..." name="authors_email[]">
                                 <label for="">Telephone</label>
@@ -280,10 +303,7 @@
 
                                 <input type="submit" class="submit-next" value="Submit">
                             </div>
-                        
-                        
-                        
-                    </form>
+                        </form>
                 </div>
             </div>
             <!-- <div class="submit-research-container">
@@ -349,7 +369,9 @@
     <footer class="footer-section">
         <div class="foot-head">
             <div class="logo">
+
                 <a href="../index.html"><img src="../images/logo.png" alt=""></a>
+
             </div>
             <button class="footer-submitManuscript">
               Submit Your Manuscript
@@ -413,6 +435,7 @@
 
 <script src="../js/forms/checkField.js"></script>
 <script src="../js/forms/uploadManuscript.js" type="module"></script>
+
 
 <script>
     let prevScrollpos = window.pageYOffset;
@@ -481,6 +504,7 @@ window.onscroll = function() {
             $(".mobile-body").hide();
         }
     });
+
 });
 </script>
 
