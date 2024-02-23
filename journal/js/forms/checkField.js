@@ -1,3 +1,4 @@
+
 function navigateSection(sectionId) {
     var currentSection = document.querySelector('.form-section:not(.hidden)');
     var nextSection = document.getElementById(sectionId);
@@ -136,9 +137,7 @@ Affiliations.forEach(affiliations =>{
     nextButton.removeAttribute("disabled")
     title_nav.setAttribute("onclick","showNext('affiliation', 'author-detials', 'affiliation_nav')")
     }
-})
-
-        }else{
+    else{
             alert(field.name  + " Cannot Be Empty")
         }
 
@@ -147,7 +146,6 @@ Affiliations.forEach(affiliations =>{
             nextButton.removeAttribute("disabled")
             article_type_nav.setAttribute("onclick","showNext('article-type', 'upload-manuscript', 'article_type_nav')")
     
-    }
     })
 
 })
