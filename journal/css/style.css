@@ -231,7 +231,6 @@ body{
     margin-top: 70px;
 }
 .left-section .welcome-head {
-    font-family: 'Times New Roman', Times, serif;
     font-size: 42px;
     font-weight: 50px;
     margin-bottom: 14px;
@@ -316,7 +315,6 @@ body{
     text-align: center;
     margin: 0 auto;
     font-size: 42px;
-    font-family: 'Times New Roman', Times, serif;
 }
 
 .why-section .why-header h3 span {
@@ -516,6 +514,40 @@ body{
     margin-bottom: 26px;
     transition: 0.2s ease-in-out;
 }
+
+.main-section {
+    /* Add necessary styles */
+    position: relative;
+    overflow: hidden; /* Ensure the overflow is hidden to hide extra articles */
+}
+
+.articles-wrapper {
+    /* Add necessary styles */
+    display: flex;
+    transition: transform 0.5s ease; /* Add transition for smooth sliding effect */
+}
+
+.article-container {
+    /* Add necessary styles */
+    flex: 0 0 100%; /* Ensure each article takes up full width */
+    padding: 20px; /* Adjust as needed */
+}
+
+.article-btn {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.article-btn button {
+    background-color: rebeccapurple;
+    padding: 10px;
+    color: whitesmoke;
+    border: none;
+    border-radius: 10px;
+}
+
 .article-container:hover {
     box-shadow: 5px 3px 12px #00000069;
 }
@@ -1010,11 +1042,11 @@ form div .add-author-btn {
     display: none;
 }
 
-.main-submit-container .submit-container .submit-body .table-fees {
+.about-main-section .table-fees {
     border: 1px solid black;
     border-collapse: collapse;
 }
-.main-submit-container .submit-container .submit-body .table-fees tr,th,td {
+.about-main-section .table-fees tr,th,td {
     border: 1px solid black;
     padding: 12px;
     
