@@ -13,6 +13,8 @@ $username_post = $data['username'];
 $first_name  = $data["first_name"];
 $last_name = $data["last_name"];
 $account_type = $data["accountType"];
+$prefix = $data["prefix"];
+$review = $data["review"];
 
 
 // $email_post = $_POST['email'];
@@ -47,8 +49,8 @@ if(isset($pass) && isset($email_post)&& isset($first_name) && isset($last_name) 
     }
     else {
         // Create a NEw account if the user does not exist i.e record is not >  0
-        $stmt = $con->prepare("INSERT INTO `user_info` (`email`, `username`, `first_name`, `last_name`, `acct_type`, `password`) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssss", $email, $username_post, $first_name, $last_name, $account_type, $password);
+        $stmt = $con->prepare("INSERT INTO `user_info` (`email`, `username`, `prefix`, `for_review`,`first_name`, `last_name`, `acct_type`, `password`) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssssss", $email, $username_post,$prefix,$review, $first_name, $last_name, $account_type, $password);
         // $stmt->execute();
 
         if($stmt->execute()){
