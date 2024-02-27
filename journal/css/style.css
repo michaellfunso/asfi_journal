@@ -983,6 +983,10 @@ form div .add-author-btn {
     padding: 20px;
 }
 
+.foot-head .logo a img {
+    filter: grayscale(100%) invert(100%);
+}
+
 
 
 .footer-submitManuscript {
