@@ -10,62 +10,9 @@
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <div class="header-container" id="header">
-            <div class="logo">
-                <a href="index.html"><img src="images/logo.png" alt=""></a>
-
-            </div>
-            <div class="nav">
-                <a href="issues.html">Browse Issues</a>
-                <a href="about.html">About</a>
-                <a href="" class="active">Meet The Editors</a>
-                <a href="authors.html">For Authors</a>
-                <a href="reviewers.html" >For Reviewers</a>
-
-                <a href="events.html">Events</a>
-
-                <a href="contact.html">Contact</a>
-            </div>
-            <!-- <div class="profile">
-                <div class="profile-icon">
-                    <img src="/public/images/user-avatar.png" alt="User Profile">
-                </div>
-                <div class="profile-dropdown">
-                    <a href="#">Login</a>
-                    <a href="#">Signup</a>
-                </div>
-            </div> -->
-            <div class="search-container">
-                <input type="text" placeholder="Search">
-                <button type="submit">Search</button>
-            </div>
-            <div class="submit-manuscript" id="author-submit-manuscript">
-                <a href="submitManuscriptSignIn.html"><button type="button">Submit Manuscript</button></a>
-            </div>
-            <div class="mobile-menu-icon">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-        </div>
-        <div class="mobile-body">
-            <span class="close-mobile-menu">X</span>
-            <div class="mobile-menu-container">
-                <div class="mobile-menu">
-                    <a href="issues.html">Browse Issues</a>
-                    <a href="about.html">About</a>
-                    <a href="" class="active">Meet The Editors</a>
-                    <a href="authors.html">For Authors</a>
-                    <a href="reviewers.html">For Reviewers</a>
-
-                    <a href="events.html">Events</a>
-
-                    <a href="contact.html">Contact</a>
-                </div>
-            </div>
-
-        </div>
+    <header id="navigationContainer">
+        
+        
     </header>
     <main>
 
@@ -73,172 +20,786 @@
             <div class="submission-header">
                 <h3>Editors</h3>
                 <ul class="submit-nav">
-                    <a href=""><li class="active">Meet The Editors</li></a>
-                    <!-- <a href="/submitManuscriptSignIn.html"><li>SignIn</li></a> -->
+                    <a href="#eic" onclick="setActive(event, 0)"><li class="active">Editor-in-Chief</li></a>
+                    <a href="#e" onclick="setActive(event, 1)"><li class="">Editors</li></a>
+                    <a href="#ae" onclick="setActive(event, 2)"><li class="">Associate Editors</li></a>
+                    <a href="#se" onclick="setActive(event, 3)"><li class="">Sectional Editors</li></a>
+                    <a href="#eb" onclick="setActive(event, 4)"><li class="">Editorial Board</li></a>
+                    <a href="#ea" onclick="setActive(event, 5)"><li class="">Editorial Assistant</li></a>
+                    
                 </ul>
             </div>
             <div class="submit-container">
                 <div class="submit-body" style="margin: 0 8px 0 8px;">
-                    <div>
+                    <div id="eic" class="edit-head">
+                        <span>Editor-in-Chief</span>
+                      <div class="edit-head-container">
+                        <div class="indi-editors">
+                            <div class="editor-image">
+                                <img src="./images/articleImages/8.jpg" alt="">
+                            </div>
+                            
+                            <div class="editor-info">
+                                <h4>Dr. Bright Nwaru</h4>
+                                <p></p>
+                                <p></p>
+                            </div>
+                        </div>
 
-                        <h2>Editor-in-Chief</h2>
-
-                        <h4>o	Dr. Bright Nwaru</h4>
+                      </div>
                     </div>
-                     <br>
-                    <div>
-                        <h3>Editor(s)</h3>
-                    <ul>
-                        <li>Dr. Eman Sobh</li>
-                    </ul>
+                    
+                    <div id="e" class="edit-head">
+                        <span>Editor(s)</span>
+
+                        <div class="edit-head-container">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr. Bright Nwaru</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr. Bright Nwaru</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
                     </div>
-                     <br> <br>
-
-                    <div>
-                            <h3>Associate Editors</h3>
-                        <ul>
-                            <li>Materials Science <ul><li>Dr.</li></ul></li>
-                            <li>Computer and Information Science <ul><li>Dr.</li></ul></li>
-                            <li>Earth Science <ul><li>Dr.</li></ul></li>
-                            <li>Engineering and Technology <ul><li>Dr.</li></ul></li>
-                            <li>Environmental Sciences <ul><li>Dr.</li></ul></li>
-                            <li>Humanities <ul><li>Dr.</li></ul></li>
-                            <li>Arts <ul><li>Dr.</li></ul></li>
-                            <li>Life Sciences <ul><li>Dr.</li></ul></li>
-                            <li>Madicine <ul><li>Dr.</li></ul></li>
-                            <li>Allied Health Sciences <ul><li>Dr.</li></ul></li>
-                            <li>Public & Global Health <ul><li>Dr.</li></ul></li>
-                            <li>Physcis and Astronomy <ul><li>Dr.</li></ul></li>
-                            <li>Social and Behavioral Sciences <ul><li>Dr.</li></ul></li>
-                            <li>Mathematics <ul><li>Dr.</li></ul></li>
-                            <li>Chemistry <ul><li>Dr.</li></ul></li>
-
-                        </ul>
-                    </div><br> <br>
-
-                    <div>
-                            <h3>Sectional Editors</h3>
-                        <ul>
-                            <li>Materials Science 
-                                <ul>
-                                    <li>Dr.</li>
-                                    <li>Dr.</li>
-                                </ul>
-                            </li>
-                            <li>Computer and Information Science
-                                <ul>
-                                    <li>Dr.</li>
-                                    <li>Dr.</li>
-                                </ul>
-                            </li>
-                            <li>Earth Science 
-                                <ul>
-                                    <li>Dr.</li>
-                                    <li>Dr.</li>
-                                </ul>
-                            </li>
-                            <li>Engineering and Technology 
-                                <ul>
-                                    <li>Dr.</li>
-                                    <li>Dr.</li>
-                                </ul>
-                            </li>
-                            <li>Environmental Sciences 
-                                <ul>
-                                    <li>Dr.</li>
-                                    <li>Dr.</li>
-                                </ul>
-                            </li>
-                            <li>Humanities 
-                                <ul>
-                                    <li>Dr.</li>
-                                    <li>Dr.</li>
-                                </ul>
-                            </li>
-                            <li>Arts 
-                                <ul>
-                                    <li>Dr.</li>
-                                    <li>Dr.</li>
-                                </ul>
-                            </li>
-                            <li>Life Sciences 
-                                <ul>
-                                    <li>Dr.</li>
-                                    <li>Dr.</li>
-                                </ul>
-                            </li>
-                            <li>Madicine 
-                                <ul>
-                                    <li>Dr.</li>
-                                    <li>Dr.</li>
-                                </ul>
-                            </li>
-                            <li>Allied Health Sciences 
-                                <ul>
-                                    <li>Dr.</li>
-                                    <li>Dr.</li>
-                                </ul>
-                            </li>
-                            <li>Public & Global Health 
-                                <ul>
-                                    <li>Dr.</li>
-                                    <li>Dr.</li>
-                                </ul>
-                            </li>
-                            <li>Physcis and Astronomy 
-                                <ul>
-                                    <li>Dr.</li>
-                                    <li>Dr.</li>
-                                </ul>
-                            </li>
-                            <li>Social and Behavioral Sciences 
-                                <ul>
-                                    <li>Dr.</li>
-                                    <li>Dr.</li>
-                                </ul>
-                            </li>
-                            <li>Mathematics 
-                                <ul>
-                                    <li>Dr.</li>
-                                    <li>Dr.</li>
-                                </ul>
-                            </li>
-                            <li>Chemistry 
-                                <ul>
-                                    <li>Dr.</li>
-                                    <li>Dr.</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div><br> <br>
-
-                    <div>
-                            <h3>Editorial Board</h3>
-                        <ul>
-                            <li></li>
-                        </ul>
-                    </div><br> <br>
 
 
-                    <div>
-                            <h3>Editorial Assistant</h3>
-                        <ul>
-                            <li></li>
-                        </ul>
+                    <div id="ae" class="edit-head">
+                        <span>Associate Editors</span>
+                       <div class="edit-subject">
+                        <h3>Material Science:</h3>
+                        <div class="edit-head-container" id="ms">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
 
+                        <h3>Computer and Information Science:</h3>
+                        <div class="edit-head-container" id="cis">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Earth Science:</h3>
+                        <div class="edit-head-container" id="earthscience">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Engineering and Technology:</h3>
+                        <div class="edit-head-container" id="et">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Environmental Sciences:</h3>
+                        <div class="edit-head-container" id="es">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Humanities:</h3>
+                        <div class="edit-head-container" id="humanities">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Arts:</h3>
+                        <div class="edit-head-container" id="arts">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Life Science:</h3>
+                        <div class="edit-head-container" id="ls">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Medicine:</h3>
+                        <div class="edit-head-container" id="medicince">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Allied Health Sciences:</h3>
+                        <div class="edit-head-container" id="ahs">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Public & Global Health:</h3>
+                        <div class="edit-head-container" id="gbh">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Physics & Astronomy:</h3>
+                        <div class="edit-head-container" id="pa">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Social and Behavioral Sciences:</h3>
+                        <div class="edit-head-container" id="sbs">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Mathematics:</h3>
+                        <div class="edit-head-container" id="mathematics">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Chemistry:</h3>
+                        <div class="edit-head-container" id="chemistry">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                       </div>
+                        
+                    </div>
+
+
+
+
+
+                    <div id="se" class="edit-head">
+                        <span>Sectional Editors</span>
+                       <div class="edit-subject">
+                        <h3>Material Science:</h3>
+                        <div class="edit-head-container" id="ms">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Computer and Information Science:</h3>
+                        <div class="edit-head-container" id="cis">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Earth Science:</h3>
+                        <div class="edit-head-container" id="earthscience">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Engineering and Technology:</h3>
+                        <div class="edit-head-container" id="et">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Environmental Sciences:</h3>
+                        <div class="edit-head-container" id="es">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Humanities:</h3>
+                        <div class="edit-head-container" id="humanities">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Arts:</h3>
+                        <div class="edit-head-container" id="arts">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Life Science:</h3>
+                        <div class="edit-head-container" id="ls">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Medicine:</h3>
+                        <div class="edit-head-container" id="medicince">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Allied Health Sciences:</h3>
+                        <div class="edit-head-container" id="ahs">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Public & Global Health:</h3>
+                        <div class="edit-head-container" id="gbh">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Physics & Astronomy:</h3>
+                        <div class="edit-head-container" id="pa">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Social and Behavioral Sciences:</h3>
+                        <div class="edit-head-container" id="sbs">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Mathematics:</h3>
+                        <div class="edit-head-container" id="mathematics">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                        <h3>Chemistry:</h3>
+                        <div class="edit-head-container" id="chemistry">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+
+                       </div>
+                        
+                    </div>
+
+                    <div id="eb" class="edit-head">
+                        <span>Editorial Board</span>
+
+                        <div class="edit-head-container">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+
+
+                    <div id="ea" class="edit-head">
+                        <span>Editorial Assistant</span>
+
+                        <div class="edit-head-container">
+                            <div class="indi-editors">
+                                <div class="editor-image">
+                                    <img src="./images/articleImages/8.jpg" alt="">
+                                </div>
+                                
+                                <div class="editor-info">
+                                    <h4>Dr.</h4>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+    
+                        </div>
                     </div>
 
 
                 </div>
-            </div>
-            <div class="submit-research-container">
-                <h4 class="sub-head">PUBLISH YOUR RESEARCH</h4>
-                <div class="submit-research">
-                    <div class="sub-manuscript">
-                        <a href="submitManuscriptSignIn.html"><button type="button">Submit Manuscript</button></a>
-                    </div>
-                </div>
-
             </div>
 
         </div>
@@ -462,4 +1023,20 @@ window.onscroll = function() {
             });
         });
     </script>
+
+<script>
+    function setActive(event, index) {
+
+const navItems = document.querySelectorAll('.submit-nav li');
+navItems.forEach(item => item.classList.remove('active')); // Remove active class from all items
+navItems[index].classList.add('active'); // Add active class to clicked item
+
+ // Smooth scroll to the target element
+ target.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+});
+}
+</script>
+    <script src="./js/nav.js" type="module"></script>
 </html>
