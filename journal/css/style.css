@@ -236,8 +236,6 @@ body{
     padding: 50px;
     background-color: #efedf0a8;
 
-    padding-top: 180px;
-
 }
 
 .all-event-section {
@@ -1432,6 +1430,13 @@ form div .add-author-btn {
     color: #dbdadaa9;
 }
 
+.foot-useful-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 20px 20px 20px;
+}
+
 /* Footer Base */
 
 .foot-base {
@@ -1668,7 +1673,7 @@ form div .add-author-btn {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 120px 50px 50px 50px;
+        padding: 0 50px 50px 50px;
         background-color: #efedf0a8;
     }
     
