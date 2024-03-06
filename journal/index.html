@@ -180,8 +180,8 @@
     </main>
     <footer class="footer-section" id="footerContainer">
         
-
     </footer>
+
 
 </body>
 <script
@@ -191,33 +191,31 @@
 </script>
 
 <script>
+    function scrollToSection() {
+    const sectionIds = ["welcome-section", "events-section", "why-section", "footerContainer" /* Add other section IDs here */]; // Array of section IDs
+    let currentSectionIndex = -1; // Initialize the index of the current section
 
-function scrollToSection() {
-    const sectionIds = ["welcome-section", "events-section", "why-section", "footerContainer", /* Add other section IDs here */]; // Array of section IDs
-    const currentScrollPosition = window.scrollY; // Current scroll position
-    
     // Find the index of the current section
-    let currentSectionIndex = sectionIds.findIndex(id => {
-        const section = document.getElementById(id);
+    for (let i = 0; i < sectionIds.length; i++) {
+        const section = document.getElementById(sectionIds[i]);
         if (section) {
             const sectionTop = section.offsetTop;
-            const sectionBottom = sectionTop + section.offsetHeight;
-            return currentScrollPosition >= sectionTop && currentScrollPosition < sectionBottom;
+            if (window.scrollY >= sectionTop) {
+                currentSectionIndex = i;
+            } else {
+                break;
+            }
         }
-        return false;
-    });
+    }
 
     // Find the index of the next section
-    const nextSectionIndex = currentSectionIndex + 1;
+    const nextSectionIndex = (currentSectionIndex + 1) % sectionIds.length;
 
-    // Check if there is a next section
-    if (nextSectionIndex < sectionIds.length) {
-        // Scroll to the next section
-        const nextSectionId = sectionIds[nextSectionIndex];
-        const nextSection = document.getElementById(nextSectionId);
-        if (nextSection) {
-            nextSection.scrollIntoView({ behavior: 'smooth' });
-        }
+    // Scroll to the next section
+    const nextSectionId = sectionIds[nextSectionIndex];
+    const nextSection = document.getElementById(nextSectionId);
+    if (nextSection) {
+        nextSection.scrollIntoView({ behavior: 'smooth' });
     }
 }
 </script>
