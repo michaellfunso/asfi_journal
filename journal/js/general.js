@@ -214,12 +214,7 @@ document.addEventListener('DOMContentLoaded', function () {
     showSlides();
 });
     
-        function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-    }
-}
+      
 
 
 document.addEventListener("DOMContentLoaded", function() {
