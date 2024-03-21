@@ -92,129 +92,154 @@ $(document).ready(function() {
 
 
 
-$(document).ready(function() {
-    var videoId = 'w5TynGMJ1SI?si=7eaWWsuXpH9xBiWz'; // Replace 'VIDEO_ID' with your actual YouTube video ID
-    var videoUrl = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+// $(document).ready(function() {
+//     var videoId = 'w5TynGMJ1SI?si=7eaWWsuXpH9xBiWz'; // Replace 'VIDEO_ID' with your actual YouTube video ID
+//     var videoUrl = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
 
-    $(".play-button").click(function() {
-        // Show the video overlay
-        $(".video-overlay").show();
+//     $(".play-button").click(function() {
+//         // Show the video overlay
+//         $(".video-overlay").show();
 
-        // Append the YouTube video iframe to the video container
-        $(".video-container").html("<iframe width='100%' height='300px' src='" + videoUrl + "' frameborder='0' allowfullscreen></iframe>");
-    });
+//         // Append the YouTube video iframe to the video container
+//         $(".video-container").html("<iframe width='100%' height='300px' src='" + videoUrl + "' frameborder='0' allowfullscreen></iframe>");
+//     });
 
-    // Close the video overlay when clicking outside the video
-    $(document).on('click', '.video-overlay', function(e) {
-        if (e.target !== this)
-            return;
+//     // Close the video overlay when clicking outside the video
+//     $(document).on('click', '.video-overlay', function(e) {
+//         if (e.target !== this)
+//             return;
 
-        $(".video-overlay").hide();
-        // Remove the YouTube video iframe from the video container
-        $(".video-container").html("");
-    });
+//         $(".video-overlay").hide();
+//         // Remove the YouTube video iframe from the video container
+//         $(".video-container").html("");
+//     });
+// });
+
+
+
+
+// document.addEventListener('DOMContentLoaded', function () {
+//     const articlesWrapper = document.querySelector('.articles-wrapper');
+//     const articles = document.querySelectorAll('.article-container');
+//     const articleWidth = articles[0].offsetWidth;
+//     let currentIndex = 0;
+
+//     function slideTo(index) {
+//         const newPosition = -index * articleWidth;
+//         articlesWrapper.style.transform = `translateX(50px)`;
+//         currentIndex = index;
+//     }
+
+//     function nextSlide() {
+//         if (currentIndex < articles.length - 1) {
+//             slideTo(currentIndex + 1);
+//         }
+//     }
+
+//     function prevSlide() {
+//         if (currentIndex > 0) {
+//             slideTo(currentIndex - 1);
+//         }
+//     }
+
+//     // Optional: Add event listeners for navigation buttons
+//     const prevButton = document.getElementById('prevButton');
+//     if (prevButton) {
+//         prevButton.addEventListener('click', prevSlide);
+//     }
+
+//     const nextButton = document.getElementById('nextButton');
+//     if (nextButton) {
+//         nextButton.addEventListener('click', nextSlide);
+//     }
+// });
+
+
+
+// document.addEventListener('DOMContentLoaded', function () {
+//     const prevButton = document.getElementById('prevButton');
+//     const nextButton = document.getElementById('nextButton');
+//     const dots = document.querySelectorAll('.dot');
+
+//     let slideIndex = 0;
+//     function showSlides() {
+//         // Hide all slides
+//         const slides = document.querySelectorAll('.article-container');
+//         slides.forEach((slide) => {
+//             slide.style.display = 'none';
+//             const newPosition = -index * articleWidth;
+//             slide.style.transform = `translateX(${newPosition}px)`;
+//         });
+
+//         // Deactivate all dots
+//         dots.forEach((dot) => {
+//             dot.classList.remove('active');
+//         });
+
+//         // Increment slide index
+//         slideIndex++;
+
+//         // Reset slide index if it exceeds the number of slides
+//         if (slideIndex > slides.length) {
+//             slideIndex = 1;
+//         }
+
+//         // Show the current slide and activate the corresponding dot
+//         slides[slideIndex - 1].style.display = 'flex';
+//         dots[slideIndex - 1].classList.add('active');
+
+//         // Call showSlides() again after 2 seconds
+//         setTimeout(showSlides, 2000);
+//     }
+
+//     // Add event listeners for previous and next buttons
+//     prevButton.addEventListener('click', function () {
+//         slideIndex--;
+//         showSlides();
+//     });
+
+//     nextButton.addEventListener('click', function () {
+//         slideIndex++;
+//         showSlides();
+//     });
+
+//     // Add event listeners for dots
+//     dots.forEach((dot, index) => {
+//         dot.addEventListener('click', function () {
+//             slideIndex = index;
+//             showSlides();
+//         });
+//     });
+
+//     // Show the initial slide
+//     showSlides();
+// });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const articles = document.querySelectorAll(".article-container");
+    let currentArticle = 0;
+
+    function showArticle(index) {
+        // Hide all articles
+        articles.forEach(article => {
+            article.style.display = "none";
+        });
+        // Show the selected article
+        articles[index].style.display = "flex";
+    }
+
+    function nextArticle() {
+        currentArticle = (currentArticle + 1) % articles.length;
+        showArticle(currentArticle);
+    }
+
+    // Interval for automatic sliding
+    setInterval(nextArticle, 5000); // Adjust the interval as needed
 });
 
 
 
-
-document.addEventListener('DOMContentLoaded', function () {
-    const articlesWrapper = document.querySelector('.articles-wrapper');
-    const articles = document.querySelectorAll('.article-container');
-    const articleWidth = articles[0].offsetWidth;
-    let currentIndex = 0;
-
-    function slideTo(index) {
-        const newPosition = -index * articleWidth;
-        articlesWrapper.style.transform = `translateX(${newPosition}px)`;
-        currentIndex = index;
-    }
-
-    function nextSlide() {
-        if (currentIndex < articles.length - 1) {
-            slideTo(currentIndex + 1);
-        }
-    }
-
-    function prevSlide() {
-        if (currentIndex > 0) {
-            slideTo(currentIndex - 1);
-        }
-    }
-
-    // Optional: Add event listeners for navigation buttons
-    const prevButton = document.getElementById('prevButton');
-    if (prevButton) {
-        prevButton.addEventListener('click', prevSlide);
-    }
-
-    const nextButton = document.getElementById('nextButton');
-    if (nextButton) {
-        nextButton.addEventListener('click', nextSlide);
-    }
-});
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    const prevButton = document.getElementById('prevButton');
-    const nextButton = document.getElementById('nextButton');
-    const dots = document.querySelectorAll('.dot');
-
-    let slideIndex = 0;
-
-    function showSlides() {
-        // Hide all slides
-        const slides = document.querySelectorAll('.article-container');
-        slides.forEach((slide) => {
-            slide.style.display = 'none';
-        });
-
-        // Deactivate all dots
-        dots.forEach((dot) => {
-            dot.classList.remove('active');
-        });
-
-        // Increment slide index
-        slideIndex++;
-
-        // Reset slide index if it exceeds the number of slides
-        if (slideIndex > slides.length) {
-            slideIndex = 1;
-        }
-
-        // Show the current slide and activate the corresponding dot
-        slides[slideIndex - 1].style.display = 'flex';
-        dots[slideIndex - 1].classList.add('active');
-
-        // Call showSlides() again after 2 seconds
-        setTimeout(showSlides, 2000);
-    }
-
-    // Add event listeners for previous and next buttons
-    prevButton.addEventListener('click', function () {
-        slideIndex--;
-        showSlides();
-    });
-
-    nextButton.addEventListener('click', function () {
-        slideIndex++;
-        showSlides();
-    });
-
-    // Add event listeners for dots
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', function () {
-            slideIndex = index;
-            showSlides();
-        });
-    });
-
-    // Show the initial slide
-    showSlides();
-});
-    
-      
 
 
 document.addEventListener("DOMContentLoaded", function() {
