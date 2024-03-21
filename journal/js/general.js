@@ -216,26 +216,40 @@ $(document).ready(function() {
 // });
 
 
+
 document.addEventListener("DOMContentLoaded", function() {
     const articles = document.querySelectorAll(".article-container");
     let currentArticle = 0;
+    const totalArticles = articles.length;
 
     function showArticle(index) {
         // Hide all articles
         articles.forEach(article => {
-            article.style.display = "none";
+            article.style.transform = `translateX(-${index * 100}%)`;
         });
-        // Show the selected article
-        articles[index].style.display = "flex";
     }
 
     function nextArticle() {
-        currentArticle = (currentArticle + 1) % articles.length;
+        currentArticle = (currentArticle + 1) % totalArticles;
         showArticle(currentArticle);
     }
 
     // Interval for automatic sliding
-    setInterval(nextArticle, 5000); // Adjust the interval as needed
+    const interval = setInterval(nextArticle, 8000); // Adjust the interval as needed
+
+    // Pause the slideshow when mouse enters the carousel
+    const carousel = document.querySelector(".articles-wrapper");
+    carousel.addEventListener("mouseenter", () => {
+        clearInterval(interval);
+    });
+
+    // Resume the slideshow when mouse leaves the carousel
+    // carousel.addEventListener("", () => {
+    //     interval = setInterval(nextArticle, 6000); // Adjust the interval as needed
+    // });
+
+    // Show the initial article
+    showArticle(currentArticle);
 });
 
 
