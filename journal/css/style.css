@@ -68,7 +68,7 @@ body{
     text-decoration: none;
     margin-left: 15px;
     color: black;
-    font-size: 14px;
+    font-size: 16.8px;
     transition: 0.2s ease-in;
 }
 
@@ -397,55 +397,127 @@ body{
 .why-section {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 30px;
+    justify-content: flex-start;
+    padding: 10px 10px 100px 10px;
+    height: fit-content;
     background-color: #80078b2f;
 }
 
 .why-section .why-header {
     width: 50%;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
     text-align: center;
     margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 40px;
     font-size: 42px;
 }
-
-.why-section .why-header h3 span {
+.why-section .why-header .h3{
+    font-size: 42px;
+    font-weight: bolder;
+}
+.why-section .why-header .h3 span {
     color: #80078b;
 }
+
 .why-section .why-info {
-    width: 30%;
+    width: 100%;
     text-align: center;
     margin: 0 auto;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.why-section .why-items-bg {
+    /* width: 600px;
+    height: 600px; */
+    display: flex;
+    width: 60%;
+    margin-top: 40px;
+    height: fit-content;
+    background-color: #80078b;
+    border-radius: 14px;
+    /* position: absolute; */
+    align-self: center;
+    /* justify-content: center;
+    align-items: center; */
+    /* margin-top: 170px; */
 }
 
 .why-section .why-items {
     display: flex;
-    flex-direction: row;
+    /* direction: ltr; */
     flex-wrap: wrap;
+    position: sticky;
     justify-content: center;
-    justify-content: space-evenly;
-    margin-top: 70px;
+    align-items: center;
+    /* width:1000px; */
+    transform: scale(1.08);
+    /* justify-content: space-between; */
+    /* position: relative; */
+    /* margin-top: 70px; */
+    height: inherit;
    
 }
+
+.why-section .why-items .jog {
+    width: 300px;
+    height: 300px;
+    margin: 18px;
+    margin-bottom: 18px;
+    text-wrap: wrap;
+    flex-wrap: wrap;
+    /* margin-bottom: -20px; */
+}
+
 .why-section .why-items .why-item {
     background-color: whitesmoke;
-    /* display: flex; */
+    display: flex;
     flex-direction: column;
-    justify-items: center;
-    /* width: 40%; */
-    height: 120px;
-    padding: 40px;
-    border-radius: 12px;
-    margin-bottom: 28px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    /* margin: 8px; */
     opacity: 0; /* Initially hide each why-item */
     transform: translateY(70px); /* Initially translate each why-item down */
     transition: opacity 0.7s ease, transform 0.7s ease; /* Smooth transition */
-
+}
+.sub-text{
+    display: flex;
+    flex-direction: column;
+}
+.sub-text span:first-child{
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.sub-text span:nth-child(2){
+    display: flex;
+    text-wrap: wrap;
 }
 
+.jog:hover {
+    /* padding: 60px; */
+    transform:  scale(1.08); /* Scale up and move up slightly */
+    transition: all 0.7s cubic-bezier(0.89, -0.29, 0, 1.29) 0.7s, transform 0.7s;
+}
 
-.why-section .why-items .why-item h4 {
-    margin-bottom: 12px;
+.jog:not(:hover) {
+    /* padding: 60px; */
+    transform:  scale(1); /* Scale up and move up slightly */
+    transition: all 0.7s cubic-bezier(0.89, -0.29, 0, 1.29) 0.7s, transform 0.7s;
+}
+
+.why-section .why-items .jog .why-item  svg {
+    width: 70px;
+
+    /* height: 70px; */
 }
 
 .events-section {
@@ -635,6 +707,8 @@ body{
 .main-section .info {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    text-align: center;
     margin: 16px;
 }
 
@@ -678,13 +752,34 @@ body{
 }
 
 .about-main-section .info ul li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     list-style-type: none;
     background-color: #80078b;
-    width: 30%;
+    width: 450px;
+    height: 270px;
     margin: 12px;
     padding: 15px;
     color: white;
     border-radius: 6px;
+    text-align: center;
+}
+
+.about-main-section .info ul li svg {
+    width: 80px;
+}
+
+.about-main-section .info ul li:hover {
+    transform: scale(1.05);
+    transition: all 0.7s cubic-bezier(0.89, -0.29, 0, 1.29) 0.7s, transform 0.7s;
+}
+
+.about-main-section .info ul li:not(:hover) {
+    /* padding: 60px; */
+    transform:  scale(1); /* Scale up and move up slightly */
+    transition: all 0.7s cubic-bezier(0.89, -0.29, 0, 1.29) 0.7s, transform 0.7s;
 }
 
 .main-section .about-para {
@@ -700,24 +795,8 @@ body{
 }
 
 
+
 /* .article-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 80vh;
-    margin: 0 auto;
-    border-radius: 6px;
-    margin-bottom: 26px;
-    transition: 0.2s ease-in-out;
-} */
-
-/* .article-container img {
-    width: 100%;
-    height: 100%;
-} */
-
-.article-container {
-    /* position: relative; */
     width: 100%;
     height: 80vh;
     margin: 0 auto;
@@ -734,47 +813,45 @@ body{
     position: absolute;
     top: 0;
     left: 0;
-}
-
-
-.main-section {
-    /* Add necessary styles */
-    position: relative;
-    overflow: hidden; /* Ensure the overflow is hidden to hide extra articles */
-}
+} */
 
 .articles-wrapper {
-    /* Add necessary styles */
     display: flex;
-    transition: transform 0.5s ease; /* Add transition for smooth sliding effect */
-    margin-top: 120px;
+    width: 400%;
+    overflow: hidden; /*Hide overflowing content*/
+    /* margin-top: 120px; */
+    /* background-color: red; */
 }
 
 .article-container {
-    flex: 0 0 100%;
+    width: 100%;
+    height: 100vh;
+    margin-bottom: 26px;
+    overflow: hidden;
+    transition: transform 2.5s ease;
 }
 
-/* .article-btn {
-    display: flex;
-    justify-content: space-between;
-    width: 70%;
-    margin: 0 auto;
+.article-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
-.article-btn button {
-    background-color: rebeccapurple;
-    padding: 10px;
-    color: whitesmoke;
-    border: none;
-    border-radius: 10px;
-} */
+.main-section {
+    position: relative;
+    overflow: hidden;
+}
+
 
 .article-btn {
     display: flex;
     justify-content: space-between;
     width: 70%;
     margin: 0 auto;
-    margin-top: -30px;
+    margin-top: -80px;
     margin-bottom: 40px;
     z-index: 9999;
 }
@@ -820,11 +897,6 @@ body{
     cursor: pointer;
     z-index: 999;
     animation: bounce 1s infinite;
-}
-
-
-.article-container:hover {
-    box-shadow: 5px 3px 12px #00000069;
 }
 
 
@@ -910,9 +982,15 @@ body{
 }
 
 .article-info1 .article-authors {
-    font-size: 16px;
+    font-size: 1.2rem;
+    width: 74.6%;
     color: whitesmoke;
     border-top: 2px solid white;
+}
+
+.guide-sm li a {
+    color: blueviolet;
+    font-weight: bold;
 }
 
 .article-info1 h2 {
@@ -1784,6 +1862,7 @@ form div .add-author-btn {
     .why-section .why-header {
         width: 100%;
         font-size: 35px;
+        display: flex;
     }
 
     .why-section .why-info {
