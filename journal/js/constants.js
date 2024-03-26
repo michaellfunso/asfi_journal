@@ -7,17 +7,22 @@ const segments = pathname.split('/');
 // Get the parent directory name (second to last segment)
 // const parentDirectoryName = segments[segments.length - 1];
 const parentDIRName = segments[1];
-let parentDirectoryName
+let parentDirectoryName, EndPoint
 if(parentDIRName === "journal"){
     parentDirectoryName = parentDIRName
+    EndPoint = '/backend'
+   
+
 }else{
     parentDirectoryName = `asfi_journal/${segments[2]}`
+   EndPoint = `asfi_journal/backend`;
+
+   
 }
 
 // console.log(parentDirectoryName)
 // Concatenate with the desired directory name
 
-const EndPoint = `/backend`;
 
 export { 
     EndPoint,
