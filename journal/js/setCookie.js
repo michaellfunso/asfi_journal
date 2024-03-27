@@ -5,6 +5,7 @@ const expirationDays = daysToKeep > 0 ? daysToKeep : 1;  // Ensure a minimum of 
 
 
 
+
 const  SetCookies = function setCookie(name, value, daysToExpire) {
     const date = new Date();
     date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000));

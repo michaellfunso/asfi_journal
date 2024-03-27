@@ -16,6 +16,7 @@ function formatTimestamp(timestamp) {
     return `${day} ${monthName}, ${year}`;
   }
 
+  
   export {
     formatTimestamp
   }

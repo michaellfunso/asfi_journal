@@ -3,6 +3,7 @@ import { parentDirectoryName } from "./constants.js";
 
 const FooterContainer = document.getElementById("footerContainer")
 
+
 const FooterContents = ` <div class="foot-head">
     <div class="logo">
 

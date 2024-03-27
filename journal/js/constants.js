@@ -24,6 +24,7 @@ if(parentDIRName === "journal"){
 // Concatenate with the desired directory name
 
 
+
 export { 
     EndPoint,
     parentDirectoryName

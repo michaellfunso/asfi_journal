@@ -27,3 +27,4 @@ if(username && email){
 else{
     window.location.href = `./../login.html`
 }
+

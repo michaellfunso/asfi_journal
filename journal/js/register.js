@@ -4,6 +4,7 @@ import {EndPoint} from "./constants.js"
 
 const RegisterForm = document.getElementById("registerForm")
 
+
 RegisterForm.addEventListener("submit", function(e){
     e.preventDefault()
     let Review

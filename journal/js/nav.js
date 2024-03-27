@@ -9,6 +9,7 @@ let activeEvents
 let activeContact
 
 
+
 // CHECK FOR ACTIVE PAGES 
 function getURL(){
     return window.location.pathname

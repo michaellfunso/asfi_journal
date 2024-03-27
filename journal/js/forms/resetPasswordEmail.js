@@ -5,6 +5,7 @@ const resetPass = document.getElementById("resetPass")
 
 
 
+
 resetPass.addEventListener("submit", function(e){
     e.preventDefault()
     if(email != ""){

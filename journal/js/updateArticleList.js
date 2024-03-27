@@ -13,6 +13,7 @@ function UpdateArticleList(ArticleLst){
             const ArticleId = article.buffer
             const date_uploaded = formatTimestamp(article.date_uploaded)
             const ArticleType = article.article_type
+            
 
             fetch(`${EndPoint}/allAuthors.php?articleID=${ArticleId}`, {
                 method : "GET"

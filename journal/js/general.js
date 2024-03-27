@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
 let prevScrollpos = window.pageYOffset;
 
 window.onscroll = function() {
