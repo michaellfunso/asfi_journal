@@ -521,6 +521,14 @@ body{
     margin-bottom: 50px;
 }
 
+.service-item:hover .browse-all-link {
+    color: white;
+}
+
+.service-item:hover h3 {
+    border-bottom: 2px solid white;
+}
+
 
 .events-header {
     display: flex;
@@ -1089,6 +1097,10 @@ body{
     line-height: 26px;
     letter-spacing: .005em;
     color: #fffefe;
+}
+
+.article-title:hover {
+    color: rgba(245, 245, 245, 0.774);
 }
 
 .article-content2 {
