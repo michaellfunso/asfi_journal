@@ -91,7 +91,7 @@ body{
 }
 
 .short-nav a {
-    color: #80078b;
+    /* color: #80078b; */
 
     font-weight: bolder;
     margin: 6px;
@@ -163,21 +163,13 @@ body{
 
 .submit-manuscript {
     background-color: #80078b;
-    width: 140px;
+    /* width: 140px; */
     padding: 8px;
-    margin-left: -42px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.submit-manuscript button {
-    padding: 10px;
-    background-color: #fff;
-    color: #80078b;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
+    /* margin-left: -42px; */
+    /* display: flex; */
+    height: 50px;
+    /* align-items: center;
+    justify-content: center; */
 }
 
 .mobile-search {
@@ -241,7 +233,7 @@ body{
 .all-event-section {
     display: flex;
     flex-direction: column;
-    padding: 120px 90px 90px 90px;
+    padding-bottom: 60px;
     background-color: #efedf0a8;
 }
 
@@ -273,29 +265,33 @@ body{
 .upcoming-events-list {
     width: 100%;
     margin: 0 auto;
-    margin-top: 40px;
+    /* margin-top: 40px; */
 }
 
 .upcoming-events-list h2 {
     width: 25%;
     padding-bottom: 8px;
     font-size: 22px;
+    margin-left: 15%;
+    margin-top: 30px;
     border-bottom: 2px solid #80078b;
 }
 
 .events-list-items {
     display: flex;
-    /* flex-wrap: wrap; */
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* justify-content: space-between; */
 }
 
 .upcoming-events-list .events-list-item{
     background-color: white;
     box-shadow: 2px 3px 10px #00000069;
     border-radius: 16px;
-    width: 60%;
+    /* width: 60%; */
     height: 50vh;
-    margin-right: 30px;
+    margin: 30px;
+    /* margin-right: 30px; */
     padding: 20px;
 
 }
@@ -434,8 +430,7 @@ body{
     /* width: 600px;
     height: 600px; */
     display: flex;
-    width: 60%;
-    margin-top: 40px;
+    margin: 40px;
     height: fit-content;
     background-color: #80078b;
     border-radius: 14px;
@@ -483,10 +478,11 @@ body{
     height: 100%;
     padding: 10px;
     border-radius: 4px;
+    box-shadow:2px 3px 30px #00000069;
     /* margin: 8px; */
-    opacity: 0; /* Initially hide each why-item */
-    transform: translateY(70px); /* Initially translate each why-item down */
-    transition: opacity 0.7s ease, transform 0.7s ease; /* Smooth transition */
+    /* opacity: 0; Initially hide each why-item */
+    /* transform: translateY(70px); Initially translate each why-item down */
+    /* transition: opacity 0.7s ease, transform 0.7s ease; Smooth transition */
 }
 .sub-text{
     display: flex;
@@ -615,7 +611,7 @@ body{
 
 .recent-events-carousel {
     display: flex;
-    margin-left: 25%;
+    margin-left: 0%;
     transition: transform 0.5s ease;
 }
 
@@ -640,7 +636,7 @@ body{
 
 .recent-events-items {
     flex: 0 0 auto;
-    width: 70%;
+    width: 100%;
     margin-right: 10%;
 }
 
@@ -758,8 +754,8 @@ body{
     align-items: center;
     list-style-type: none;
     background-color: #80078b;
-    width: 450px;
-    height: 270px;
+    width: 200px;
+    /* height: 270px; */
     margin: 12px;
     padding: 15px;
     color: white;
@@ -977,13 +973,10 @@ body{
     font-size: 14px;
     margin-bottom: 8px;
 }
-.article-info1 .article-title {
-    color: whitesmoke;
-}
 
 .article-info1 .article-authors {
-    font-size: 1.2rem;
-    width: 74.6%;
+    /* font-size: 1.2rem;
+    width: 74.6%; */
     color: whitesmoke;
     border-top: 2px solid white;
 }
@@ -1026,6 +1019,107 @@ body{
     justify-content: space-between;
     padding-top: 220px;
 
+}
+
+.article-wrapper {
+    display: flex; 
+    flex-direction: row; 
+    /* height: 350px; */
+    box-sizing: border-box;
+    background-color: #fff;
+    margin: 0 0 20px 0;
+    padding: 20px 16px 0 16px;
+    border-radius: 2px;
+}
+
+.article-wrapper:hover {
+    box-shadow: 2px 3px 30px #00000069;
+    transition: 0.2s ease-in-out;
+}
+
+.article-img {
+    background-color: transparent; 
+    overflow:hidden; 
+    box-sizing: border-box; 
+    border: 1px solid #80078b; 
+    border-radius: 4px; 
+    text-align: right; 
+    line-height:14px; 
+    font-size: 12px; 
+    font-feature-settings: normal; 
+    text-size-adjust: 100%; 
+    box-shadow: inset 0 -20px 0 0 #80078b; 
+    padding: 0px; 
+    margin: 0px; 
+    width: 30%; 
+    /* height: 100%; */
+}
+
+.article-content {
+    display: flex; 
+    flex-direction: column; 
+    height: 100%;
+}
+
+.article-content1 {
+    background-color: white; 
+    text-align: start; 
+    padding-left: 30px; 
+    padding-right: 30px;
+}
+
+.article-type {
+    font-size: 12px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    color: #80078b;
+    padding-top: 16px;
+
+}
+
+.article-title {
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 26px;
+    letter-spacing: .005em;
+    color: #fffefe;
+}
+
+.article-content2 {
+    background-color: rgba(211, 211, 211, 0.849); 
+    text-align: start; 
+    padding-left: 30px; 
+    padding-right: 30px; 
+    height: 100%;
+}
+
+.article-peer-review {
+    padding-top: 9px;
+}
+
+.article-funders {
+    padding-top: 9px;
+    border-top: 1px solid #a1a1a170;
+}
+
+.article-p-date {
+    font-size: 12px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 21px;
+    letter-spacing: .02em;
+    color: #666;
+    height: auto;
+    vertical-align: middle;
+    border-top: 1px solid #a1a1a170;
+    padding-top: 6px;
 }
 
 .submit-research-container {
@@ -1084,7 +1178,7 @@ body{
     flex-direction: row;
     padding: 20px;
 
-    padding-top: 190px;
+    /* padding-top: 190px; */
     background-color: #f3f3f3;
     height: 100%;
 
@@ -1290,11 +1384,14 @@ body{
 
 .submit-body .authors-list {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    margin-bottom: 10px;
 }
 .submit-body .authors-list li {
     list-style-type: none;
     margin: 5px;
-    margin-top: -30px;
+    margin-top: 30px;
     background-color: rgba(255, 127, 80, 0.452);
     padding: 3px;
     border-radius: 4px;
@@ -1707,8 +1804,8 @@ form div .add-author-btn {
         flex-direction: column;
         justify-items: center;
         /* width: 40%; */
-        height: 60%;
-        padding: 40px;
+        /* height: 60%; */
+        /* padding: 40px; */
         border-radius: 12px;
         margin-bottom: 28px;
 
