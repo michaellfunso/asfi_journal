@@ -345,7 +345,7 @@
         padding: 0 25px;
     }
     .primary-header .header-logo {
-        max-width: 150px;
+        max-width: 250px;
     }
     .top-bar .top-left li { font-size: 12px; }
 }
@@ -357,6 +357,7 @@
 }
 .header-right .mobile-menu-icon{
     margin-left: 20px;
+    margin-right: 0;
 }
 .header-right a.header-btn{
     display: inline-block;
@@ -391,6 +392,10 @@
     margin-top: 8px;
     font-size: 12px;
 }
+.header-menu-wrap .dl-menu .header-right a.header-btn {
+    display: none;
+}
+
 
 .header-right a.header-btn:hover{
     color: #fff;
@@ -426,6 +431,7 @@
 .header-right .search-icon:hover{
     opacity: 0.8;
 }
+
 .primary-header-inner{
     display: flex;
     align-items: center;
@@ -574,6 +580,16 @@
     .top-bar .top-left li:not(:last-of-type){
         padding-right: 20px;
     }
+    .header-right a.header-btn {
+        display: none;
+    }
+    .header-menu-wrap .dl-menu .header-right a.header-btn {
+        display: inline-block;
+        margin: 0 auto;
+    }
+    .header-menu-wrap .dl-menu .header-right {
+        margin-left: 0;
+    }
 }
 @media (max-width: 580px){
     .top-bar .top-left li{ font-size: 12px; }
@@ -705,8 +721,8 @@
     .header-two .mid-header-right{ display: none; }
     .header-two .primary-header-inner { padding: 20px 0; }
     .header-2 .sticky-header .primary-header-inner{ padding: 10px 0; }
-    .primary-header-inner { padding: 0; }
-    .sticky-header .primary-header-inner { padding: 0; }
+    .primary-header-inner { padding: 9px; }
+    .sticky-header .primary-header-inner { padding: 9px; }
     .primary-header-two .primary-header-inner .header-right {
         margin-left: 0;
         justify-content: center;
@@ -730,6 +746,8 @@
         margin-left: 15px;
         margin-right: 0;
     }
+
+    
 }
 
 /* Header 3 */
@@ -779,8 +797,8 @@
     .primary-header-three .header-menu-wrap li li:hover > a,
     .primary-header-three .header-menu-wrap li li > a,
     .primary-header-three .header-menu-wrap ul li > a{ color: #07122D; }
-    .primary-header .header-logo { max-width: 190px; }
-    .primary-header-three .primary-header-inner{ padding: 0; }
+    .primary-header .header-logo { max-width: 290px; }
+    .primary-header-three .primary-header-inner{ padding: 9px; }
 }
 
 /* Search Box */
@@ -870,7 +888,7 @@
 
 .map-wrapper{
 	width: 100%;
-	height: 400px;
+	height: 100%;
 
 	background: url(../img/background.jpg);
 	background-repeat: no-repeat;
