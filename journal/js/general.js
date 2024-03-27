@@ -238,10 +238,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const interval = setInterval(nextArticle, 8000); // Adjust the interval as needed
 
     // Pause the slideshow when mouse enters the carousel
-    const carousel = document.querySelector(".articles-wrapper");
-    carousel.addEventListener("mouseenter", () => {
-        clearInterval(interval);
-    });
+    // const carousel = document.querySelector(".articles-wrapper");
+    // carousel.addEventListener("mouseenter", () => {
+    //     clearInterval(interval);
+    // });
 
     // Resume the slideshow when mouse leaves the carousel
     // carousel.addEventListener("", () => {
