@@ -136,9 +136,10 @@ if ($uploadOk == 0) {
         // File uploaded successfully, now you can do something with the data
         rename($targetDir . $_FILES["manuscript_file"]["name"], $targetDir.$newFileName);
 
-        move_uploaded_file($_FILES["manuscriptCover"]["tmp_name"], $targetFileImage);
-        rename($targetDirImage . $_FILES["manuscriptCover"]["name"], $targetDirImage.$newFileNameImage);
-        
+        if(isset($_FILES["manuscriptCover"]["name"])){
+            move_uploaded_file($_FILES["manuscriptCover"]["tmp_name"], $targetFileImage);
+            rename($targetDirImage . $_FILES["manuscriptCover"]["name"], $targetDirImage.$newFileNameImage);
+        }
       
         try {
             $stmt = $con->prepare("INSERT INTO `journals` (`article_type`, `manuscript_file`,  `manuscript_full_title`,`unstructured_abstract`,`manuscriptPhoto`, `buffer`) VALUES(?, ?, ?, ?, ?, ?)");
