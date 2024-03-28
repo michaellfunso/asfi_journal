@@ -136,9 +136,15 @@ if ($uploadOk == 0) {
         // File uploaded successfully, now you can do something with the data
         rename($targetDir . $_FILES["manuscript_file"]["name"], $targetDir.$newFileName);
 
+        $coverImageName = "";
+
         if(isset($_FILES["manuscriptCover"]) && $_FILES["manuscriptCover"]["name"] !== "" ){
             move_uploaded_file($_FILES["manuscriptCover"]["tmp_name"], $targetFileImage);
             rename($targetDirImage . $_FILES["manuscriptCover"]["name"], $targetDirImage.$newFileNameImage);
+
+            $coverImageName = $newFileNameImage;
+        }else{
+            $coverImageName = "cover.jpg"
         }
       
         try {
@@ -148,7 +154,7 @@ if ($uploadOk == 0) {
                 throw new Exception("Failed to prepare statement: " . $con->error);
             }
         
-            $stmt->bind_param("ssssss", $articleType, $newFileName, $manuscript, $abstract, $newFileNameImage, $articleID);
+            $stmt->bind_param("ssssss", $articleType, $newFileName, $manuscript, $abstract, $coverImageName, $articleID);
         
             if (!$stmt->execute()) {
                 throw new Exception("Failed to execute statement: " . $stmt->error);
