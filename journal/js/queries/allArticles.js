@@ -11,7 +11,7 @@ let Limit
 
 const url = getURL()
 
-if(url == "/asfi_journal/public/" || url == "/asfi_journal/"){
+if(url == "/asfi_journal/journal/" || url == "/journal/"){
     Limit = 2
 }else{
     Limit = 10;
