@@ -135,8 +135,9 @@
         </div>
     </section><!-- /.page-header -->
     <main>
-
+       
         <div class="main-submit-container">
+            <button id="showNavButton"><i class="fa fa-bars" aria-hidden="true"></i></button>
             <div class="submission-header">
                 <h3>Editors</h3>
                 <ul class="submit-nav">
@@ -974,6 +975,23 @@
     </main>
     <!-- Main js -->
     <script src="./assets/templates/metro_hyip/js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const showNavButton = document.getElementById('showNavButton');
+    const submissionHeader = document.querySelector('.submission-header');
+    let isNavVisible = false;
+
+    showNavButton.addEventListener('click', function() {
+        if (!isNavVisible) {
+            submissionHeader.style.marginLeft = '0'; // Reveal the navigation
+        } else {
+            submissionHeader.style.marginLeft = '-800px'; // Hide the navigation off-screen
+        }
+        isNavVisible = !isNavVisible; // Toggle the navigation visibility flag
+    });
+});
+    </script>
 
         
     
