@@ -10,7 +10,7 @@ const parentDIRName = segments[1];
 let parentDirectoryName, EndPoint
 if(parentDIRName === "journal"){
     parentDirectoryName = parentDIRName
-    EndPoint = '/backend'
+    EndPoint = 'https://weperch.live/backend'
    
 
 }else{
