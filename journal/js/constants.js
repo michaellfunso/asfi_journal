@@ -15,7 +15,7 @@ if(parentDIRName === "journal"){
 
 }else{
     parentDirectoryName = `asfi_journal/${segments[2]}`
-   EndPoint = `asfi_journal/backend`;
+   EndPoint = `/asfi_journal/backend`;
 
    
 }
@@ -24,7 +24,7 @@ if(parentDIRName === "journal"){
 // Concatenate with the desired directory name
 
 
-
+console.log("UPLOAD PORTAL")
 export { 
     EndPoint,
     parentDirectoryName
