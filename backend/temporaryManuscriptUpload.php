@@ -124,6 +124,7 @@ if ($uploadOk == 0) {
     if ($stmtCode->execute()) {
         $resultCode = $stmtCode->get_result();
         $count = mysqli_num_rows($resultCode);
+
         if($count > 0){
 
  
@@ -168,6 +169,10 @@ if ($uploadOk == 0) {
     $response = array('status'=> 'error', 'message' => 'Invalid Code.');
     echo json_encode($response);
 }
+}else {
+
+    $response = array('status'=> 'error', 'message' => "Incomplete Execution." . $stmt->error);
+    echo json_encode($response);
 }
 }
 
