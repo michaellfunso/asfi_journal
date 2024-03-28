@@ -131,6 +131,9 @@ if ($uploadOk == 0) {
     if (move_uploaded_file($_FILES["manuscript_file"]["tmp_name"], $targetFile)) {
         // File uploaded successfully, now you can do something with the data
         rename($targetDir . $_FILES["manuscript_file"]["name"], $targetDir.$newFileName);
+
+        // move_uploaded_file($_FILES["manuscriptCover"]["tmp_name"], $targetFileImage);
+        // rename($targetDirImage . $_FILES["manuscriptCover"]["name"], $targetDirImage.$newFileNameImage);
         
       
         try {
