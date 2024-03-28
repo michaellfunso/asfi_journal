@@ -29,10 +29,10 @@ function UpdateTemporaryArticles(ArticleLst){
                         const AuthorsFullname = `${author.authors_fullname}, `
                         AuthorsName += AuthorsFullname
                     })
-                  
+          
                     ArticleListContainer.innerHTML += `
                     <div class="article-wrapper wow fadeInLeft" data-wow-delay="200ms">
-                    <div class="article-img" style="background-image: url(./journal/useruploads/articleImages/${CoverPhoto}); background-repeat: no-repeat; background-size: cover;">
+                    <div class="article-img" style="background-image: url(./useruploads/article_images/${CoverPhoto}); background-repeat: no-repeat; background-size: cover;">
     
                     </div>
                     <div class="dot-pattern"></div>
