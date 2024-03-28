@@ -1432,7 +1432,7 @@ body{
     margin: 0 auto;
     margin-bottom: 15px;
     border: none;
-    background-color: #404040;
+    background-color: blueviolet;
     color: whitesmoke;
     border-radius: 6px;
     
@@ -1687,6 +1687,38 @@ form div .add-author-btn {
         margin: 0;
     }
 }
+
+@media  screen and (min-width: 720px) {
+        #showNavButton {
+            display: none;
+        }
+}
+
+@media  screen and (max-width: 720px) {
+    .submission-header {
+        position: absolute;
+        width: 49%;
+        background-color: white;
+        margin-left: -800px;
+        margin-top: 40px;
+        transition: margin-left 0.5s ease;
+    }
+    #showNavButton {
+        position: absolute;
+        background-color: blueviolet;
+        color: whitesmoke;
+        /* font-size: 30px; */
+        padding: 8px;
+        height: 30px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        /* margin-bottom: 60px; */
+    }
+}
+
+
+
 @media screen and (max-width: 840px) {
 
 
@@ -2020,7 +2052,7 @@ form div .add-author-btn {
 
     .main-submit-container {
         padding: 20px;
-        padding-top: 190px;
+        padding-top: 30px;
     }
 
     #author-submit-manuscript {
