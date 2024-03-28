@@ -1,12 +1,12 @@
 import { EndPoint } from "../constants.js";
 
-const uploadForm = document.getElementById("uploadForm");
+const uploadForm = document.getElementById("uploadArticle");
 
 uploadForm.addEventListener("submit", function(e) {
     e.preventDefault();
     const formData = new FormData(uploadForm);
 
-    fetch(`${EndPoint}/uploadManuscript.php`, {
+    fetch(`${EndPoint}/temporaryManuscriptUpload.php`, {
         method: 'POST',
         body: formData
     })
@@ -15,7 +15,7 @@ uploadForm.addEventListener("submit", function(e) {
         console.log(data); // Log server response
         if(data.status === "success"){
             alert("Upload Successful")
-            window.location.href = "./issues.html"
+            window.location.href = "./"
         }else if(data.status === "error"){
             alert(data.message)
         }else{

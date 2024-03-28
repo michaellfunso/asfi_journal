@@ -132,7 +132,7 @@
             </div>
             <div class="submit-container">
                 <div class="submit-body">
-                    <form id="loginForm" onsubmit="return false">
+                    <form id="uploadArticle" onsubmit="return false">
                         <!-- <div class="login-type">
 
                             <ul>
@@ -143,6 +143,10 @@
 
                         </div> -->
 
+						<div id="title">
+                            <label for="">Article Type:</label>
+                            <input type="text" class="form-control" placeholder="Enter Manuscript Type" name="ArticleType" id="ArticleType" required>
+                        </div>
 
                         <div id="title">
                             <label for="">Title:</label>
@@ -151,9 +155,10 @@
                         
                         <div id="authors">
                             <label for="">Author(s):</label>
-                            <input type="text" class="form-control" placeholder="Enter Author..." name="author" id="author" required>
+                            <input type="text" class="form-control" placeholder="Enter Author..." name="authors[]" id="authors" required>
 
-                            <span style="background-color: blueviolet; padding: 8px; border-radius: 12px; color: white; margin-top: -20px;" id="addAuthor"><i class="fa-fa-add"></i>Add</span>
+                            <span style="background-color: blueviolet; padding: 8px; border-radius: 12px; color: white; margin-top: -20px;" id="addAuthor">
+							<i class="fa-fa-add"></i>Add</span>
                         </div> <br>
 
                         <div id="abstract">
@@ -162,18 +167,18 @@
                         </div>
 
                         <div id="manuscript_cover">
-                            <label for="">Manuscript Cover(optional):</label>
-                            <input type="file" class="form-control" placeholder="" name="manuscriptCover" id="manuscriptCover" accept=".pdf, .doc" required>
+                            <label for="">Cover  Image(optional):</label>
+                            <input type="file" class="form-control" placeholder="" name="manuscriptCover" id="manuscriptCover" accept=".jpg, .png .jpeg">
                         </div>
 
                         <div id="manuscript_upload">
                             <label for="">Manuscript Upload:</label>
-                            <input type="file" class="form-control" placeholder="" name="manuscriptUpload" id="manuscriptUpload" accept=".pdf, .doc" required>
+                            <input type="file" class="form-control" placeholder="" name="manuscript_file" id="manuscript_file" accept=".pdf, .doc" required>
                         </div>
 
                         <div id="verify_code">
                             <label for="">Verification Code:</label>
-                            <input type="number" class="form-control" placeholder="type code..." name="verifyCode" id="veriyCode" required>
+                            <input type="number" class="form-control" placeholder="type code..." name="verifyCode" id="verifyCode" required>
                         </div>
 
                         <input type="submit" class="signin-btn" value="Submit">
@@ -387,8 +392,8 @@
                 newInput.type = 'text';
                 newInput.className = 'form-control';
                 newInput.placeholder = 'Enter Author...';
-                newInput.name = 'author';
-                newInput.required = true;
+                newInput.name = 'authors[]';
+                // newInput.required = true;
     
                 authorsContainer.insertBefore(newInput, addAuthorButton);
             });
@@ -423,6 +428,6 @@
 <script src="./front/public/js/vendor/wow.min.js"></script>
 <script src="./front/public/js/main.js"></script>
 <script type="module" src="./js/general.js"></script>
-
+<script type="module" src="./js/forms/createArticle.js"></script>
 </body>
 </html>

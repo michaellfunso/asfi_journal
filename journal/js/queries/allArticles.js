@@ -1,7 +1,7 @@
 import { EndPoint } from "../constants.js"
 import { formatTimestamp } from "../formatDate.js"
 import { getURL } from "../getURL.js"
-import { UpdateArticleList } from "../updateArticleList.js"
+import { UpdateTemporaryArticles } from "../temporaryArticleList.js"
 
 
 const search = document.getElementById("search")
@@ -11,7 +11,7 @@ let Limit
 
 const url = getURL()
 
-if(url == "/asfi_journal/public/" || url == "/asfi_journal/"){
+if(url == "/asfi_journal/journal/" || url == "/journal/"){
     Limit = 2
 }else{
     Limit = 10;
@@ -25,12 +25,13 @@ function ArticlePage(page){
     .then(data =>{
         if(data){
         const ArticleLst = data.articlesList
-        UpdateArticleList(ArticleLst)
+        UpdateTemporaryArticles(ArticleLst)
     }else{
         console.log("NO Data object")
     }
     })
 
+    if(searchArticle){
     searchArticle.addEventListener("click", function(){
         if(search.value !== "" && search.value !== " "){
             fetch(`${EndPoint}/allArticles.php?page=${page}&limit=${Limit}&k=${search.value}`,{
@@ -39,7 +40,7 @@ function ArticlePage(page){
             .then(data =>{
                 if(data){
                 const ArticleLst = data.articlesList
-                UpdateArticleList(ArticleLst)
+                UpdateTemporaryArticles(ArticleLst)
             }else{
                 console.log("NO Data object")
             }
@@ -51,15 +52,15 @@ function ArticlePage(page){
             .then(data =>{
                 if(data){
                 const ArticleLst = data.articlesList
-                UpdateArticleList(ArticleLst)
+                UpdateTemporaryArticles(ArticleLst)
             }else{
                 console.log("NO Data object")
             }
             })
         }
     })
- 
-    
+}
+
 }
 
 
