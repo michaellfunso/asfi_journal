@@ -122,7 +122,7 @@ if ($uploadOk == 0) {
     echo json_encode($response);
 // If everything is ok, try to upload file
 } else {
-    $stmtCode = $con->prepare("SELECT * FROM `verificationCodes` WHERE `code` =?");
+    $stmtCode = $con->prepare("SELECT * FROM `verificationcodes` WHERE `code` =?");
     $stmtCode->bind_param("s", $verifyCode);
     if ($stmtCode->execute()) {
         $resultCode = $stmtCode->get_result();
