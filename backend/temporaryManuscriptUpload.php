@@ -144,7 +144,7 @@ if ($uploadOk == 0) {
 
             $coverImageName = $newFileNameImage;
         }else{
-            $coverImageName = "cover.jpg"
+            $coverImageName = "cover.jpg";
         }
       
         try {
