@@ -1190,18 +1190,29 @@ body{
     display: flex;
     flex-direction: row;
     padding: 20px;
-
-    /* padding-top: 190px; */
     background-color: #f3f3f3;
     height: 100%;
-
 }
 
 .submission-header {
     border-right: 1px solid rgba(0, 0, 0, 0.37);
     width: 30%;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    margin-bottom: 20px;
 
 }
+
+ .avatar {
+        width: 60px;
+        height: 60px;
+        /* height: 120px; */
+        border-radius: 50%; /* To make it a circle */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 
 
 .submission-header h3 {
@@ -1313,9 +1324,67 @@ body{
 
 }
 
-.indi-editors .editor-info {
+.indi-editors .editor-info h4 {
     margin-left: 8px;
+    text-transform:capitalize;
 }
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    opacity: 0; /* Start with 0 opacity */
+    transition: opacity 0.3s ease; /* Add transition for opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    transform: translateY(-50px); /* Start with slightly shifted position */
+    opacity: 0; /* Start with 0 opacity */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Add transitions for transform and opacity */
+}
+
+/* Show the modal */
+.modal.show {
+    display: block;
+    opacity: 1; /* Change opacity to 1 */
+}
+
+/* Show the modal content */
+.modal.show .modal-content {
+    transform: translateY(0); /* Move to original position */
+    opacity: 1; /* Change opacity to 1 */
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 
 
 .submit-body form {
@@ -1334,7 +1403,7 @@ body{
 
 .submit-body h4 {
     font-size: 20px;
-    margin-bottom: -10px;
+    margin-bottom: -2px;
     margin-top: 0;
     text-transform: uppercase;
 }
@@ -1345,6 +1414,8 @@ body{
 
 .submit-body ul {
     margin-left: 20px;
+    /* margin-top: -30px; */
+    margin-bottom: 30px;
 }
 
 .submit-body ul li {
@@ -1653,6 +1724,7 @@ form div .add-author-btn {
 
 
 /* Mobile styles */
+
 @media  screen and (max-width: 570px) {
     .submission-header h3, .submit-nav li {
           font-size: 12px;
@@ -1700,7 +1772,7 @@ form div .add-author-btn {
         width: 49%;
         background-color: white;
         margin-left: -800px;
-        margin-top: 40px;
+        margin-top: 540px;
         transition: margin-left 0.5s ease;
     }
     #showNavButton {
@@ -1717,6 +1789,13 @@ form div .add-author-btn {
     }
 }
 
+@media screen and (max-width: 420px) {
+    .submission-header {
+        margin-top: 420px;
+        transition: margin-left 0.5s ease;
+    }
+    
+}
 
 
 @media screen and (max-width: 840px) {
