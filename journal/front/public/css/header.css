@@ -886,6 +886,28 @@
     }
 }
 
+@media only screen and (min-width: 993px) and (max-width: 1199px) {
+    /* Add your styles here */
+    /* For example: */
+    .primary-header-inner{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        width: max-content;
+        margin-left: -40px;
+    }
+    .primary-header-inner .header-right {
+        display: flex;
+        align-items: center;
+        line-height: 80px;
+        margin-left: 0;
+    }
+    .header-right a.header-btn {
+        margin-left: 0;
+    }
+}
+
 .map-wrapper{
 	width: 100%;
 	height: 100%;
