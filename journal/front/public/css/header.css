@@ -360,7 +360,7 @@
     margin-right: 0;
 }
 .header-right a.header-btn{
-    display: inline-block;
+    display: none;
     background: linear-gradient(to right, #80078b, #310357);
     color: #FFF;
     font-family: 'Work Sans', sans-serif;
@@ -584,7 +584,7 @@
         display: none;
     }
     .header-menu-wrap .dl-menu .header-right a.header-btn {
-        display: inline-block;
+        display: none;
         margin: 0 auto;
     }
     .header-menu-wrap .dl-menu .header-right {
