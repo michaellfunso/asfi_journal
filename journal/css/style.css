@@ -1199,7 +1199,7 @@ body{
     width: 30%;
     position: sticky;
     top: 0;
-    height: 100vh;
+    /* height: 100%; */
     margin-bottom: 20px;
 
 }
@@ -1314,6 +1314,7 @@ body{
     margin-top: 25px;
     border-radius: 12px;
     width: 300px;
+    cursor: pointer;
     box-shadow: 2px 3px 19px #00000069;
 }
 
@@ -1716,9 +1717,25 @@ form div .add-author-btn {
 }
 .about-main-section .table-fees tr,th,td {
     border: 1px solid black;
-    padding: 12px;
-    
+    padding: 12px;    
 }
+
+table {
+    border: 2px solid #56075c;
+    border-radius: 30%;
+}
+
+table th {
+    background-color: #56075c;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #56075c8f;
+    color: white;
+}
+
+
 
 
 
