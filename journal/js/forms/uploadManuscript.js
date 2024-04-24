@@ -1,4 +1,4 @@
-import { EndPoint } from "../constants.js";
+import { EndPoint, domainName, parentDirectoryName } from "../constants.js";
 
 const uploadForm = document.getElementById("uploadForm");
 
@@ -15,7 +15,7 @@ uploadForm.addEventListener("submit", function(e) {
         console.log(data); // Log server response
         if(data.status === "success"){
             alert("Upload Successful")
-            window.location.href = "./issues.html"
+            window.location.href = `${domainName}/issues.html`
         }else if(data.status === "error"){
             alert(data.message)
         }else{

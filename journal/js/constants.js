@@ -7,6 +7,8 @@ const segments = pathname.split('/');
 // Get the parent directory name (second to last segment)
 // const parentDirectoryName = segments[segments.length - 1];
 const parentDIRName = segments[1];
+const domainName = window.location.origin
+
 let parentDirectoryName, EndPoint
 if(parentDIRName === "journal"){
     parentDirectoryName = parentDIRName
@@ -27,5 +29,6 @@ if(parentDIRName === "journal"){
 console.log("UPLOAD PORTAL")
 export { 
     EndPoint,
-    parentDirectoryName
+    parentDirectoryName, 
+    domainName
 };
