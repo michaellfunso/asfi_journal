@@ -12,7 +12,7 @@ const domainName = window.location.origin
 let parentDirectoryName, EndPoint
 if(parentDIRName === "journal"){
     parentDirectoryName = parentDIRName
-    EndPoint = 'https://weperch.live/backend'
+    EndPoint = 'https://asfirj.org/backend'
    
 
 }else{
