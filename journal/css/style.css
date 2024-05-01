@@ -1830,6 +1830,7 @@ table tr:nth-child(even) {
         flex-direction: column;
         justify-content: space-evenly;
     }
+    
     .article-bottom {
         display: flex; 
         flex-direction: column;
