@@ -251,13 +251,57 @@ button{
     top: 0;left: 0
 }
 
-.site-preloader-wrap .spinner {
+.site-preloader-wrap .spinner{
     background-color: #310357;
     position: absolute;
     left: 50%;
     top: 50%;
     margin-left: -20px;
     margin-top: -20px;
+}
+/* ======= Preloader Styles ======= */
+/* .loaded .site-preloader-wrap {
+    opacity: 1;
+    visibility: hidden;
+} */
+
+#formNotSubmitted .overlayX{
+    opacity: 0;
+    visibility: hidden;
+}
+.overlayX {
+    position: fixed;
+    z-index: 2492;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    backdrop-filter: blur(4px);
+    /* background-color: white;
+    opacity: 0.7; */
+    top: 0;left: 0
+}
+
+.overlayX div:nth-child(2){
+    margin-top:50px;
+}
+ .overlayX .spinn {
+    background-color: #310357;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -20px;
+    margin-top: -20px;
+}
+.spinn {
+    width: 40px;
+    height: 40px;
+  
+    border-radius: 100%;
+    -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+    animation: sk-scaleout 1.0s infinite ease-in-out;
 }
 
 .spinner {

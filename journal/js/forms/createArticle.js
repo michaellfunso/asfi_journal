@@ -3,15 +3,13 @@ import { EndPoint } from "../constants.js";
 const uploadForm = document.getElementById("uploadArticle");
 const inputFields = document.querySelectorAll("input")
 const submitButton = document.getElementById("submitButton")
+const body = document.querySelector("body")
+
 
 uploadForm.addEventListener("submit", function(e) {
     e.preventDefault();
     const formData = new FormData(uploadForm);
-    // inputFields.forEach(inputField => {
-    //     if(inputField.value && inputField.value !== "" && inputField.vallue !== " "){
-    //         inputField.setAttribute("readonly", "true")
-    //     }
-    // });
+    body.removeAttribute("id")
     fetch(`${EndPoint}/temporaryManuscriptUpload.php`, {
         method: 'POST',
         body: formData
@@ -24,13 +22,11 @@ uploadForm.addEventListener("submit", function(e) {
             window.location.href = "../issues.html"
         }else if(data.status === "error"){
             alert(data.message)
+            body.setAttribute("id", "formNotSubmitted")
         }else{
             alert("Internal Server Error")
+            body.setAttribute("id", "formNotSubmitted")
         }
-        submitButton.removeAttribute("disabled")
-        inputFields.forEach(field =>{
-            field.removeAttribute("readonly")
-        })
 
     })
     .catch(error => {

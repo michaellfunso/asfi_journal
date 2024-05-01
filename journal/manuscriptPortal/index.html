@@ -63,12 +63,19 @@
 	<script src="../front/public/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 
-<body class="header-1 business">
+<body class="header-1 business" id="formNotSubmitted">
 
 
 	<div class="site-preloader-wrap">
 		<div class="spinner"></div>
 	</div><!-- /.site-preloader-wrap -->
+
+        <div class="overlayX" >    
+            <div class="spinn"></div>
+           <div>Uploading Documents...please wait...</div>
+        </div>
+    
+   
 
 	<header class="header header-one">
 		<div class="primary-header-one primary-header">
@@ -138,8 +145,11 @@
                 </ul>
             </div>
             <div class="submit-container">
-                <div class="submit-body">
-                    <form id="uploadArticle" onsubmit="return false">
+              
+                <div class="submit-body" >
+             
+                    <form id="uploadArticle" onsubmit="return false" >
+                
                         <!-- <div class="login-type">
 
                             <ul>
