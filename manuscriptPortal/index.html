@@ -172,7 +172,22 @@
                         
                         <div id="authors">
                             <label for="">Author(s):</label>
-                            <input type="text" class="form-control" placeholder="Enter Author..." name="authors[]" id="authors" required>
+                            <div style="display: flex; justify-content: space-between;">
+                                <select id="author_information_prefix" name="authors_prefix[]" name="authors_prefix[]" class="form-control">
+                                    <option value="">Select Title</option>
+                                    <option value="Prof">Prof.</option>
+                                    <option value="Dr">Dr.</option>
+                                    <option value="Mr">Mr.</option>
+                                    <option value="Mrs">Mrs.</option>
+                                    <option value="Ms">Ms.</option>
+                                </select>
+                                <input type="text" class="form-control" placeholder="First Name..." name="authors_first_name[]">
+                                <input type="text" class="form-control" placeholder="Middle Name..." name="authors_middle_name[]">
+                                <input type="text" class="form-control" placeholder="Last Name..." name="authors_last_name[]">
+                                <!-- <input type="text" class="form-control" placeholder="Enter Author..." name="authors[]" id="authors" required> -->
+                                <input type="email" class="form-control" placeholder="Email..." name="authors_email[]">
+                                <input type="text" class="form-control" placeholder="Affiliation..." name="authors_institution[]">
+                            </div>
 
                             <span style="background-color: blueviolet; padding: 8px; border-radius: 12px; color: white; margin-top: -20px;" id="addAuthor">
 							<i class="fa-fa-add"></i>Add</span>
@@ -180,7 +195,17 @@
 
                         <div id="abstract">
                             <label for="">Abstract:</label>
-                            <textarea class="form-control" name="abstract" id="abstract" placeholder="Enter manuscript abstract..." cols="30" rows="10" required></textarea>
+                            <textarea class="form-control" name="abstract" id="abstract" placeholder="Enter Manuscript Abstract..." cols="30" rows="10" required></textarea>
+                        </div>
+
+                        <div id="methods">
+                            <label for="">Methods:</label>
+                            <textarea class="form-control" name="abstract" id="abstract" placeholder="Enter Methods..." cols="30" rows="10" required></textarea>
+                        </div>
+
+                        <div id="conclusion">
+                            <label for="">Conclusion:</label>
+                            <textarea class="form-control" name="abstract" id="abstract" placeholder="Enter Conclusion..." cols="30" rows="10" required></textarea>
                         </div>
 
                         <div id="manuscript_cover">
@@ -423,12 +448,24 @@
             const authorsContainer = document.getElementById('authors');
     
             addAuthorButton.addEventListener('click', function() {
-                const newInput = document.createElement('input');
-                newInput.type = 'text';
-                newInput.className = 'form-control';
-                newInput.placeholder = 'Enter Author...';
-                newInput.name = 'authors[]';
-                // newInput.required = true;
+                const newInput = document.createElement('div');
+    newInput.innerHTML = `
+    <div style="display: flex; justify-content: space-between;">
+                                <select id="author_information_prefix" name="authors_prefix[]" name="authors_prefix[]" class="form-control">
+                                    <option value="">Select Title</option>
+                                    <option value="Prof">Prof.</option>
+                                    <option value="Dr">Dr.</option>
+                                    <option value="Mr">Mr.</option>
+                                    <option value="Mrs">Mrs.</option>
+                                    <option value="Ms">Ms.</option>
+                                </select>
+                                <input type="text" class="form-control" placeholder="First Name..." name="authors_first_name[]">
+                                <input type="text" class="form-control" placeholder="Middle Name..." name="authors_middle_name[]">
+                                <input type="text" class="form-control" placeholder="Last Name..." name="authors_last_name[]">
+                                <input type="email" class="form-control" placeholder="Email..." name="authors_email[]">
+                                <input type="text" class="form-control" placeholder="Affiliation..." name="authors_institution[]">
+                            </div>
+    `;
     
                 authorsContainer.insertBefore(newInput, addAuthorButton);
             });
@@ -462,7 +499,7 @@
 <script src="../front/public/js/vendor/jquery.nice-select.min.js"></script>
 <script src="../front/public/js/vendor/wow.min.js"></script>
 <script src="../front/public/js/main.js"></script>
-<!-- <script type="module" src="../js/general.js"></script> -->
+<script type="module" src="../js/general.js"></script>
 <script type="module" src="../js/forms/createArticle.js"></script>
 </body>
 </html>

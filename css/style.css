@@ -1467,9 +1467,9 @@ body{
     margin: 0 8px 0 8px;
 }
 
-.submit-body form div {
+/* .submit-body form div {
     margin: 20px 60px 2px 60px;
-}
+} */
 
 .submit-body form .form-control {
     width: 100%;
