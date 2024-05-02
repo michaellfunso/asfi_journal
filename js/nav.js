@@ -12,36 +12,36 @@ let activeContact
 
 // CHECK FOR ACTIVE PAGES 
 function getURL(){
-    return window.location.pathname
+    return window.location.href
 }
 
 const url = getURL()
 
-if(url === `/${parentDirectoryName}/issues.html`){
+if(url === `${parentDirectoryName}/issues.html`){
     activeIssues = 'active'
 }
 
-if(url === `/${parentDirectoryName}/about.html`){
+if(url === `${parentDirectoryName}/about.html`){
     activeAbout = 'active'
 }
 
-if(url === `/${parentDirectoryName}/editors.html`){
+if(url === `${parentDirectoryName}/editors.html`){
     activeEditors = 'active'
 }
 
-if(url === `/${parentDirectoryName}/authors.html`){
+if(url === `${parentDirectoryName}/authors.html`){
     activeAuthors = 'active'
 }
 
-if(url === `/${parentDirectoryName}/reviewers.html`){
+if(url === `${parentDirectoryName}/reviewers.html`){
     activeReviewers = 'active'
 }
 
-if(url === `/${parentDirectoryName}/events.html`){
+if(url === `${parentDirectoryName}/events.html`){
     activeEvents = 'active'
 }
 
-if(url === `/${parentDirectoryName}/contact.html`){
+if(url === `${parentDirectoryName}/contact.html`){
     activeContact = 'active'
 }
 
@@ -49,19 +49,19 @@ const NavigationContainer = document.getElementById("navigationContainer")
 
 const NavigationLinks = `  <div class="header-container" id="header">
 <div class="logo">
-    <a href=/${parentDirectoryName}/index.html><img src="/${parentDirectoryName}/images/logo.png" alt=""></a>
+    <a href=${parentDirectoryName}/index.html><img src="${parentDirectoryName}/images/logo.png" alt=""></a>
 
 </div>
 <div class="nav">
-    <a class=${active} href=/${parentDirectoryName}/issues.html>Browse Issues</a>
-    <a class=${activeAbout} href=/${parentDirectoryName}/about.html>About</a>
-    <a class=${active} href=/${parentDirectoryName}/editors.html>Meet The Editors</a>
-    <a class=${active} href=/${parentDirectoryName}/authors.html>For Authors</a>
-    <a class=${active} href=/${parentDirectoryName}/reviewers.html>For Reviewers</a>
+    <a class=${active} href=${parentDirectoryName}/issues.html>Browse Issues</a>
+    <a class=${activeAbout} href=${parentDirectoryName}/about.html>About</a>
+    <a class=${active} href=${parentDirectoryName}/editors.html>Meet The Editors</a>
+    <a class=${active} href=${parentDirectoryName}/authors.html>For Authors</a>
+    <a class=${active} href=${parentDirectoryName}/reviewers.html>For Reviewers</a>
 
-    <a class=${active} href=/${parentDirectoryName}/events.html>Events</a>
+    <a class=${active} href=${parentDirectoryName}/events.html>Events</a>
 
-    <a class=${active} href=/${parentDirectoryName}/contact.html>Contact</a>
+    <a class=${active} href=${parentDirectoryName}/contact.html>Contact</a>
 </div>
 
 
@@ -87,15 +87,15 @@ const NavigationLinks = `  <div class="header-container" id="header">
 
 <div class="mobile-menu-container">
     <div class="mobile-menu">
-    <a class=${active} href=/${parentDirectoryName}/issues.html>Browse Issues</a>
-    <a class=${active} href=/${parentDirectoryName}/about.html>About</a>
-    <a class=${active} href=/${parentDirectoryName}/editors.html>Meet The Editors</a>
-    <a class=${active} href=/${parentDirectoryName}/authors.html>For Authors</a>
-    <a class=${active} href=/${parentDirectoryName}/reviewers.html>For Reviewers</a>
+    <a class=${active} href=${parentDirectoryName}/issues.html>Browse Issues</a>
+    <a class=${active} href=${parentDirectoryName}/about.html>About</a>
+    <a class=${active} href=${parentDirectoryName}/editors.html>Meet The Editors</a>
+    <a class=${active} href=${parentDirectoryName}/authors.html>For Authors</a>
+    <a class=${active} href=${parentDirectoryName}/reviewers.html>For Reviewers</a>
 
-    <a class=${active} href=/${parentDirectoryName}/events.html>Events</a>
+    <a class=${active} href=${parentDirectoryName}/events.html>Events</a>
 
-    <a class=${active} href=/${parentDirectoryName}/contact.html>Contact</a>
+    <a class=${active} href=${parentDirectoryName}/contact.html>Contact</a>
     </div>
     <div class="mobile-search">
         <div class="submit-manuscript">

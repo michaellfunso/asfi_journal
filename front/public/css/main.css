@@ -2584,7 +2584,7 @@ a,a:hover, img, .form-control,  .form-control:hover, button{
     Page Header
 =======================================================*/
 .page-header{
-    background-image: url(/journal/assets/images/asfischolar.jpg);
+    background-image: url(/assets/images/asfischolar.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;

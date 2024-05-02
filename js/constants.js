@@ -8,18 +8,15 @@ const segments = pathname.split('/');
 // const parentDirectoryName = segments[segments.length - 1];
 const parentDIRName = segments[1];
 const domainName = window.location.origin
-
+console.log(parentDIRName)
 let parentDirectoryName, EndPoint
-if(parentDIRName === "journal"){
-    parentDirectoryName = parentDIRName
-    EndPoint = 'https://asfirj.org/backend'
-   
-
+if(parentDIRName === "asfi_journal"){   
+    parentDirectoryName = `/asfi_journal/${segments[2]}`
+    EndPoint = `/asfi_journal/backend`;
+ 
 }else{
-    parentDirectoryName = `asfi_journal/${segments[2]}`
-   EndPoint = `/asfi_journal/backend`;
-
-   
+    parentDirectoryName = "https://asfirj.org"
+    EndPoint = '/backend'   
 }
 
 // console.log(parentDirectoryName)
