@@ -4,8 +4,8 @@ include "db.php";
 include "./CORS-setup.php";
 session_start();
 
-$targetDir = "../journal/useruploads/manuscripts/";
-$targetDirImage = "../journal/useruploads/article_images/";
+$targetDir = "../useruploads/manuscripts/";
+$targetDirImage = "../useruploads/article_images/";
 // Get the filename and append it to the target directory
 
 $manuscriptFile = basename($_FILES["manuscript_file"]["name"]);

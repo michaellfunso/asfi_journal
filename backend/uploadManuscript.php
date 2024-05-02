@@ -4,12 +4,12 @@ include "db.php";
 include "./CORS-setup.php";
 session_start();
 
-$targetDir = "../public/useruploads/manuscripts/";
-$figuresTargetDir = "../public/useruploads/figures/";
-$coverLetterDir = "../public/useruploads/cover_letters/";
-$tablesDir = "../public/useruploads/tables/";
-$graphicAbstractDir = "../public/useruploads/graphic_abstracts/";
-$supplementaryMaterialsDir = "../public/useruploads/supplementary_materials/";
+$targetDir = "../useruploads/manuscripts/";
+$figuresTargetDir = "../useruploads/figures/";
+$coverLetterDir = "../useruploads/cover_letters/";
+$tablesDir = "../useruploads/tables/";
+$graphicAbstractDir = "../useruploads/graphic_abstracts/";
+$supplementaryMaterialsDir = "../useruploads/supplementary_materials/";
 
 
 // Get the filename and append it to the target directory

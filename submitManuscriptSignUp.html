@@ -76,7 +76,7 @@
 				<div class="primary-header-inner">
 					<div class="header-logo">
 						<a href="index.html">
-							<img src="/journal/assets/images/logoIcon/logo.png" alt="Logo" /></a>
+							<img src="/assets/images/logoIcon/logo.png" alt="Logo" /></a>
 					</div><!-- /.header-logo -->
 
 					<div class="header-menu-wrap">
@@ -124,50 +124,91 @@
 			</div>
 		</div><!-- /.primary-header-one -->
 	</header><!-- /.header-one -->
-
-    
     <main>
 
         <div class="main-submit-container">
             <div class="submission-header">
                 <h3>Submission Portal</h3>
                 <ul class="submit-nav">
-                    <a href="submitManuscriptSignUp.html"><li>SignUp</li></a>
-                    <a href=""><li class="active">SignIn</li></a>
+                    <a href=""><li class="active">SignUp</li></a>
+                    <a href="submitManuscriptSignIn.html"><li>SignIn</li></a>
                 </ul>
             </div>
             <div class="submit-container">
                 <div class="submit-body">
-                    <form id="loginForm" onsubmit="return false">
-                        <!-- <div class="login-type">
+                    <form action="" id="registerForm">
+                        <div>
+                            <label for="accountType">Select Account Type:</label>
+                            <select class="form-control" name="accountType" id="accountType">
+                                <option value="author_account">Author</option>
+                                <option value="editor_account">Editor</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="prefix">Prefix:</label>
+                            <select name="prefix" id="prefix" class="form-control" required>
+                                <option value="">Select Preferred Prefix</option>
+                                <option value="Prof.">Prof.</option>
+                                <option value="Dr.">Dr.</option>
+                                <option value="Mr.">Mr.</option>
+                                <option value="Mrs.">Mrs.</option>
+                                <option value="Miss">Miss</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="">First Name:</label>
+                            <input type="text" class="form-control" placeholder="First Name..." name="first_name" id="first_name">
+                        </div>
 
-                            <ul>
-                                <a href=""><li class="login-active">Author</li></a>|
-                                <a href=""><li>Editor</li></a>|
-                                <a href=""><li>Reviewer</li></a>
-                            </ul>
-
-                        </div> -->
-
+                        <div>
+                            <label for="">Last Name:</label>
+                            <input type="text" class="form-control" placeholder="Last Name..." name="last_name" id="last_name">
+                        </div>
 
                         <div>
                             <label for="">User Name:</label>
-                            <input type="text" class="form-control" placeholder="Enter UserName or Email..." name="email" id="email" required>
+                            <input type="text" class="form-control" placeholder="User Name..." name="username" id="username">
                         </div>
-                        
+
                         <div>
-                            <label for="">Password:</label>
-                            <input type="password" class="form-control" placeholder="Enter Password..." name="pass" id="pass" required>
+                            <label for="">Email</label>
+                            <input type="text" class="form-control" placeholder="Email..." name="email" id="email">
+                        </div>
+                        
+                        <!-- <div>
+                            <label for="">Highest Degree:</label>
+                            <input type="text" class="form-control" placeholder="Highest Degree...">
                         </div>
 
-                        <input type="submit" class="signin-btn" value="Sign In">
+                        <div>
+                            <label for="">Institution</label>
+                            <input type="text" class="form-control" placeholder="Institution...">
+                        </div>
 
-                        <p style="margin: auto;">Forgotten Password? Cick <a href="./forms/passwwordResetForm.html" style="color: blueviolet;">here</a> to retrieve.</p>
+                        <div>
+                            <label for="">Field of Research</label>
+                            <input type="text" class="form-control" placeholder="Field of research...">
+                        </div> -->
 
+                        <div>
+                            <p>Are you available to review for ASFIRJ? (optional)</p>
+                            <div class="review-option">
+                                <span>Yes</span> <input type="radio" id="reviewYes" name="review" value="yes">
+                                <span>No</span> <input type="radio" id="reviewNo" name="review" value="no">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="">Create Password:</label>
+                            <input type="password" class="form-control" placeholder="Create Password..." name="password" id="password">
+                        </div>
+                        <div>
+                            <label for="">Confirm Password:</label>
+                            <input type="password" class="form-control" placeholder="Confirm Password..." name="password2" id="password2">
+                        </div>
                         
                         
-                        
-                        
+                        <input type="submit" class="signin-btn" value="Sign Up">
                     </form>
                 </div>
             </div>
@@ -231,7 +272,7 @@
             </div>
         </div> -->
     </main>
-         <!-- Main js -->
+          <!-- Main js -->
     <script src="./assets/templates/metro_hyip/js/main.js"></script>
 
         
@@ -287,7 +328,7 @@
 				<div class="footer-widget link-widget">
 					<h3>Useful Links</h3>
 					<ul class="widget-links">
-						<li><i class="fas fa-square-full"></i><a href="./events.html" class='menu-item'>Events</a></li>
+                        <li><i class="fas fa-square-full"></i><a href="./events.html" class='menu-item'>Events</a></li>
 						<li><i class="fas fa-square-full"></i><a href="./terms.html">Terms &amp; Conditions</a></li>
 						<li><i class="fas fa-square-full"></i><a href="./contact.html">Contact Support</a></li>
 					</ul>
@@ -389,10 +430,6 @@
 <script src="./front/public/js/vendor/wow.min.js"></script>
 <script src="./front/public/js/main.js"></script>
 <script type="module" src="./js/general.js"></script>
-
-<script>
-    window.location.href="./manuscriptPortal.html"
-</script>
 
 </body>
 </html>
