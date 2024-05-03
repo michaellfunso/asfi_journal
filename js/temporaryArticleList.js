@@ -26,7 +26,7 @@ function UpdateTemporaryArticles(ArticleLst){
                     let AuthorsName = ""
 
                     AllAuthors.forEach(author =>{
-                        const AuthorsFullname = `${author.authors_fullname}, `
+                        const AuthorsFullname = `${author.authors_prefix} ${author.authors_firstname} ${author.authors_middlename} ${author.authors_lastname}, `
                         AuthorsName += AuthorsFullname
                     })
           
@@ -39,7 +39,7 @@ function UpdateTemporaryArticles(ArticleLst){
                     <div class='content article-content'>
                         <div class="article-content1">
                         <p class="article-type">${ArticleType}</p>
-                        <a href="./issues/preview.html?a=${ArticleId}" class="article-title" style="color: rgba(24, 24, 24, 0.918);">${ArticleTitle}</a>
+                        <a href="./content?sid=${ArticleId}&title=${ArticleTitle}" class="article-title" style="color: rgba(24, 24, 24, 0.918);">${ArticleTitle}</a>
                         <p class="article-authors">${AuthorsName}</p>
                         </div>
                         <div class="article-content2">

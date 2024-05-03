@@ -61,7 +61,7 @@
 	<link rel="stylesheet" href="../front/public/css/main.css">
 	<link rel="stylesheet" href="../front/public/css/responsive.css">
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../assets/quill/css/quill.snow.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../assets/quill/css/quill.snow.css"> -->
 	<script src="../front/public/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     
 </head>
@@ -151,17 +151,17 @@
               
                 <div class="submit-body" >
              
-                    <form id="uploadArticle" onsubmit="return false" >
+                    <form id="uploadArticle" onsubmit="return false" enctype="multipart/form-data">
                 
                         <!-- <div class="login-type">
-
+         
                             <ul>
                                 <a href=""><li class="login-active">Author</li></a>|
                                 <a href=""><li>Editor</li></a>|
                                 <a href=""><li>Reviewer</li></a>
                             </ul>
 
-                        </div> -->
+                        </div>  -->
 
 						<div id="title">
                             <label for="">Article Type:</label>
@@ -172,15 +172,18 @@
                             </select>
                         </div>
 
-                        <div id="title">
+                        <div >
                             <label for="">Title:</label>
-                            <input type="text" class="form-control" placeholder="Enter Manuscript Title..." name="title" id="" required>
+                            <input type="text" class="form-control" placeholder="Enter Manuscript Title..." name="title" id="title" required>
                         </div>
                         
-                        <div id="authors">
+                        <div>
                             <label for="">Author(s):</label>
-                            <div style="display: flex; justify-content: space-between;">
-                                <select id="author_information_prefix" name="authors_prefix[]" name="authors_prefix[]" class="form-control">
+                        </div>
+                        <div id="authors">
+
+                            <div class="inputContainers">
+                                <select id="author_prefix" name="authors_prefix[]" class="inputFields">
                                     <option value="">Select Title</option>
                                     <option value="Prof">Prof.</option>
                                     <option value="Dr">Dr.</option>
@@ -188,18 +191,22 @@
                                     <option value="Mrs">Mrs.</option>
                                     <option value="Ms">Ms.</option>
                                 </select>
-                                <input type="text" class="form-control" placeholder="First Name..." name="authors_first_name[]">
-                                <input type="text" class="form-control" placeholder="Middle Name..." name="authors_middle_name[]">
-                                <input type="text" class="form-control" placeholder="Last Name..." name="authors_last_name[]">
+                                <input type="text" class="inputFields" placeholder="First Name..." name="authors_first_name[]">
+                                <input type="text" class="inputFields" placeholder="Middle Name..." name="authors_middle_name[]">
+                                <input type="text" class="inputFields" placeholder="Last Name..." name="authors_last_name[]">
                                 <!-- <input type="text" class="form-control" placeholder="Enter Author..." name="authors[]" id="authors" required> -->
-                                <input type="email" class="form-control" placeholder="Email..." name="authors_email[]">
-                                <input type="text" class="form-control" placeholder="Affiliation..." name="authors_institution[]">
+                                <input type="email" class="inputFields" placeholder="Email..." name="authors_email[]">
+                                <input type="text" class="inputFields" placeholder="Affiliation..." name="authors_institution[]">
                             </div>
+                        </div>
 
-                            <span style="background-color: blueviolet; padding: 8px; border-radius: 12px; color: white; margin-top: -20px;" id="addAuthor">
-							<i class="fa-fa-add"></i>Add</span>
-                        </div> <br>
-
+                        <!-- New Input fields button Container  -->
+                        <div>
+                            <br>
+                            <span style="background-color: blueviolet; cursor:pointer; padding: 8px; border-radius: 12px; color: white; margin-top: -20px;" id="addAuthor">
+                            <i class="fa-fa-add"></i>Add</span>
+                        </div>
+                  <br>
                         <!-- Course description -->
 									<div class="col-12">
 										<label for="">Manuscript_Contents</label>
@@ -207,30 +214,25 @@
 
 										<!-- Main toolbar -->
 										<div class="bg-body border rounded-bottom h-400px overflow-hidden" id="quilleditor" style="height: 500px;">
-                                                <textarea class="form-control" name="abstract" id="abstract" placeholder="Enter Manuscript Abstract..." cols="30" rows="10" required></textarea>
 										</div>
 									</div> <br>
 
-                        <div id="manuscript_cover">
+                        <div>
                             <label for="">Cover  Image(optional):</label>
                             <input type="file" class="form-control" placeholder="" name="manuscriptCover" id="manuscriptCover" accept=".jpg, .png .jpeg">
                         </div>
 
-                        <div id="manuscript_upload">
+                        <div >
                             <label for="">Manuscript Upload:</label>
                             <input type="file" class="form-control" placeholder="" name="manuscript_file" id="manuscript_file" accept=".pdf, .doc" required>
                         </div>
 
-                        <div id="verify_code">
+                        <div >
                             <label for="">Verification Code:</label>
                             <input type="password" class="form-control" placeholder="type code..." name="verifyCode" id="verifyCode" required>
                         </div>
 
                         <input type="submit" class="signin-btn" value="Submit" id="submitButton">
-
-                        
-                        
-                        
                         
                     </form>
                 </div>
@@ -239,7 +241,9 @@
                 <h4 class="sub-head">PUBLISH YOUR RESEARCH</h4>
                 <div class="submit-research">
                     <div class="sub-manuscript">
-                        <a href=""><button type="button">Submit Manuscript</button></a>
+                        <a href="">
+                            <button type="button">Submit Manuscript</button>
+                        </a>
                     </div>
                 </div>
 
@@ -445,35 +449,7 @@
 	</script>
 	<!--End of Tawk.to Script-->
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const addAuthorButton = document.getElementById('addAuthor');
-            const authorsContainer = document.getElementById('authors');
-    
-            addAuthorButton.addEventListener('click', function() {
-                const newInput = document.createElement('div');
-    newInput.innerHTML = `
-    <div style="display: flex; justify-content: space-between;">
-                                <select id="author_information_prefix" name="authors_prefix[]" name="authors_prefix[]" class="form-control">
-                                    <option value="">Select Title</option>
-                                    <option value="Prof">Prof.</option>
-                                    <option value="Dr">Dr.</option>
-                                    <option value="Mr">Mr.</option>
-                                    <option value="Mrs">Mrs.</option>
-                                    <option value="Ms">Ms.</option>
-                                </select>
-                                <input type="text" class="form-control" placeholder="First Name..." name="authors_first_name[]">
-                                <input type="text" class="form-control" placeholder="Middle Name..." name="authors_middle_name[]">
-                                <input type="text" class="form-control" placeholder="Last Name..." name="authors_last_name[]">
-                                <input type="email" class="form-control" placeholder="Email..." name="authors_email[]">
-                                <input type="text" class="form-control" placeholder="Affiliation..." name="authors_institution[]">
-                            </div>
-    `;
-    
-                authorsContainer.insertBefore(newInput, addAuthorButton);
-            });
-        });
-    </script>
+    <script src="../js/forms/newAuthorsField.js">    </script>
 
 
 
@@ -499,35 +475,14 @@
 <script src="../front/public/js/vendor/venobox.min.js"></script>
 <script src="../front/public/js/vendor/jquery.hoverdir.js"></script>
 <script src="../front/public/js/vendor/splitting.min.js"></script>
-<script src="../front/public/js/vendor/jquery.nice-select.min.js"></script>
 <script src="../front/public/js/vendor/wow.min.js"></script>
-<script src="../front/public/js/main.js"></script>
+<script src="../front/public/js/portalMain.js"></script>
 <script type="module" src="../js/general.js"></script>
-<script type="module" src="../js/forms/createArticle.js"></script>
-<script src="../assets/quill/js/quill.min.js"></script>
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-<script>
-    const Size = Quill.import('attributors/style/size');
-const Color = Quill.import('attributors/style/color');
-Quill.register(Size, true);  // Allow arbitrary size values
-Quill.register(Color, true);  // Allow arbitrary color values (optional)
 
-var toolbarOptions = [
-    [{ 'header': [1, 2, false] }],
-    ['bold', 'italic', 'underline', 'strike'],        // existing options  // add size picker
-    [{ 'color': [] }],                             // add color picker (optional)
-    ['clean']
-];
-	document.addEventListener("DOMContentLoaded", function () {
-	  // Initialize the Quill editor
-	  var quill = new Quill("#quilleditor", {
-		theme: "snow", // You can change the theme if needed
-		modules: {
-            toolbar: toolbarOptions,
-		//   toolbar: "#quilltoolbar",
-		},
-	  });
-	});
-</script>
+<script type="module" src="../js/forms/quill.js"></script>
+<script type="module" src="../js/forms/createArticle.js"></script>
+
+
 </body>
 </html>

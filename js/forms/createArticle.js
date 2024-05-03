@@ -1,15 +1,21 @@
 import { EndPoint } from "../constants.js";
+import { quill } from "./quill.js";
 
 const uploadForm = document.getElementById("uploadArticle");
-const inputFields = document.querySelectorAll("input")
-const submitButton = document.getElementById("submitButton")
 const body = document.querySelector("body")
 
 
 uploadForm.addEventListener("submit", function(e) {
     e.preventDefault();
     const formData = new FormData(uploadForm);
-    body.removeAttribute("id")
+    formData.append('article_content', JSON.stringify(quill.getContents().ops));
+
+
+
+    // body.removeAttribute("id")
+    formData.append('article_content', JSON.stringify(quill.getContents().ops));
+    console.log(JSON.stringify(quill.getContents().ops))
+
     fetch(`${EndPoint}/temporaryManuscriptUpload.php`, {
         method: 'POST',
         body: formData

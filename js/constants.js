@@ -11,7 +11,7 @@ const domainName = window.location.origin
 console.log(parentDIRName)
 let parentDirectoryName, EndPoint
 if(parentDIRName === "asfi_journal"){   
-    parentDirectoryName = `/asfi_journal/${segments[2]}`
+    parentDirectoryName = `/asfi_journal/`
     EndPoint = `/asfi_journal/backend`;
  
 }else{

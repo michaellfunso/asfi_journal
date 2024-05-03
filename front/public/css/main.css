@@ -435,6 +435,7 @@ button{
 }
 
 /* ======= Nice Select ======= */
+
 .nice-select{
     width: 100%;
 }
@@ -460,6 +461,7 @@ button{
     color: #94A7AE;
     min-height: 45px;
     line-height: 45px;
+
 }
 .nice-select .option:hover,
 .nice-select .option.focus,
@@ -3457,4 +3459,10 @@ select[aria-disabled=true] {
 
 .special-vars{
 	border:1px  solid solid;
+}
+
+
+ .ql-formats .nice-select{
+  display: none;
+  visibility: hidden;
 }

@@ -20,11 +20,13 @@ $uploadOk = 1;
 $fileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
 // Receive all data from form inputs
-$articleType = $_POST["ArticleType"];
+$articleType = $_POST["article_type"];
 $manuscript = $_POST["title"];
-$abstract = $_POST["abstract"];
-$verifyCode = $_POST["verifyCode"];
 
+$quillContent = json_decode($_POST['article_content'], true);
+
+$abstract = json_encode($quillContent);
+$verifyCode = $_POST["verifyCode"];
 
 
 // Generate Random Id for article 
@@ -76,18 +78,34 @@ try {
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $authors = $_POST["authors"];
+    $authors = $_POST["authors_first_name"];
 
+    $authors_prefix = $_POST["authors_prefix"];
+    
+    $authors_middle_name = $_POST["authors_middle_name"];
+     
+    $authors_lastname = $_POST["authors_last_name"];
+    
+    $authors_email = $_POST["authors_email"];
+    
+    $authors_institution = $_POST["authors_institution"];
+    
     for ($i = 0; $i<count($authors); $i++){
+        $authorsPrefix = $authors_prefix[$i];
+        $authorFirstname = $authors[$i];
+        $authorsMiddleName = $authors_middle_name[$i];
+        $authorsLastname = $authors_lastname[$i];
+        $authorsEmail = $authors_email[$i];
+        $authorsSchool = $authors_institution[$i];
 
         try {
-            $stmt = $con->prepare("INSERT INTO `authors` (`authors_fullname`, `article_id`) VALUES(?, ?)");
+            $stmt = $con->prepare("INSERT INTO `authors`(`authors_prefix`, `authors_firstname`, `authors_middlename`, `authors_lastname`, `authors_email`, `authors_institution`, `authors_fullname`, `article_id`) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
         
             if (!$stmt) {
                 throw new Exception("Failed to prepare statement: " . $con->error);
             }
         
-            $stmt->bind_param("ss", $authors[$i], $articleID);
+            $stmt->bind_param("ssssssss", $authorsPrefix, $authorsFirstname, $authorsMiddleName, $authorsLastname, $authorsEmail, $authorsSchool, $authorsFirstName, $articleID);
         
             if (!$stmt->execute()) {
                 throw new Exception("Failed to execute statement Author: " . $stmt->error);

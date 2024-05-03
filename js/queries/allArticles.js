@@ -14,7 +14,7 @@ const url = getURL()
 if(url == "/asfi_journal/" || url == "/"){
     Limit = 2
 }else{
-    Limit = 10;
+    Limit = 50;
 }
 
 
