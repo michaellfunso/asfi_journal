@@ -25,7 +25,7 @@ uploadForm.addEventListener("submit", function(e) {
         console.log(data); // Log server response
         if(data.status === "success"){
             alert("Upload Successful")
-            window.location.href = "../issues.html"
+            window.location.href = "../supplements.html#supplements"
         }else if(data.status === "error"){
             alert(data.message)
             body.setAttribute("id", "formNotSubmitted")
