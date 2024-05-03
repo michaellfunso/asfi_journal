@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     for ($i = 0; $i<count($authors); $i++){
         $authorsPrefix = $authors_prefix[$i];
-        $authorFirstname = $authors[$i];
+        $authorsFirstname = $authors[$i];
         $authorsMiddleName = $authors_middle_name[$i];
         $authorsLastname = $authors_lastname[$i];
         $authorsEmail = $authors_email[$i];
@@ -105,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 throw new Exception("Failed to prepare statement: " . $con->error);
             }
         
-            $stmt->bind_param("ssssssss", $authorsPrefix, $authorsFirstname, $authorsMiddleName, $authorsLastname, $authorsEmail, $authorsSchool, $authorsFirstName, $articleID);
+            $stmt->bind_param("ssssssss", $authorsPrefix, $authorsFirstname, $authorsMiddleName, $authorsLastname, $authorsEmail, $authorsSchool, $authorsFirstname, $articleID);
         
             if (!$stmt->execute()) {
                 throw new Exception("Failed to execute statement Author: " . $stmt->error);
