@@ -60,7 +60,10 @@
 	<link rel="stylesheet" href="../front/public/css/footer.css">
 	<link rel="stylesheet" href="../front/public/css/main.css">
 	<link rel="stylesheet" href="../front/public/css/responsive.css">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/quill/css/quill.snow.css">
 	<script src="../front/public/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    
 </head>
 
 <body class="header-1 business" id="formNotSubmitted">
@@ -162,12 +165,16 @@
 
 						<div id="title">
                             <label for="">Article Type:</label>
-                            <input type="text" class="form-control" placeholder="Enter Manuscript Type" name="ArticleType" id="ArticleType" required>
+                            <!-- <input type="text" class="form-control" placeholder="Enter Manuscript Type" name="ArticleType" id="ArticleType" required> -->
+                            <select name="article_type" id="article_type" class="form-control">
+                                <option value="">Select Type</option>
+                                <option value="Conference Abstract">Conference Abstract</option>
+                            </select>
                         </div>
 
                         <div id="title">
                             <label for="">Title:</label>
-                            <input type="text" class="form-control" placeholder="Enter Manuscript Ttile..." name="title" id="" required>
+                            <input type="text" class="form-control" placeholder="Enter Manuscript Title..." name="title" id="" required>
                         </div>
                         
                         <div id="authors">
@@ -193,20 +200,16 @@
 							<i class="fa-fa-add"></i>Add</span>
                         </div> <br>
 
-                        <div id="abstract">
-                            <label for="">Abstract:</label>
-                            <textarea class="form-control" name="abstract" id="abstract" placeholder="Enter Manuscript Abstract..." cols="30" rows="10" required></textarea>
-                        </div>
+                        <!-- Course description -->
+									<div class="col-12">
+										<label for="">Manuscript_Contents</label>
+										<!-- Editor toolbar -->
 
-                        <div id="methods">
-                            <label for="">Methods:</label>
-                            <textarea class="form-control" name="abstract" id="abstract" placeholder="Enter Methods..." cols="30" rows="10" required></textarea>
-                        </div>
-
-                        <div id="conclusion">
-                            <label for="">Conclusion:</label>
-                            <textarea class="form-control" name="abstract" id="abstract" placeholder="Enter Conclusion..." cols="30" rows="10" required></textarea>
-                        </div>
+										<!-- Main toolbar -->
+										<div class="bg-body border rounded-bottom h-400px overflow-hidden" id="quilleditor" style="height: 500px;">
+                                                <textarea class="form-control" name="abstract" id="abstract" placeholder="Enter Manuscript Abstract..." cols="30" rows="10" required></textarea>
+										</div>
+									</div> <br>
 
                         <div id="manuscript_cover">
                             <label for="">Cover  Image(optional):</label>
@@ -501,5 +504,30 @@
 <script src="../front/public/js/main.js"></script>
 <script type="module" src="../js/general.js"></script>
 <script type="module" src="../js/forms/createArticle.js"></script>
+<script src="../assets/quill/js/quill.min.js"></script>
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script>
+    const Size = Quill.import('attributors/style/size');
+const Color = Quill.import('attributors/style/color');
+Quill.register(Size, true);  // Allow arbitrary size values
+Quill.register(Color, true);  // Allow arbitrary color values (optional)
+
+var toolbarOptions = [
+    [{ 'header': [1, 2, false] }],
+    ['bold', 'italic', 'underline', 'strike'],        // existing options  // add size picker
+    [{ 'color': [] }],                             // add color picker (optional)
+    ['clean']
+];
+	document.addEventListener("DOMContentLoaded", function () {
+	  // Initialize the Quill editor
+	  var quill = new Quill("#quilleditor", {
+		theme: "snow", // You can change the theme if needed
+		modules: {
+            toolbar: toolbarOptions,
+		//   toolbar: "#quilltoolbar",
+		},
+	  });
+	});
+</script>
 </body>
 </html>
