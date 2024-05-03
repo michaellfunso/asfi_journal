@@ -45,7 +45,7 @@ function getSupplement(articeID, title) {
 
                     // Add the HTML content to the page 
                     manu_title.innerText = ArticleTitle
-                    published_date.innerText = `Published On: ${DateUploaded}`
+                    published_date.innerText = `${DateUploaded}`
 
                     // gEt the authors 
                     fetch(`${EndPoint}/allAuthors.php?articleID=${buffer}`, {
