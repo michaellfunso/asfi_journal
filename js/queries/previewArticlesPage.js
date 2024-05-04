@@ -1,5 +1,6 @@
 import { parentDirectoryName } from "../constants.js";
 import { getSupplement } from "./getSupplements.js";
+import { ViewItem } from "./viewsCount.js";
 
 // Create a URLSearchParams object from the current page's query string
 const searchParams = new URLSearchParams(window.location.search);
@@ -15,7 +16,8 @@ const hasParmsSupplementTitle = searchParams.has("title")
 if(hasParamSupplementId && hasParmsSupplementTitle){
     const SearchId = searchParams.get("sid")
     const SearchTitle = searchParams.get("title")
-
+    ViewItem(SearchId)
+    console.log("taste")
     getSupplement(SearchId, SearchTitle)
 }else{
     // window.location.href = `https://asfirj.org`

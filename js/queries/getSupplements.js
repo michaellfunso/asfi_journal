@@ -1,5 +1,6 @@
 import { EndPoint } from "../constants.js"
 import { formatTimestamp } from "../formatDate.js";
+import { DownloadItem } from "./downloadCount.js";
 
 
 const manu_title = document.getElementById("manu_title");
@@ -7,7 +8,8 @@ const published_date = document.getElementById("published_date")
 const authorsContainerTop = document.getElementById("authorsContainerTop")
 const authorsListBottom = document.getElementById("authorsListBottom")
 const downloadLinks = document.querySelectorAll(".downloadLink")
-
+const viewCountContainer = document.getElementById("viewCountContainer")
+const downloadsCountContainer = document.getElementById("downloadsCountContainer")
 function getSupplement(articeID, title) {
     fetch(`${EndPoint}/retrieveArticle.php?q=${articeID}&title=${title}`, {
         method: "GET"
@@ -32,16 +34,22 @@ function getSupplement(articeID, title) {
                     const AbstractDiscussoin = Article[0].abstract_discussion
                     const unstructuredAbstract = Article[0].unstructured_abstract
                     const status = Article[0].status
+                    const viewsCount = Article[0].views_count
+                    const DownloadsCount = Article[0].downloads_count
                     const DateUploaded = formatTimestamp(Article[0].date_uploaded)
                     const buffer = Article[0].buffer
 
+                    viewCountContainer.innerText = `${viewsCount} Views`
+                    downloadsCountContainer.innerText = `${DownloadsCount} Downloads`
                     // Set the download links for the articles 
                     downloadLinks.forEach(link =>{
                         link.setAttribute("href", `../useruploads/manuscripts/${ManuscriptFile}`)
                         link.setAttribute("download", `${ArticleTitle}.pdf`)
-                    })
 
-                    console.log(downloadLinks)
+                        link.addEventListener("click", function(){
+                            DownloadItem(buffer)
+                        })
+                    })
 
                     // Add the HTML content to the page 
                     manu_title.innerText = ArticleTitle

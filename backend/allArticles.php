@@ -57,7 +57,7 @@ $searchQuery = $_GET["k"];
 
 // LIMIT =? OFFSET = ?
 try {
-    $stmt = $con->prepare("SELECT * FROM `journals` WHERE 1 LIMIT ? OFFSET ?");
+    $stmt = $con->prepare("SELECT * FROM `journals` WHERE 1 ORDER BY `id` DESC LIMIT ? OFFSET ?");
 
     if (!$stmt) {
         throw new Exception("Failed to prepare statement: " . $con->error);

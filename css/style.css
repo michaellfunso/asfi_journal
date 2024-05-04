@@ -1880,16 +1880,22 @@ table tr:nth-child(even) {
 
 @media  screen and (max-width: 720px) {
     .submission-header {
-        position: absolute;
-        width: 49%;
+        position: fixed;
+        z-index: 29995;
+        width: 50%;
         background-color: white;
         margin-left: -800px;
-        margin-top: 540px;
+        top: 0px;
         transition: margin-left 0.5s ease;
     }
     #showNavButton {
-        position: absolute;
+        position: fixed;
+        right: 0;
+        top: 20px;
+        z-index: 22599986;
         background-color: blueviolet;
+        border: none;
+        outline: none;
         color: whitesmoke;
         /* font-size: 30px; */
         padding: 8px;
@@ -1929,7 +1935,7 @@ table tr:nth-child(even) {
 
 @media screen and (max-width: 420px) {
     .submission-header {
-        margin-top: 420px;
+        top: 0px;
         transition: margin-left 0.5s ease;
     }
     
@@ -2268,7 +2274,7 @@ table tr:nth-child(even) {
     }
 
     .main-submit-container {
-        padding: 20px;
+        padding: 0px;
         padding-top: 30px;
     }
 
