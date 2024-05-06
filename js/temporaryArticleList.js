@@ -4,6 +4,7 @@ import { formatTimestamp } from "./formatDate.js";
 const ArticleListContainer = document.getElementById("articleListContainer")
 const ArticleListFront = document.getElementById("article_items_container")
 
+
 function UpdateTemporaryArticles(ArticleLst) {
     if (ArticleListContainer) {
         ArticleListContainer.innerHTML = ""
@@ -32,12 +33,13 @@ function UpdateTemporaryArticles(ArticleLst) {
                         let AuthorsName = ""
 
                         AllAuthors.forEach(author => {
-                            const AuthorsFullname = `${author.authors_prefix} ${author.authors_firstname} ${author.authors_middlename} ${author.authors_lastname}, `
+                            const AuthorsFullname = `${author.authors_fullname}, `
                             AuthorsName += AuthorsFullname
                         })
                         if (ArticleListContainer) {
 
                             ArticleListContainer.innerHTML += `
+                            
                     <div class="article-wrapper wow fadeInLeft" data-wow-delay="200ms">
                     <div class="article-img" style="background-image: url(./useruploads/article_images/${CoverPhoto}); background-repeat: no-repeat; background-size: cover;">
                     </div>
@@ -54,6 +56,7 @@ function UpdateTemporaryArticles(ArticleLst) {
                     
                     </div>
                     </div>`
+                    
                         }
 
                         if (ArticleListFront) {
@@ -101,7 +104,6 @@ function UpdateTemporaryArticles(ArticleLst) {
         }
     }
 }
-
 
 export {
     UpdateTemporaryArticles

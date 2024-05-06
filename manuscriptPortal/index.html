@@ -180,7 +180,25 @@
                         <div>
                             <label for="">Author(s):</label>
                         </div>
-                        <div id="authors">
+                        <div class="group" id="app_2">	
+	
+                            <div id="app" >
+                
+                                <input type="text" id="authorsArray"  name="authorsArray"  class="form-control" v-model="saisie" placeholder="Enter or Paste Author Names Seperated With Comma (i,e 'Prof. John Doe, Dr. Steve Hawkins')" required/>                                
+                                <div class="keywords">
+                                    <div class="keyword" v-for="(k, i) in keywords">
+                                        {{ k }}
+                                        <span v-on:click="removeFromArray(i, k)"><i class="fas fa-times"></i></span>
+                                    </div>		
+                                </div>
+                        
+                            </div>
+
+                            <div >
+                                <label for="">Corresponding aUthors Email:</label>
+                                <input type="email" class="form-control" placeholder="Corresponding Author's email" name="corresponding_author" id="corresponding_author" required>
+                            </div>
+                        <!-- <div id="authors">
 
                             <div class="inputContainers">
                                 <select id="author_prefix" name="authors_prefix[]" class="inputFields">
@@ -194,18 +212,18 @@
                                 <input type="text" class="inputFields" placeholder="First Name..." name="authors_first_name[]">
                                 <input type="text" class="inputFields" placeholder="Middle Name..." name="authors_middle_name[]">
                                 <input type="text" class="inputFields" placeholder="Last Name..." name="authors_last_name[]">
-                                <!-- <input type="text" class="form-control" placeholder="Enter Author..." name="authors[]" id="authors" required> -->
+                                <input type="text" class="form-control" placeholder="Enter Author..." name="authors[]" id="authors" required> 
                                 <input type="email" class="inputFields" placeholder="Email..." name="authors_email[]">
                                 <input type="text" class="inputFields" placeholder="Affiliation..." name="authors_institution[]">
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- New Input fields button Container  -->
-                        <div>
+                        <!-- <div>
                             <br>
                             <span style="background-color: blueviolet; cursor:pointer; padding: 8px; border-radius: 12px; color: white; margin-top: -20px;" id="addAuthor">
                             <i class="fa-fa-add"></i>Add</span>
-                        </div>
+                        </div> -->
                   <br>
                         <!-- Course description -->
 									<div class="col-12">
@@ -449,7 +467,7 @@
 	</script>
 	<!--End of Tawk.to Script-->
 
-    <script src="../js/forms/newAuthorsField.js">    </script>
+    <!-- <script src="../js/forms/newAuthorsField.js">    </script> -->
 
 
 
@@ -483,6 +501,34 @@
 <script type="module" src="../js/forms/quill.js"></script>
 <script type="module" src="../js/forms/createArticle.js"></script>
 
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
+<script>
+    const authorsArray = document.getElementById("authorsArray")
+	var app = new Vue({
+  el: '#app',
+  data: {
+	  keywords: [],
+	  saisie: "",
+  },
+	methods: {
+		removeFromArray: function(index) {
+   
+         authorsArray.value.split(",").filter(x => {
+            
+         });
 
+		 this.keywords.splice(index, 1);
+         this.saisie = this.keywords;
+		},
+	},
+    watch: {
+      saisie: function() {
+        this.keywords = this.saisie.split(",").filter(x => { 
+          return x.trim() != '';
+        });	
+      }
+    }	
+})
+</script>
 </body>
 </html>

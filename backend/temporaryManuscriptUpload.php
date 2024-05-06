@@ -75,37 +75,44 @@ try {
         $response = array('status'=> 'error', 'message' => 'This Manuscript already exists');
         echo json_encode($response);
     }else{
-
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $authors = $_POST["authors_first_name"];
 
-    $authors_prefix = $_POST["authors_prefix"];
+    $authorsArray = $_POST["authorsArray"];
+
+    $explodeAuthors = explode(",", $authorsArray);
+    $explodeAuthorsArray = array_map('trim', $explodeAuthors);
+
+    $authors = $explodeAuthorsArray;
+
     
-    $authors_middle_name = $_POST["authors_middle_name"];
-     
-    $authors_lastname = $_POST["authors_last_name"];
+
+    $correspondingAuthorsEmail = $_POST["corresponding_author"];
+
+   // $authors_prefix = $_POST["authors_prefix"];
+   //  $authors_middle_name = $_POST["authors_middle_name"];
+   // $authors_lastname = $_POST["authors_last_name"];
     
-    $authors_email = $_POST["authors_email"];
+   // $authors_email = $_POST["authors_email"];
     
-    $authors_institution = $_POST["authors_institution"];
+   // $authors_institution = $_POST["authors_institution"];
     
     for ($i = 0; $i<count($authors); $i++){
-        $authorsPrefix = $authors_prefix[$i];
-        $authorsFirstname = $authors[$i];
-        $authorsMiddleName = $authors_middle_name[$i];
-        $authorsLastname = $authors_lastname[$i];
-        $authorsEmail = $authors_email[$i];
-        $authorsSchool = $authors_institution[$i];
+        $authorsFullname = $authors[$i];
+       // $authorsPrefix = $authors_prefix[$i];
+       // $authorsFirstname = $authors[$i];
+       // $authorsMiddleName = $authors_middle_name[$i];
+       // $authorsLastname = $authors_lastname[$i];
+       // $authorsEmail = $authors_email[$i];
+       // $authorsSchool = $authors_institution[$i];
 
         try {
-            $stmt = $con->prepare("INSERT INTO `authors`(`authors_prefix`, `authors_firstname`, `authors_middlename`, `authors_lastname`, `authors_email`, `authors_institution`, `authors_fullname`, `article_id`) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt = $con->prepare("INSERT INTO `authors`(`authors_fullname`, `article_id`) VALUES(?, ?)");
         
             if (!$stmt) {
                 throw new Exception("Failed to prepare statement: " . $con->error);
             }
         
-            $stmt->bind_param("ssssssss", $authorsPrefix, $authorsFirstname, $authorsMiddleName, $authorsLastname, $authorsEmail, $authorsSchool, $authorsFirstname, $articleID);
+            $stmt->bind_param("ss",  $authorsFullname, $articleID);
         
             if (!$stmt->execute()) {
                 throw new Exception("Failed to execute statement Author: " . $stmt->error);
@@ -166,13 +173,13 @@ if ($uploadOk == 0) {
         }
       
         try {
-            $stmt = $con->prepare("INSERT INTO `journals` (`article_type`, `manuscript_file`,  `manuscript_full_title`,`unstructured_abstract`,`manuscriptPhoto`, `buffer`) VALUES(?, ?, ?, ?, ?, ?)");
+            $stmt = $con->prepare("INSERT INTO `journals` (`article_type`, `manuscript_file`,  `manuscript_full_title`,`unstructured_abstract`,`manuscriptPhoto`,`corresponding_authors_email`, `buffer`) VALUES(?, ?, ?, ?, ?, ?, ?)");
         
             if (!$stmt) {
                 throw new Exception("Failed to prepare statement: " . $con->error);
             }
         
-            $stmt->bind_param("ssssss", $articleType, $newFileName, $manuscript, $abstract, $coverImageName, $articleID);
+            $stmt->bind_param("sssssss", $articleType, $newFileName, $manuscript, $abstract, $coverImageName, $correspondingAuthorsEmail, $articleID);
         
             if (!$stmt->execute()) {
                 throw new Exception("Failed to execute statement: " . $stmt->error);

@@ -35,9 +35,14 @@ function getSupplement(articeID, title) {
                     const unstructuredAbstract = Article[0].unstructured_abstract
                     const status = Article[0].status
                     const viewsCount = Article[0].views_count
+                    const correspondingAuthorsEmail = Article[0].corresponding_authors_email
                     const DownloadsCount = Article[0].downloads_count
                     const DateUploaded = formatTimestamp(Article[0].date_uploaded)
+                    
                     const buffer = Article[0].buffer
+
+                    const correspondingAuthorsEmailContainer = document.getElementById("correspondingAuthorsEmail")
+                    correspondingAuthorsEmailContainer.innerHTML +=  ` <a style="color:#333;" href="mailto:${correspondingAuthorsEmail}">${correspondingAuthorsEmail}</a>`
 
                     viewCountContainer.innerText = `${viewsCount} Views`
                     downloadsCountContainer.innerText = `${DownloadsCount} Downloads`
@@ -65,9 +70,10 @@ function getSupplement(articeID, title) {
                                 let AuthorsName = ""
 
                                 AllAuthors.forEach(author => {
-                                    const AuthorsFullname = `${author.authors_prefix} ${author.authors_firstname} ${author.authors_middlename} ${author.authors_lastname}, `
+                                    // const AuthorsFullname = `${author.authors_prefix} ${author.authors_firstname} ${author.authors_middlename} ${author.authors_lastname}, `
+                                    const AuthorsFullname = `${author.authors_fullname} `
                                     AuthorsName += AuthorsFullname
-                                    authorsListBottom.innerHTML += `<li>${AuthorsFullname}</li>`
+                                    authorsListBottom.innerHTML += `<li> ${AuthorsFullname} </li>`
 
                                 })
 
