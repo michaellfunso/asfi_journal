@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-require_once "./exportENV.php";
+require_once "exportENV.php";
 
 $servername = $_ENV['DB_HOST'];
 $username = $_ENV['DB_USER'];

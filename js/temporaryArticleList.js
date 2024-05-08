@@ -1,9 +1,11 @@
+
 import { EndPoint } from "./constants.js";
 import { formatTimestamp } from "./formatDate.js";
 
 const ArticleListContainer = document.getElementById("articleListContainer")
 const ArticleListFront = document.getElementById("article_items_container")
-
+const SliderListContainer = document.querySelector(".carousel-inner")
+const indicators = document.querySelector(".carousel-indicators")
 
 function UpdateTemporaryArticles(ArticleLst) {
     if (ArticleListContainer) {
@@ -105,6 +107,9 @@ function UpdateTemporaryArticles(ArticleLst) {
     }
 }
 
+
+
+
 export {
-    UpdateTemporaryArticles
+    UpdateTemporaryArticles,
 }
