@@ -161,7 +161,7 @@
                     <div id="eic" class="edit-head">
                         <span>Editor-in-Chief</span>
                       <div class="edit-head-container">
-                        <div class="indi-editors" onclick="openModal()">
+                        <div class="indi-editors" onclick="openModal1()">
                             <div class="avatar" style="background-image: url('./images/articleImages/bright.jpg')">
                     
                             </div>
@@ -180,7 +180,7 @@
                         <span>Editor(s)</span>
 
                         <div class="edit-head-container">
-                            <div class="indi-editors">
+                            <div class="indi-editors" onclick="openModal2()">
                                 <div class="avatar" style="background-image: url('./images/articleImages/eman.jpg')">
                     
                             </div>
@@ -979,15 +979,29 @@
             </div>
         </div> -->
 <!-- Modal -->
-        <div id="editorModal" class="modal">
+        <div id="editorModal1" class="modal">
             <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
+                <span class="close" onclick="closeModal1()">&times;</span>
                 <div class="avatar" style="background-image: url('./images/articleImages/bright.jpg')"></div>
                 <div class="editor-info">
                     <h4>Prof. Bright Nwaru</h4>
                     <p>Bright Nwaru is a professor of epidemiology in respiratory diseases and allergology at the Institute of Medicine, University of Gothenburg, Sweden. After completing his PhD in epidemiology from Tampere University, Finland, in 2012 and a year of postdoctoral post at the same university, he moved to the University of Edinburgh, United Kingdom, in 2014 where he worked in a research position until 2017, combining it with a research position at Tampere University. In 2017, he moved to the University of Gothenburg for a tenure track position, where he reamins until today.</p>
                     <p>His research includes various clinical and population epidemiologic investigations into respiratory diseases and allergy. His research work has resulted in over 180 original publications in leading respiratory and allergy journals. He is a recipient of over 15 million dollars in grants for his research during the last 10 years. He teaches doctoral courses in epidemiology and research methods in health and medicine.</p>
                     <p>Dr. Nwaru is an adjunct professor of epidemiology at Tampere University. He was an honorary fellow at the University of Edinburgh, United Kingdom, until end of 2023. He is an Academic Editor for Plos One and Scientific Reports, and an Associate Editor of Frontiers in Allergy. He is passionate about mentoring scientists of African origin, with which he founded the African Science Frontiers Initiatives, a research capacity building platform for African scientists.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="editorModal2" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal2()">&times;</span>
+                <div class="avatar" style="background-image: url('./images/articleImages/eman.jpg')"></div>
+                <div class="editor-info">
+                    <h4>Dr. Eman Sobh</h4>
+                    <p>Dr. Eman Sobh is an assistant professor of Chest Diseases, Faculty of Medicine for Girls, Al-Azhar University, Egypt & College of Medical Rehabilitation Sciences, Taibah University, Saudi Arabia. She is the Director of Science and Communications, African Science Frontiers Initiatives (ASFI), and co-convener of ASFI’s monthly science seminar series.</p>
+                    <p>Dr. Sobh obtained a Master's degree and Ph.D./Medical Doctorate from Al-Azhar University, Egypt. She is a certified trainer for scientific writing and publishing and soft skills. She is an enthusiastic and motivated person. has a passion for education and capacity building in science and research. She delivered several training programs in soft skills, scientific writing, and publishing and participated in several conferences and scientific events.</p>
+                    <p>She has published about 80 journal papers and participated in three book chapters. Her research interests include respiratory diseases, smoking cessation, health education, and capacity building. One of her interests is engaging the public and patients in science and research and she has participated in several campaigns for raising public awareness and health education. </p>
                 </div>
             </div>
         </div>
@@ -1147,25 +1161,37 @@
 
     <script>
         // Get the modal
-var modal = document.getElementById("editorModal");
+var modal1 = document.getElementById("editorModal1");
+var modal2 = document.getElementById("editorModal2");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
 // Function to open the modal
-function openModal() {
-    modal.classList.add("show"); // Add the 'show' class
+function openModal1() {
+    modal1.classList.add("show"); // Add the 'show' class
+}
+
+function openModal2() {
+    modal2.classList.add("show");
 }
 
 // Function to close the modal
-function closeModal() {
-    modal.classList.remove("show"); // Remove the 'show' class
+function closeModal1() {
+    modal1.classList.remove("show"); // Remove the 'show' class
+}
+
+function closeModal2() {
+    modal2.classList.remove("show"); // Remove the 'show' class
 }
 
 // Close the modal when the user clicks outside of it
 window.onclick = function(event) {
-    if (event.target == modal) {
-        closeModal();
+    if (event.target == modal1) {
+        closeModal1();
+    }
+    if (event.target == modal2) {
+        closeModal2();
     }
 }
 
