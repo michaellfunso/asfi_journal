@@ -90,7 +90,7 @@
 			<div class="container">
 				<div class="primary-header-inner">
 					<div class="header-logo">
-						<a href="./index.html">
+						<a href="">
 							<img src="./assets/images/logoIcon/logo.png" alt="Logo" /></a>
 					</div><!-- /.header-logo -->
 
@@ -161,6 +161,32 @@
 
 		</ol>
 		<div class="carousel-inner" role="listbox">
+		<div class='item' style='background-image: url(./useruploads/article_images/$ArticlePhoto); background-size:cover;'>
+                <div class='carousel-caption article-info1'>
+
+                    <div class=' big'>
+                        <div class='inner-layer'>
+                            <div data-animation='reveal-text' data-delay='1s'>
+                                <span style='animation-delay: 1s;'></span>
+                                <a href='./callfor.html'
+                                    class='article-title u-text u-text-palette-5-light-3 u-text-2'>
+
+                                    <h3>CALL FOR PAPERS: The African Science Frontiers Initiatives Research Journal (ASFIRJ) is inviting submissions of papers to its maiden issue scheduled for publication on 15th September 2024.</h3>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class='small'>
+                            <div class='inner-layer'>
+                                <p class='u-text u-text-palette-5-light-3 u-text-1'>
+                                <b>Paper Submission Deadline:</b> 30th June 2024, <b>Decision on Papers Sent Out for Peer Review:</b> 21st July 2024, <b>Accepted Papers Published Online:</b> Latest 15th September 2024 
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 	
 			<?php include "./backend/homeSlideArticles.php" ?>
 
@@ -500,7 +526,7 @@
 				<div class="row">
 					<div class="col-lg-3 col-sm-6 sm-padding">
 						<div class="footer-widget">
-							<a class="logo" href="./index.html">
+							<a class="logo" href="">
 								<img src="./assets/images/logoIcon/logo.png" alt="logo">
 							</a>
 
@@ -614,7 +640,7 @@
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="copyright-wrap">
-					<p>&copy; <span id="currentYear"> </span> <a href="./index.html">ASFI Research Journal</a> All
+					<p>&copy; <span id="currentYear"> </span> <a href="">ASFI Research Journal</a> All
 						Rights Reserved ||VO.</p>
 				</div>
 				<!-- <script src="../code.tidio.co_443/ul5qgbsv4aaw44cev9wh3hoyyxwmkqqa.js" async></script> -->
