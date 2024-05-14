@@ -90,7 +90,7 @@
 			<div class="container">
 				<div class="primary-header-inner">
 					<div class="header-logo">
-						<a href="./index.html">
+						<a href="">
 							<img src="./assets/images/logoIcon/logo.png" alt="Logo" /></a>
 					</div><!-- /.header-logo -->
 
@@ -500,7 +500,7 @@
 				<div class="row">
 					<div class="col-lg-3 col-sm-6 sm-padding">
 						<div class="footer-widget">
-							<a class="logo" href="./index.html">
+							<a class="logo" href="">
 								<img src="./assets/images/logoIcon/logo.png" alt="logo">
 							</a>
 
@@ -614,7 +614,7 @@
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="copyright-wrap">
-					<p>&copy; <span id="currentYear"> </span> <a href="./index.html">ASFI Research Journal</a> All
+					<p>&copy; <span id="currentYear"> </span> <a href="">ASFI Research Journal</a> All
 						Rights Reserved ||VO.</p>
 				</div>
 				<!-- <script src="../code.tidio.co_443/ul5qgbsv4aaw44cev9wh3hoyyxwmkqqa.js" async></script> -->
