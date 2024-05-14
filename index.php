@@ -161,7 +161,7 @@
 
 		</ol>
 		<div class="carousel-inner" role="listbox">
-		<div class='item' style='background-image: url(./useruploads/article_images/$ArticlePhoto); background-size:cover;'>
+		<div class='item' style='background-image: url(./images/articleImages/CALL.jpg); background-size:cover;'>
                 <div class='carousel-caption article-info1'>
 
                     <div class=' big'>
@@ -171,7 +171,7 @@
                                 <a href='./callfor.html'
                                     class='article-title u-text u-text-palette-5-light-3 u-text-2'>
 
-                                    <h3>CALL FOR PAPERS: The African Science Frontiers Initiatives Research Journal (ASFIRJ) is inviting submissions of papers to its maiden issue scheduled for publication on 15th September 2024.</h3>
+                                    CALL FOR PAPERS: The African Science Frontiers Initiatives Research Journal (ASFIRJ) is inviting submissions of papers to its maiden issue scheduled for publication on 15th September 2024.
                                 </a>
                             </div>
                         </div>
