@@ -49,7 +49,7 @@ const NavigationContainer = document.getElementById("navigationContainer")
 
 const NavigationLinks = `  <div class="header-container" id="header">
 <div class="logo">
-    <a href=${parentDirectoryName}/index.html><img src="${parentDirectoryName}/images/logo.png" alt=""></a>
+    <a href=${parentDirectoryName}/><img src="${parentDirectoryName}/images/logo.png" alt=""></a>
 
 </div>
 <div class="nav">
