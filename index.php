@@ -161,6 +161,32 @@
 
 		</ol>
 		<div class="carousel-inner" role="listbox">
+		<div class='item' style='background-image: url(./useruploads/article_images/$ArticlePhoto); background-size:cover;'>
+                <div class='carousel-caption article-info1'>
+
+                    <div class=' big'>
+                        <div class='inner-layer'>
+                            <div data-animation='reveal-text' data-delay='1s'>
+                                <span style='animation-delay: 1s;'></span>
+                                <a href='./callfor.html'
+                                    class='article-title u-text u-text-palette-5-light-3 u-text-2'>
+
+                                    <h3>CALL FOR PAPERS: The African Science Frontiers Initiatives Research Journal (ASFIRJ) is inviting submissions of papers to its maiden issue scheduled for publication on 15th September 2024.</h3>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class='small'>
+                            <div class='inner-layer'>
+                                <p class='u-text u-text-palette-5-light-3 u-text-1'>
+                                <b>Paper Submission Deadline:</b> 30th June 2024, <b>Decision on Papers Sent Out for Peer Review:</b> 21st July 2024, <b>Accepted Papers Published Online:</b> Latest 15th September 2024 
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 	
 			<?php include "./backend/homeSlideArticles.php" ?>
 
