@@ -42,7 +42,8 @@ function ArticlePage(page){
 
     // Search Articles 
     if(searchArticle){
-    searchArticle.addEventListener("click", async function(){
+    searchArticle.addEventListener("submit", async function(e){
+        e.preventDefault()
         if(search.value !== "" && search.value !== " "){
        await     fetch(`${EndPoint}/allArticles.php?page=${page}&limit=${Limit}&k=${search.value}`,{
                 method: "GET"
