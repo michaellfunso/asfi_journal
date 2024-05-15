@@ -17,6 +17,15 @@ if($article_id){
         if (!$stmt->execute()) {
             throw new Exception("Failed to execute statement: " . $stmt->error);
         }else{
+            $stmt = $con->prepare("DELETE FROM `authors` WHERE `article_id` = ?");
+    
+            if (!$stmt) {
+                throw new Exception("Failed to prepare statement: " . $con->error);
+            }
+        
+            $stmt->bind_param("s", $article_id);
+            $stmt->execute();
+            
             $response = array("status" => 'success', "message" => "Item Deleted Successfully");
             echo Json_encode($response);
             header("Location:https://asfirj.org/manuscriptPortal/manage");
