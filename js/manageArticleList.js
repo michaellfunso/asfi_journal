@@ -7,6 +7,7 @@ const ArticleListFront = document.getElementById("article_items_container")
 const SliderListContainer = document.querySelector(".carousel-inner")
 const indicators = document.querySelector(".carousel-indicators")
 
+
 function UpdateManageArticles(ArticleLst) {
     if (ArticleListContainer) {
         ArticleListContainer.innerHTML = ""
@@ -34,10 +35,18 @@ function UpdateManageArticles(ArticleLst) {
                         const AllAuthors = data.authorsList
                         let AuthorsName = ""
 
-                        AllAuthors.forEach(author => {
-                            const AuthorsFullname = `${author.authors_fullname}, `
-                            AuthorsName += AuthorsFullname
-                        })
+                        // AllAuthors.forEach(author => {
+                        //     const AuthorsFullname = `${author.authors_fullname}, `
+                        //     AuthorsName += AuthorsFullname
+                        // })
+                        for(i=0; i < AllAuthors.length; i++){
+                            let AuthorNM = `${AllAuthors[i].authors_fullname}, `
+                            if(i < AllAuthors.length){
+                                AuthorsName += AuthorNM
+                            }else{
+                                AuthorsName +=  `${AllAuthors[i].authors_fullname} `
+                            }
+                        }
                         if (ArticleListContainer) {
 
                             ArticleListContainer.innerHTML += `

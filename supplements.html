@@ -149,47 +149,34 @@
             <div class="containerf">
                 <div class="row justify-content-center">
                     <div class="col-md-12">
-                        <div class="card custom--card responsive-filter-card mb-4">
+                        <div class="card custom--card responsive-filter-card mb-4 " style=" justify-content: center; display: flex;">
                             <div class="card-body">
-                                <form action="">
-                                    <div class="d-flex flex-wrap gap-4">
+                                <form id="searchArticle">
+                                    <div class="d-flex flex-wrap gap-4 filter-card" style="align-items: flex-end;">
                                         <div class="flex-grow-1">
-                                            <label class="form--label">Type a Journal</label>
-                                            <input type="text" name="search" value=""
-                                                class="form--control">
+                                            <label class="form--label">
+                                                Type a Journal
+                                            </label>
+                                            
+                                        <input type="text" name="search" id="search" class="form--control">
                                         </div>
+                                        
                                         <div class="flex-grow-1">
                                             <label class="form--label">Author</label>
-                                            <select name="wallet_type" class="form--control">
-                                                <option value="">All</option>
-                                                <option value="" >                                            </option>
-                                                <option value="" >                                            </option>
-                                            </select>
-                                        </div>
-                                        <div class="flex-grow-1">
-                                            <label class="form--label">Category</label>
-                                            <select name="trx_type" class="form--control">
+                                            <select id="authorsOption" class="form--control">
                                                 <option value="">All</option>
                                             </select>
                                         </div>
+                        
                                         <div class="flex-grow-1">
                                             <label class="form--label">Type</label>
-                                            <select class="form--control " name="remark">
+                                            <select class="form--control " id="typeOption">
                                                 <option value="">Any</option>
-                                                                                                <option value="" >
-                                                        </option>
-                                                                                                <option value="" >
-                                                        </option>
-                                                                                                <option value="" >
-                                                      </option>
-                                                                                                <option value="" >
-                                                       </option>
-                                                                                                <option value="" >
-                                                       </option>
-                                                                                        </select>
+
+                                            </select>
                                         </div>
-                                        <div class="flex-grow-1 align-self-end">
-                                            <button class="btn btn--base w-100"><i class="las la-filter"></i>
+                                        <div class="flex-grow-1 ">
+                                            <button class="btn btn--base w-100" style="background-color: #80078b; color:whitesmoke"><i class="las la-filter"></i>
                                                 Filter</button>
                                         </div>
                                     </div>
@@ -379,7 +366,7 @@
 <script src="./front/public/js/vendor/venobox.min.js"></script>
 <script src="./front/public/js/vendor/jquery.hoverdir.js"></script>
 <script src="./front/public/js/vendor/splitting.min.js"></script>
-<script src="./front/public/js/vendor/jquery.nice-select.min.js"></script>
+<!-- <script src="./front/public/js/vendor/jquery.nice-select.min.js"></script> -->
 <script src="./front/public/js/vendor/wow.min.js"></script>
 <script src="./front/public/js/main.js"></script>
 <script type="module" src="./js/general.js"></script>

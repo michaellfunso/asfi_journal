@@ -1,11 +1,22 @@
 
 import { EndPoint } from "./constants.js";
 import { formatTimestamp } from "./formatDate.js";
+import { CreateAuthorsOptions, CreateTypeOptions } from "./queries/filter.js";
 
 const ArticleListContainer = document.getElementById("articleListContainer")
 const ArticleListFront = document.getElementById("article_items_container")
 const SliderListContainer = document.querySelector(".carousel-inner")
 const indicators = document.querySelector(".carousel-indicators")
+
+const authorsOptions = document.getElementById("authorsOption")
+
+
+const authors = await CreateAuthorsOptions()
+
+
+authors.forEach(author =>{
+    authorsOptions.innerHTML += `<option value="${author}">${author}</option>`    
+})
 
 function UpdateTemporaryArticles(ArticleLst) {
     if (ArticleListContainer) {
@@ -34,10 +45,24 @@ function UpdateTemporaryArticles(ArticleLst) {
                         const AllAuthors = data.authorsList
                         let AuthorsName = ""
 
-                        AllAuthors.forEach(author => {
-                            const AuthorsFullname = `${author.authors_fullname}, `
-                            AuthorsName += AuthorsFullname
-                        })
+                        // AllAuthors.forEach(author => {
+                        
+                        //     const AuthorsFullname = `${author.authors_fullname}, `
+                        //     AuthorsName += AuthorsFullname
+                        // })
+                        for(let i=0; i < AllAuthors.length; i++){
+                            let AuthorNM = `${AllAuthors[i].authors_fullname}, `
+                            if(i < AllAuthors.length-1){
+                                
+                                AuthorsName += AuthorNM
+                            }else{
+                                AuthorsName += `${AllAuthors[i].authors_fullname}`
+                            }
+                            
+                            // while(i === AllAuthors.length){
+                            //     AuthorsName += `${AllAuthors[i].authors_fullname} `
+                            // }
+                        }
                         if (ArticleListContainer) {
 
                             ArticleListContainer.innerHTML += `
@@ -108,7 +133,7 @@ function UpdateTemporaryArticles(ArticleLst) {
 }
 
 
-
+CreateTypeOptions();
 
 export {
     UpdateTemporaryArticles,
