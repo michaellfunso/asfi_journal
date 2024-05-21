@@ -140,14 +140,7 @@ function UpdateTemporaryArticles(ArticleLst) {
     }
 }
 
-if(limitedTextElements){
-    for (var i = 0; i < limitedTextElements.length; i++) {
-        var limitedText = limitedTextElements[i];
-        if (limitedText.textContent.length > maxLength) {
-            limitedText.textContent = limitedText.textContent.substring(0, maxLength) + "...";
-        }
-    }
-    }
+
 CreateTypeOptions();
 
 export {
