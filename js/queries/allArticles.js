@@ -75,3 +75,7 @@ function ArticlePage(page){
 
 
 ArticlePage(1) 
+
+export {
+    ArticlePage
+}

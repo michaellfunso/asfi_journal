@@ -1,5 +1,6 @@
 import { EndPoint } from "../constants.js"
 import { UpdateTemporaryArticles } from "../temporaryArticleList.js"
+import { ArticlePage } from "./allArticles.js"
 
 const TypeContainer = document.getElementById("typeOption")
 const authorsOptions = document.getElementById("authorsOption")
@@ -22,6 +23,8 @@ async function CreateAuthorsOptions(){
 
 if(TypeContainer){
 TypeContainer.addEventListener("change", function(){
+    if(TypeContainer.value !== "all"){
+
     const databody = {
         type: TypeContainer.value
     }
@@ -40,11 +43,19 @@ TypeContainer.addEventListener("change", function(){
             alert(data.message)
         }
     })
+}else{
+    ArticlePage(1)
+}
+
 })
+
 }
 
 if(authorsOptions){
 authorsOptions.addEventListener("change", function(){
+    if(authorsOptions.value !== "all"){
+
+
     const databody = {
         author: authorsOptions.value
     }
@@ -63,13 +74,16 @@ authorsOptions.addEventListener("change", function(){
             alert(data.message)
     }
 })
+}else{
+    ArticlePage(1)
+}
 })
 }
 
 if(search){
 search.addEventListener("submit", function(e){
     e.preventDefault()
-    
+
     const databody = {
         k: searchField.value,
     }
