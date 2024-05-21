@@ -110,7 +110,9 @@ async function CreateTypeOptions(){
     //   return data.authors 
     const TYpes = data.types 
     TYpes.forEach(type => {
-    TypeContainer.innerHTML += `<option value="${type}">${type}</option>`
+        if(TypeContainer){
+            TypeContainer.innerHTML += `<option value="${type}">${type}</option>`
+        }
     });
         
     })

@@ -39,8 +39,8 @@ function UpdateTemporaryArticles(ArticleLst) {
 
             const maxLength = 30;
             var limitedText = ArticleTitle;
-            if (limitedText.textContent.length > maxLength) {
-                limitedText.textContent = limitedText.textContent.substring(0, maxLength) + "...";
+            if (limitedText.length > maxLength) {
+                limitedText = limitedText.substring(0, maxLength) + "...";
             }
 
             console.log(limitedText)
