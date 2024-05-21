@@ -37,7 +37,7 @@ function UpdateTemporaryArticles(ArticleLst) {
             const date_uploaded = formatTimestamp(article.date_uploaded)
             const ArticleType = article.article_type
 
-            const maxLength = 30;
+            const maxLength = 50;
 
             var limitedText = ArticleTitle;
             
@@ -67,9 +67,12 @@ function UpdateTemporaryArticles(ArticleLst) {
                                 AuthorsName += `${AllAuthors[i].authors_fullname}`
                             }
                             
-                            // while(i === AllAuthors.length){
-                            //     AuthorsName += `${AllAuthors[i].authors_fullname} `
-                            // }
+                
+                        }
+
+                        let LimitedAuthorsName = AuthorsName
+                        if(LimitedAuthorsName.length > maxLength){
+                            LimitedAuthorsName = LimitedAuthorsName.substring(0, maxLength) + "..."
                         }
 
                         // var AutthorsNameLimited  = 
@@ -85,8 +88,8 @@ function UpdateTemporaryArticles(ArticleLst) {
                     <div class='content article-content'>
                         <div class="article-content1">
                         <p class="article-type">${ArticleType}</p>
-                        <a href="./content?sid=${ArticleId}&title=${ArticleTitle}" class="article-title" style="color: rgba(24, 24, 24, 0.918);">${limitedText}</a>
-                        <p class="article-authors">${AuthorsName}</p>
+                        <a href="./content?sid=${ArticleId}&title=${ArticleTitle}" title="${ArticleTitle}" class="article-title" style="color: rgba(24, 24, 24, 0.918);">${limitedText}</a>
+                        <p class="article-authors" title="${AuthorsName}">${LimitedAuthorsName}</p>
                         </div>
                         <div class="article-content2">
                         <p class="article-p-date">PUBLISHED <span>${date_uploaded}</span></p>
@@ -99,15 +102,15 @@ function UpdateTemporaryArticles(ArticleLst) {
 
                         if (ArticleListFront) {
                             ArticleListFront.innerHTML += `
-                        <div class="article-wrapper-home wow fadeInLeft" data-wow-delay="200ms">
+                        <div class="article-wrapper-home wow fadeInLeft" data-wow-delay="200ms" title="${ArticleTitle}">
                             <div class="article-img" style="background-image: url(./useruploads/article_images/${CoverPhoto}); background-repeat: no-repeat; background-size: cover;">
                             </div>
                             <div class="dot-pattern"></div>
                             <div class='content article-content'>
                                 <div class="article-content1">
                                 <p class="article-type">${ArticleType}</p>
-                                <a href="./content?sid=${ArticleId}&title=${ArticleTitle}" class="article-title" style="color: rgba(24, 24, 24, 0.918);">${limitedText}</a>
-                                <p class="article-authors">${AuthorsName}</p>
+                                <a href="./content?sid=${ArticleId}&title=${ArticleTitle}" title="${ArticleTitle}" class="article-title" style="color: rgba(24, 24, 24, 0.918);">${limitedText}</a>
+                                <p class="article-authors" title="${AuthorsName}">${LimitedAuthorsName}</p>
                                 </div>
                                 <div class="article-content2">
                                 <p class="article-p-date">PUBLISHED <span>${date_uploaded}</span></p>
