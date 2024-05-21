@@ -37,6 +37,13 @@ function UpdateTemporaryArticles(ArticleLst) {
             const date_uploaded = formatTimestamp(article.date_uploaded)
             const ArticleType = article.article_type
 
+            const maxLength = 30;
+            var limitedText = ArticleTitle;
+            if (limitedText.textContent.length > maxLength) {
+                limitedText.textContent = limitedText.textContent.substring(0, maxLength) + "...";
+            }
+
+            console.log(limitedText)
 
             fetch(`${EndPoint}/allAuthors.php?articleID=${ArticleId}`, {
                 method: "GET"
@@ -133,7 +140,14 @@ function UpdateTemporaryArticles(ArticleLst) {
     }
 }
 
-
+if(limitedTextElements){
+    for (var i = 0; i < limitedTextElements.length; i++) {
+        var limitedText = limitedTextElements[i];
+        if (limitedText.textContent.length > maxLength) {
+            limitedText.textContent = limitedText.textContent.substring(0, maxLength) + "...";
+        }
+    }
+    }
 CreateTypeOptions();
 
 export {
