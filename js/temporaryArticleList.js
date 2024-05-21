@@ -38,12 +38,11 @@ function UpdateTemporaryArticles(ArticleLst) {
             const ArticleType = article.article_type
 
             const maxLength = 30;
+
             var limitedText = ArticleTitle;
             if (limitedText.length > maxLength) {
                 limitedText = limitedText.substring(0, maxLength) + "...";
             }
-
-            console.log(limitedText)
 
             fetch(`${EndPoint}/allAuthors.php?articleID=${ArticleId}`, {
                 method: "GET"
@@ -71,6 +70,9 @@ function UpdateTemporaryArticles(ArticleLst) {
                             //     AuthorsName += `${AllAuthors[i].authors_fullname} `
                             // }
                         }
+
+                        // var AutthorsNameLimited  = 
+
                         if (ArticleListContainer) {
 
                             ArticleListContainer.innerHTML += `
@@ -82,7 +84,7 @@ function UpdateTemporaryArticles(ArticleLst) {
                     <div class='content article-content'>
                         <div class="article-content1">
                         <p class="article-type">${ArticleType}</p>
-                        <a href="./content?sid=${ArticleId}&title=${ArticleTitle}" class="article-title" style="color: rgba(24, 24, 24, 0.918);">${ArticleTitle}</a>
+                        <a href="./content?sid=${ArticleId}&title=${limitedText}" class="article-title" style="color: rgba(24, 24, 24, 0.918);">${ArticleTitle}</a>
                         <p class="article-authors">${AuthorsName}</p>
                         </div>
                         <div class="article-content2">
