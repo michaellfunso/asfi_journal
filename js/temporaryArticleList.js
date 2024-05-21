@@ -13,7 +13,7 @@ const authorsOptions = document.getElementById("authorsOption")
 
 const authors = await CreateAuthorsOptions()
 
-if(authors){
+if(authorsOptions){
 authors.forEach(author =>{
     authorsOptions.innerHTML += `<option value="${author}">${author}</option>`    
 })
