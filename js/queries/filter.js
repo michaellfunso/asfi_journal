@@ -20,6 +20,7 @@ async function CreateAuthorsOptions(){
 
 }
 
+if(TypeContainer){
 TypeContainer.addEventListener("change", function(){
     const databody = {
         type: TypeContainer.value
@@ -40,7 +41,9 @@ TypeContainer.addEventListener("change", function(){
         }
     })
 })
+}
 
+if(authorsOptions){
 authorsOptions.addEventListener("change", function(){
     const databody = {
         author: authorsOptions.value
@@ -61,7 +64,9 @@ authorsOptions.addEventListener("change", function(){
     }
 })
 })
+}
 
+if(search){
 search.addEventListener("submit", function(){
     const databody = {
         k: searchField.value,
@@ -96,7 +101,7 @@ search.addEventListener("submit", function(){
     })
 })
 
-
+}
 async function CreateTypeOptions(){
     return  fetch(`${EndPoint}/articleType.php`, {
         method:"POST"
