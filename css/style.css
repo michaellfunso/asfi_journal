@@ -1156,15 +1156,12 @@ body{
     box-sizing: border-box; 
     border: 1px solid #80078b; 
     border-radius: 4px; 
-    text-align: right; 
-    line-height:14px; 
-    font-size: 12px; 
-    font-feature-settings: normal; 
     text-size-adjust: 100%; 
     box-shadow: inset 0 -20px 0 0 #80078b; 
     padding: 0px; 
     margin: 0px; 
     width: 100px; 
+    height: 100px;
     /* height: 100%; */
 }
 
