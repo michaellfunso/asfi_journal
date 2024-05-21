@@ -84,7 +84,7 @@ function UpdateTemporaryArticles(ArticleLst) {
                     <div class='content article-content'>
                         <div class="article-content1">
                         <p class="article-type">${ArticleType}</p>
-                        <a href="./content?sid=${ArticleId}&title=${limitedText}" class="article-title" style="color: rgba(24, 24, 24, 0.918);">${ArticleTitle}</a>
+                        <a href="./content?sid=${ArticleId}&title=${ArticleTitle}" class="article-title" style="color: rgba(24, 24, 24, 0.918);">${limitedText}</a>
                         <p class="article-authors">${AuthorsName}</p>
                         </div>
                         <div class="article-content2">
