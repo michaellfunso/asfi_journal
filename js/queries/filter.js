@@ -67,7 +67,9 @@ authorsOptions.addEventListener("change", function(){
 }
 
 if(search){
-search.addEventListener("submit", function(){
+search.addEventListener("submit", function(e){
+    e.preventDefault()
+    
     const databody = {
         k: searchField.value,
     }

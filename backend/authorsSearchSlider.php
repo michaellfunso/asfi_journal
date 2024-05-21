@@ -24,14 +24,16 @@ try {
     if($count > 0){
  
         $authorsList = array(); // Initialize an array to store all articles
-        
+        $row = $result->fetch_assoc();
         while ($row = $result->fetch_assoc()) {
             // Loop through each row in the result set and append it to the authorsList array
             $authorsList[] = $row;
             $authorsName = $row["authors_fullname"];
-        
 
+            for($i = 0; $i < count($authorsList); $i++){
             echo "$authorsName, ";
+
+            }
         }
      
     }else{

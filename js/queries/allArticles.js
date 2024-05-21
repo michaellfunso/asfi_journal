@@ -35,38 +35,38 @@ function ArticlePage(page){
 
 
     // Search Articles 
-    if(searchArticle){
-    searchArticle.addEventListener("click", async function(){
-        if(search.value !== "" && search.value !== " "){
-       await     fetch(`${EndPoint}/allArticles.php?page=${page}&limit=${Limit}&k=${search.value}`,{
-                method: "GET"
-            }).then(res => res.json())
-            .then(data =>{
-                if(data){
-                const ArticleLst = data.articlesList
-                UpdateTemporaryArticles(ArticleLst)
+//     if(searchArticle){
+//     searchArticle.addEventListener("click", async function(){
+//         if(search.value){
+//        await     fetch(`${EndPoint}/allArticles.php?page=${page}&limit=${Limit}&k=${search.value}`,{
+//                 method: "GET"
+//             }).then(res => res.json())
+//             .then(data =>{
+//                 if(data){
+//                 const ArticleLst = data.articlesList
+//                 UpdateTemporaryArticles(ArticleLst)
            
 
-            }else{
-                console.log("NO Data object")
-            }
-            })
-        }else{
-            fetch(`${EndPoint}/allArticles.php?page=${page}&limit=${Limit}`,{
-                method: "GET"
-            }).then(res => res.json())
-            .then(data =>{
-                if(data){
-                const ArticleLst = data.articlesList
-                UpdateTemporaryArticles(ArticleLst)
+//             }else{
+//                 console.log("NO Data object")
+//             }
+//             })
+//         }else{
+//             fetch(`${EndPoint}/allArticles.php?page=${page}&limit=${Limit}`,{
+//                 method: "GET"
+//             }).then(res => res.json())
+//             .then(data =>{
+//                 if(data){
+//                 const ArticleLst = data.articlesList
+//                 UpdateTemporaryArticles(ArticleLst)
      
-            }else{
-                console.log("NO Data object")
-            }
-            })
-        }
-    })
-}
+//             }else{
+//                 console.log("NO Data object")
+//             }
+//             })
+//         }
+//     })
+// }
 
 }
 
