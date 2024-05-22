@@ -91,7 +91,7 @@ function UpdateTemporaryArticles(ArticleLst) {
                         <p class="article-type">${ArticleType}</p>
                         <a href="./content?sid=${ArticleId}&title=${ArticleTitle}" title="${ArticleTitle}" class="article-title" style="color: rgba(24, 24, 24, 0.918);">${ArticleTitle}</a>
                         <p class="article-authors" title="${AuthorsName}">${AuthorsName}</p>
-                        <a href="./content?sid=${ArticleId}&title=${ArticleTitle}">Read more</a>
+                        <p><a href="./content?sid=${ArticleId}&title=${ArticleTitle}">Read more</a></p>
 
                         </div>
                         <div class="article-content2">
@@ -115,7 +115,8 @@ function UpdateTemporaryArticles(ArticleLst) {
                                 <p class="article-type">${ArticleType}</p>
                                 <a href="./content?sid=${ArticleId}&title=${ArticleTitle}" title="${ArticleTitle}" class="article-title" style="color: rgba(24, 24, 24, 0.918);">${ArticleTitle}</a>
                                 <p class="article-authors" title="${AuthorsName}">${AuthorsName}</p>
-                                <a href="./content?sid=${ArticleId}&title=${ArticleTitle}">Read more</a>
+                                <p><a href="./content?sid=${ArticleId}&title=${ArticleTitle}">Read more</a></p>
+
                                 </div>
                                 <div class="article-content2">
                                 <p class="article-p-date">PUBLISHED <span>${date_uploaded}</span></p>
