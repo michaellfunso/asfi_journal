@@ -30,7 +30,7 @@ TypeContainer.addEventListener("change", function(){
     }
     fetch(`${EndPoint}/filterbyType.php`, {
         method:"POST",
-        body: databody,
+        body: JSON.stringify(databody),
         headers:{
             "Content-type": "application/JSON"
         }
@@ -61,7 +61,7 @@ authorsOptions.addEventListener("change", function(){
     }
     fetch(`${EndPoint}/filterByAuthors.php`, {
         method:"POST",
-        body: databody,
+        body: JSON.stringify(databody),
         headers:{
             "Content-type": "application/JSON"
         }
@@ -102,7 +102,7 @@ search.addEventListener("submit", function(e){
 
     fetch(`${EndPoint}/filterArticles.php`, {
         method:"POST",
-        body: databody,
+        body: JSON.stringify(databody),
         headers:{
             "Content-type": "application/JSON"
         }
