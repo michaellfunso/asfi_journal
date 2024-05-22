@@ -66,6 +66,7 @@ authorsOptions.addEventListener("change", function(){
     .then(data => {
        if(data.status === "success"){
             const articlesList = data.articlesList
+            console.log(articlesList)
             UpdateTemporaryArticles(articlesList)
         }else{
             alert(data.message)
