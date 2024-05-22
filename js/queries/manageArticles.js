@@ -1,10 +1,8 @@
 import { EndPoint } from "../constants.js"
-import { formatTimestamp } from "../formatDate.js"
-import { getURL } from "../getURL.js"
 import { UpdateManageArticles } from "../manageArticleList.js"
 import { GetCookie } from "../setCookie.js"
-import { CreateAuthorsOptions } from "./filter.js"
-import { CreateTypeOptions } from "./filterManagement.js"
+import { CreateAuthorsOptionsManagement, CreateTypeOptionsManagement } from "./filterManagement.js"
+
 
 const manageData = GetCookie("manageData")
 
@@ -15,19 +13,10 @@ if(!manageData){
 const search = document.getElementById("search")
 const searchArticle = document.getElementById("searchArticle")
 
-let Limit
+let Limit = 50
 
 
-const url = getURL()
-
-if(url == "/asfi_journal/" || url == "/"){
-    Limit = 6
-}else{
-    Limit = 50;
-}
-
-
-function ArticlePage(page){
+function ArticlePageManagement(page){
     fetch(`${EndPoint}/allArticles.php?page=${page}&limit=${Limit}`,{
         method: "GET"
     }).then(res => res.json())
@@ -78,20 +67,25 @@ function ArticlePage(page){
 }
 
 }
-// const authorsOptions = document.getElementById("authorsOption")
+const authorsOptions = document.getElementById("authorsOptionManagement")
 
-// const authors = await CreateAuthorsOptions()
+const authors = await CreateAuthorsOptionsManagement();
 
-// if(authorsOptions){
-// authors.forEach(author =>{
-//     authorsOptions.innerHTML += `<option value="${author}">${author}</option>`    
-// })
-// }
+if(authorsOptions){
+authors.forEach(author =>{
+    authorsOptions.innerHTML += `<option value="${author}">${author}</option>`    
+})
+}
 
+CreateTypeOptionsManagement()
 
 // CreateTypeOptions()
 
 
 
 
-ArticlePage(1) 
+ArticlePageManagement(1) 
+
+export{
+    ArticlePageManagement
+}
