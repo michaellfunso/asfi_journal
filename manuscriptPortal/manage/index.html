@@ -134,15 +134,31 @@
                         <div class="card custom--card responsive-filter-card mb-4">
                             <div class="card-body">
                                 <form id="searchArticle">
-                                    <div class="d-flex flex-wrap gap-4">
+                                    <div class="d-flex flex-wrap gap-4 filter-card" style="align-items: flex-end;">
                                         <div class="flex-grow-1">
-                                            <label class="form--label">Type a Journal</label>
-                                            <input type="text" name="search" id="search"
-                                                class="form--control">
+                                            <label class="form--label">
+                                                Type a Journal
+                                            </label>
+                                            
+                                        <input type="text" name="search" id="search" class="form--control">
                                         </div>
-                              
-                                        <div class="flex-grow-1 align-self-end">
-                                            <button class="btn btn--base w-100"><i class="las la-filter"></i>
+                                        
+                                        <div class="flex-grow-1">
+                                            <label class="form--label">Author</label>
+                                            <select id="authorsOption" class="form--control">
+                                                <option value="all">All</option>
+                                            </select>
+                                        </div>
+                        
+                                        <div class="flex-grow-1">
+                                            <label class="form--label">Type</label>
+                                            <select class="form--control " id="typeOption">
+                                                <option value="all">Any</option>
+
+                                            </select>
+                                        </div>
+                                        <div class="flex-grow-1 ">
+                                            <button class="btn btn--base w-100" style="background-color: #80078b; color:whitesmoke"><i class="las la-filter"></i>
                                                 Filter</button>
                                         </div>
                                     </div>
