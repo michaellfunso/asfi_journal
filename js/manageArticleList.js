@@ -65,6 +65,7 @@ function UpdateManageArticles(ArticleLst) {
                         <p class="article-p-date">PUBLISHED <span>${date_uploaded}</span></p>
                         <form action="../../actions/deleteArticle/" method="POST">
                         <input value="${ArticleId}" name="article_id" type='hidden'/>
+                        <button onclick="openModal()" class="btn btn-warning>Edit</button>
                         <button class="btn btn-danger">Delete</button>
                         </form>
                         </div>
