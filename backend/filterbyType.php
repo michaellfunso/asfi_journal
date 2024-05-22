@@ -3,12 +3,12 @@
 include "./db.php";
 
 
-$data = json_decode(file_get_contents("php://input"),true);
+// $data = json_decode(file_get_contents("php://input"),true);
 
-$type = $data["type"];
+$type = $_GET["type"];
 
 
-if($type){
+if(isset($type)){
     $searchQuery = $type;    
         try {
             $stmt = $con->prepare("SELECT * FROM `journals` WHERE `article_type` = ? ");
@@ -18,7 +18,7 @@ if($type){
                 throw new Exception("Failed to prepare statement: " . $con->error);
             }
         
-            $stmt->bind_param("ss",$searchQuery);
+            $stmt->bind_param("s",$searchQuery);
         
             if (!$stmt->execute()) {
                 throw new Exception("Failed to execute statement: " . $stmt->error);

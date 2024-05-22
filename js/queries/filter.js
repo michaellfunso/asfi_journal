@@ -28,12 +28,9 @@ TypeContainer.addEventListener("change", function(){
     const databody = {
         type: TypeContainer.value
     }
-    fetch(`${EndPoint}/filterbyType.php`, {
-        method:"POST",
-        body: JSON.stringify(databody),
-        headers:{
-            "Content-type": "application/JSON"
-        }
+    fetch(`${EndPoint}/filterbyType.php?type=${TypeContainer.value}`, {
+        method:"GET",
+       
     }).then(res=>res.json())
     .then(data =>{
         if(data.status === "success"){
