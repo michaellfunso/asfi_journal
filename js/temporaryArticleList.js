@@ -88,8 +88,8 @@ function UpdateTemporaryArticles(ArticleLst) {
                     <div class='content article-content'>
                         <div class="article-content1">
                         <p class="article-type">${ArticleType}</p>
-                        <a href="./content?sid=${ArticleId}&title=${ArticleTitle}" title="${ArticleTitle}" class="article-title" style="color: rgba(24, 24, 24, 0.918);">${limitedText}</a>
-                        <p class="article-authors" title="${AuthorsName}">${LimitedAuthorsName}</p>
+                        <a href="./content?sid=${ArticleId}&title=${ArticleTitle}" title="${ArticleTitle}" class="article-title" style="color: rgba(24, 24, 24, 0.918);">${ArticleTitle}</a>
+                        <p class="article-authors" title="${AuthorsName}">${AuthorsName}</p>
                         </div>
                         <div class="article-content2">
                         <p class="article-p-date">PUBLISHED <span>${date_uploaded}</span></p>
@@ -109,8 +109,8 @@ function UpdateTemporaryArticles(ArticleLst) {
                             <div class='content article-content'>
                                 <div class="article-content1">
                                 <p class="article-type">${ArticleType}</p>
-                                <a href="./content?sid=${ArticleId}&title=${ArticleTitle}" title="${ArticleTitle}" class="article-title" style="color: rgba(24, 24, 24, 0.918);">${limitedText}</a>
-                                <p class="article-authors" title="${AuthorsName}">${LimitedAuthorsName}</p>
+                                <a href="./content?sid=${ArticleId}&title=${ArticleTitle}" title="${ArticleTitle}" class="article-title" style="color: rgba(24, 24, 24, 0.918);">${ArticleTitle}</a>
+                                <p class="article-authors" title="${AuthorsName}">${AuthorsName}</p>
                                 </div>
                                 <div class="article-content2">
                                 <p class="article-p-date">PUBLISHED <span>${date_uploaded}</span></p>
