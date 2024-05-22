@@ -56,12 +56,12 @@ authorsOptions.addEventListener("change", function(){
     const databody = {
         author: authorsOptions.value
     }
-    fetch(`${EndPoint}/filterByAuthors.php`, {
-        method:"POST",
-        body: JSON.stringify(databody),
-        headers:{
-            "Content-type": "application/JSON"
-        }
+    fetch(`${EndPoint}/filterByAuthors.php?author=${authorsOptions.value}`, {
+        method:"GET",
+        // body: JSON.stringify(databody),
+        // headers:{
+        //     "Content-type": "application/JSON"
+        // }
     }).then(res => res.json())
     .then(data => {
        if(data.status === "success"){
@@ -97,12 +97,12 @@ search.addEventListener("submit", function(e){
         })
     }
 
-    fetch(`${EndPoint}/filterArticles.php`, {
+    fetch(`${EndPoint}/filterArticles.php?k=${searchField.value}`, {
         method:"POST",
-        body: JSON.stringify(databody),
-        headers:{
-            "Content-type": "application/JSON"
-        }
+        // body: JSON.stringify(databody),
+        // headers:{
+        //     "Content-type": "application/JSON"
+        // }
     }).then(res=> res.json())
     .then(data =>{
         if(data.status === "success"){
