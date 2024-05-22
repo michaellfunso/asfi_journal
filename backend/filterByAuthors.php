@@ -29,8 +29,8 @@ if(isset($author)){
         $count = mysqli_num_rows($run_query);
     
         if($count > 0){
-                 $articlesList = array();
-        while ($row = $result->fetch_assoc()) {
+
+            $row = mysqli_fetch_array($run_query);
             // Loop through each row in the result set and append it to the authorsList array
             $articlesID= $row["article_id"];
 
@@ -54,13 +54,19 @@ if(isset($author)){
             $count = mysqli_num_rows($run_query);
         
             if($count > 0){
+                $articlesList = array();
+
+
             while ($row = $result->fetch_assoc()) {
                 $articlesList = $row;
             }
             $response = array('status'=> 'success', 'articlesList' => $articlesList);
             echo json_encode($response);
+            }else{
+                $response = array('status'=> 'error', 'message' => "NO ARTICLES ASSOCIATED", 'articlesList' => []);
+                echo json_encode($response);
             }
-        }
+    
      
         }else{
             $response = array('status'=> 'success', 'message' => "Author, $author Not found",  'articlesList' => []);
