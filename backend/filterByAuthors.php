@@ -10,7 +10,7 @@ $author = $_GET["author"];
 
 if(isset($author)){
     try {
-        $stmt = $con->prepare("SELECT * FROM `authors` WHERE LOWER(`authors_fullname`) LIKE CONCAT('%', LOWER(?), '%') COLLATE utf8mb4_general_ci ");
+        $stmt = $con->prepare("SELECT * FROM `authors` WHERE LOWER(`authors_fullname`) LIKE CONCAT('%', LOWER(?), '%')");
 
     
         if (!$stmt) {
