@@ -8,7 +8,6 @@ const segments = pathname.split('/');
 // const parentDirectoryName = segments[segments.length - 1];
 const parentDIRName = segments[1];
 const domainName = window.location.origin
-console.log(parentDIRName)
 let parentDirectoryName, EndPoint
 if(parentDIRName === "asfi_journal"){   
     parentDirectoryName = `/asfi_journal/`
@@ -23,9 +22,21 @@ if(parentDIRName === "asfi_journal"){
 // Concatenate with the desired directory name
 
 
-console.log("UPLOAD PORTAL")
+// Get the URL string
+const urlString = window.location.href;
+
+// Create a URL object
+const url = new URL(urlString);
+
+// Get the search parameters from the URL
+const searchParams = new URLSearchParams(url.search);
+
+// Get the value of the "man" parameter
+
+
 export { 
     EndPoint,
     parentDirectoryName, 
-    domainName
+    domainName,
+    searchParams
 };

@@ -17,7 +17,6 @@ if(hasParamSupplementId && hasParmsSupplementTitle){
     const SearchId = searchParams.get("sid")
     const SearchTitle = searchParams.get("title")
     ViewItem(SearchId)
-    console.log("taste")
     getSupplement(SearchId, SearchTitle)
 }else{
     // window.location.href = `https://asfirj.org`

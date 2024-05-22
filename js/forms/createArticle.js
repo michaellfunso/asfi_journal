@@ -13,7 +13,7 @@ uploadForm.addEventListener("submit", function(e) {
 
 
     body.removeAttribute("id")
-    formData.append('article_content', JSON.stringify(quill.getContents().ops));
+    // formData.append('article_content', JSON.stringify(quill.getContents().ops));
     // console.log(JSON.stringify(quill.getContents().ops))
 
     fetch(`${EndPoint}/temporaryManuscriptUpload.php`, {

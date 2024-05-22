@@ -39,12 +39,12 @@ function UpdateManageArticles(ArticleLst) {
                         //     const AuthorsFullname = `${author.authors_fullname}, `
                         //     AuthorsName += AuthorsFullname
                         // })
-                        for(i=0; i < AllAuthors.length; i++){
+                        for(let i=0; i < AllAuthors.length; i++){
                             let AuthorNM = `${AllAuthors[i].authors_fullname}, `
                             if(i < AllAuthors.length){
                                 AuthorsName += AuthorNM
                             }else{
-                                AuthorsName +=  `${AllAuthors[i].authors_fullname} `
+                                AuthorsName +=  `${AllAuthors[i].authors_fullname}.`
                             }
                         }
                         if (ArticleListContainer) {
@@ -61,13 +61,17 @@ function UpdateManageArticles(ArticleLst) {
                         <a href="./content?sid=${ArticleId}&title=${ArticleTitle}" class="article-title" style="color: rgba(24, 24, 24, 0.918);">${ArticleTitle}</a>
                         <p class="article-authors">${AuthorsName}</p>
                         </div>
-                        <div class="article-content2">
-                        <p class="article-p-date">PUBLISHED <span>${date_uploaded}</span></p>
+                        <div class="article-content2" style="display:flex; flex-direction:row; align-items:center; justift-content:space-between; width:100%;">
+                        <p class="article-p-date" style="width:50%; display:flex; align-items:center;">PUBLISHED: <span style="padding:2px;">${date_uploaded}</span></p>
+
+                        <div style="display:flex; width 50%; justify-content:space-between; bakground:red;">
+                        <a href="?edit=${ArticleTitle}&a_id=${ArticleId}" class="btn btn-warning">Edit</a>
+                        
                         <form action="../../actions/deleteArticle/" method="POST">
                         <input value="${ArticleId}" name="article_id" type='hidden'/>
-                        <button onclick="openModal()" class="btn btn-warning>Edit</button>
-                        <button class="btn btn-danger">Delete</button>
+                        <button class="btn btn-danger" style="margin-left:10px;">Delete</button>
                         </form>
+                        </div>
                         </div>
                     
                     </div>
@@ -88,7 +92,7 @@ function UpdateManageArticles(ArticleLst) {
                                 <p class="article-authors">${AuthorsName}</p>
                                 </div>
                                 <div class="article-content2">
-                                <p class="article-p-date">PUBLISHED <span>${date_uploaded}</span></p>
+                                <p class="article-p-date">PUBLISHED:  <span> ${date_uploaded}</span></p>
                              
                                 </div>
                             </div>

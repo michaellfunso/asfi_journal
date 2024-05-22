@@ -60,7 +60,7 @@ try {
         throw new Exception("Failed to prepare statement: " . $con->error);
     }
 
-    $stmt->bind_param("s", $manuscriptFullTitle);
+    $stmt->bind_param("s", $manuscript);
 
     if (!$stmt->execute()) {
         throw new Exception("Failed to execute statement Author: " . $stmt->error);

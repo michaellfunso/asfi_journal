@@ -64,7 +64,7 @@ function UpdateTemporaryArticles(ArticleLst) {
                                 
                                 AuthorsName += AuthorNM
                             }else{
-                                AuthorsName += `${AllAuthors[i].authors_fullname}`
+                                AuthorsName += `${AllAuthors[i].authors_fullname}.`
                             }
                             
                 

@@ -6,7 +6,7 @@ session_start();
 $article_id = $_GET["articleID"];
 
 try {
-    $stmt = $con->prepare("SELECT * FROM `authors` WHERE article_id =?");
+    $stmt = $con->prepare("SELECT * FROM `authors` WHERE article_id =? ORDER BY `id` ASC");
 
     if (!$stmt) {
         throw new Exception("Failed to prepare statement: " . $con->error);
