@@ -127,8 +127,8 @@ ul{
 
 p{
     font-size: 15px;
-    line-height: 28px;
-    margin-bottom: 20px;
+    line-height: 22px;
+    /* margin-bottom: 20px; */
 }
 a, a:hover{
     text-decoration: none;
