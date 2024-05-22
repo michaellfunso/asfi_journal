@@ -1,14 +1,16 @@
 import { EndPoint } from "../constants.js"
 import { UpdateManageArticles } from "../manageArticleList.js"
-import { ArticlePage } from "./allArticles.js"
+import { ArticlePageManagement } from "./manageArticles.js"
 
-const TypeContainer = document.getElementById("typeOption")
-const authorsOptions = document.getElementById("authorsOption")
+
+const TypeContainer = document.getElementById("typeOptionManagement")
+const authorsOptions = document.getElementById("authorsOptionManagement")
 const search = document.getElementById("searchArticle")
 const searchField = document.getElementById("search")
 
 
-async function CreateAuthorsOptions(){
+
+async function CreateAuthorsOptionsManagement(){
 
     // Get all the authors on the system 
   return  fetch(`${EndPoint}/authors.php`, {
@@ -41,7 +43,7 @@ TypeContainer.addEventListener("change", function(){
         }
     })
 }else{
-    ArticlePage(1)
+    ArticlePageManagement(1)
 }
 
 })
@@ -72,7 +74,7 @@ authorsOptions.addEventListener("change", function(){
     }
 })
 }else{
-    ArticlePage(1)
+    ArticlePageManagement(1)
 }
 })
 }
@@ -104,7 +106,7 @@ search.addEventListener("submit", function(e){
 })
 
 }
-async function CreateTypeOptions(){
+async function CreateTypeOptionsManagement(){
     return  fetch(`${EndPoint}/articleType.php`, {
         method:"POST"
     }).then(res => res.json())
@@ -122,6 +124,6 @@ async function CreateTypeOptions(){
 
 
 export {
-    CreateAuthorsOptions,
-    CreateTypeOptions
+    CreateAuthorsOptionsManagement,
+    CreateTypeOptionsManagement
 }
