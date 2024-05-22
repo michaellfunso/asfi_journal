@@ -1181,9 +1181,8 @@ body{
     height: 160px;
     overflow-y: scroll;
 }
-.article-content1::-webkit-scrollbar{
-    width: 2px;
-}
+
+
 .article-type {
     font-size: 12px;
     font-style: normal;

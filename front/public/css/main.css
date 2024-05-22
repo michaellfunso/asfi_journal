@@ -163,12 +163,13 @@ button{
 
 /* ======= Scrollbar Style ======= */
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px
+    width: 5px;
+    height: 5px
 }
 ::-webkit-scrollbar-thumb {
     cursor: pointer;
     background: #310357;
+    border-radius: 50px;
 }
 ::selection {
     background-color: #310357;
