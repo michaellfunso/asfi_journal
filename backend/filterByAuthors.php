@@ -17,7 +17,7 @@ if(isset($author)){
             throw new Exception("Failed to prepare statement: " . $con->error);
         }
     
-        $stmt->bind_param("s",$searchQuery);
+        $stmt->bind_param("s",$author);
     
         if (!$stmt->execute()) {
             throw new Exception("Failed to execute statement: " . $stmt->error);
