@@ -3,6 +3,8 @@ import { formatTimestamp } from "../formatDate.js"
 import { getURL } from "../getURL.js"
 import { UpdateManageArticles } from "../manageArticleList.js"
 import { GetCookie } from "../setCookie.js"
+import { CreateAuthorsOptions } from "./filter.js"
+import { CreateTypeOptions } from "./filterManagement.js"
 
 const manageData = GetCookie("manageData")
 
@@ -76,7 +78,18 @@ function ArticlePage(page){
 }
 
 }
+// const authorsOptions = document.getElementById("authorsOption")
 
+// const authors = await CreateAuthorsOptions()
+
+// if(authorsOptions){
+// authors.forEach(author =>{
+//     authorsOptions.innerHTML += `<option value="${author}">${author}</option>`    
+// })
+// }
+
+
+// CreateTypeOptions()
 
 
 

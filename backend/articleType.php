@@ -2,7 +2,7 @@
 include "./db.php";
 
 if($_SERVER['REQUEST_METHOD'] === "POST"){
-    $stmt = $con->prepare("SELECT DISTINCT `article_type` FROM `journals` WHERE 1 ORDER BY `article_type`");
+    $stmt = $con->prepare("SELECT DISTINCT `article_type` FROM `journals` ORDER BY `article_type`");
     if (!$stmt) {
         throw new Exception("Failed to prepare statement: " . $con->error);
     }
