@@ -85,21 +85,10 @@ search.addEventListener("submit", function(e){
     const databody = {
         k: searchField.value,
     }
-    if(authorsOptions.value !== ""){
 
-        databody.push({
-            author: authorsOptions.value
-        })
-    }
-
-    if(TypeContainer.value !== ""){
-        databody.push({
-            type:TypeContainer.value
-        })
-    }
 
     fetch(`${EndPoint}/filterArticles.php?k=${searchField.value}`, {
-        method:"POST",
+        method:"GET",
         // body: JSON.stringify(databody),
         // headers:{
         //     "Content-type": "application/JSON"
