@@ -58,7 +58,7 @@ if(isset($author)){
 
 
             while ($row = $result->fetch_assoc()) {
-                $articlesList = $row;
+                $articlesList[] = $row;
             }
             $response = array('status'=> 'success', 'articlesList' => $articlesList);
             echo json_encode($response);
