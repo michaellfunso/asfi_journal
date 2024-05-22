@@ -63,7 +63,7 @@ if(isset($author)){
         }
      
         }else{
-            $response = array('status'=> 'success', 'articlesList' => []);
+            $response = array('status'=> 'success', 'message' => "Author, $author Not found",  'articlesList' => []);
         echo json_encode($response);
         }
         
