@@ -53,22 +53,22 @@ function UpdateTemporaryArticles(ArticleLst) {
                         const AllAuthors = data.authorsList
                         let AuthorsName = ""
 
-                        // AllAuthors.forEach(author => {
+                        AllAuthors.forEach(author => {
                         
-                        //     const AuthorsFullname = `${author.authors_fullname}, `
-                        //     AuthorsName += AuthorsFullname
-                        // })
-                        // for(let i=0; i < AllAuthors.length; i++){
-                        //     let AuthorNM = `${AllAuthors[i].authors_fullname}, `
-                        //     if(i < AllAuthors.length-1){
+                            const AuthorsFullname = `${author.authors_fullname}, `
+                            AuthorsName += AuthorsFullname
+                        })
+                        for(let i=0; i < AllAuthors.length; i++){
+                            let AuthorNM = `${AllAuthors[i].authors_fullname}, `
+                            if(i < AllAuthors.length-1){
                                 
-                        //         AuthorsName += AuthorNM
-                        //     }else{
-                        //         AuthorsName += `${AllAuthors[i].authors_fullname}.`
-                        //     }
+                                AuthorsName += AuthorNM
+                            }else{
+                                AuthorsName += `${AllAuthors[i].authors_fullname}.`
+                            }
                             
                 
-                        // }
+                        }
 
                         // let LimitedAuthorsName = AuthorsName
                         // if(LimitedAuthorsName.length > maxLength){
