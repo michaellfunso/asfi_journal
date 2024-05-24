@@ -20,17 +20,17 @@
     --black-s: 0%;
     --black-l: 0%;
     --black: var(--black-h) var(--black-s) var(--black-l);
-    --heading-color: var(--white);
+    --heading-color: var(--black);
     --body-color: var(--light);
     --border-color: 0 0% 88%;
     --body-background: 242 63% 12%;
-    --section-bg: 240 55% 17%;
+    --section-bg: 273 93% 18%;
     /* ================================ Box Shadow Start =============================== */
     --header-box-shadow: 0px -1px 15px 3px hsl(var(--black) /.3);
     --mobile-box-shadow: 0px -1px 5px 0px hsl(var(--black) /.92);
     --box-shadow: 0px 2px 15px hsl(var(--black) /.05);
     /* ================================ Box Shadow End =============================== */
-    --base-gradient: linear-gradient(90deg, hsl(var(--base-two)) 36.85%, hsl(var(--base)) 60.47%);
+    --base-gradient: linear-gradient(90deg, hsl(var(--base-two)) 87.85%, hsl(var(--base)) 9.47%);
     --banner-gradient: linear-gradient(180deg, #020333 0%, #13265E 54.69%, #B97169 100%);
     --railway-gradient: linear-gradient(359.96deg, #020333 -107.04%, #13265E 103.76%, #B97169 278.41%);
     --profit-gradient: linear-gradient(180deg, #1E296D -23.97%, #1E296D 92.31%);
@@ -45,11 +45,11 @@
     --dashboard-five: linear-gradient(185.41deg, #F456A4 29.7%, #E90475 65%);
     /*============= dashboard gradient background color =========== */
     /* ========================= Base Color ============================= */
-    --base-h: 258;
+    --base-h: 273;
 
-    --base-s: 97%;
+    --base-s: 93%;
 
-    --base-l: 35%;
+    --base-l: 18%;
 
     --base: var(--base-h) var(--base-s) var(--base-l);
     /* Base darken */
@@ -75,9 +75,9 @@
     --base-l-800: var(--base-h) calc(var(--base-s)) calc(var(--base-l) + (100% - var(--base-l)) * 0.8);
     --base-l-900: var(--base-h) calc(var(--base-s)) calc(var(--base-l) + (100% - var(--base-l)) * 0.9);
     /* ========================= Base Two Color =============================  */
-    --base-two-h: 258;
-    --base-two-s: 66%;
-    --base-two-l: 45%;
+    --base-two-h: 0;
+    --base-two-s: 0;
+    --base-two-l: 98;
     --base-two: var(--base-two-h) var(--base-two-s) var(--base-two-l);
 
     /* Base Two Darken */
@@ -280,7 +280,7 @@ body {
     font-family: var(--heading-font);
     color: hsl(var(--body-color));
     word-break: break-word;
-    background-color: hsl(var(--body-background));
+    /* background-color: hsl(var(--body-background)); */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -366,7 +366,7 @@ h6>a {
 }
 
 a {
-    display: inline-block;
+    /* display: inline-block; */
     transition: 0.2s linear;
     text-decoration: none;
     color: hsl(var(--body-color));
@@ -3818,7 +3818,7 @@ select option {
 }
 
 .dashboard-fluid .dashboard__right {
-    width: calc(100% - 320px);
+    width: calc(100% - 380px);
 }
 
 @media screen and (max-width: 1199px) {
@@ -3833,7 +3833,7 @@ select option {
 
 .dashboard-fluid .dashboard-header {
     padding: 0 60px;
-    background: var(--base-gradient);
+    /* background: var(--base-gradient); */
 }
 
 @media (max-width: 1699px) {
@@ -3843,7 +3843,7 @@ select option {
 }
 
 .dashboard-fluid .dashboard-header__inner {
-    padding: 15px 0;
+    /* padding: 15px 0; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -3873,7 +3873,7 @@ select option {
     border-radius: 4px;
     overflow: hidden;
     transition: 0.25s linear;
-    background-color: hsl(var(--base-two));
+    background-color: hsl(var(--base));
     width: 200px;
     position: absolute;
     right: 0;
@@ -3929,8 +3929,9 @@ select option {
 .dashboard-fluid .user-info__info {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    /* align-items: center; */
     cursor: pointer;
+    color: rgb(34, 34, 34);
 }
 
 .dashboard-fluid .user-info__thumb {
@@ -4616,16 +4617,21 @@ select option {
 .dashboard-fluid .sidebar-menu {
     padding-bottom: 10px;
     height: 100vh;
-    background-color: hsl(var(--body-background));
+    background-color: white;
     overflow-y: auto;
     z-index: 999;
     transition: 0.2s linear;
     padding-top: 0;
-    width: 320px;
+    width: 380px;
     border-radius: 0;
     position: sticky;
     top: 0;
     border-right: 1px solid hsl(var(--white)/.1);
+}
+
+.nav-active {
+    background-color: whitesmoke;
+    color: rgb(37, 37, 37);
 }
 
 .dashboard-fluid .sidebar-menu::-webkit-scrollbar {
