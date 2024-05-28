@@ -13,14 +13,14 @@ if(isset($_GET["k"])){
 $searchQuery = $_GET["k"];
 
     try {
-        $stmt = $con->prepare("SELECT * FROM `journals` WHERE LOWER(`manuscript_full_title`) LIKE CONCAT('%', LOWER(?), '%') COLLATE utf8mb4_general_ci OR LOWER(`manuscript_running_title`) LIKE CONCAT('%', LOWER(?), '%') COLLATE utf8mb4_general_ci LIMIT ? OFFSET ?");
+        $stmt = $con->prepare("SELECT * FROM `journals` WHERE LOWER(`manuscript_full_title`) LIKE CONCAT('%', LOWER(?), '%') COLLATE utf8mb4_general_ci OR LOWER(`manuscript_running_title`) LIKE CONCAT('%', LOWER(?), '%') COLLATE utf8mb4_general_ci ");
 
     
         if (!$stmt) {
             throw new Exception("Failed to prepare statement: " . $con->error);
         }
     
-        $stmt->bind_param("ssii",$searchQuery, $searchQuery, $items_per_page, $offset);
+        $stmt->bind_param("ss",$searchQuery, $searchQuery);
     
         if (!$stmt->execute()) {
             throw new Exception("Failed to execute statement: " . $stmt->error);
@@ -57,13 +57,13 @@ $searchQuery = $_GET["k"];
 
 // LIMIT =? OFFSET = ?
 try {
-    $stmt = $con->prepare("SELECT * FROM `journals` WHERE 1 ORDER BY `id` DESC LIMIT ? OFFSET ?");
+    $stmt = $con->prepare("SELECT * FROM `journals` WHERE 1 ORDER BY `id` DESC");
 
     if (!$stmt) {
         throw new Exception("Failed to prepare statement: " . $con->error);
     }
 
-    $stmt->bind_param("ss", $items_per_page, $offset);
+    // $stmt->bind_param("ss", $items_per_page, $offset);
 
     if (!$stmt->execute()) {
         throw new Exception("Failed to execute statement: " . $stmt->error);
