@@ -11,7 +11,7 @@ if($count > 0){
  
 
     while($row = mysqli_fetch_assoc($Feed_IMAGE)){
-
+ 
         $ArticleTitle = $row['manuscript_full_title'];
         $ArticlePhoto = $row['manuscriptPhoto'];
         $ArticleId = $row['buffer'];
