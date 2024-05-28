@@ -1309,6 +1309,14 @@ body{
     height: 1000px;
 }
 
+.submission-header-dash {
+    border-right: 1px solid rgba(0, 0, 0, 0.37);
+    /* width: 30%; */
+    position: sticky;
+    top: 90px;
+    /* height: 1000px; */
+}
+
  .avatar {
         width: 60px;
         height: 60px;
@@ -1544,7 +1552,7 @@ body{
 
 
 .submit-body .submit-start {
-    background-color: white;
+    background-color: gainsboro;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -1644,7 +1652,7 @@ form div .submit-next {
     margin: 0 auto;
     height: 30px;
     width: 70px;
-    background-color: #404040;
+    background-color: #310357;
     color: whitesmoke;
     border: none;
     border-radius: 6px;
@@ -1714,7 +1722,7 @@ form div .add-author-btn {
 }
 
 .active-nav li{
-    background-color: blueviolet;
+    background-color: #310357;
     color: whitesmoke;
 }
 
@@ -1834,12 +1842,30 @@ table th {
     color: white;
 }
 
-table tr:nth-child(even) {
+/* table tr:nth-child(even) {
     background-color: #56075c8f;
     color: white;
+} */
+
+#table-dash {
+    border: none;
+}
+#table-dash th {
+    background-color: #5e5c5f23;
+    color: white;
+    border: none;
 }
 
+#table-dash tr,th,td {
+    /* border: 1px solid black; */
+    padding: 12px;   
+    border: none; 
+}
 
+#table-dash tr:nth-child(odd) {
+    background-color: #310357;
+    color: white;
+}
 
 
 

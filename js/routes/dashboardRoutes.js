@@ -9,7 +9,7 @@ if(AccountType == "user_account"){
     window.location.href = "../dashboard/userDashboard.html"
 }
 else if(AccountType == "author_account"){
-    window.location.href = "../dashboard/authorDashboard.html"
+    window.location.href = "../dashboard/authordash/home.html"
 }
 else if(AccountType == "reviewer_account"){
     window.location.href = "../dashboard/reviewerDashboard.html"    
