@@ -3,10 +3,12 @@ include "./db.php";
 include "./CORS-setup.php";
 session_start();
 
+
 $page = $_GET["page"];
 $items_per_page = $_GET["limit"];
 
 $offset = ($page - 1) * $items_per_page;
+
 
 
 if(isset($_GET["k"])){

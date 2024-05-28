@@ -11,13 +11,13 @@ const searchParams = new URLSearchParams(window.location.search);
 // }
 // Check if a parameter exists in the search query
 const hasParamSupplementId = searchParams.has('sid');
-const hasParmsSupplementTitle = searchParams.has("title")
+// const hasParmsSupplementTitle = searchParams.has("title")
 
-if(hasParamSupplementId && hasParmsSupplementTitle){
+if(hasParamSupplementId){
     const SearchId = searchParams.get("sid")
-    const SearchTitle = searchParams.get("title")
+    // const SearchTitle = searchParams.get("title")
     ViewItem(SearchId)
-    getSupplement(SearchId, SearchTitle)
+    getSupplement(SearchId)
 }else{
     // window.location.href = `https://asfirj.org`
 }

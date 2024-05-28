@@ -56,7 +56,7 @@ function UpdateManageArticles(ArticleLst) {
                     <div class='content article-content'>
                         <div class="article-content1">
                         <p class="article-type">${ArticleType}</p>
-                        <a href="./content?sid=${ArticleId}&title=${ArticleTitle}" class="article-title" style="color: rgba(24, 24, 24, 0.918);">${ArticleTitle}</a>
+                        <a href="./content?sid=${ArticleId}" class="article-title" style="color: rgba(24, 24, 24, 0.918);">${ArticleTitle}</a>
                         <p class="article-authors">${AuthorsName}</p>
                         </div>
                         <div class="article-content2" style="display:flex; flex-direction:row; align-items:center; justift-content:space-between; width:100%;">

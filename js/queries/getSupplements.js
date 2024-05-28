@@ -10,8 +10,8 @@ const authorsListBottom = document.getElementById("authorsListBottom")
 const downloadLinks = document.querySelectorAll(".downloadLink")
 const viewCountContainer = document.getElementById("viewCountContainer")
 const downloadsCountContainer = document.getElementById("downloadsCountContainer")
-function getSupplement(articeID, title) {
-    fetch(`${EndPoint}/retrieveArticle.php?q=${articeID}&title=${title}`, {
+function getSupplement(articeID) {
+    fetch(`${EndPoint}/retrieveArticle.php?q=${articeID}`, {
         method: "GET"
     }).then(res => res.json())
         .then(data => {

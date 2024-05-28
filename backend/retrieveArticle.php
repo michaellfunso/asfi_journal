@@ -2,17 +2,17 @@
 include "./db.php";
 
 $articleBuffer = $_GET["q"];
-$articleTitle = $_GET["title"];
+// $articleTitle = $_GET["title"];
 
-if(isset($articleTitle) && isset($articleBuffer)){
+if(isset($articleBuffer)){
     try {
-        $stmt = $con->prepare("SELECT * FROM `journals` WHERE `buffer` = ? AND manuscript_full_title = ?");
+        $stmt = $con->prepare("SELECT * FROM `journals` WHERE `buffer` = ? ");
     
         if (!$stmt) {
             throw new Exception("Failed to prepare statement: " . $con->error);
         }
     
-        $stmt->bind_param("ss", $articleBuffer, $articleTitle);
+        $stmt->bind_param("s", $articleBuffer);
     
         if (!$stmt->execute()) {
             throw new Exception("Failed to execute statement: " . $stmt->error);

@@ -27,7 +27,7 @@ if($count > 0){
                         <div class='inner-layer'>
                             <div data-animation='reveal-text' data-delay='1s'>
                                 <span style='animation-delay: 1s;'></span>
-                                <a href='./content?sid=$ArticleId&title=$ArticleTitle'
+                                <a href='./content?sid=$ArticleId'
                                     class='article-title u-text u-text-palette-5-light-3 u-text-2'>
 
                                     $ArticleTitle.
