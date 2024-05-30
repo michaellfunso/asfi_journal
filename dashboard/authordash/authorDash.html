@@ -34,6 +34,9 @@
     <meta name="twitter:card" content="summary_large_image">
     <!-- Bootstrap CSS -->
     <link href="../../assets/global/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="../../css/bootstrap.css" rel="stylesheet">
+      
+    <link href="../../css/bootstrap-responsive.css" rel="stylesheet"> -->
 
     <link href="../../assets/global/css/all.min.css" rel="stylesheet">
 
@@ -77,7 +80,7 @@
                             <div class="user-info__info">
                                 
                                 <span class="fw-bold">
-                                    John Doe
+                                    Bright Nwaru
                                 </span>
         
                                 <ul class="user-info-dropdown">
@@ -105,7 +108,7 @@
                 <div style="display: flex;">
                     <a href="./home.html" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
                     <a href="" class="nav-active"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
-                    <a href="" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-bell text--danger'></i> Review </span></a>
+                    <a href="../reviewerdash/reviewerDash.html" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-bell text--danger'></i> Review </span></a>
                 </div>
             </div>
         </div>
@@ -116,8 +119,8 @@
                     
                     
                     <ul class="submit-nav">
-                        <a href=""><li style="background-color: #80078b;"> <span>0</span> Manuscripts with Decisions</li></a>
-                        <a href=""><li> <span>0</span> Manuscripts I Have Co-Authored</li></a>
+                        <a href=""><li style="background-color: #320359;"> <span>0</span> Manuscripts with Decisions</li></a>
+                        <a href="./manuscriptCoauth.html"><li> <span>0</span> Manuscripts I Have Co-Authored</li></a>
                         <a href="./submitNewManuscript.html"><li>Submit New Manuscript</li></a>
                         <a href=""><li> <span>0</span> Manuscripts In Review</li></a>
                         <!-- <a href=""><li>Logout</li></a> -->
@@ -139,7 +142,7 @@
                                     <div class="alert border border--danger" role="alert">
                         <div class="d-flex align-items-center text--white alert-box">
                             <div class="alert-box__content" style="color: rgb(54, 54, 54);">
-                                <span class="fw-bold">Welcome <span></span>,</span><br>
+                                <span class="fw-bold">Welcome<span></span>, Bright Nwaru</span><br>
                                 <p class="alert__message">
                                     <small>
                                         <i>Kindly use the navigations on the left side.</i>
@@ -153,40 +156,100 @@
 
         <div class="row gy-2 justify-content-center">
             <span style="font-size: 35px; color: #310357;">Manuscripts with Decisions</span>
-            <table id="table-dash">
-                <tr>
-                    <th>ACTION</th>
-                    <th>STATUS</th>
-                    <th>ID</th>
-                    <th>TITLE</th>
-                    <th>SUBMITTED</th>
-                    <th>DECISIONED</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
+            <div class="table_container">
+                <table id="table-dash" class="">
+                    <thead>
+                        <tr>
+                            <th>ACTION</th>
+                            <th>STATUS</th>
+                            <th>ID</th>
+                            <th>TITLE</th>
+                            <th>SUBMITTED</th>
+                            <th>DECISIONED</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="queue_0" name="queue_0" role="row" class="odd">
+                          <td id="action">
+                            <br>            
+                        </td>          
+               <td data-label="status">              
+                        <div>
+                            <p>
+                                <a role="link" tabindex="0" data-title="test" id="contactJournalLnk" data-abstract="test" data-id="xik_HqzhLis2ey4NyZxowgCdfEwB7DoB64Umc9Bp7CgUjXzc" data-documentno="thoraxjnl-2020-215540.R2" data-toggle="modal" href="#contactJournal" onclick="" data-inviteemail="0" hidefocus="true" style="outline: none;"><i class="fa fa-envelope-o"></i> Contact Journal</a>
+                            </p>
+                        </div>
+                        <ul>
+                            <li>EPA: Bright Nwaru, Eman Soph</li>
+                            <li>Minor revision (11-Sep-2024)</li>
+                            <li>a revision has been submitted</li>
+                            <li><i>Archiving completed on 10-Oct-2024</i></li>
+                        </ul>
+              
+                      <br>
+                         <a role="link" tabindex="0" href="" hidefocus="true" style="outline: none;">  
+                             view decision letter
+                         </a>    
+                        
+                    </td>
+        
+                    <td data-label="ID">ASFIRJ-2024-215540.R2
+                    
+                    </td>
+                                          
+                    <td data-label="title" style="white-space:pre-wrap">Does use of hormonal contraceptives impact on severe exacerbation in women with asthma? A 17-year population-based cohort study<br><em>Files Archived</em> <i class="fa fa-question-circle" data-content="The Journal has elected to delete the files associated with the draft revision/resubmission of this manuscript. In order to continue, you must click the &quot;create revision/resubmission&quot;" data-original-title="Files Archived" data-toggle="popover" style="font-size:small; vertical-align:middle;"></i>
+                   
+             </td>
+                    <td class="whitespace-nowrap" data-label="submitted">21-Sep-2024
+                    </td>
+                    <td data-label="decisioned" class="whitespace-nowrap">25-Sep-2024</td>
+               </tr>
+               <tr id="queue_0" name="queue_0" role="row" class="odd">
+                <td id="action">
+                  <br>            
+              </td>          
+     <td data-label="status">              
+              <div>
+                  <p>
+                      <a role="link" tabindex="0" data-title="test" id="contactJournalLnk" data-abstract="test" data-id="xik_HqzhLis2ey4NyZxowgCdfEwB7DoB64Umc9Bp7CgUjXzc" data-documentno="thoraxjnl-2020-215540.R2" data-toggle="modal" href="#contactJournal" onclick="" data-inviteemail="0" hidefocus="true" style="outline: none;"><i class="fa fa-envelope-o"></i> Contact Journal</a>
+                  </p>
+              </div>
+            <ul>
+                <li>EPA: Bright Nwaru, Eman Soph</li>
+                <li>Minor revision (11-Sep-2024)</li>
+                <li>a revision has been submitted</li>
+                <li><i>Archiving completed on 10-Oct-2024</i></li>
+            </ul>
+    
+            <br>
+               <a role="link" tabindex="0" href="" hidefocus="true" style="outline: none;">  
+                   view decision letter
+               </a>    
+              
+          </td>
+
+          <td data-label="ID">ASFIRJ-2024-215540.R2
+          
+          </td>
+                                
+          <td data-label="title" style="white-space:pre-wrap">Does use of hormonal contraceptives impact on severe exacerbation in women with asthma? A 17-year population-based cohort study<br><em>Files Archived</em> <i class="fa fa-question-circle" data-content="The Journal has elected to delete the files associated with the draft revision/resubmission of this manuscript. In order to continue, you must click the &quot;create revision/resubmission&quot;" data-original-title="Files Archived" data-toggle="popover" style="font-size:small; vertical-align:middle;"></i>
+         
+   </td>
+          <td class="whitespace-nowrap" data-label="submitted">21-Sep-2024
+          </td>
+          <td data-label="decisioned" class="whitespace-nowrap">25-Sep-2024</td>
+     </tr>
+                    </tbody>
+                    
+                </table>
+
+            </div>
+            
 
         </div>
 
-        <!-- <div class="row gy-4 pt-4 justify-content-center">
-            <div class="col-xxl-4 col-xl-6 col-md-6">
-                <div class="dashboard-item">
-                    <h5 class="dashboard-item__title">
-                        Stock Market                    </h5>
-                     <div class="progress-wrapper mb-70" style="overflow: scroll;">
-                   
-                 
-                </div>
-            </div>
-
-           
-        </div> -->
+       
+        
 
         
     </section>
@@ -214,96 +277,7 @@
 
     <script src="../../assets/global/js/firebase/firebase-8.3.2.js"></script>
 
-<!-- <script>
-    "use strict";   
-    
-    var permission = null;
-    var authenticated = '1';
-    var pushNotify = 1;
-    var firebaseConfig = null;
 
-    function pushNotifyAction(){ 
-        permission = Notification.permission;
-
-        if(!('Notification' in window)){
-            notify('info', 'Push notifications not available in your browser. Try Chromium.')
-        }
-        else if(permission === 'denied' || permission == 'default'){ //Notice for users dashboard
-            $('.notice').append(`
-                <div class="col-lg-12">
-                    <div class="custom--card mb-4">
-                        <div class="card-header justify-content-between d-flex flex-wrap notice_notify">
-                            <h5 class="alert-heading">Please Allow / Reset Browser Notification <i class='las la-bell text--danger'></i></h5>
-                        </div>
-                        <div class="card-body">
-                            <p class="mb-0 small">If you want to get push notification then you have to allow notification from your browser</p>
-                        </div>
-                    </div> 
-                </div>
-            `);
-        }
-    }
-
-    //If enable push notification from admin panel
-    if(pushNotify == 1){
-        pushNotifyAction();
-    }
-
-    //When users allow browser notification
-    if(permission != 'denied' && firebaseConfig){ 
-   
-        //Firebase 
-        firebase.initializeApp(firebaseConfig);
-        const messaging = firebase.messaging();
-
-        navigator.serviceWorker.register("../assets/global/js/firebase/firebase-messaging-sw.js")
-        
-        .then((registration) => {
-            messaging.useServiceWorker(registration);
-            
-            function initFirebaseMessagingRegistration() {
-                messaging
-                .requestPermission()
-                .then(function () {
-                    return messaging.getToken()
-                })
-                .then(function (token){   
-                    $.ajax({ 
-                        url: '../add/device/token',
-                        type: 'POST',
-                        data: {
-                            token: token,
-                            '_token': "UwTgYxR3NAsG1dREYpqBeG6VHjaeeakT41aJq9rU"
-                        },
-                        success: function(response){
-                        },
-                        error: function (err) {
-                        },
-                    });
-                }).catch(function (error){
-                });
-            }
-
-            messaging.onMessage(function (payload){ 
-                const title = payload.notification.title;
-                const options = {
-                    body: payload.notification.body,
-                    icon: payload.notification.icon, 
-                    click_action:payload.notification.click_action,
-                    vibrate: [200, 100, 200]
-                };
-                new Notification(title, options);
-            });
-
-            //For authenticated users
-            if(authenticated){
-                initFirebaseMessagingRegistration();
-            }
-
-        });
-
-    }
-</script> -->
     <script>
         (function($) {
             "use strict";

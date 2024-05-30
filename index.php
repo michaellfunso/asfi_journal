@@ -374,13 +374,9 @@
 			<div class="row cta-wrap">
 				<div class="col-md-12 wow fadeInLeft" data-wow-delay="200ms">
 					<div class="cta-content">
-						<h2>Rapid & Transparent Publishing.</h2>
+						<h2>Why Publish in ASFIRJ?</h2>
 						<p style="color: rgba(245, 245, 245, 0.781);">
-							At ASFIRJ, we are committed to uncovering untapped potential and leveraging collective
-							knowledge to advance our goals. Through a dedication to evidence-based practices, we strive
-							to ensure the integrity and impact of our contributions, continuously seeking to secure and
-							document the value we create. Join us as we harness the power of research to drive positive
-							change and foster innovation within the scientific community.
+						Within the African scientific community, ASFIRJ aims to offer an unparalleled reach and an author-friendly approach in scientific publishing - from manuscript submission through publication.
 						</p>
 
 						<a href="./aboutus.html" class="default-btn">

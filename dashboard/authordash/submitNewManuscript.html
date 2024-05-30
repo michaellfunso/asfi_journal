@@ -44,6 +44,7 @@
     <link rel="stylesheet" href="../../assets/templates/metro_hyip/css/custom.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
     
     
@@ -77,7 +78,7 @@
                             <div class="user-info__info">
                                 
                                 <span class="fw-bold">
-                                    John Doe
+                                    Bright Nwaru
                                 </span>
         
                                 <ul class="user-info-dropdown">
@@ -105,7 +106,7 @@
                 <div style="display: flex;">
                     <a href="./home.html" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
                     <a href="" class="nav-active"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
-                    <a href="" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-bell text--danger'></i> Review </span></a>
+                    <a href="../reviewerdash/reviewerDash.html" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-bell text--danger'></i> Review </span></a>
                 </div>
             </div>
         </div>
@@ -117,7 +118,7 @@
                     
                     <ul class="submit-nav">
                         <a href="./authorDash.html"><li> <span>0</span> Manuscripts with Decisions</li></a>
-                        <a href=""><li> <span>0</span> Manuscripts I Have Co-Authored</li></a>
+                        <a href="./manuscriptCoauth.html"><li> <span>0</span> Manuscripts I Have Co-Authored</li></a>
                         <li class="active">Submit New Manuscript
                             <ul class="submit-nav" id="sectionNav">
                             <a href="javascript:void(0)"id="article_type_nav" >
@@ -140,6 +141,9 @@
                             </a>
                             <a href="javascript:void(0)" id="author_detail_nav" class="disabled">
                                 <li><i class="material-icons">lock</i>Author Details</li>
+                            </a>
+                            <a href="javascript:void(0)" id="review_submit" class="disabled">
+                                <li><i class="material-icons">lock</i>Review & Submit</li>
                             </a>
     
                         </ul></li>
@@ -271,8 +275,11 @@
     
                             <div>
                                 <b>Unstructured Abstract:</b> <br>
-                                <textarea name="unstructured_abstract" id="unstructured_abstract" cols="30" rows="20" class="form-control"></textarea>
-                            </div>
+                                <!-- <textarea name="unstructured_abstract" id="unstructured_abstract" cols="30" rows="20" class="form-control"></textarea> -->
+                                 <!-- Main toolbar -->
+                                 <div class="bg-body border rounded-bottom h-400px overflow-hidden" id="quilleditor" style="height: 500px;">
+                                </div>
+                            </div> <br>
                         
     
 
@@ -320,9 +327,16 @@
 
                                 <input type="text" class="form-control" placeholder="Highest Degree..." name="authors_highest_degree[]" id="hd">
                             </div>
+                            <div>
+                                <label for="">Corresponding Author Email :</label>
+
+                                <input type="text" class="form-control" placeholder="Corresponding Author Email..." name="email[]" id="hd">
+                            </div>
 
                             <div id="addAuthor">
                                 <h5 style="text-align: center;">Add An Author</h5> <br><br>
+
+                                
 
                             </div>
 
@@ -354,7 +368,8 @@
                                 <input type="number" class="form-control" name="authors_phonenumber[]" placeholder="Telephone...">
                                 <label for="">WhatsApp Number (Optional)</label>
                                 <input type="number" class="form-control" name="authors_whatsapp_number[]" placeholder="WhatsApp...">
-
+                                
+                                <button type="button" class="submit-next" onclick="showNext('author-details', 'affiliation', 'affiliation_nav')" disabled>Next</button>
                                 <input type="submit" class="submit-next" value="Submit">
                             </div>
                         </form>
@@ -386,6 +401,39 @@
     
     <link rel="stylesheet" href="../../assets/global/css/iziToast.min.css">
 <script src="../../assets/global/js/iziToast.min.js"></script>
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
+
+<script type="module" src="../../js/forms/quill.js"></script>
+    <script>
+        const authorsArray = document.getElementById("authorsArray")
+        var app = new Vue({
+      el: '#app',
+      data: {
+          keywords: [],
+          saisie: "",
+      },
+        methods: {
+            removeFromArray: function(index) {
+       
+             authorsArray.value.split(",").filter(x => {
+                
+             });
+    
+             this.keywords.splice(index, 1);
+             this.saisie = this.keywords;
+            },
+        },
+        watch: {
+          saisie: function() {
+            this.keywords = this.saisie.split(",").filter(x => { 
+              return x.trim() != '';
+            });	
+          }
+        }	
+    })
+    </script>
 
 <script src="../../js/forms/checkField.js"></script>
 <script src="../../js/forms/uploadManuscript.js" type="module"></script>

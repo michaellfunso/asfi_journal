@@ -3818,7 +3818,7 @@ select option {
 }
 
 .dashboard-fluid .dashboard__right {
-    width: calc(100% - 380px);
+    width: calc(100% - 320px);
 }
 
 @media screen and (max-width: 1199px) {
@@ -3826,6 +3826,8 @@ select option {
         width: 100%;
     }
 }
+
+
 
 .dashboard-fluid .dropdown {
     display: inline-block !important;
@@ -3953,7 +3955,7 @@ select option {
 
 .dashboard-fluid .dashboard-body {
     position: relative;
-    padding: 30px 40px;
+    padding: 30px 0px 30px 30px;
 }
 
 @media screen and (max-width: 1199px) {
@@ -4622,7 +4624,7 @@ select option {
     z-index: 999;
     transition: 0.2s linear;
     padding-top: 0;
-    width: 380px;
+    /* width: 380px; */
     border-radius: 0;
     position: sticky;
     top: 0;
