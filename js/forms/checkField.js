@@ -168,30 +168,32 @@ function addAuthorInput() {
     // Create new input fields for the new author
     var newAuthorInputs = document.createElement('div');
     newAuthorInputs.innerHTML = `
-        <div>
-            <label for="prefix">Prefix:</label>
-            <select name="authors_prefix[]" class="form-control">
-                <option value="">Select an Option</option>
-                <option value="Prof">Prof.</option>
-                <option value="Dr">Dr.</option>
-                <option value="Mr">Mr.</option>
-                <option value="Mrs">Mrs.</option>
-                <option value="Miss">Miss</option>
-            </select>
-        </div>
-        <div>
-            <label for="">Full Name:</label>
-            <input type="text" class="form-control" placeholder="Author's Full Name..." name="authors_first_name[]">
-        </div>
-        <div>
-                                <label for="">Middle Name:</label>
-                                <input type="text" class="form-control" placeholder="Middle Name..." name="authors_middle_name[]">
-                            </div>
-                    
-                            <div style="border-bottom: 1px solid #404040; margin-bottom: 12px;">
-                                <label for="">Last Name:</label>
-                                <input type="text" class="form-control" placeholder="Last Name..." name="authors_last_name[]">
-                            </div>
+    <div style="display: flex; flex-direction: row; overflow-x: scroll;">
+    <div>
+        <label for="prefix">Prefix:</label>
+        <select name="authors_prefix[]" class="form-control">
+            <option value="">Select an Option</option>
+            <option value="Prof">Prof.</option>
+            <option value="Dr">Dr.</option>
+            <option value="Mr">Mr.</option>
+            <option value="Mrs">Mrs.</option>
+            <option value="Miss">Miss</option>
+        </select>
+    </div>
+    <div>
+        <label for="">Full Name:</label>
+        <input type="text" class="form-control" placeholder="Author's Full Name..." name="authors_first_name[]">
+    </div>
+    <div>
+                            <label for="">Affiliation:</label>
+                            <input type="text" class="form-control" placeholder="Affiliation..." name="affiliation[]">
+                        </div>
+                
+                        <div style="border-bottom: 1px solid #404040; margin-bottom: 12px;">
+                            <label for="">Email:</label>
+                            <input type="email" class="form-control" placeholder="Email..." name="email[]">
+                        </div>
+</div>
     `;
 
     // Append the new author inputs to the container
