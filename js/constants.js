@@ -18,6 +18,19 @@ if(parentDIRName === "asfi_journal"){
     EndPoint = '/backend'   
 }
 
+function GetParameters(href){
+    // Get the URL string
+    const urlString = href;
+    
+    // Create a URL object
+    const url = new URL(urlString);
+    
+    // Get the search parameters from the URL
+    const searchParams = new URLSearchParams(url.search);
+    return searchParams
+    
+    }
+
 // console.log(parentDirectoryName)
 // Concatenate with the desired directory name
 
@@ -38,5 +51,6 @@ export {
     EndPoint,
     parentDirectoryName, 
     domainName,
-    searchParams
+    searchParams,
+    GetParameters
 };

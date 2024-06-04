@@ -19,7 +19,7 @@ authors.forEach(author =>{
 })
 }
 
-function UpdateTemporaryArticles(ArticleLst) {
+function UpdateTemporaryArticles(ArticleLst, currentPage, totalPages) {
     if (ArticleListContainer) {
         ArticleListContainer.innerHTML = ""
     }
@@ -129,6 +129,8 @@ function UpdateTemporaryArticles(ArticleLst) {
                     }
                 })
         });
+
+
     } else {
         if (ArticleListContainer) {
 
