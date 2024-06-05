@@ -11,6 +11,7 @@ const indicators = document.querySelector(".carousel-indicators")
 const authorsOptions = document.getElementById("authorsOption")
 
 
+
 const authors = await CreateAuthorsOptions()
 
 if(authorsOptions){

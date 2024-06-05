@@ -27,7 +27,7 @@ if (newpage) {
 } else {
     ArticlePage(1)
 }
-
+ 
 function ArticlePage(page) {
     fetch(`${EndPoint}/allArticles.php?page=${page}&limit=${Limit}`, {
         method: "GET"
