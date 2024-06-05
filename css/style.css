@@ -1859,10 +1859,10 @@ table th {
     color: white;
 }
 
-/* table tr:nth-child(even) {
+table tr:nth-child(even) {
     background-color: #56075c8f;
     color: white;
-} */
+}
 
 .table_container {
     overflow-x: auto;
