@@ -57,7 +57,7 @@ function articlesNavigation(totalPagesBooks, currentpages) {
         </li>`;
         }
     }
-
+ 
     pagination_container.innerHTML = `
     <ul class="pagination pagination-primary-soft d-inline-block d-md-flex rounded mb-0"  style="flex-direction:row; display:flex; align-items:center; justify-content:center; width:100%;">
         ${Previous}

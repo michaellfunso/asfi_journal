@@ -77,7 +77,7 @@ if (isset($_GET["k"])) {
         $resultC = $stmt->get_result();
 
     try {
-  
+
 
             $journalCount = mysqli_num_rows($resultC);
             $stmt = $con->prepare("SELECT * FROM `journals` WHERE 1 ORDER BY `id` DESC LIMIT ? OFFSET ?");
