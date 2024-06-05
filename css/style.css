@@ -1864,6 +1864,8 @@ table tr:nth-child(even) {
     color: white;
 }
 
+
+
 .table_container {
     overflow-x: auto;
 }
