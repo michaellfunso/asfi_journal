@@ -1,35 +1,6 @@
+import { quill } from "./quill.js";
 
-function navigateSection(sectionId) {
-    var currentSection = document.querySelector('.form-section:not(.hidden)');
-    var nextSection = document.getElementById(sectionId);
 
-    if (currentSection && nextSection && !nextSection.classList.contains('hidden')) {
-        currentSection.classList.add('hidden');
-        nextSection.classList.remove('hidden');
-        nextSection.classList.add('fade-in');
-
-        updateNavigationList(sectionId);
-    }
-}
-
-function updateNavigationList(currentSectionId) {
-
-   const item = document.getElementById(currentSectionId)
-//     var navItems = document.querySelectorAll('#sectionNav li');
-//     var currentIndex = Array.from(navItems).findIndex(item => item.textContent.toLowerCase() === currentSectionId);
-    item.removeAttribute("disabled")
-    item.setAttribute("class", "active-nav")
-    const Lock = item.querySelector("i")
-    Lock.innerHTML = "<span></span>";
-
-    // for (var i = 0; i < navItems.length; i++) {
-    //     navItems[i].removeAttribute('disabled');
-
-    //     if (i > currentIndex) {
-    //         navItems[i].setAttribute('disabled');
-    //     }
-    // }
-}
 const article_type = document.getElementById("article-type")
 const prefix = document.getElementById("article_type")
 const article_type_nav = document.getElementById("article_type_nav")
@@ -101,22 +72,30 @@ const Abstract = document.getElementById("abstract")
 const AbstractFields = Abstract.querySelectorAll("textarea")
 // let abstractCount = 0;
 
-AbstractFields.forEach(abFields =>{
-    abFields.addEventListener("change", function(){
-    if(abFields.value != "" && abFields.value){
+const abstractContent = quill.getContents().ops
+
+
+// AbstractFields.forEach(abFields =>{
+//     abFields.addEventListener("change", function(){
+    // Listen for text-change event
+quill.on('text-change', function(delta, oldDelta, source) {
         const nextButton = Abstract.querySelector(".submit-next")
         nextButton.removeAttribute("disabled")
         title_nav.setAttribute("onclick","showNext('abstract', 'author-information', 'abstract_nav')")
-        // abstractCount += 1
-    }
-})
+  });
+
+
+
+
+   
+// })
 
 // if(abstractCount >= AbstractFields.length){
 //     const nextButton = Abstract.querySelector(".submit-next")
 //     nextButton.removeAttribute("disabled")
 //     title_nav.setAttribute("onclick","showNext('abstract', 'author-information', 'abstract_nav')")
 // }
-})
+// })
 
 const Author_information = document.getElementById("author-information")
 const author_field = Author_information.querySelector("#hd")
@@ -129,74 +108,25 @@ Author_information.addEventListener("change", function() {
     }
     })
 
-const Affiliation = document.getElementById("affiliation")
-const Affiliations = Affiliation.querySelectorAll("input[type=text]")
+// const Affiliation = document.getElementById("affiliation")
+// const Affiliations = Affiliation.querySelectorAll("input[type=text]")
 
-Affiliations.forEach(affiliations =>{
-    affiliations.addEventListener("change", function(){
-    if(affiliations.value != "" && affiliations.value){
-    const nextButton = Affiliation.querySelector(".submit-next")
-    nextButton.removeAttribute("disabled")
-    title_nav.setAttribute("onclick","showNext('affiliation', 'author-detials', 'affiliation_nav')")
-    }
-    else{
-            alert(field.name  + " Cannot Be Empty")
-        }
+// Affiliations.forEach(affiliations =>{
+//     affiliations.addEventListener("change", function(){
+//     if(affiliations.value != "" && affiliations.value){
+//     const nextButton = Affiliation.querySelector(".submit-next")
+//     nextButton.removeAttribute("disabled")
+//     title_nav.setAttribute("onclick","showNext('affiliation', 'author-detials', 'affiliation_nav')")
+//     }
+//     else{
+//             alert(field.name  + " Cannot Be Empty")
+//         }
 
        
-            const nextButton = upload_manuscript.querySelector(".submit-next")
-            nextButton.removeAttribute("disabled")
-            article_type_nav.setAttribute("onclick","showNext('article-type', 'upload-manuscript', 'article_type_nav')")
+//             const nextButton = upload_manuscript.querySelector(".submit-next")
+//             nextButton.removeAttribute("disabled")
+//             article_type_nav.setAttribute("onclick","showNext('article-type', 'upload-manuscript', 'article_type_nav')")
     
-    })
+//     })
 
-})
-
-function showNext(nextSection, currentSection, navItemId) {
-    document.getElementById(currentSection).classList.add('hidden');
-    document.getElementById(nextSection).classList.remove('hidden');
-    document.getElementById(nextSection).classList.add('fade-in');
-    updateNavigationList(navItemId)
-    scrollTo(0, 0);  // Scroll to the top of the page if needed
-
-}
-
-function addAuthorInput() {
-    var authorContainer = document.getElementById('author-information');
-    var addAuthor = document.getElementById('addAuthor');
-
-    // Create new input fields for the new author
-    var newAuthorInputs = document.createElement('div');
-    newAuthorInputs.innerHTML = `
-    <div style="display: flex; justify-content: space-between; overflow-x: scroll;">
-    <div>
-        <label for="prefix">Prefix:</label>
-        <select name="authors_prefix[]" class="form-control">
-            <option value="">Select an Option</option>
-            <option value="Prof">Prof.</option>
-            <option value="Dr">Dr.</option>
-            <option value="Mr">Mr.</option>
-            <option value="Mrs">Mrs.</option>
-            <option value="Miss">Miss</option>
-        </select>
-    </div>
-    <div>
-        <label for="">Full Name:</label>
-        <input type="text" class="form-control" placeholder="Author's Full Name..." name="authors_first_name[]">
-    </div>
-    <div>
-                            <label for="">Affiliation:</label>
-                            <input type="text" class="form-control" placeholder="Affiliation..." name="affiliation[]">
-                        </div>
-                
-                        <div style="border-bottom: 1px solid #404040; margin-bottom: 12px;">
-                            <label for="">Email:</label>
-                            <input type="email" class="form-control" placeholder="Email..." name="email[]">
-                        </div>
-</div>
-    `;
-
-    // Append the new author inputs to the container
-    addAuthor.appendChild(newAuthorInputs);
-
-}
+// })
