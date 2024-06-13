@@ -1892,13 +1892,23 @@ table tr:nth-child(even) {
     border-bottom: 1px solid #dadada;
 }
 
-#table-dash tr:nth-child(odd) {
+/* #table-dash tr:nth-child(odd) {
     background-color: #310357;
     color: white;
 }
 #table-dash tr:nth-child(even) {
     background-color: #e9e9e9;
     color: rgb(34, 34, 34);
+} */
+
+#table-dash .section-title {
+    background-color: #310357;
+    color: white;
+}
+
+#table-dash tr:not(.section-title) {
+    background-color: whitesmoke;
+    color: black;
 }
 
 #table-dash tr td a {

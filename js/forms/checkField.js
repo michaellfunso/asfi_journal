@@ -168,7 +168,7 @@ function addAuthorInput() {
     // Create new input fields for the new author
     var newAuthorInputs = document.createElement('div');
     newAuthorInputs.innerHTML = `
-    <div style="display: flex; flex-direction: row; overflow-x: scroll;">
+    <div style="display: flex; justify-content: space-between; overflow-x: scroll;">
     <div>
         <label for="prefix">Prefix:</label>
         <select name="authors_prefix[]" class="form-control">

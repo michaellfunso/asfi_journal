@@ -104,9 +104,10 @@
             </div>
             <div style="background-color: #310357;">
                 <div style="display: flex;">
-                    <a href="./home.html" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
+                    <a href="./" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
                     <a href="" class="nav-active"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
-                    <a href="../reviewerdash/reviewerDash.html" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-bell text--danger'></i> Review </span></a>
+                    <a href="../reviewerdash" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-bell text--danger'></i> Review </span></a>
+                    <a href="" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-edit text--danger'></i> Editorial Assignments </span></a>
                 </div>
             </div>
         </div>
@@ -288,50 +289,42 @@
 
                         <div id="author-information" class="form-section hidden">
                             <h3 class="manu_head">Author's Information</h3>
-                            <div>
-                                <label for="prefix">Prefix:</label>
-                                <select id="author_information_prefix" name="authors_prefix[]" name="authors_prefix[]" class="form-control">
-
-                                    <option value="">Select and Option</option>
-                                    <option value="Prof">Prof.</option>
-                                    <option value="Dr">Dr.</option>
-                                    <option value="Mr">Mr.</option>
-                                    <option value="Mrs">Mrs.</option>
-                                    <option value="Miss">Miss</option>
-                                
-                                </select>
-                
-                      
-                            </div>
+                            <div style="display: flex; justify-content: space-between; overflow-x: scroll;">
+                                <div>
+                                    <label for="prefix">Prefix:</label>
+                                    <select id="author_information_prefix" name="authors_prefix[]" name="authors_prefix[]" class="form-control">
+    
+                                        <option value="">Select and Option</option>
+                                        <option value="Prof">Prof.</option>
+                                        <option value="Dr">Dr.</option>
+                                        <option value="Mr">Mr.</option>
+                                        <option value="Mrs">Mrs.</option>
+                                        <option value="Miss">Miss</option>
+                                    
+                                    </select>
+                    
+                          
+                                </div>
+                           
                        
-                   
-                            <div>
-                                <label for="">First Name:</label>
-                                <input type="text" class="form-control" placeholder="First Name..." name="authors_first_name[]">
-                            </div>
-                    
-                            <div>
-                                <label for="">Middle Name:</label>
-                                <input type="text" class="form-control" placeholder="Middle Name..." name="authors_middle_name[]">
-                            </div>
-                    
-                            <div>
-                                <label for="">Last Name:</label>
-                                <input type="text" class="form-control" placeholder="Last Name..." name="authors_last_name[]">
-                            </div>
-                    
-                            
-                            
-                            <div>
-                                <label for="">Highest Degree:</label>
+                                <div>
+                                    <label for="">Full Name:</label>
+                                    <input type="text" class="form-control" placeholder="Full Name..." name="authors_name[]">
+                                </div>
+                                
+                                <div>
+                                    <label for="">Affiliation(s):</label>
+    
+                                    <input type="text" class="form-control" placeholder="Affiliation..." name="affiliation[]" id="hd">
+                                </div>
+                                <div>
+                                    <label for="">Email :</label>
+    
+                                    <input type="text" class="form-control" placeholder="Corresponding Author Email..." name="email[]" id="hd">
+                                </div>
 
-                                <input type="text" class="form-control" placeholder="Highest Degree..." name="authors_highest_degree[]" id="hd">
                             </div>
-                            <div>
-                                <label for="">Corresponding Author Email :</label>
-
-                                <input type="text" class="form-control" placeholder="Corresponding Author Email..." name="email[]" id="hd">
-                            </div>
+                            
 
                             <div id="addAuthor">
                                 <h5 style="text-align: center;">Add An Author</h5> <br><br>
