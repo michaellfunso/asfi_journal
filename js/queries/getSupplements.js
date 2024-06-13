@@ -72,10 +72,17 @@ function getSupplement(articeID) {
                                 AllAuthors.forEach(author => {
                                     // const AuthorsFullname = `${author.authors_prefix} ${author.authors_firstname} ${author.authors_middlename} ${author.authors_lastname}, `
                                     const AuthorsFullname = `${author.authors_fullname} `
-                                    AuthorsName += AuthorsFullname
                                     authorsListBottom.innerHTML += `<li> ${AuthorsFullname} </li>`
 
                                 })
+                                for(var i=0; i < AllAuthors.length; i++){
+                                    if(i < AllAuthors.length - 1){
+                                        AuthorsName += `${AllAuthors[i].authors_fullname}, `
+
+                                    }else{
+                                        AuthorsName += `${AllAuthors[i].authors_fullname}.`
+                                    }
+                                }
 
                                 authorsContainerTop.innerText = AuthorsName
 
