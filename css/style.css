@@ -1892,6 +1892,8 @@ table tr:nth-child(even) {
     border-bottom: 1px solid #dadada;
 }
 
+
+
 /* #table-dash tr:nth-child(odd) {
     background-color: #310357;
     color: white;

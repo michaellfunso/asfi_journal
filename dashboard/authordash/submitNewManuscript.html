@@ -50,6 +50,90 @@
     
     <link rel="stylesheet" href="../../assets/templates/metro_hyip/css/color.php?color=EB4830&secondColor=">
     <link rel="stylesheet" href="../../front/public/css/header.css">
+    <script>
+function navigateSection(sectionId) {
+    var currentSection = document.querySelector('.form-section:not(.hidden)');
+    var nextSection = document.getElementById(sectionId);
+
+    if (currentSection && nextSection && !nextSection.classList.contains('hidden')) {
+        currentSection.classList.add('hidden');
+        nextSection.classList.remove('hidden');
+        nextSection.classList.add('fade-in');
+
+        updateNavigationList(sectionId);
+    }
+}
+
+function updateNavigationList(currentSectionId) {
+
+   const item = document.getElementById(currentSectionId)
+    item.removeAttribute("disabled")
+    item.setAttribute("class", "active-nav")
+    const Lock = item.querySelector("i")
+    Lock.innerHTML = "<span></span>";
+}
+
+
+        function showNext(nextSection, currentSection, navItemId) {
+    document.getElementById(currentSection).classList.add('hidden');
+    document.getElementById(nextSection).classList.remove('hidden');
+    document.getElementById(nextSection).classList.add('fade-in');
+    updateNavigationList(navItemId)
+    scrollTo(0, 0);  // Scroll to the top of the page if needed
+
+}
+
+function addAuthorInput() {
+    var authorContainer = document.getElementById('author-information');
+    var addAuthor = document.getElementById('addAuthor');
+
+    // Create new input fields for the new author
+    var newAuthorInputs = document.createElement('div');
+    newAuthorInputs.innerHTML = `
+    <div style="width: 100%; overflow-x: scroll;">
+        <div style="display: flex; justify-content: space-between; width: 150%;">
+    <div style="margin-right: 10px;">
+        <label for="prefix">Prefix:</label>
+        <select name="authors_prefix[]" class="form-control">
+            <option value="">Select an Option</option>
+            <option value="Prof">Prof.</option>
+            <option value="Dr">Dr.</option>
+            <option value="Mr">Mr.</option>
+            <option value="Mrs">Mrs.</option>
+            <option value="Miss">Miss</option>
+        </select>
+    </div>
+    <div style="margin-right: 10px;">
+        <label for="">Full Name:</label>
+        <div style="display: flex;">
+            <input type="text" class="form-control" placeholder="Full Name..." name="authors_first_name[]">
+        <input type="text" class="form-control" placeholder="Last Name..." name="authors_last_name[]">
+        <input type="text" class="form-control" placeholder="Other Name..." name="authors_other_name[]">
+        </div>
+    </div>
+    <div style="margin-right: 10px;">
+                            <label for="">Affiliation:</label>
+                            <div style="display: flex;">
+                            <input type="text" class="form-control" placeholder="Affiliation..." name="affiliation[]">
+                            <input type="text" class="form-control" placeholder="Affiliation City..." name="affiliation_city[]">
+                            <input type="text" class="form-control" placeholder="Affiliation Country..." name="affiliation_country[]">
+                            </div>
+                        </div>
+                
+                        <div style="border-bottom: 1px solid #404040; margin-bottom: 12px;">
+                            <label for="">Email:</label>
+                            <input type="email" class="form-control" placeholder="Email..." name="email[]">
+                        </div>
+        </div>
+    
+</div>
+    `;
+
+    // Append the new author inputs to the container
+    addAuthor.appendChild(newAuthorInputs);
+
+}
+    </script>
 </head>
 
 <body>
@@ -136,12 +220,6 @@
                             </a>
                             <a href="javascript:void(0)" id="author_information_nav" class="disabled">
                                 <li><i class="material-icons">lock</i>Authors</li>
-                            </a>
-                            <a href="javascript:void(0)" id="affiliation_nav" class="disabled">
-                                <li><i class="material-icons">lock</i>Affiliations</li>
-                            </a>
-                            <a href="javascript:void(0)" id="author_detail_nav" class="disabled">
-                                <li><i class="material-icons">lock</i>Author Details</li>
                             </a>
                             <a href="javascript:void(0)" id="review_submit" class="disabled">
                                 <li><i class="material-icons">lock</i>Review & Submit</li>
@@ -247,9 +325,6 @@
                             <div id="title" class="form-section hidden">
                                 <b style="text-align: center;">Manuscript Title</b>
                                 <input type="text" class="form-control" placeholder="Full Title" name="manuscript_full_title"> <br>
-                                <input type="text" class="form-control" placeholder="Running Title" name="manuscript_running_title">
-                        
-    
 
                                 <button type="button" class="submit-next" onclick="showNext('abstract', 'title', 'title_nav')" disabled>Next</button>
 
@@ -259,24 +334,8 @@
                         <div id="abstract" class="form-section hidden">
                             <div>
 
-                                <h3 class="manu_head">Abstracts</h3><br>
-                                <b>Structured Abstract:</b> <br><br>
-
-                                <label for="">Background:</label>
-                                <textarea  cols="30" rows="20" class="form-control" name="abstract_background"></textarea>
-                                <label for="">Objective:</label>
-                                <textarea  cols="30" rows="20" class="form-control" name="abstract_objectives"></textarea>
-                                <label for="">Methods:</label>
-                                <textarea   cols="30" rows="20" class="form-control" name="abstract_method"></textarea>
-                                <label for="">Results:</label>
-                                <textarea   cols="30" rows="20" class="form-control" name="abstract_results"></textarea>
-                                <label for="">Discussion:</label>
-                                <textarea   cols="30" rows="20" class="form-control" name="abstract_discussion"></textarea>
-                            </div>
-    
-                            <div>
-                                <b>Unstructured Abstract:</b> <br>
-                                <!-- <textarea name="unstructured_abstract" id="unstructured_abstract" cols="30" rows="20" class="form-control"></textarea> -->
+                                <h3 class="manu_head">Abstract</h3><br>
+                               
                                  <!-- Main toolbar -->
                                  <div class="bg-body border rounded-bottom h-400px overflow-hidden" id="quilleditor" style="height: 500px;">
                                 </div>
@@ -289,41 +348,50 @@
 
                         <div id="author-information" class="form-section hidden">
                             <h3 class="manu_head">Author's Information</h3>
-                            <div style="display: flex; justify-content: space-between; overflow-x: scroll;">
-                                <div>
-                                    <label for="prefix">Prefix:</label>
-                                    <select id="author_information_prefix" name="authors_prefix[]" name="authors_prefix[]" class="form-control">
-    
-                                        <option value="">Select and Option</option>
-                                        <option value="Prof">Prof.</option>
-                                        <option value="Dr">Dr.</option>
-                                        <option value="Mr">Mr.</option>
-                                        <option value="Mrs">Mrs.</option>
-                                        <option value="Miss">Miss</option>
-                                    
-                                    </select>
-                    
-                          
-                                </div>
+                            <div style="width: 100%; overflow-x: scroll;">
+                                <div style="display: flex; justify-content: space-between; width: 150%;">
+                                    <div style="margin-right: 10px;">
+                                        <label for="prefix">Prefix:</label>
+                                        <select id="author_information_prefix" name="authors_prefix[]" name="authors_prefix[]" class="form-control">
+        
+                                            <option value="">Select an Option</option>
+                                            <option value="Prof">Prof.</option>
+                                            <option value="Dr">Dr.</option>
+                                            <option value="Mr">Mr.</option>
+                                            <option value="Mrs">Mrs.</option>
+                                            <option value="Miss">Miss</option>
+                                        
+                                        </select>
+                              
+                                    </div>
+                               
                            
-                       
-                                <div>
-                                    <label for="">Full Name:</label>
-                                    <input type="text" class="form-control" placeholder="Full Name..." name="authors_name[]">
-                                </div>
-                                
-                                <div>
-                                    <label for="">Affiliation(s):</label>
+                                    <div style="margin-right: 10px;">
+                                        <label for="">Full Name:</label>
+                                        <div style="display: flex;">
+                                            <input type="text" class="form-control" placeholder="First Name..." name="authors_first_name[]">
+                                            <input type="text" class="form-control" placeholder="Last Name..." name="authors_last_name[]">
+                                            <input type="text" class="form-control" placeholder="Other Name..." name="authors_other_name[]">
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="margin-right: 10px;">
+                                        <label for="">Affiliation(s):</label>
+                                      <div style="display: flex;">
+                                        <input type="text" class="form-control" placeholder="Affiliation..." name="affiliation[]" id="hd">
+                                        <input type="text" class="form-control" placeholder="Affiliation City..." name="affiliation_city[]">
+                                        <input type="text" class="form-control" placeholder="Affiliation Country..." name="affiliation_country[]">
+                                      </div> 
+                                    </div>
+                                    <div>
+                                        <label for="">Email:</label>
+                                        <input type="text" class="form-control" placeholder="Corresponding Author Email..." name="email[]" id="hd">
+                                    </div>
     
-                                    <input type="text" class="form-control" placeholder="Affiliation..." name="affiliation[]" id="hd">
-                                </div>
-                                <div>
-                                    <label for="">Email :</label>
-    
-                                    <input type="text" class="form-control" placeholder="Corresponding Author Email..." name="email[]" id="hd">
                                 </div>
 
                             </div>
+                            
                             
 
                             <div id="addAuthor">
@@ -338,33 +406,9 @@
                             <button type="button" class="submit-next" onclick="showNext('affiliation', 'author-information', 'author_information_nav')" disabled>Next</button>
                         </div>
                     
-                            <div id="affiliation" class="form-section hidden">
-                                <h3 class="manu_head">Affiliation:</h3> <br>
-
-                                <label for="">Institution</label>
-                                <input type="text" class="form-control" placeholder="Institution..." name="authors_institution[]">
-                                <label for="">City</label>
-                                <input type="text" class="form-control" placeholder="City..." name="institution_city[]">
-                                <label for="">Country</label>
-                                <input type="text" class="form-control" placeholder="Country..." name="institution_country[]">
+                           
                     
-
-                                <button type="button" class="submit-next" onclick="showNext('author-details', 'affiliation', 'affiliation_nav')" disabled>Next</button>
-                            </div>
-                    
-                            <div id="author-details" class="form-section hidden">
-                                <h3 class="manu_head">Contacts:</h3>
-
-                                <label for="">Email</label>
-                                <input type="email" class="form-control" placeholder="Email..." name="authors_email[]">
-                                <label for="">Telephone</label>
-                                <input type="number" class="form-control" name="authors_phonenumber[]" placeholder="Telephone...">
-                                <label for="">WhatsApp Number (Optional)</label>
-                                <input type="number" class="form-control" name="authors_whatsapp_number[]" placeholder="WhatsApp...">
-                                
-                                <button type="button" class="submit-next" onclick="showNext('author-details', 'affiliation', 'affiliation_nav')" disabled>Next</button>
-                                <input type="submit" class="submit-next" value="Submit">
-                            </div>
+                            
                         </form>
                 </div>
             </div>
@@ -428,7 +472,7 @@
     })
     </script>
 
-<script src="../../js/forms/checkField.js"></script>
+<script src="../../js/forms/checkField.js" type="module"></script>
 <script src="../../js/forms/uploadManuscript.js" type="module"></script>
     
 </body>
