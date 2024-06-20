@@ -20,7 +20,7 @@ const newpasswordForm = document.getElementById("newPasswordForm")
 
 if(RESET_STATUS_AUTH != 200){
     alert("Access Denied")
-    window.location.href = "../../forms/passwwordResetForm.html"
+    window.location.href = "../../portal/forgotpassword"
 }else{
     fetch(`${EndPoint}/newPassword.php?encEmail=${searchParameter}`, {
         method:"GET",

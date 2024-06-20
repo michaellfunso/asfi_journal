@@ -916,3 +916,17 @@
 	background-repeat: no-repeat;
 	background-size: auto;
 }
+
+div::-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+
+#disclosures .bg-body {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    color: rgb(41, 41, 41);
+}
+#disclosures .bg-body span {
+    margin-left: 10px;
+}

@@ -3678,7 +3678,7 @@ select option {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: hsl(var(--white)/.25);
+    background-color: #310357;
     border: 0px solid transparent;
     border-radius: 2px;
 }
