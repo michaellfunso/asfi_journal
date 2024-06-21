@@ -9,7 +9,8 @@ const upload_manuscript_nav = document.getElementById("upload_manuscript_nav")
 const title_nav = document.getElementById("title_nav")
 const abstract_nav = document.getElementById("abstract_nav")
 const author_information_nav = document.getElementById("author_information_nav")
-const affiliation_nav = document.getElementById("affiliation_nav")
+const disclosures_nav = document.getElementById("disclosures_nav")
+const review_submit_nav = document.getElementById("review_submit_nav")
 
 prefix.addEventListener("change", function() {
 if(prefix.value != "" && prefix.value){
@@ -38,9 +39,6 @@ FIleFIelds.forEach(field =>{
             field.value = ''; // Clear the file input
 
         }
-        // else{
-        //     alert(field.name  + " Cannot Be Empty")
-        // }
 
         if(field.value != "" && field.value){
             const nextButton = upload_manuscript.querySelector(".submit-next")
@@ -69,33 +67,14 @@ Titles.forEach(titles =>{
 })
 
 const Abstract = document.getElementById("abstract")
-const AbstractFields = Abstract.querySelectorAll("textarea")
-// let abstractCount = 0;
 
-const abstractContent = quill.getContents().ops
-
-
-// AbstractFields.forEach(abFields =>{
-//     abFields.addEventListener("change", function(){
-    // Listen for text-change event
 quill.on('text-change', function(delta, oldDelta, source) {
         const nextButton = Abstract.querySelector(".submit-next")
         nextButton.removeAttribute("disabled")
-        title_nav.setAttribute("onclick","showNext('abstract', 'author-information', 'abstract_nav')")
+        abstract_nav.setAttribute("onclick","showNext('abstract', 'author-information', 'abstract_nav')")
   });
 
 
-
-
-   
-// })
-
-// if(abstractCount >= AbstractFields.length){
-//     const nextButton = Abstract.querySelector(".submit-next")
-//     nextButton.removeAttribute("disabled")
-//     title_nav.setAttribute("onclick","showNext('abstract', 'author-information', 'abstract_nav')")
-// }
-// })
 
 const Author_information = document.getElementById("author-information")
 const author_field = Author_information.querySelector("#hd")
@@ -107,26 +86,3 @@ Author_information.addEventListener("change", function() {
     author_information_nav.setAttribute("onclick","showNext('author-information', 'affiliation', 'author_information_nav')")
     }
     })
-
-// const Affiliation = document.getElementById("affiliation")
-// const Affiliations = Affiliation.querySelectorAll("input[type=text]")
-
-// Affiliations.forEach(affiliations =>{
-//     affiliations.addEventListener("change", function(){
-//     if(affiliations.value != "" && affiliations.value){
-//     const nextButton = Affiliation.querySelector(".submit-next")
-//     nextButton.removeAttribute("disabled")
-//     title_nav.setAttribute("onclick","showNext('affiliation', 'author-detials', 'affiliation_nav')")
-//     }
-//     else{
-//             alert(field.name  + " Cannot Be Empty")
-//         }
-
-       
-//             const nextButton = upload_manuscript.querySelector(".submit-next")
-//             nextButton.removeAttribute("disabled")
-//             article_type_nav.setAttribute("onclick","showNext('article-type', 'upload-manuscript', 'article_type_nav')")
-    
-//     })
-
-// })

@@ -10,46 +10,46 @@
 
     <meta name="description" content="asfiresearchjournal">
     <meta name="keywords" content="asfiresearchjournal">
-    <link rel="shortcut icon" href="../../assets/images/logoIcon/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../../assets/images/logoIcon/favicon.png" type="image/x-icon">
 
     
-    <link rel="apple-touch-icon" href="../../assets/images/logoIcon/logo.png">
+    <link rel="apple-touch-icon" href="../../../assets/images/logoIcon/logo.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Author - Dashboard">
     
     <meta itemprop="name" content="Author - Dashboard">
     <meta itemprop="description" content="asfiresearchjournal">
-    <meta itemprop="image" content="../assets/images/seo/65be1258275121706955352.png">
+    <meta itemprop="image" content="../../../assets/images/seo/65be1258275121706955352.png">
     
     <meta property="og:type" content="website">
     <meta property="og:title" content="ASFIRJ">
     <meta property="og:description" content="asfiresearchjournal">
-    <meta property="og:image" content="../assets/images/seo/65be1258275121706955352.png"/>
+    <meta property="og:image" content="../../../assets/images/seo/65be1258275121706955352.png"/>
     <meta property="og:image:type" content="png"/>
     <meta property="og:image:width" content="1180" />
     <meta property="og:image:height" content="600" />
-    <meta property="og:url" content="/user/dashboard.html">
+    <meta property="og:url" content="../../dashboard">
     
     <meta name="twitter:card" content="summary_large_image">
     <!-- Bootstrap CSS -->
-    <link href="../../assets/global/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../assets/global/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="../../assets/global/css/all.min.css" rel="stylesheet">
+    <link href="../../../assets/global/css/all.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="../../assets/global/css/line-awesome.min.css" />
+    <link rel="stylesheet" href="../../../assets/global/css/line-awesome.min.css" />
 
-    <link rel="stylesheet" href="../../assets/templates/metro_hyip/css/main.css">
+    <link rel="stylesheet" href="../../../assets/templates/metro_hyip/css/main.css">
 
-    <link rel="stylesheet" href="../../assets/templates/metro_hyip/css/custom.css">
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../../assets/templates/metro_hyip/css/custom.css">
+    <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
     
     
-    <link rel="stylesheet" href="../../assets/templates/metro_hyip/css/color.php?color=EB4830&secondColor=">
-    <link rel="stylesheet" href="../../front/public/css/header.css">
+    <link rel="stylesheet" href="../../../assets/templates/metro_hyip/css/color.php?color=EB4830&secondColor=">
+    <link rel="stylesheet" href="../../../front/public/css/header.css">
     <script>
 function navigateSection(sectionId) {
     var currentSection = document.querySelector('.form-section:not(.hidden)');
@@ -64,22 +64,44 @@ function navigateSection(sectionId) {
     }
 }
 
-function updateNavigationList(currentSectionId) {
+function updateNavigationList(currentSectionId, Nextitem) {
 
    const item = document.getElementById(currentSectionId)
-    item.removeAttribute("disabled")
+   const next = document.getElementById(Nextitem);
     item.setAttribute("class", "active-nav")
+    next.removeAttribute("class")
+
     const Lock = item.querySelector("i")
+    const LockNext = next.querySelector("i")
+    LockNext.innerText = "lock_open"
+
     Lock.innerHTML = "<span></span>";
 }
 
 
-        function showNext(nextSection, currentSection, navItemId) {
+        function showNext(nextSection, currentSection, navItemId, Nextitem, prevSection) {
     document.getElementById(currentSection).classList.add('hidden');
     document.getElementById(nextSection).classList.remove('hidden');
     document.getElementById(nextSection).classList.add('fade-in');
-    updateNavigationList(navItemId)
+    updateNavigationList(navItemId, Nextitem)
+    const buttons = document.getElementById(prevSection);
+    buttons.querySelector(".submit-next").style.display="none";
     scrollTo(0, 0);  // Scroll to the top of the page if needed
+
+}
+function reviewAll() {
+    const hiddenItms = document.querySelectorAll(".form-section");
+    const removeButton = document.querySelectorAll(".submit-next");
+    const showSubmit = document.querySelector("#submit_manuscript");
+    hiddenItms.forEach(item=>{
+        item.classList.remove('hidden');
+    })
+
+    removeButton.forEach(item=>{
+        item.style.display="none";
+    })
+
+    showSubmit.removeAttribute('hidden');
 
 }
 
@@ -90,7 +112,7 @@ function addAuthorInput() {
     // Create new input fields for the new author
     var newAuthorInputs = document.createElement('div');
     newAuthorInputs.innerHTML = `
-    <div style="width: 100%; overflow-x: scroll;">
+    
         <div style="display: flex; justify-content: space-between; width: 150%;">
     <div style="margin-right: 10px;">
         <label for="prefix">Prefix:</label>
@@ -124,9 +146,9 @@ function addAuthorInput() {
                             <label for="">Email:</label>
                             <input type="email" class="form-control" placeholder="Email..." name="email[]">
                         </div>
+                        <div style="width: 20px; height: 20px; color:white; font-weight:bold; background-color: red; border-radius:6px; display-flex; justify-content: center; align-item: center">x</div>
         </div>
-    
-</div>
+
     `;
 
     // Append the new author inputs to the container
@@ -154,7 +176,7 @@ function addAuthorInput() {
             <div class="dashboard-header__inner">
                 
                 <div class="dashboard-header__left">
-                    <a href="" class="sidebar-logo__link"> <img src="../../assets/images/logoIcon/logo.png" alt="site-logo"></a>
+                    <a href="" class="sidebar-logo__link"> <img src="../../../assets/images/logoIcon/logo.png" alt="site-logo"></a>
                 </div>
                 <div class="dashboard-header__right">
                     <div class="user-info">
@@ -187,10 +209,10 @@ function addAuthorInput() {
                 </div>
             </div>
             <div style="background-color: #310357;">
-                <div style="display: flex;">
-                    <a href="./" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
+                <div style="display: flex;" class="dashboard-nav">
+                    <a href="../" style="color: whitesmoke;"><span class="fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
                     <a href="" class="nav-active"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
-                    <a href="../reviewerdash" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-bell text--danger'></i> Review </span></a>
+                    <a href="../../reviewerdash" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-bell text--danger'></i> Review </span></a>
                     <a href="" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-edit text--danger'></i> Editorial Assignments </span></a>
                 </div>
             </div>
@@ -202,11 +224,11 @@ function addAuthorInput() {
                     
                     
                     <ul class="submit-nav">
-                        <a href="./authorDash.html"><li> <span>0</span> Manuscripts with Decisions</li></a>
-                        <a href="./manuscriptCoauth.html"><li> <span>0</span> Manuscripts I Have Co-Authored</li></a>
+                        <a href="../manuscripts/"><li> <span>0</span> Manuscripts with Decisions</li></a>
+                        <a href="../coauth/"><li> <span>0</span> Manuscripts I Have Co-Authored</li></a>
                         <li class="active">Submit New Manuscript
                             <ul class="submit-nav" id="sectionNav">
-                            <a href="javascript:void(0)"id="article_type_nav" >
+                            <a href="javascript:void(0)"id="article_type_nav">
                                 <li  > <i class="material-icons">lock</i>Article Type</li>
                             </a>
                             <a href="javascript:void(0)" id="upload_manuscript_nav" class="disabled">
@@ -221,7 +243,10 @@ function addAuthorInput() {
                             <a href="javascript:void(0)" id="author_information_nav" class="disabled">
                                 <li><i class="material-icons">lock</i>Authors</li>
                             </a>
-                            <a href="javascript:void(0)" id="review_submit" class="disabled">
+                            <a href="javascript:void(0)" id="disclosures_nav" class="disabled">
+                                <li><i class="material-icons">lock</i>Disclosures</li>
+                            </a>
+                            <a href="javascript:void(0)" id="review_submit_nav" class="disabled">
                                 <li><i class="material-icons">lock</i>Review & Submit</li>
                             </a>
     
@@ -265,7 +290,7 @@ function addAuthorInput() {
                                 <select name="article_type" id="article_type" class="form-control">
                                     <option value="">Select an Option</option>
                                     <option value="Original Article">Original Article</option>
-                                    <option value="Review">Review</option>
+                                    <option value="Review">Narrative Review</option>
                                     <option value="Systematic Review">Systematic Review</option>
                                     <option value="Letter to Editor">Letter to Editor</option>
                                     <option value="Editorial">Editorial</option>
@@ -278,7 +303,7 @@ function addAuthorInput() {
                                     <option value="Insight">Insight</option>
                                 </select>
 
-                            <button type="button" class="submit-next" onclick="showNext('upload-manuscript', 'article-type', 'article_type_nav')" disabled>Next</button>
+                            <button type="button" class="submit-next" onclick="showNext('upload-manuscript', 'article-type', 'article_type_nav', 'upload_manuscript_nav')" disabled>Next</button>
                         </div>
                         
                         <div id="upload-manuscript" class="form-section hidden">
@@ -316,7 +341,7 @@ function addAuthorInput() {
                             </div> <br>
     
 
-                            <button type="button" class="submit-next" onclick="showNext('title', 'upload-manuscript', 'upload_manuscript_nav')" disabled>Next</button>
+                            <button type="button" class="submit-next" onclick="showNext('title', 'upload-manuscript', 'upload_manuscript_nav', 'title_nav', 'article-type')" disabled>Next</button>
 
                         </div>
     
@@ -326,7 +351,7 @@ function addAuthorInput() {
                                 <b style="text-align: center;">Manuscript Title</b>
                                 <input type="text" class="form-control" placeholder="Full Title" name="manuscript_full_title"> <br>
 
-                                <button type="button" class="submit-next" onclick="showNext('abstract', 'title', 'title_nav')" disabled>Next</button>
+                                <button type="button" class="submit-next" onclick="showNext('abstract', 'title', 'title_nav', 'abstract_nav', 'upload-manuscript')" disabled>Next</button>
 
                             </div>
     
@@ -343,12 +368,12 @@ function addAuthorInput() {
                         
     
 
-                            <button type="button" class="submit-next" onclick="showNext('author-information', 'abstract', 'abstract_nav')" disabled>Next</button>
+                            <button type="button" class="submit-next" onclick="showNext('author-information', 'abstract', 'abstract_nav', 'author_information_nav', 'title')" disabled>Next</button>
                         </div>
 
                         <div id="author-information" class="form-section hidden">
                             <h3 class="manu_head">Author's Information</h3>
-                            <div style="width: 100%; overflow-x: scroll;">
+                            <div id="addAuthor" style="width: 100%; overflow-x: scroll;">
                                 <div style="display: flex; justify-content: space-between; width: 150%;">
                                     <div style="margin-right: 10px;">
                                         <label for="prefix">Prefix:</label>
@@ -390,20 +415,60 @@ function addAuthorInput() {
     
                                 </div>
 
-                            </div>
+                            </div> <br>
                             
-                            
 
-                            <div id="addAuthor">
-                                <h5 style="text-align: center;">Add An Author</h5> <br><br>
 
-                                
-
-                            </div>
-
-                            <button type="button" class="add-author-btn" onclick="addAuthorInput()">Add an Author</button>
+                            <button type="button" class="add-author-btn" style="border-radius: 12px; background-color: blueviolet;" onclick="addAuthorInput()">Add an Author</button>
                     
-                            <button type="button" class="submit-next" onclick="showNext('affiliation', 'author-information', 'author_information_nav')" disabled>Next</button>
+                            <button type="button" class="submit-next" onclick="showNext('disclosures', 'author-information', 'author_information_nav', 'disclosures_nav', 'abstract')" disabled>Next</button>
+                        </div>
+
+                        <div class="form-section hidden" id="disclosures">
+                        
+
+                                <h3 class="manu_head">Disclosures</h3><br>
+                               
+                                 <!-- Main toolbar -->
+                                 <div class="bg-body border rounded-bottom">
+                                    <input type="checkbox" name="" id="" required><span>I confirm that the manuscript has been submitted solely to ASFIRJ and is not published, in press,
+                                        or submitted elsewhere, with exception of submission to preprint servers.</span>
+                                 </div>
+                                 <div class="bg-body border rounded-bottom">
+                                    <input type="checkbox" name="" id="" required><span>I am aware that ASFIRJ requires that all authors disclose all potential sources of conflict of
+                                        interest in regarding the submitted manuscript and I confirm that all authors have done so.</span>
+                                 </div>
+                                 <div class="bg-body border rounded-bottom">
+                                    <input type="checkbox" name="" id="" required><span>I confirm that the research that yielded the manuscript being submitted meets the ethical
+                                        guidelines and adheres to all legal research requirements of the study country.</span>
+                                 </div>
+                                 <div class="bg-body border rounded-bottom">
+                                    <input type="checkbox" name="" id="" required><span>I have prepared my manuscript and files, including text, tables, and figures, in accordance with
+                                        ASFIRJ’s style and formatting requirements as described at: <a href="https://asfirj.org/authors.html" style="color: blueviolet;">asfirj.org/authors.html</a>.</span>
+                                 </div>
+                                 <div class="bg-body border rounded-bottom">
+                                    <input type="checkbox" name="" id="" required><span>I confirm that each of the co-authors acknowledges their participation in the research that yielded
+                                        the manuscript being submitted and agrees to the submission of the manuscript to ASFIRJ.</span>
+                                 </div>
+                                 <div class="bg-body border rounded-bottom">
+                                    <input type="checkbox" name="" id="" required><span>I confirm that the contributions each author made to the manuscript are specified in the authors’
+                                        contribution section of the manuscript.</span>
+                                 </div>
+                                 <div class="bg-body border rounded-bottom">
+                                    <input type="checkbox" name="" id="" required><span>I confirm that the manuscript being submitted and the data it contains are unpublished and
+                                        original.</span>
+                                 </div>
+                                 <div class="bg-body border rounded-bottom">
+                                    <input type="checkbox" name="" id="" required><span>I confirm that I am willing to pay ASFIRJ’s APC for the submitted manuscript if it is accepted for
+                                        publication in the journal as indicated at <a href="https://asfirj.org/aboutus.html" style="color:blueviolet;">asfirj.org/aboutus.html</a>.</span>
+                                 </div>
+                             <br>
+                        
+    
+
+                            <button type="button" class="submit-next" style="width: 30%; padding: 10px;" onclick="reviewAll()">Review & Submit</button>
+    
+                            <input type="submit" id="submit_manuscript" style="margin: 20px; background-color: blueviolet; border: none; padding: 15px 20px 15px 20px; border-radius: 8px; color: white; font-weight: bold;" value="Submit" hidden>
                         </div>
                     
                            
@@ -425,9 +490,9 @@ function addAuthorInput() {
     </div>
 
         
-    <script src="../../assets/global/js/jquery-3.6.0.min.js"></script>
-    <script src="../../assets/global/js/bootstrap.bundle.min.js"></script>
-    <script src="../../assets/templates/metro_hyip/js/main.js"></script>
+    <script src="../../../assets/global/js/jquery-3.6.0.min.js"></script>
+    <script src="../../../assets/global/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../assets/templates/metro_hyip/js/main.js"></script>
 
             <script>
         'use strict';
@@ -436,13 +501,13 @@ function addAuthorInput() {
     </script>
 
     
-    <link rel="stylesheet" href="../../assets/global/css/iziToast.min.css">
-<script src="../../assets/global/js/iziToast.min.js"></script>
+    <link rel="stylesheet" href="../../../assets/global/css/iziToast.min.css">
+<script src="../../../assets/global/js/iziToast.min.js"></script>
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
 
-<script type="module" src="../../js/forms/quill.js"></script>
+<script type="module" src="../../../js/forms/quill.js"></script>
     <script>
         const authorsArray = document.getElementById("authorsArray")
         var app = new Vue({
@@ -472,8 +537,8 @@ function addAuthorInput() {
     })
     </script>
 
-<script src="../../js/forms/checkField.js" type="module"></script>
-<script src="../../js/forms/uploadManuscript.js" type="module"></script>
+<script src="../../../js/forms/checkField.js" type="module"></script>
+<script src="../../../js/forms/uploadManuscript.js" type="module"></script>
     
 </body>
 
