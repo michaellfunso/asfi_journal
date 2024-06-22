@@ -136,9 +136,14 @@
             </div>
             <div class="submit-container">
                 <div class="submit-body">
-                    <form action="" id="registerForm">
+                    <form id="registerForm">
                         <div>
                             <label for="prefix">Prefix:</label>
+							<div class="message" id="message_container">   
+							</div>
+								
+								
+							<div>
                             <select name="prefix" id="prefix" class="form-control" required>
                                 <option value="">Select Preferred Prefix</option>
                                 <option value="Prof.">Prof.</option>
@@ -151,12 +156,12 @@
                         
                         <div>
                             <label for="">First Name:</label>
-                            <input type="text" class="form-control" placeholder="First Name..." name="first_name" id="first_name">
+                            <input type="text" class="form-control" placeholder="First Name..." name="first_name" id="first_name" required>
                         </div>
 
                         <div>
                             <label for="">Last Name:</label>
-                            <input type="text" class="form-control" placeholder="Last Name..." name="last_name" id="last_name">
+                            <input type="text" class="form-control" placeholder="Last Name..." name="last_name" id="last_name" required>
                         </div>
 
                         <div>
@@ -166,14 +171,21 @@
 
                         <div>
                             <label for="">Email</label>
-                            <input type="text" class="form-control" placeholder="Email..." name="email" id="email">
+                            <input type="email" class="form-control" placeholder="Email..." name="email" id="email" required>
                         </div>
                         
                         <div>
                             <label for="">Affiliation:</label>
-                            <input type="text" class="form-control" placeholder="Affiliation...">
+                            <input type="text" class="form-control" placeholder="Affiliation..." id="affiliation" name="affiliation" required>
                         </div>
-
+						<div>
+                            <label for="">Affiliation Country:</label>
+                            <input type="text" class="form-control" placeholder="Affiliation..." id="affiliation_country" name="affiliation_country" required>
+                        </div>
+						<div>
+                            <label for="">Affiliation City:</label>
+                            <input type="text" class="form-control" placeholder="Affiliation..." id="affiliation_city" name="affiliation_city" required>
+                        </div>
                         <div>
                             <p>Are you available to review for ASFIRJ? (optional)</p>
                             <div class="review-option">

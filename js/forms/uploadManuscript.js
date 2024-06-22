@@ -1,12 +1,24 @@
-import { EndPoint, domainName, parentDirectoryName } from "../constants.js";
+import { EndPoint, submissionsEndpoint } from "../constants.js";
+import { quill } from "./quill.js";
 
 const uploadForm = document.getElementById("uploadForm");
+const body = document.querySelector("body")
+const message_container = document.getElementById("message_container")
+
+body.setAttribute("id", "formNotSubmitted")
 
 uploadForm.addEventListener("submit", function(e) {
     e.preventDefault();
     const formData = new FormData(uploadForm);
+    formData.append('abstract', JSON.stringify(quill.getContents().ops));
 
-    fetch(`${EndPoint}/uploadManuscript.php`, {
+
+
+    body.removeAttribute("id")
+    // formData.append('article_content', JSON.stringify(quill.getContents().ops));
+    // console.log(JSON.stringify(quill.getContents().ops))
+
+    fetch(`${submissionsEndpoint}/submit/`, {
         method: 'POST',
         body: formData
     })
@@ -15,12 +27,15 @@ uploadForm.addEventListener("submit", function(e) {
         console.log(data); // Log server response
         if(data.status === "success"){
             alert("Upload Successful")
-            window.location.href = `${domainName}/issues.html`
+            // window.location.href = "../supplements.html#supplements"
         }else if(data.status === "error"){
             alert(data.message)
+            body.setAttribute("id", "formNotSubmitted")
         }else{
             alert("Internal Server Error")
+            body.setAttribute("id", "formNotSubmitted")
         }
+
     })
     .catch(error => {
         console.error('Error:', error);
