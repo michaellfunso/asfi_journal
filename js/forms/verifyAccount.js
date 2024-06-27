@@ -8,7 +8,7 @@ if(email){
     }).then(res=>res.json())
     .then(data=>{
         if(data.status === "success" || data.status === "accountVerified"){
-            window.location.href = parentDirectoryName+="/portal/login"
+            window.location.href = parentDirectoryName+"/portal/login"
         }else{
             document.write(data.message)
         }
