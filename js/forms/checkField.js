@@ -23,7 +23,6 @@ article_type_nav.setAttribute("onclick","showNext('article-type', 'upload-manusc
 
 const upload_manuscript = document.getElementById("upload-manuscript")
 const FIleFIelds = upload_manuscript.querySelectorAll("input[type=file]")
-    
 
 FIleFIelds.forEach(field =>{
     field.addEventListener("change", function(){
@@ -78,11 +77,14 @@ quill.on('text-change', function(delta, oldDelta, source) {
 
 const Author_information = document.getElementById("author-information")
 const author_field = Author_information.querySelector(".hd")
+const userEmailContainer = document.getElementById("logged_email")
 
-Author_information.addEventListener("change", function() {
-    if(author_field.value != "" && author_field.value){
+// Author_information.addEventListener("change", function() {
+    // if(userEmailContainer.value != "" && userEmailContainer.value){
     const nextButton = Author_information.querySelector(".submit-next")
     nextButton.removeAttribute("disabled")
     author_information_nav.setAttribute("onclick","showNext('author-information', 'affiliation', 'author_information_nav')")
-    }
-    })
+    // }else{
+    //     console.log(userEmailContainer.value)
+    // }
+    // })
