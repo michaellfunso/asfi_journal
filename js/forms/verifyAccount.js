@@ -1,6 +1,6 @@
 import { GetParameters, parentDirectoryName, submissionsEndpoint } from "../constants.js";
 
-const email = GetParameters("a")
+const email = GetParameters(window.location.href).get("a")
 
 if(email){
     fetch(`${submissionsEndpoint}/backend/verifyaccount.php?e=${email}`, {
