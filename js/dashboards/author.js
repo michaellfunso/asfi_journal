@@ -54,5 +54,5 @@ navbarContainer.innerHTML = editorNavbar
     console.log(isAuthor)
 }
 }else{
-    window.location.href = parentDirectoryName+'./dashboard'
+    window.location.href = parentDirectoryName+'/dashboard'
 }
