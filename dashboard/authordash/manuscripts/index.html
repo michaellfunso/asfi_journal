@@ -79,11 +79,11 @@
                         <div class="user-info__button">
                             <div class="user-info__info">
                                 
-                                <span class="fw-bold">
-                                    Bright Nwaru
+                                <span class="fw-bold user_fullnameContainer">
+                                 
                                 </span>
         
-                                <ul class="user-info-dropdown">
+                                <!-- <ul class="user-info-dropdown">
                                     <li class="user-info-dropdown__item"><a class="user-info-dropdown__link"
                                             href="../../user/profile-setting.html">Profile Setting</a></li>
                                     <li class="user-info-dropdown__item"><a class="user-info-dropdown__link"
@@ -97,22 +97,16 @@
                                         <span><i class="las la-angle-down"></i></span>
                                     </div>
                                     <span class="user-info__link" id="user_emailContainer"> </span>
-                                </div>
+                                </div> -->
         
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div style="background-color: #310357;">
-                <div style="display: flex;">
-                    <a href="../" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
-                    <a href="" class="nav-active"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
-                    <a href="../../reviewerdash" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-bell text--danger'></i> Review </span></a>
-                    <a href="" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-edit text--danger'></i> Editorial Assignments </span></a>
-                </div>
+            <div style="background-color: #310357;" id="navbarContainer">
+             
             </div>
-        </div>
         <div class="dashboard__inner">
             <div class="sidebar-menu" id="userMenu">
                 <div class="submission-header-dash" style="margin-top: 30px;">
@@ -120,7 +114,7 @@
                     
                     
                     <ul class="submit-nav">
-                        <a href=""><li style="background-color: #320359;"> <span>0</span> Manuscripts with Decisions</li></a>
+                        <a href=""><li style="background-color: #320359;"> <span>0</span> Manuscripts</li></a>
                         <a href="../coauth/"><li> <span>0</span> Manuscripts I Have Co-Authored</li></a>
                         <a href="../submit/"><li>Submit New Manuscript</li></a>
                         <a href=""><li> <span>0</span> Manuscripts In Review</li></a>
@@ -143,7 +137,7 @@
                                     <div class="alert border border--danger" role="alert">
                         <div class="d-flex align-items-center text--white alert-box">
                             <div class="alert-box__content" style="color: rgb(54, 54, 54);">
-                                <span class="fw-bold">Welcome<span></span>, Bright Nwaru</span><br>
+                                <span class="fw-bold">Welcome, <span class="user_fullnameContainer"></span></span><br>
                                 <p class="alert__message">
                                     <small>
                                         <i>Kindly use the navigations on the left side.</i>
@@ -156,21 +150,19 @@
         </div>
 
         <div class="row gy-2 justify-content-center">
-            <span style="font-size: 35px; color: #310357;">Manuscripts with Decisions</span>
+            <span style="font-size: 35px; color: #310357;">Manuscripts</span>
             <div class="table_container">
                 <table id="table-dash" class="">
                     <thead>
                         <tr class="section-title">
-                            <th>ACTION</th>
                             <th>STATUS</th>
                             <th>ID</th>
                             <th>TITLE</th>
                             <th>SUBMITTED</th>
-                            <th>DECISIONED</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr id="queue_0" name="queue_0" role="row" class="odd">
+                    <tbody id="manuscriptsContainer">
+                        <!-- <tr id="queue_0" name="queue_0" role="row" class="odd">
                           <td id="action">
                             <br>            
                         </td>          
@@ -204,42 +196,8 @@
                     <td class="whitespace-nowrap" data-label="submitted">21-Sep-2024
                     </td>
                     <td data-label="decisioned" class="whitespace-nowrap">25-Sep-2024</td>
-               </tr>
-               <tr id="queue_0" name="queue_0" role="row" class="odd">
-                <td id="action">
-                  <br>            
-              </td>          
-     <td data-label="status">              
-              <div>
-                  <p>
-                      <a role="link" tabindex="0" data-title="test" id="contactJournalLnk" data-abstract="test" data-id="xik_HqzhLis2ey4NyZxowgCdfEwB7DoB64Umc9Bp7CgUjXzc" data-documentno="thoraxjnl-2020-215540.R2" data-toggle="modal" href="#contactJournal" onclick="" data-inviteemail="0" hidefocus="true" style="outline: none;"><i class="fa fa-envelope-o"></i> Contact Journal</a>
-                  </p>
-              </div>
-            <ul>
-                <li>EPA: Bright Nwaru, Eman Soph</li>
-                <li>Minor revision (11-Sep-2024)</li>
-                <li>a revision has been submitted</li>
-                <li><i>Archiving completed on 10-Oct-2024</i></li>
-            </ul>
-    
-            <br>
-               <a role="link" tabindex="0" href="" hidefocus="true" style="outline: none;">  
-                   view decision letter
-               </a>    
-              
-          </td>
-
-          <td data-label="ID">ASFIRJ-2024-215540.R2
-          
-          </td>
-                                
-          <td data-label="title" style="white-space:pre-wrap">Does use of hormonal contraceptives impact on severe exacerbation in women with asthma? A 17-year population-based cohort study<br><em>Files Archived</em> <i class="fa fa-question-circle" data-content="The Journal has elected to delete the files associated with the draft revision/resubmission of this manuscript. In order to continue, you must click the &quot;create revision/resubmission&quot;" data-original-title="Files Archived" data-toggle="popover" style="font-size:small; vertical-align:middle;"></i>
-         
-   </td>
-          <td class="whitespace-nowrap" data-label="submitted">21-Sep-2024
-          </td>
-          <td data-label="decisioned" class="whitespace-nowrap">25-Sep-2024</td>
-     </tr>
+               </tr> -->
+            
                     </tbody>
                     
                 </table>
@@ -263,7 +221,8 @@
     <script src="../../../assets/global/js/jquery-3.6.0.min.js"></script>
     <script src="../../../assets/global/js/bootstrap.bundle.min.js"></script>
     <script src="../../../assets/templates/metro_hyip/js/main.js"></script>
-
+    <script type="module" src="../../../js/dashboards/author.js"></script>
+<script type="module" src="../../../js/dashboards/manuscripts.js"></script>
             <script>
         'use strict';
         (function($) {

@@ -1,21 +1,18 @@
-import { EndPoint } from "../constants.js";
+import { EndPoint, parentDirectoryName } from "../constants.js";
+import { GetAccountData } from "../dashboards/accountData.js";
 import { GetCookie } from "../setCookie.js";
 
 
-const AccountType = GetCookie("accountType")
+const Account = GetCookie("user")
 
-// Redirect the users to specific dashboards by their account type 
-if(AccountType == "user_account"){
-    window.location.href = "../dashboard/userDashboard.html"
-}
-else if(AccountType == "author_account"){
-    window.location.href = "../dashboard/authordash/home.html"
-}
-else if(AccountType == "reviewer_account"){
-    window.location.href = "../dashboard/reviewerDashboard.html"    
-}else if(AccountType == "editor_account"){
-    window.location.href = "../dashboard/editorDashboard.html"
+if(Account){
+    const accountData = await GetAccountData(Account)
+    if(accountData.account_status === "verified"){
+        window.location.href = parentDirectoryName+"/dashboard/authordash"
+    }else{
+        alert("Account Not Verified")
+    }
 }else{
-    alert("Pleas Login")
-    window.location.href = "login.html"
+    window.location.href = parentDirectoryName+"/portal/login"
 }
+

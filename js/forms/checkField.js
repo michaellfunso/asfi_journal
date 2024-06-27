@@ -77,7 +77,7 @@ quill.on('text-change', function(delta, oldDelta, source) {
 
 
 const Author_information = document.getElementById("author-information")
-const author_field = Author_information.querySelector("#hd")
+const author_field = Author_information.querySelector(".hd")
 
 Author_information.addEventListener("change", function() {
     if(author_field.value != "" && author_field.value){

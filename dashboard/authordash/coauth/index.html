@@ -79,11 +79,11 @@
                         <div class="user-info__button">
                             <div class="user-info__info">
                                 
-                                <span class="fw-bold">
+                                <span class="fw-bold user_fullnameContainer">
                                     Bright Nwaru
                                 </span>
         
-                                <ul class="user-info-dropdown">
+                              <!-- <ul class="user-info-dropdown">
                                     <li class="user-info-dropdown__item"><a class="user-info-dropdown__link"
                                             href="../../user/profile-setting.html">Profile Setting</a></li>
                                     <li class="user-info-dropdown__item"><a class="user-info-dropdown__link"
@@ -97,22 +97,16 @@
                                         <span><i class="las la-angle-down"></i></span>
                                     </div>
                                     <span class="user-info__link" id="user_emailContainer"> </span>
-                                </div>
+                                </div> -->
         
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div style="background-color: #310357;">
-                <div style="display: flex;">
-                    <a href="../" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
-                    <a href="" class="nav-active"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
-                    <a href="../../reviewerdash" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-bell text--danger'></i> Review </span></a>
-                    <a href="" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-edit text--danger'></i> Editorial Assignments </span></a>
-                </div>
+            <div style="background-color: #310357;" id="navbarContainer">
+             
             </div>
-        </div>
         <div class="dashboard__inner">
             <div class="sidebar-menu" id="userMenu">
                 <div class="submission-header-dash" style="margin-top: 30px;">
@@ -120,7 +114,7 @@
                     
                     
                     <ul class="submit-nav">
-                        <a href="../manuscripts/"><li> <span>0</span> Manuscripts with Decisions</li></a>
+                        <a href="../manuscripts/"><li> <span>0</span> Manuscripts</li></a>
                         <a href=""><li style="background-color: #320359;"> <span>0</span> Manuscripts I Have Co-Authored</li></a>
                         <a href="../submit/"><li>Submit New Manuscript</li></a>
                         <a href=""><li> <span>0</span> Manuscripts In Review</li></a>
@@ -254,7 +248,7 @@
 
 
     <script src="../../../assets/global/js/firebase/firebase-8.3.2.js"></script>
-
+    <script type="module" src="../../js/dashboards/author.js"></script>
 
     <script>
         (function($) {

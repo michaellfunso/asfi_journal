@@ -85,7 +85,9 @@ function updateNavigationList(currentSectionId, Nextitem) {
     document.getElementById(nextSection).classList.add('fade-in');
     updateNavigationList(navItemId, Nextitem)
     const buttons = document.getElementById(prevSection);
-    buttons.querySelector(".submit-next").style.display="none";
+    if(buttons){
+        buttons.querySelector(".submit-next").style.display="none";
+    }
     scrollTo(0, 0);  // Scroll to the top of the page if needed
 
 }
@@ -183,11 +185,11 @@ function addAuthorInput() {
                         <div class="user-info__button">
                             <div class="user-info__info">
                                 
-                                <span class="fw-bold">
+                                <span class="fw-bold user_fullnameContainer">
                                     Bright Nwaru
                                 </span>
         
-                                <ul class="user-info-dropdown">
+                                   <!-- <ul class="user-info-dropdown">
                                     <li class="user-info-dropdown__item"><a class="user-info-dropdown__link"
                                             href="../../user/profile-setting.html">Profile Setting</a></li>
                                     <li class="user-info-dropdown__item"><a class="user-info-dropdown__link"
@@ -201,22 +203,16 @@ function addAuthorInput() {
                                         <span><i class="las la-angle-down"></i></span>
                                     </div>
                                     <span class="user-info__link" id="user_emailContainer"> </span>
-                                </div>
+                                </div> -->
         
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div style="background-color: #310357;">
-                <div style="display: flex;" class="dashboard-nav">
-                    <a href="../" style="color: whitesmoke;"><span class="fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
-                    <a href="" class="nav-active"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
-                    <a href="../../reviewerdash" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-bell text--danger'></i> Review </span></a>
-                    <a href="" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-edit text--danger'></i> Editorial Assignments </span></a>
-                </div>
+            <div style="background-color: #310357;" id="navbarContainer">
+             
             </div>
-        </div>
         <div class="dashboard__inner">
             <div class="sidebar-menu" id="userMenu">
                 <div class="submission-header-dash" style="margin-top: 30px;">
@@ -224,7 +220,7 @@ function addAuthorInput() {
                     
                     
                     <ul class="submit-nav">
-                        <a href="../manuscripts/"><li> <span>0</span> Manuscripts with Decisions</li></a>
+                        <a href="../manuscripts/"><li> <span>0</span> Manuscripts</li></a>
                         <a href="../coauth/"><li> <span>0</span> Manuscripts I Have Co-Authored</li></a>
                         <li class="active">Submit New Manuscript
                             <ul class="submit-nav" id="sectionNav">
@@ -378,40 +374,36 @@ function addAuthorInput() {
                                 <div style="display: flex; justify-content: space-between; width: 150%;">
                                     <div style="margin-right: 10px;">
                                         <label for="prefix">Prefix:</label>
-                                        <select id="author_information_prefix" name="authors_prefix[]" name="authors_prefix[]" class="form-control">
-        
-                                            <option value="">Select an Option</option>
-                                            <option value="Prof">Prof.</option>
-                                            <option value="Dr">Dr.</option>
-                                            <option value="Mr">Mr.</option>
-                                            <option value="Mrs">Mrs.</option>
-                                            <option value="Miss">Miss</option>
-                                        
-                                        </select>
+                                        <input name="loggedIn_authors_prefix" class="form-control hd" id="author_information_prefix" readonly/>
                               
                                     </div>
-                               
-                           
+                                         
                                     <div style="margin-right: 10px;">
-                                        <label for="">Full Name:</label>
+                                        <label for="">Full Name:</label> 
                                         <div style="display: flex;">
-                                            <input type="text" class="form-control" placeholder="First Name..." name="authors_first_name[]">
-                                            <input type="text" class="form-control" placeholder="Last Name..." name="authors_last_name[]">
-                                            <input type="text" class="form-control" placeholder="Other Name..." name="authors_other_name[]">
+                                            <input type="text" class="form-control hd" placeholder="First Name..." name="loggedIn_authors_first_name" id="loggedIn_firstname" readonly>
+                                            <input type="text" class="form-control hd" placeholder="Last Name..." name="loggedIn_authors_last_name" id="loggedIn_lastname" readonly>
+                                            <input type="text" class="form-control" placeholder="Other Name..." name="loggedIn_authors_other_name" id="loggedIn_othername" readonly>
                                         </div>
                                     </div>
                                     
                                     <div style="margin-right: 10px;">
                                         <label for="">Affiliation(s):</label>
                                       <div style="display: flex;">
-                                        <input type="text" class="form-control" placeholder="Affiliation..." name="affiliation[]" id="hd">
-                                        <input type="text" class="form-control" placeholder="Affiliation City..." name="affiliation_city[]">
-                                        <input type="text" class="form-control" placeholder="Affiliation Country..." name="affiliation_country[]">
+                                        <input type="text" class="form-control hd" placeholder="Affiliation..." name="loggedIn_affiliation" id="loggedIn_affiliation" readonly>
+                                        <input type="text" class="form-control hd" placeholder="Affiliation City..." name="loggedIn_affiliation_city" id="loggedIn_affiliation_city" readonly>
+                                        <input type="text" class="form-control" placeholder="Affiliation Country..." name="loggedIn_affiliation_country" id="loggedIn_affiliation_country" readonly>
                                       </div> 
                                     </div>
+                                 
                                     <div>
                                         <label for="">Email:</label>
-                                        <input type="text" class="form-control" placeholder="Corresponding Author Email..." name="corresponding_author" id="hd">
+                                        <input type="text" class="form-control hd" placeholder="Corresponding Author Email..." name="loggedIn_author" id="logged_email" readonly>
+                                    </div>
+
+                                    <div>
+                                        <label for="">Corresponding Author Email:</label>
+                                        <input type="text" class="form-control hd" placeholder="Corresponding Author Email..." name="corresponding_author" id="loggedIn_email">
                                     </div>
     
                                 </div>
@@ -540,7 +532,7 @@ function addAuthorInput() {
 
 <script src="../../../js/forms/checkField.js" type="module"></script>
 <script src="../../../js/forms/uploadManuscript.js" type="module"></script>
-    
+<script type="module" src="../../../js/dashboards/author.js"></script>
 </body>
 
 </html>

@@ -1,32 +1,58 @@
-import { EndPoint } from "../constants.js";
+import { parentDirectoryName, submissionsEndpoint, url } from "../constants.js";
 import { GetCookie } from "../setCookie.js";
-import { GetUserInfo } from "../queries/getUserInfo.js";
+import { GetAccountData } from "./accountData.js";
 
-const username = GetCookie("username_logged")
-const profilePicture = GetCookie("profileImage")
-const email = GetCookie("email")
-const fullname = `${GetCookie("firstname")} ${GetCookie("lastname")}`
-const AcctCookie = GetCookie("accountType")
-const nameContainer = document.getElementById("nameContainer")
+const email = GetCookie("user");
 
-async function userFunction(){
-const userData = JSON.parse(await GetUserInfo(username))
+if(email){
+const userInfo = await GetAccountData(email)
+const navbarContainer = document.getElementById("navbarContainer")
+const homeNavbar = `<div style="display: flex;">
+                    <a href="${parentDirectoryName}/dashboard" class="nav-active"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
+                    <a href="./manuscripts" ><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
+                </div>
+            </div>`
+const authorNavbar = `<div style="display: flex;">
+                    <a href="${parentDirectoryName}/dashboard" ><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
+                    <a href="./manuscripts" class="nav-active"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
+                </div>
+            </div>`
+const reviewerNavbar = `   <div style="display: flex;">
+                    <a href="" class="nav-active"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
+                    <a href="./manuscripts" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
+                    <a href="../reviewerdash" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-bell text--danger'></i> Review </span></a>
+                    <a href="" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-edit text--danger'></i> Editorial Assignments </span></a>
+                </div>
+            </div>`
+const editorNavbar = `   <div style="display: flex;">
+                    <a href="" class="nav-active"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
+                    <a href="./manuscripts.html" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
+                    <a href="../reviewerdash" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-bell text--danger'></i> Review </span></a>
+                    <a href="" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-edit text--danger'></i> Editorial Assignments </span></a>
+                </div>
+            </div>`
 
-const AccountType = userData.accountType
-console.log("Author")
+const isAuthor = userInfo.account_status 
+const is_reviewer = userInfo.is_reviewer 
+const is_editor = userInfo.is_editor
+const userfullname = `${userInfo.prefix} ${userInfo.firstname} ${userInfo.lastname} ${userInfo.othername}`
 
-if(AccountType != "author_account" || !AccountType){
-    alert("Access Denied")
-     window.location.href = `./../login.html`
+const userfullname_container = document.querySelectorAll(".user_fullnameContainer")
+userfullname_container.forEach(container =>{
+    container.innerText = userfullname
+})
+if(url.pathname === parentDirectoryName+'/dashboard/authordash'){
+navbarContainer.innerHTML = homeNavbar
+}
+if(isAuthor === "verified" && is_reviewer != "yes" && is_editor != "yes"){
+    navbarContainer.innerHTML = authorNavbar
+}else if(isAuthor === "verified" && is_reviewer === "yes" && is_editor != "yes"){
+    navbarContainer.innerHTML = reviewerNavbar
+}else if(isAuthor === "verified" && is_editor === "yes"){
+navbarContainer.innerHTML = editorNavbar
 }else{
-    console.log("Author Login")
+    console.log(isAuthor)
 }
-}
-
-if(username && email){
-    userFunction()
-    nameContainer.innerHTML += `<span>${fullname}</span>`;
 }else{
-    window.location.href = `./../login.html`
+    window.location.href = parentDirectoryName+'./dashboard'
 }
-
