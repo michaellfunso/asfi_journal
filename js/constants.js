@@ -13,7 +13,7 @@ let parentDirectoryName, EndPoint, submissionsEndpoint
 if(parentDIRName === "asfi_journal"){   
     parentDirectoryName = `/asfi_journal/`
     EndPoint = `/asfi_journal/backend`;
-    submissionsEndpoint = 'http://localhost/asfirj_submission_controls/'
+    submissionsEndpoint = 'https://cp.asfirj.org/'
  
 }else{
     parentDirectoryName = "https://asfirj.org"
