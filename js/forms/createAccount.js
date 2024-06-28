@@ -10,6 +10,7 @@ const affiliation = document.getElementById("affiliation")
 const affiliation_country = document.getElementById("affiliation_country")
 const affiliation_city = document.getElementById("affiliation_city")
 const password = document.getElementById("password")
+const discipline = document.getElementById("discipline")
 
 const password2 = document.getElementById("password2")
 
@@ -50,6 +51,7 @@ const availableForReview = document.querySelector('input[name="review"]:checked'
             firstname:firstname.value,
             lastname:lastname.value,
             othername: othername.value,
+            discipline:discipline.value,
             email: email.value,
             affiliations: affiliation.value,
             affiliations_country: affiliation_country.value,

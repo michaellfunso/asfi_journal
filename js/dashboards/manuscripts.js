@@ -23,7 +23,7 @@ if(user){
 
             if(articlesList.length > 0){
                 articlesList.forEach(article => {
-                ArticlesContainer.innerHTML = `         <tr id="queue_0" name="queue_0" role="row" class="odd">
+                ArticlesContainer.innerHTML += `         <tr id="queue_0" name="queue_0" role="row" class="odd">
                          
                <td data-label="status">              
                         <div>
