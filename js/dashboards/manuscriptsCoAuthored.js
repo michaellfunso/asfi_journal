@@ -6,7 +6,7 @@ const user = GetCookie("user")
 const ArticlesContainer = document.getElementById("manuscriptsContainer")
 
 if(user){
-    fetch(`${submissionsEndpoint}/backend/accounts/manuscripts.php`, {
+    fetch(`${submissionsEndpoint}/backend/accounts/manuscriptsCoAuthored.php`, {
         method:"POST",
         body:JSON.stringify({user:user}),
         headers:{
@@ -20,12 +20,11 @@ if(user){
             const articlesList = data.articles
             
 
-
             if(articlesList.length > 0){
                 articlesList.forEach(article => {
                     fetch(`${submissionsEndpoint}/backend/accounts/getArticleInfo.php`, {
                         method:"POST",
-                        body:JSON.stringify({id:article.article_id}),
+                        body:JSON.stringify({id:article.submission_id}),
                         headers:{
                             "Content-type" : "application/JSON"
                         }
@@ -33,7 +32,6 @@ if(user){
                     .then(data =>{
                         if(data){
                             const ArticlesInfo = data.articles
-                        
                                 ArticlesContainer.innerHTML += `         <tr id="queue_0" name="queue_0" role="row" class="odd">
                          
                                 <td data-label="status">              
@@ -60,7 +58,8 @@ if(user){
                                      <td data-label="title" style="white-space:pre-wrap">${ArticlesInfo.title}<br><em>Files Archived</em> <i class="fa fa-question-circle" data-content="The Journal has elected to delete the files associated with the draft revision/resubmission of this manuscript. In order to continue, you must click the &quot;create revision/resubmission&quot;" data-original-title="Files Archived" data-toggle="popover" style="font-size:small; vertical-align:middle;"></i>
                                     
                               </td>
-
+                                     <td>${ArticlesInfo.corresponding_authors_email}</td>
+                 
                                      <td class="whitespace-nowrap" data-label="submitted">${formatTimestamp(ArticlesInfo.date_submitted)}
                                      </td>
                                 </tr>`

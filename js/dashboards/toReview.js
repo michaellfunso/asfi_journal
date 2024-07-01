@@ -27,8 +27,8 @@ if(user && isReviewer === "yes"){
                     submissionsContainer.innerHTML += `<tr id="queue_0" name="queue_0" role="row" class="odd">         
                 <td data-label="status">              
                          
-                         <form action="">
-                             <select name="do" id="" class="form-control">
+                         <form action="" onsubmit="return false" class="actionForm">
+                             <select name="do" id="" class="form-control reviewAction">
                                  <option value="review">View</option>
                                  <option value="score">Review & Score</option>
                              </select>

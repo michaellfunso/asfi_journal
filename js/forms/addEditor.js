@@ -5,6 +5,9 @@ import { quill } from "./quill.js";
 const uploadForm = document.getElementById("registerForm")
 const body = document.querySelector("body")
 body.setAttribute("id", "formNotSubmitted")
+// Get the dropdown and the container where the input field will be added
+
+
 
 uploadForm.addEventListener("submit", function(e) {
     e.preventDefault();
