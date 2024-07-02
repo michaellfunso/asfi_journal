@@ -151,7 +151,7 @@
     <?php
     
      $user = $_COOKIE["user"];
-    $url = "http://localhost/asfirj_submission_controls/backend/reviewers/toReview.php?user=$user";
+    $url = "https://cp.asfirj.org/backend/reviewers/toReview.php?user=$user";
     $content = file_get_contents($url);
     if ($content !== false) {
         echo $content;
