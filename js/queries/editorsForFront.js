@@ -4,7 +4,7 @@ const editorsContainer = document.getElementById("ae");
 const editorialNav = document.getElementById("editorialNav")
 
 
-
+// onclick="setActive(${i})"
 
 
 // Find Each Unique Section 
@@ -20,7 +20,7 @@ function GetEditors() {
                 if (uniqueSections.length > 0) {
                     for (let i = 0; i < uniqueSections.length; i++) {
                         const editorialSections = uniqueSections[i].field
-                        editorialNav.innerHTML += ` <a href="#${editorialSections}" onclick="setActive(${i})"><li class="">${editorialSections}</li></a>`
+                        editorialNav.innerHTML += ` <a href="#${editorialSections}" ><li class="">${editorialSections}</li></a>`
                     }
                     uniqueSections.forEach(section => {
                         const sectionName = section.field;
@@ -41,7 +41,8 @@ function GetEditors() {
                                     uniqueDisciplines.forEach(discipline => {
                                         const disciplineContainer = document.createElement('div');
                                         disciplineContainer.classList.add('edit-subject');
-                                        disciplineContainer.innerHTML = `<h3>${discipline.discipline}</h3>`;
+                                        disciplineContainer.setAttribute("style", "display:flex;")
+                                        // disciplineContainer.innerHTML = `<h3>${discipline.discipline}</h3>`;
                                         sectionContainer.appendChild(disciplineContainer);
 
                                         // Get Editors related to that discipline 
@@ -55,13 +56,13 @@ function GetEditors() {
                                                         const editorContainer = document.createElement('div');
                                                         editorContainer.classList.add('edit-head-container');
 
-                                                   
-
-                                                        
-                                                        editorContainer.innerHTML = `  <div class="indi-editors" onclick="openModal('${editor.prefix}', '${editor.fullname}', '${editor.country}','${editor.photo}')">        <div class="avatar" style="background-image: url('./useruploads/editors/${editor.photo}')"></div>
+                            
+                                                        editorContainer.innerHTML = `
+                                                        <div class="indi-editors" onclick="openModal('${editor.prefix}', '${editor.fullname}', '${editor.country}','${editor.photo}')">        
+                                                        <div class="avatar" style="background-image: url('./useruploads/editors/${editor.photo}')"></div>
                                                          <div class="editor-info" id=${editor.photo}>
-                                                         <h4>${editor.prefix} ${editor.fullname}</h4>    
-                                                         <p>${editor.country}</p>
+                                                         <h4 style="font-size:14px;">${editor.prefix} ${editor.fullname}</h4>    
+                                                         <p style="margin-left:8px;" style="background:green;">  ${discipline.discipline}, ${editor.country}</p>
                                                   
                                                          </div>
                                                           </div>`;

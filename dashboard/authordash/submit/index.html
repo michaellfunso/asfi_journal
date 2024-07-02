@@ -239,7 +239,7 @@ function addAuthorInput() {
                             <a href="javascript:void(0)" id="author_information_nav" class="disabled">
                                 <li><i class="material-icons">lock</i>Authors</li>
                             </a>
-                      -->
+                      
                             <a href="javascript:void(0)" id="disclosures_nav" class="disabled">
                                 <li><i class="material-icons">lock</i>Disclosures</li>
                             </a>
@@ -330,10 +330,11 @@ function addAuthorInput() {
                                     <option value="Other">Other (please specify)</option>
                                 </select>
                                 <div id="disciplineContainer"></div>
-                            </div>
+                            <button type="button" class="submit-next" onclick="showNext('upload-manuscript', 'article-type', 'article_type_nav', 'upload_manuscript_nav')" disabled>Next</button>
+
+                           
     
                       
-                            <button type="button" class="submit-next" onclick="showNext('upload-manuscript', 'article-type', 'article_type_nav', 'upload_manuscript_nav')" disabled>Next</button>
                         </div>
                         
                         <div id="upload-manuscript" class="form-section hidden">

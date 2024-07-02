@@ -20,7 +20,7 @@
            <span class="close" onclick="closeModal()">&times;</span>
            <div class="avatar" style="background-image: url('./useruploads/editors/${photo}')"></div>
    <div class="editor-info">
-       <h4>${prefix} ${fullname} - ${country}</h4>
+       <h4>${prefix} ${fullname}</h4>
 
    </div>`
 function GetBio(editor){

@@ -171,7 +171,7 @@
 								
 								
 							<div>
-                            <select name="prefix" id="prefix" class="form-control" required>
+                            <select name="prefix" id="prefix" class="form-control" >
                                 <option value="">Select Preferred Title</option>
                                 <option value="Prof.">Prof.</option>
                                 <option value="Dr.">Dr.</option>
@@ -187,20 +187,28 @@
                         </div>
 
                         <div>
-                            <label for="field">Field:</label>
-                            <input type="text" class="form-control" placeholder="Enter feild of specialization..." name="field" id="field" required>
+                            <label for="field">Editorial Assignment:</label>
+							<select name="field" id="field">
+								<option value="">Select Editorial Assignment</option>
+								<option value="Editor In Chief">Editor in Chief</option>
+								<option value="Editor">Editor</option>
+								<option value="Editorial Assistant">Editorial Assistant</option>
+								<option value="Associate Editor">Associate Editor</option>
+								<option value="Sectional Editor">Sectional Editor</option>
+							</select>
+                            <!-- <input type="text" class="form-control" placeholder="Enter feild of specialization..." name="field" id="field" > -->
                         </div>
 
     
 
                         <div>
                             <label for="">Photo</label>
-                            <input type="file" accept=".jpeg, .jpg, .png" class="form-control" name="photo" id="photo" required>
+                            <input type="file" accept=".jpeg, .jpg, .png" class="form-control" name="photo" id="photo">
                         </div>
                    
 						<div>
                             <label for="">Country:</label>
-                            <input type="text" class="form-control" placeholder="Country..." id="country" name="country" required>
+                            <input type="text" class="form-control" placeholder="Country..." id="country" name="country" >
                         </div>
 						<div>
                             <label for="">Bio:</label>
@@ -210,7 +218,7 @@
                         </div>
 						<div>
 							<label for="discipline">Discipline</label>
-                            <select id="discipline" name="discipline" class="form-control discipline" required>
+                            <select id="discipline" name="discipline" class="form-control discipline" >
                                 <option value="">Select a Discipline</option>
                                 <option value="Agricultural sciences">Agricultural sciences</option>
                                 <option value="Allied Health Sciences">Allied Health Sciences</option>
@@ -243,7 +251,7 @@
 
                         <div>
                             <label for="verifyCode">Verification Code</label>
-                            <input type="password" class="form-control" name="verifyCode" id="verifyCode">
+                            <input type="password" class="form-control" name="verifyCode" id="verifyCode" placeholder="Enter verification Code" required>
                         </div>
                         
                         <input type="submit" class="signin-btn" value="Submit">
