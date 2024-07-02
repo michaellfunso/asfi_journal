@@ -12,9 +12,7 @@ const reviewerdashPattern = new RegExp(`^/dashboard/reviewerdash/.*$`);
 const authordashPattern = new RegExp(`^/dashboard/authordash/.*$`);
 
 
-console.log(authordashPattern, reviewerdashPattern)
-console.log(url.pathname)
-console.log(url)
+
 if(url.pathname === `${parentDirectoryName}/dashboard/authordash/` || url.pathname === `/dashboard/authordash/`){
 // navbarContainer.innerHTML = homeNavbar
 homeActive = "nav-active"

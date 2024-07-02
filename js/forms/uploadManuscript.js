@@ -8,10 +8,24 @@ const body = document.querySelector("body")
 const message_container = document.getElementById("message_container")
 const user = GetCookie("user")
 const UserData = await GetAccountData(user)
-
+const disciplineContainer = document.getElementById("disciplineContainer")
 const email = UserData.email 
+const discipline = document.querySelector('#discipline')
+discipline.addEventListener("change", function(){
+    console.log(discipline.value)
+    if(discipline.value == "other" || discipline.value == "Other"){
+        console.log("VAlue")
+        discipline.removeAttribute("name")
+        disciplineContainer.innerHTML = `<input class='form-control' name="discipline" placeholder="Specify Your discipline" required/>`
+    }else{
+        if(discipline.hasAttribute("name")){
 
-
+        }else{
+            discipline.setAttribute("name", "discipline")
+        }
+        disciplineContainer.innerHTML = ""
+    }
+})
 const emailContainer = document.getElementById("loggedIn_email")
 const loggedContainer = document.getElementById("logged_email")
 

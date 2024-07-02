@@ -50,7 +50,7 @@
 	<link rel="stylesheet" href="../../front/public/css/slick.min.css">
 	<link rel="stylesheet" href="../../front/public/css/venobox.min.css">
 	<link rel="stylesheet" href="../../front/public/css/odometer.min.css">
-	<link rel="stylesheet" href="../../front/public/css/nice-select.css">
+	<!-- <link rel="stylesheet" href="../../front/public/css/nice-select.css"> -->
 	<link rel="stylesheet" href="../../front/public/css/splitting-cells.css">
 	<link rel="stylesheet" href="../../front/public/css/splitting.css">
 	<link rel="stylesheet" href="../../front/public/css/keyframe-animation.css">
@@ -188,9 +188,35 @@
                         </div>
 						<div>
 							<label for="discipline">Discipline</label>
-							<select name="discipline" id="discipline" required>
-								<option value=""></option>
+							<select id="discipline" name="discipline" class="form-control discipline" required>
+                                <option value="">Select a Discipline</option>
+                                <option value="Agricultural sciences">Agricultural sciences</option>
+                                <option value="Allied Health Sciences">Allied Health Sciences</option>
+                                <option value="Anthropology">Anthropology</option>
+                                <option value="Arts">Arts</option>
+                                <option value="Biology">Biology</option>
+                                <option value="Chemistry">Chemistry</option>
+                                <option value="Climate Change">Climate Change</option>
+                                <option value="Computer and Information Sciences">Computer and Information Sciences</option>
+                                <option value="Earth Sciences">Earth Sciences</option>
+                                <option value="Engineering and Technology">Engineering and Technology</option>
+                                <option value="Environmental Sciences">Environmental Sciences</option>
+                                <option value="Epidemiology">Epidemiology</option>
+                                <option value="Humanities">Humanities</option>
+                                <option value="Leadership and Management">Leadership and Management</option>
+                                <option value="Life Sciences">Life Sciences</option>
+                                <option value="Materials Science">Materials Science</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Medicine">Medicine</option>
+                                <option value="Physics and Astronomy">Physics and Astronomy</option>
+                                <option value="Politics">Politics</option>
+                                <option value="Public & Global Health">Public & Global Health</option>
+                                <option value="Social and Behavioral Sciences">Social and Behavioral Sciences</option>
+                                <option value="Statistics">Statistics</option>
+                                <option value="Theology">Theology</option>
+                                <option value="Other">Other (please specify)</option>
 							</select>
+                            <div id="disciplineContainer"></div>
 						</div>
                         <div>
                             <p>Are you available to review for ASFIRJ? (optional)</p>
@@ -427,7 +453,7 @@
 <script src="../../front/public/js/vendor/venobox.min.js"></script>
 <script src="../../front/public/js/vendor/jquery.hoverdir.js"></script>
 <script src="../../front/public/js/vendor/splitting.min.js"></script>
-<script src="../../front/public/js/vendor/jquery.nice-select.min.js"></script>
+<!-- <script src="../../front/public/js/vendor/jquery.nice-select.min.js"></script> -->
 <script src="../../front/public/js/vendor/wow.min.js"></script>
 <script src="../../front/public/js/main.js"></script>
 <script type="module" src="../../js/general.js"></script>

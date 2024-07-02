@@ -10,8 +10,25 @@ const affiliation = document.getElementById("affiliation")
 const affiliation_country = document.getElementById("affiliation_country")
 const affiliation_city = document.getElementById("affiliation_city")
 const password = document.getElementById("password")
-const discipline = document.getElementById("discipline")
+const disciplineMain = document.querySelector(".discipline")
+const discipline = document.querySelector('#discipline')
+if(discipline){
+discipline.addEventListener("change", function(){
+    console.log(discipline.value)
+    if(discipline.value == "other" || discipline.value == "Other"){
+        console.log("VAlue")
+        discipline.removeAttribute("name")
+        disciplineContainer.innerHTML = `<input class='form-control discipline' name="discipline" placeholder="Specify Your discipline" required/>`
+    }else{
+        if(discipline.hasAttribute("name")){
 
+        }else{
+            discipline.setAttribute("name", "discipline")
+        }
+        disciplineContainer.innerHTML = ""
+    }
+})
+}
 const password2 = document.getElementById("password2")
 
 const message_container = document.getElementById("message_container")
@@ -51,7 +68,7 @@ const availableForReview = document.querySelector('input[name="review"]:checked'
             firstname:firstname.value,
             lastname:lastname.value,
             othername: othername.value,
-            discipline:discipline.value,
+            discipline:disciplineMain.value,
             email: email.value,
             affiliations: affiliation.value,
             affiliations_country: affiliation_country.value,
