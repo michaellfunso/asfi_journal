@@ -31,7 +31,7 @@ if(isset($_POST["prefix"])){
 
         if($count > 0){
 
-            if(isset($_FILES["photo"])){
+            if(isset($_FILES["photo"]["name"]) && $_FILES["photo"]["name"] != ""){
                 // Get the filename and append it to the target directory
                 $File = basename($_FILES["photo"]["name"]);
                 $targetFile = $targetDir . $File;

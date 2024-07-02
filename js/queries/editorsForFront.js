@@ -41,7 +41,7 @@ function GetEditors() {
                                     uniqueDisciplines.forEach(discipline => {
                                         const disciplineContainer = document.createElement('div');
                                         disciplineContainer.classList.add('edit-subject');
-                                        disciplineContainer.setAttribute("style", "display:flex;")
+                                        disciplineContainer.setAttribute("style", "display:flex; flex-wrap:wrap;")
                                         // disciplineContainer.innerHTML = `<h3>${discipline.discipline}</h3>`;
                                         sectionContainer.appendChild(disciplineContainer);
 
