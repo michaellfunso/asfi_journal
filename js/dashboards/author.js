@@ -8,12 +8,12 @@ if(email){
 const userInfo = await GetAccountData(email)
 const navbarContainer = document.getElementById("navbarContainer")
 let homeActive, authorActive, reviewerActive
-const reviewerdashPattern = new RegExp(`^${parentDirectoryName}dashboard/reviewerdash/.*$`);
-const authordashPattern = new RegExp(`^${parentDirectoryName}dashboard/authordash/.*$`);
+const reviewerdashPattern = new RegExp(`^${parentDirectoryName}/dashboard/reviewerdash/.*$`);
+const authordashPattern = new RegExp(`^${parentDirectoryName}/dashboard/authordash/.*$`);
 
 
 
-if(url.pathname === `${parentDirectoryName}dashboard/authordash/`){
+if(url.pathname === `${parentDirectoryName}/dashboard/authordash/`){
 // navbarContainer.innerHTML = homeNavbar
 homeActive = "nav-active"
 authorActive = "not-active"
@@ -29,26 +29,26 @@ reviewerActive = "not-active"
     reviewerActive = "nav-active"
 }
 const homeNavbar = `<div style="display: flex;">
-                    <a href="${parentDirectoryName}dashboard/authordash" class="${homeActive}"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
-                    <a href="${parentDirectoryName}dashboard/authorDash/manuscripts" class="${authorActive}"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
+                    <a href="${parentDirectoryName}/dashboard/authordash" class="${homeActive}"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
+                    <a href="${parentDirectoryName}/dashboard/authorDash/manuscripts" class="${authorActive}"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
                 </div>
             </div>`
 const authorNavbar = `<div style="display: flex;">
-                    <a href="${parentDirectoryName}dashboard/authordash" class="${homeActive}"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
-                    <a href="${parentDirectoryName}dashboard/authorDash/manuscripts" class="${authorActive}"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
+                    <a href="${parentDirectoryName}/dashboard/authordash" class="${homeActive}"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
+                    <a href="${parentDirectoryName}/dashboard/authorDash/manuscripts" class="${authorActive}"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
                 </div>
             </div>`
 const reviewerNavbar = `   <div style="display: flex;">
-                    <a href="${parentDirectoryName}dashboard/authordash" class="${homeActive}"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
-                    <a href="${parentDirectoryName}dashboard/authordash/manuscripts" class="${authorActive}" ><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
-                    <a href="${parentDirectoryName}dashboard/reviewerdash" class="${reviewerActive}" ><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-bell text--danger'></i> Review </span></a>
+                    <a href="${parentDirectoryName}/dashboard/authordash" class="${homeActive}"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
+                    <a href="${parentDirectoryName}/dashboard/authordash/manuscripts" class="${authorActive}" ><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
+                    <a href="${parentDirectoryName}/dashboard/reviewerdash" class="${reviewerActive}" ><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-bell text--danger'></i> Review </span></a>
                 
                 </div>
             </div>`
 const editorNavbar = `   <div style="display: flex;">
-                    <a href="${parentDirectoryName}dashboard/authordash" class="nav-active"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
-                    <a href="${parentDirectoryName}dashboard/authordash/manuscripts" ><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
-                    <a href="${parentDirectoryName}dashboard/reviewerdash" ><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-bell text--danger'></i> Review </span></a>
+                    <a href="${parentDirectoryName}/dashboard/authordash" class="nav-active"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
+                    <a href="${parentDirectoryName}/dashboard/authordash/manuscripts" ><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
+                    <a href="${parentDirectoryName}/dashboard/reviewerdash" ><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-bell text--danger'></i> Review </span></a>
                     <a href="https://editors.asfirj.org" ><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-edit text--danger'></i> Editorial Assignments </span></a>
                 </div>
             </div>`
