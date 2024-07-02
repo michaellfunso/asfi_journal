@@ -15,7 +15,7 @@ const authordashPattern = new RegExp(`^/dashboard/authordash/.*$`);
 console.log(authordashPattern, reviewerdashPattern)
 console.log(url.pathname)
 console.log(url)
-if(url.pathname === `${parentDirectoryName}/dashboard/authordash/`){
+if(url.pathname === `${parentDirectoryName}/dashboard/authordash/` || url.pathname === `/dashboard/authordash/`){
 // navbarContainer.innerHTML = homeNavbar
 homeActive = "nav-active"
 authorActive = "not-active"
