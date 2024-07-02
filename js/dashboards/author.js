@@ -8,8 +8,8 @@ if(email){
 const userInfo = await GetAccountData(email)
 const navbarContainer = document.getElementById("navbarContainer")
 let homeActive, authorActive, reviewerActive
-const reviewerdashPattern = new RegExp(`^${parentDirectoryName}/dashboard/reviewerdash/.*$`);
-const authordashPattern = new RegExp(`^${parentDirectoryName}/dashboard/authordash/.*$`);
+const reviewerdashPattern = new RegExp(`^/dashboard/reviewerdash/.*$`);
+const authordashPattern = new RegExp(`^/dashboard/authordash/.*$`);
 
 
 console.log(authordashPattern, reviewerdashPattern)
