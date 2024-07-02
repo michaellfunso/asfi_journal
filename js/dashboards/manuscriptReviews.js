@@ -14,7 +14,8 @@ fetch(`${submissionsEndpoint}/backend/accounts/manuscriptReviews.php`, {
     if(data){
         const reviewsList = data.reviews
         if(reviewsList.length > 0){
-        reviewsList.forEach(review => {
+        reviewsList.forEach(review => { 
+            
             const OverallRating = new Number(review.novelty_score) + new Number(review.quality_score) + new Number(review.scientific_accuracy_score) + new Number(review.overall_merit_score) + new Number(review.english_level_score)
            
             const SpecificSCore = new Number(review.accurately_reflect_manuscript_subject_score) + new Number(review.clearly_summarize_content_score) + new Number(review.presents_what_is_known_score) + new Number(review.gives_accurate_summary_score) + new Number(review.purpose_clear_score) + new Number(review.method_section_clear_score) + new Number(review.study_materials_clearly_described_score) + new Number(review.research_method_valid_score) + new Number(review.ethical_standards_score) + new Number(review.study_find_clearly_described_score) + new Number(review.result_presented_logical_score) + new Number(review.graphics_complement_result_score) + new Number(review.table_follow_specified_standards_score) + new Number(review.tables_add_value_or_distract_score) + new Number(review.issues_with_title_score) + new Number(review.manuscript_present_summary_of_key_findings_score) + new Number(review.manuscript_highlight_strength_of_study_score) + new Number(review.manuscript_compare_findings_score) + new Number(review.manuscript_discuss_meaning_score) + new Number(review.manuscript_describes_overall_story_score) + new Number(review.conclusions_reflect_achievement_score) + new Number(review.manuscript_describe_gaps_score) + new Number(review.referencing_accurate_score)

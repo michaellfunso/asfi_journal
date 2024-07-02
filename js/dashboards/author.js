@@ -72,6 +72,12 @@ navbarContainer.innerHTML = editorNavbar
 }else{
     console.log(isAuthor)
 }
+
+
+// Check if the person is a reviewer and allow them into the reviewers page 
+if(reviewerdashPattern.test(url.pathname) && isAuthor === "verified" && is_reviewer === "yes"){
+
+}
 }else{
     window.location.href = parentDirectoryName+'/dashboard'
 }

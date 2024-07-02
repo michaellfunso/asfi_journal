@@ -150,8 +150,8 @@
             <div class="message" id="message_container">   
             </div>
                 <form id="reviewForm"  enctype="multipart/form-data">
-                    <input type="hidden" name="article_id" value="fkasf">
-                    <input type="hidden" name="reviewed_by" value="bensonmichaelowen@gmail.com">
+                    <input type="hidden" name="article_id" value="" id="article_id" required>
+                    <input type="hidden" name="reviewed_by" value="" id="reviewed_by" required>
               
                     <div>
                         <span style="font-size: 30px; color: #320359;">One paragraph summary: </span>
@@ -624,94 +624,9 @@
 <script src="../../../assets/global/js/iziToast.min.js"></script>
 
 
-
-    <script src="../../../assets/global/js/firebase/firebase-8.3.2.js"></script>
-
 <script type="module" src="../../../js/forms/submitReview.js"></script>
-    <script>
-        (function($) {
-            "use strict";
-            $(".langSel").on("change", function() {
-                window.location.href = "../change/" + $(this).val();
-            });
-
-            $('.policy').on('click', function() {
-                $.get('../cookie/accept', function(response) {
-                    $('.cookies-card').addClass('d-none');
-                });
-            });
-
-            setTimeout(function() {
-                $('.cookies-card').removeClass('hide')
-            }, 2000);
-
-            var inputElements = $('[type=text],[type=password],[type=email],[type=number],select,textarea');
-            $.each(inputElements, function(index, element) {
-                element = $(element);
-                element.closest('.form-group').find('label').attr('for', element.attr('name'));
-                element.attr('id', element.attr('name'))
-            });
-
-            $.each($('input, select, textarea'), function(i, element) {
-                var elementType = $(element);
-                if (elementType.attr('type') != 'checkbox') {
-                    if (element.hasAttribute('required')) {
-                        $(element).closest('.form-group').find('label').addClass('required');
-                    }
-                }
-            });
-
-            Array.from(document.querySelectorAll('table')).forEach(table => {
-                let heading = table.querySelectorAll('thead tr th');
-                Array.from(table.querySelectorAll('tbody tr')).forEach((row) => {
-                    Array.from(row.querySelectorAll('td')).forEach((colum, i) => {
-                        colum.setAttribute('data-label', heading[i].innerText)
-                    });
-                });
-            });
-
-        })(jQuery);
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const table1 = document.querySelector('.first-table');
-            const radioButtons1 = table1.querySelectorAll('input[type="radio"]');
-            const totalScoreElement1 = document.getElementById('total-score1');
-            const table2 = document.querySelector('.second-table');
-            const radioButtons2 = table2.querySelectorAll('input[type="radio"]');
-            const totalScoreElement2 = document.getElementById('total-score2');
-            
-    
-            radioButtons1.forEach(radio => {
-                radio.addEventListener('change', () => {
-                    let totalScore = 0;
-    
-                    radioButtons1.forEach(rb => {
-                        if (rb.checked) {
-                            totalScore += parseInt(rb.value);
-                        }
-                    });
-    
-                    totalScoreElement1.textContent = totalScore;
-                });
-            });
 
 
-            radioButtons2.forEach(radio => {
-                radio.addEventListener('change', () => {
-                    let totalScore = 0;
-    
-                    radioButtons2.forEach(rb => {
-                        if (rb.checked) {
-                            totalScore += parseInt(rb.value);
-                        }
-                    });
-    
-                    totalScoreElement2.textContent = totalScore;
-                });
-            });
-        });
-    </script>
     
 </body>
 

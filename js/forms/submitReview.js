@@ -1,11 +1,26 @@
-import { submissionsEndpoint } from "../constants.js";
+import { GetParameters, parentDirectoryName, submissionsEndpoint } from "../constants.js";
+import { GetAccountData } from "../dashboards/accountData.js";
+import { GetCookie } from "../setCookie.js";
 
 
 const uploadForm = document.getElementById("reviewForm");
 const body = document.querySelector("body")
 
 body.setAttribute("id", "formNotSubmitted")
+
 const message_container = document.getElementById("message_container")
+const id_container = document.getElementById("article_id")
+const reviewebyContaier = document.getElementById("reviewed_by")
+
+const articleId = GetParameters(window.location.href).get("a")
+const user = GetCookie("user")
+
+if(user && articleId){
+   const userData = await GetAccountData(user)
+   const email = userData.email
+
+   id_container.value = articleId
+   reviewebyContaier.value = email
 
 
 uploadForm.addEventListener("submit", function(e) {
@@ -44,3 +59,6 @@ uploadForm.addEventListener("submit", function(e) {
     });
 });
 
+}else{
+    window.location.href = `${parentDirectoryName}/dashboard/reviewerdash`
+}

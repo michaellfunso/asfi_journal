@@ -10,48 +10,48 @@
 
     <meta name="description" content="asfiresearchjournal">
     <meta name="keywords" content="asfiresearchjournal">
-    <link rel="shortcut icon" href="../../../assets/images/logoIcon/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../assets/images/logoIcon/favicon.png" type="image/x-icon">
 
     
-    <link rel="apple-touch-icon" href="../../../assets/images/logoIcon/logo.png">
+    <link rel="apple-touch-icon" href="../../assets/images/logoIcon/logo.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Author - Dashboard">
     
     <meta itemprop="name" content="Author - Dashboard">
     <meta itemprop="description" content="asfiresearchjournal">
-    <meta itemprop="image" content="../../../assets/images/seo/65be1258275121706955352.png">
+    <meta itemprop="image" content="../assets/images/seo/65be1258275121706955352.png">
     
     <meta property="og:type" content="website">
     <meta property="og:title" content="ASFIRJ">
     <meta property="og:description" content="asfiresearchjournal">
-    <meta property="og:image" content="../../../assets/images/seo/65be1258275121706955352.png"/>
+    <meta property="og:image" content="../assets/images/seo/65be1258275121706955352.png"/>
     <meta property="og:image:type" content="png"/>
     <meta property="og:image:width" content="1180" />
     <meta property="og:image:height" content="600" />
-    <meta property="og:url" content="../../../dashboard">
+    <meta property="og:url" content="/user/dashboard.html">
     
     <meta name="twitter:card" content="summary_large_image">
     <!-- Bootstrap CSS -->
-    <link href="../../../assets/global/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/global/css/bootstrap.min.css" rel="stylesheet">
     <!-- <link href="../../css/bootstrap.css" rel="stylesheet">
       
     <link href="../../css/bootstrap-responsive.css" rel="stylesheet"> -->
 
-    <link href="../../../assets/global/css/all.min.css" rel="stylesheet">
+    <link href="../../assets/global/css/all.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="../../../assets/global/css/line-awesome.min.css" />
+    <link rel="stylesheet" href="../../assets/global/css/line-awesome.min.css" />
 
-    <link rel="stylesheet" href="../../../assets/templates/metro_hyip/css/main.css">
+    <link rel="stylesheet" href="../../assets/templates/metro_hyip/css/main.css">
 
-    <link rel="stylesheet" href="../../../assets/templates/metro_hyip/css/custom.css">
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../assets/templates/metro_hyip/css/custom.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     
     
-    <link rel="stylesheet" href="../../../assets/templates/metro_hyip/css/color.php?color=EB4830&secondColor=">
-    <link rel="stylesheet" href="../../../front/public/css/header.css">
+    <link rel="stylesheet" href="../../assets/templates/metro_hyip/css/color.php?color=EB4830&secondColor=">
+    <link rel="stylesheet" href="../../front/public/css/header.css">
 </head>
 
 <body>
@@ -72,7 +72,7 @@
             <div class="dashboard-header__inner">
                 
                 <div class="dashboard-header__left">
-                    <a href="" class="sidebar-logo__link"> <img src="../../../assets/images/logoIcon/logo.png" alt="site-logo"></a>
+                    <a href="" class="sidebar-logo__link"> <img src="../../assets/images/logoIcon/logo.png" alt="site-logo"></a>
                 </div>
                 <div class="dashboard-header__right">
                     <div class="user-info">
@@ -83,7 +83,7 @@
                                   
                                 </span>
         
-                              <!-- <ul class="user-info-dropdown">
+                                    <!-- <ul class="user-info-dropdown">
                                     <li class="user-info-dropdown__item"><a class="user-info-dropdown__link"
                                             href="../../user/profile-setting.html">Profile Setting</a></li>
                                     <li class="user-info-dropdown__item"><a class="user-info-dropdown__link"
@@ -105,13 +105,7 @@
                 </div>
             </div>
             <div style="background-color: #310357;" id="navbarContainer">
-                <div style="display: flex;">
-                    <a href="../../authordash" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
-                    <a href="../../authordash/authorDash.html" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
-                    <a href="" class="nav-active"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-bell text--danger'></i> Review </span></a>
-                    <a href="" style="color: whitesmoke;"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-edit text--danger'></i> Editorial Assignments </span></a>
-                </div>
-            </div>
+        
         </div>
         <div class="dashboard__inner">
             <div class="sidebar-menu" id="userMenu">
@@ -120,8 +114,8 @@
                     
                     
                     <ul class="submit-nav">
-                        <a href="../"><li> <span>0</span> Review and Score</li></a>
-                        <a href=""><li style="background-color: #320359;"> <span>0</span> Reviews Submitted</li></a>
+                        <a href=""><li style="background-color: #320359;"> <span>0</span> Review and Score</li></a>
+                        <a href="./submitted/"><li > <span>0</span> Reviews Submitted</li></a>
                         <!-- <a href=""><li>Submit New Manuscript</li></a> -->
                         <!-- <a href="./invitations.html"><li> <span>0</span> Invitations</li></a> -->
                         <!-- <a href=""><li>Logout</li></a> -->
@@ -140,29 +134,42 @@
                     <section class="mt-3 mb-60">
 
         <div class="row gy-2 justify-content-center">
-            <span style="font-size: 35px; color: #320359;">Reviews Submitted</span>
+            <span style="font-size: 35px; color: #320359;">Review and Score</span>
             <div class="table_container">
                 <table id="table-dash" class="">
                     <thead>
                         <tr class="section-title">
                             <th>ACTION</th>
-                            <th>COMPLETED</th>
+                            <th>DUE DATE</th>
+                            <th>TYPE</th>
                             <th>ID/TITLE</th>
                             <th>STATUS</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr id="queue_0" name="queue_0" role="row" class="odd">         
+                    <tbody >
+              
+    <?php
+    
+     $user = $_COOKIE["user"];
+    $url = "http://localhost/asfirj_submission_controls/backend/reviewers/toReview.php?user=$user";
+    $content = file_get_contents($url);
+    if ($content !== false) {
+        echo $content;
+    } else {
+        echo 'Error fetching content from URL';
+    }
+    ?>
+
+
+                        <!-- <tr id="queue_0" name="queue_0" role="row" class="odd">         
                <td data-label="status">              
                         
-                <form action="">
-                    <select name="" id="" class="form-control" >
-                        <option value="">View Submitted Review</option>
-                        <option value="">View Abstract</option>
-                        <option value="">View Proof</option>
-                        <option value="">Contact Journal</option>
-                    </select>
-                </form>   
+                        <form action="./score/" class="actionForm">
+                            <select name="action" id="" class="form-control action">
+                                <option value="">action</option>
+                                <option value="review">Review & Score</option>
+                            </select>
+                        </form>  
                         
                     </td>
         
@@ -171,39 +178,15 @@
                     
                     </td>
                                           
-                    
+                    <td data-label="title" style="white-space:pre-wrap">Original Article
+             </td>
                     <td class="whitespace-nowrap" data-label="submitted">
-                        <span>ASFIRJ-2024-215540.R2</span> <br><br>
+                        <span>ASFIRJ-2024-215540.R2</span><br><br>
                         Does use of hormonal contraceptives impact on severe exacerbation in women with asthma? A 17-year population-based cohort study
                     </td>
                     <td data-label="decisioned" class="whitespace-nowrap">PENDING</td>
                </tr>
-               <tr id="queue_0" name="queue_0" role="row" class="odd">         
-                <td data-label="status">              
-                         
-                         <form action="">
-                             <select name="" id="" class="form-control" >
-                                 <option value="">View Submitted Review</option>
-                                 <option value="">View Abstract</option>
-                                 <option value="">View Proof</option>
-                                 <option value="">Contact Journal</option>
-                             </select>
-                         </form>  
-                         
-                     </td>
-         
-                     <td data-label="ID">
-                         29-May-2024
-                     
-                     </td>
-                                           
-                     
-                     <td class="whitespace-nowrap" data-label="submitted">
-                         <span>ASFIRJ-2024-215540.R2</span><br><br>
-                         Does use of hormonal contraceptives impact on severe exacerbation in women with asthma? A 17-year population-based cohort study
-                     </td>
-                     <td data-label="decisioned" class="whitespace-nowrap">PENDING</td>
-                </tr>
+   -->
                     </tbody>
                     
                 </table>
@@ -224,11 +207,12 @@
     </div>
 
         
-    <script src="../../../assets/global/js/jquery-3.6.0.min.js"></script>
-    <script src="../../../assets/global/js/bootstrap.bundle.min.js"></script>
-    <script src="../../../assets/templates/metro_hyip/js/main.js"></script>
-    <script type="module" src="../../../js/dashboards/author.js"></script>
-    <script src="../../../js/dashboards/toReview.js"></script>
+    <script src="../../assets/global/js/jquery-3.6.0.min.js"></script>
+    <script src="../../assets/global/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/templates/metro_hyip/js/main.js"></script>
+    <script type="module" src="../../js/dashboards/author.js"></script>
+    <script type="module" src="../../js/dashboards/toReview.js"></script>
+
             <script>
         'use strict';
         (function($) {
@@ -236,12 +220,12 @@
     </script>
 
     
-    <link rel="stylesheet" href="../../../assets/global/css/iziToast.min.css">
-<script src="../../../assets/global/js/iziToast.min.js"></script>
+    <link rel="stylesheet" href="../../assets/global/css/iziToast.min.css">
+<script src="../../assets/global/js/iziToast.min.js"></script>
 
 
 
-    <script src="../../../assets/global/js/firebase/firebase-8.3.2.js"></script>
+    <script src="../../assets/global/js/firebase/firebase-8.3.2.js"></script>
 
 
     <script>
@@ -288,7 +272,21 @@
 
         })(jQuery);
     </script>
-    
+
+    <script>
+        const actionForm = document.querySelectorAll(".actionForm")
+
+        actionForm.forEach(form => {
+            const actionsDropdown = form.querySelectorAll(".action");
+        actionsDropdown.forEach(action =>{
+            action.addEventListener("change", function(){
+                form.submit()
+            })
+        })
+     
+        })
+    </script>
+  
 </body>
 
 </html>

@@ -16,11 +16,11 @@ for(let i=0; i<reviewActions.length; i++){
     const currentId = ArticleId[i]
     
     currentAction.addEventListener("change", function(){
-        if(currentAction.value === "score"){
-        window.location.href = `${parentDirectoryName}/dashboard/reviewerdash/score?a=${currentId.value}`
+        if(currentAction.value === "view_review"){
+        window.location.href = `${parentDirectoryName}/dashboard/reviewerdash/viewReview?s=${currentId.value}`
         }
-        if(currentAction.value === "view"){
-        window.location.href = `${parentDirectoryName}/dashboard/authordash/content?a=${currentId.value}`
+        if(currentAction.value === "contact_journal"){
+        window.location.href = "mailto:submissions@asfirj.org"
         }
     })
 }
@@ -28,10 +28,3 @@ for(let i=0; i<reviewActions.length; i++){
 
 
 // })
-if(user && isReviewer === "yes"){
-    
-       
-
-}else{
-    window.location.href = parentDirectoryName+"/portal/login"
-}
