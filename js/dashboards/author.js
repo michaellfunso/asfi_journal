@@ -12,7 +12,9 @@ const reviewerdashPattern = new RegExp(`^${parentDirectoryName}/dashboard/review
 const authordashPattern = new RegExp(`^${parentDirectoryName}/dashboard/authordash/.*$`);
 
 
-
+console.log(authordashPattern, reviewerdashPattern)
+console.log(url.pathname)
+console.log(url)
 if(url.pathname === `${parentDirectoryName}/dashboard/authordash/`){
 // navbarContainer.innerHTML = homeNavbar
 homeActive = "nav-active"
@@ -30,12 +32,12 @@ reviewerActive = "not-active"
 }
 const homeNavbar = `<div style="display: flex;">
                     <a href="${parentDirectoryName}/dashboard/authordash" class="${homeActive}"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
-                    <a href="${parentDirectoryName}/dashboard/authorDash/manuscripts" class="${authorActive}"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
+                    <a href="${parentDirectoryName}/dashboard/authordash/manuscripts" class="${authorActive}"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
                 </div>
             </div>`
 const authorNavbar = `<div style="display: flex;">
                     <a href="${parentDirectoryName}/dashboard/authordash" class="${homeActive}"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
-                    <a href="${parentDirectoryName}/dashboard/authorDash/manuscripts" class="${authorActive}"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
+                    <a href="${parentDirectoryName}/dashboard/authordash/manuscripts" class="${authorActive}"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
                 </div>
             </div>`
 const reviewerNavbar = `   <div style="display: flex;">
