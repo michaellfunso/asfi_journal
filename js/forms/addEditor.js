@@ -45,12 +45,12 @@ uploadForm.addEventListener("submit", function(e) {
     .then(data => {
         if(data.success){
             alert("Upload Successful")
-            // window.location.href = "../supplements.html#supplements"
+            window.location.href = "/portal/addEditor"
         }else if(data.error){
             alert(data.error)
             body.setAttribute("id", "formNotSubmitted")
         }else{
-            alert(data.status)
+            alert(data.message)
             body.setAttribute("id", "formNotSubmitted")
         }
 

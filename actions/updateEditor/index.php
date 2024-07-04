@@ -1,5 +1,5 @@
 <?php
-include "./db.php";
+include "../../backend/db.php";
 
 $targetDir = "../useruploads/editors/";
 $prefix = $_POST["prefix"];
@@ -7,7 +7,8 @@ $fullname = $_POST["fullname"];
 $discipline = $_POST["discipline"];
 $field = $_POST["field"];
 $country = $_POST["country"];
-$profileimage = $_FILES["photo"];
+$id = $_POST["id"];
+// $profileimage = $_FILES["photo"];
 
 
 
@@ -31,26 +32,26 @@ if(isset($_POST["prefix"])){
 
         if($count > 0){
 
-            if(isset($_FILES["photo"]["name"]) && $_FILES["photo"]["name"] != ""){
-                // Get the filename and append it to the target directory
-                $File = basename($_FILES["photo"]["name"]);
-                $targetFile = $targetDir . $File;
-                $newFileName = time() . '_' . $File;
-                if (move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFile)) {
-                    // File uploaded successfully, now you can do something with the data
-                    rename($targetDir . $_FILES["photo"]["name"], $targetDir.$newFileName);
-                }
-            }else{
-                $newFileName = "avatar.png";
-            }
+            // if(isset($_FILES["photo"]["name"]) && $_FILES["photo"]["name"] != ""){
+            //     // Get the filename and append it to the target directory
+            //     $File = basename($_FILES["photo"]["name"]);
+            //     $targetFile = $targetDir . $File;
+            //     $newFileName = time() . '_' . $File;
+            //     if (move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFile)) {
+            //         // File uploaded successfully, now you can do something with the data
+            //         rename($targetDir . $_FILES["photo"]["name"], $targetDir.$newFileName);
+            //     }
+            // }else{
+            //     $newFileName = "avatar.png";
+            // }
       
 
-    $stmt = $con->prepare("INSERT INTO `editors_list` (`prefix`, `fullname`, `bio`, `discipline`, `field`, `country`, `photo`) VALUES(?,?,?,?,?,?,?)");
+    $stmt = $con->prepare("UPDATE `editors_list` SET `prefix` =?, `fullname`=?, `bio`=?, `discipline`=?, `field`=?, `country`=? WHERE `id` = ?");
     if(!$stmt){
         $response = array("error"=>$stmt->error);
         echo json_encode($response);
     }
-    $stmt->bind_param("sssssss", $prefix, $fullname, $bio, $discipline, $field, $country, $newFileName );
+    $stmt->bind_param("sssssss", $prefix, $fullname, $bio, $discipline, $field, $country, $id );
     if( $stmt->execute()){
         $response = array("success"=>"Editor Created");
         echo json_encode($response);

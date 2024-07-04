@@ -50,6 +50,8 @@
     
     <link rel="stylesheet" href="../../../assets/templates/metro_hyip/css/color.php?color=EB4830&secondColor=">
     <link rel="stylesheet" href="../../../front/public/css/header.css">
+    <link rel="stylesheet" href="../../../front/public/css/loader.css">
+
     <script>
 function navigateSection(sectionId) {
     var currentSection = document.querySelector('.form-section:not(.hidden)');
@@ -160,10 +162,14 @@ function addAuthorInput() {
     </script>
 </head>
 
-<body>
+<body id="formNotSubmitted">
     
     <div class="preloader">
         <div class="loader-p"></div>
+    </div>
+    <div class="overlayX" >    
+        <div class="spinn"></div>
+       <div style="font-weight: bold; color:black">Uploading Documents...please wait...</div>
     </div>
 
     <div class="body-overlay"></div>
