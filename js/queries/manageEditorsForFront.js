@@ -129,7 +129,7 @@ EditAuthorForm.addEventListener("submit", function(e){
         console.log(data); // Log server response
         if(data.success){
             alert("Author Edited Successfully")
-            window.location.href = "../manage"
+            window.location.href = "../manageEditors.html"
         }else if(data.error){
             alert(data.error)
             body.setAttribute("id", "formNotSubmitted")
