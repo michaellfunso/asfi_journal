@@ -19,6 +19,10 @@ nextButton.removeAttribute("disabled")
 article_type_nav.setAttribute("onclick","showNext('article-type', 'upload-manuscript', 'article_type_nav')")
 }
 })
+const headerMessageContainer = document.getElementById("headerMessage")
+
+
+headerMessageContainer.innerHTML = headerMessages[0]
 
 
 const upload_manuscript = document.getElementById("upload-manuscript")
