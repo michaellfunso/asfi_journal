@@ -25,7 +25,7 @@ if(user){
                 articlesList.forEach(article => {
                     fetch(`${submissionsEndpoint}/backend/accounts/getArticleInfo.php`, {
                         method:"POST",
-                        body:JSON.stringify({id:article.article_id}),
+                        body:JSON.stringify({id:article.revision_id}),
                         headers:{
                             "Content-type" : "application/JSON"
                         }
@@ -33,8 +33,17 @@ if(user){
                     .then(data =>{
                         if(data){
                             const ArticlesInfo = data.articles
-                        
-                                ArticlesContainer.innerHTML += `         <tr id="queue_0" name="queue_0" role="row" class="odd">
+                            let RevisionAction = ""
+                            if(ArticlesInfo.status === "returned_for_revision"){
+                                RevisionAction = ` <br>
+                                          <a role="link" tabindex="0" href="../revise?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
+                                              Submit Revision
+                                          </a> `
+                            }else{
+                                RevisionAction = ''
+                            }
+                                ArticlesContainer.innerHTML += `
+                                <tr id="queue_0" name="queue_0" role="row" class="odd">
                          
                                 <td data-label="status">              
                                          <div>
@@ -47,13 +56,13 @@ if(user){
                                          </ul>
                                
                                        <br>
-                                          <a role="link" tabindex="0" href="../content?a=${ArticlesInfo.article_id}" hidefocus="true" style="outline: none;">  
+                                          <a role="link" tabindex="0" href="../content?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
                                               view submission
                                           </a>    
-                                         
+                                         ${RevisionAction}
                                      </td>
                          
-                                     <td data-label="ID">${ArticlesInfo.article_id}
+                                     <td data-label="ID">${ArticlesInfo.revision_id}
                                      
                                      </td>
                                                            

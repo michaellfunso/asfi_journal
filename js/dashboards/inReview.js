@@ -22,7 +22,7 @@ fetch(`${submissionsEndpoint}/backend/accounts/inReview.php`, {
             articlesList.forEach(article => {
                 fetch(`${submissionsEndpoint}/backend/accounts/getArticleInfo.php`, {
                     method:"POST",
-                    body:JSON.stringify({id:article.article_id}),
+                    body:JSON.stringify({id:article.revision_id}),
                     headers:{
                         "Content-type" : "application/JSON"
                     }
@@ -44,13 +44,13 @@ fetch(`${submissionsEndpoint}/backend/accounts/inReview.php`, {
                                      </ul>
                            
                                    <br>
-                                      <a role="link" tabindex="0" href="../content?a=${ArticlesInfo.article_id}" hidefocus="true" style="outline: none;">  
+                                      <a role="link" tabindex="0" href="../content?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
                                           view submission
                                       </a>    
                                      
                                  </td>
                      
-                                 <td data-label="ID">${ArticlesInfo.article_id}
+                                 <td data-label="ID">${ArticlesInfo.revision_id}
                                  
                                  </td>
                                                        

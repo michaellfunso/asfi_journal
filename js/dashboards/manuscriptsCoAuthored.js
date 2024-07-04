@@ -45,13 +45,13 @@ if(user){
                                          </ul>
                                
                                        <br>
-                                          <a role="link" tabindex="0" href="../content?a=${ArticlesInfo.article_id}" hidefocus="true" style="outline: none;">  
+                                          <a role="link" tabindex="0" href="../content?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
                                               view submission
                                           </a>    
                                          
                                      </td>
                          
-                                     <td data-label="ID">${ArticlesInfo.article_id}
+                                     <td data-label="ID">${ArticlesInfo.revision_id}
                                      
                                      </td>
                                                            

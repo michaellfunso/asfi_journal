@@ -53,6 +53,7 @@
   <link rel="stylesheet" href="../../../front/public/css/loader.css">
 
   <script src="../../../js/forms/headerMessages.js"> </script>
+
   <script src="../../../js/forms/submissionHeader.js"> </script>
 </head>
 
@@ -86,7 +87,7 @@
               <div class="user-info__info">
 
                 <span class="fw-bold user_fullnameContainer">
-                  Bright Nwaru
+               
                 </span>
 
                 <!-- <ul class="user-info-dropdown">
@@ -126,7 +127,13 @@
               <a href="../coauth/">
                 <li> <span>0</span> Manuscripts I Have Co-Authored</li>
               </a>
-              <li class="active">Submit New Manuscript
+                  <a href="../submit/">
+                <li> Submit New Manuscript</li>
+              </a>
+              <a href="../inreview/">
+                <li> <span>0</span> Manuscripts In Review</li>
+              </a>
+              <li class="active">Submit Revision
                 <ul class="submit-nav" id="sectionNav">
                   <a href="javascript:void(0)" id="article_type_nav">
                     <li> <i class="material-icons">lock</i>Article Type</li>
@@ -153,9 +160,7 @@
 
                 </ul>
               </li>
-              <a href="../inreview/">
-                <li> <span>0</span> Manuscripts In Review</li>
-              </a>
+           
               <!-- <a href=""><li>Logout</li></a> -->
 
             </ul>
@@ -184,6 +189,9 @@
                       <div class="message" id="message_container">
                       </div>
                       <div id="article-type" class="form-section">
+                        <!-- Manuscript ID  -->
+                         <input type="hidden" id="manuscript_id" name="manuscript_id">
+                         <!-- End Manuscrupt Id  -->
                         <h3 class="manu_head">Article Type & Discipline</h3>
                         <span class="manu_head">Choose Article Type:</span>
 
@@ -346,7 +354,7 @@
 
                             <div>
                               <label for="">Corresponding Author's Emmail:</label>
-                              <input type="text" class="form-control hd" placeholder="Corresponding Author Email..." name="corresponding_author" id="loggedIn_email">
+                              <input type="text" class="form-control hd" placeholder="Corresponding Author Email..." name="corresponding_author" id="loggedIn_email" readonly>
                             </div>
 
                           </div>
@@ -443,37 +451,9 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
 
     <script type="module" src="../../../js/forms/quill.js"></script>
-    <script>
-      const authorsArray = document.getElementById("authorsArray")
-      var app = new Vue({
-        el: '#app',
-        data: {
-          keywords: [],
-          saisie: "",
-        },
-        methods: {
-          removeFromArray: function(index) {
-
-            authorsArray.value.split(",").filter(x => {
-
-            });
-
-            this.keywords.splice(index, 1);
-            this.saisie = this.keywords;
-          },
-        },
-        watch: {
-          saisie: function() {
-            this.keywords = this.saisie.split(",").filter(x => {
-              return x.trim() != '';
-            });
-          }
-        }
-      })
-    </script>
 
     <script src="../../../js/forms/checkField.js" type="module"></script>
-    <script src="../../../js/forms/uploadManuscript.js" type="module"></script>
+    <script src="../../../js/forms/uploadRevision.js" type="module"></script>
     <script type="module" src="../../../js/dashboards/author.js"></script>
 </body>
 
