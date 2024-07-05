@@ -41,7 +41,7 @@ uploadForm.addEventListener("submit", function(e) {
         if(data.status === "success"){
         message_container.innerHTML =`<div class="alert-success">${data.message}</div>`
 
-            alert("Upload Successful")
+            alert("Review Submitted Successfully")
             window.location.href = "/dashboard/reviewerdash"
         }else if(data.status === "error"){
         message_container.innerHTML =`<div class="alert-danger">${data.message}</div>`

@@ -34,13 +34,39 @@ if(user){
                         if(data){
                             const ArticlesInfo = data.articles
                             let RevisionAction = ""
+                            let StatusMain = ""
+                            let viewSubmission = ""
                             if(ArticlesInfo.status === "returned_for_revision"){
                                 RevisionAction = ` <br>
                                           <a role="link" tabindex="0" href="../revise?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
                                               Submit Revision
                                           </a> `
+                                          StatusMain = "Returned For Revision"
+
                             }else{
                                 RevisionAction = ''
+                                StatusMain = ArticlesInfo.status
+                            }
+
+                            if(ArticlesInfo.status === "submitted_for_review" || ArticlesInfo.status === "review_submitted"){
+                                StatusMain = "Under Review"
+                                viewSubmission = ` <a role="link" tabindex="0" href="../content?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
+                                              view submission
+                                          </a> `
+                            }else if(ArticlesInfo.status === "saved_for_later"){
+                                console.log(ArticlesInfo.status)
+                                RevisionAction = ` <br>
+                                <a role="link" tabindex="0" href="../edit?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
+                                    Continue Submission
+                                </a> `
+                                viewSubmission = ``
+                                StatusMain = "Manuscript Saved as Draft"
+                            }else{
+                                viewSubmission = ` <a role="link" tabindex="0" href="../content?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
+                                              view submission
+                                          </a> `
+                                StatusMain = ArticlesInfo.status
+                            
                             }
                                 ArticlesContainer.innerHTML += `
                                 <tr id="queue_0" name="queue_0" role="row" class="odd">
@@ -52,13 +78,11 @@ if(user){
                                              </p>
                                          </div>
                                          <ul>
-                                             <li>${ArticlesInfo.status}</li>
+                                             <li>${StatusMain}</li>
                                          </ul>
                                
                                        <br>
-                                          <a role="link" tabindex="0" href="../content?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
-                                              view submission
-                                          </a>    
+                                         ${viewSubmission}   
                                          ${RevisionAction}
                                      </td>
                          

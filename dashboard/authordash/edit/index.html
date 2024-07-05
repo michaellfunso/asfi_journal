@@ -53,8 +53,8 @@
   <link rel="stylesheet" href="../../../front/public/css/loader.css">
 
   <script src="../../../js/forms/headerMessages.js"> </script>
-  <script src="../../../js/forms/submissionHeader.js"> </script>
 
+  <script src="../../../js/forms/submissionHeader.js"> </script>
 </head>
 
 <body id="formNotSubmitted">
@@ -87,7 +87,7 @@
               <div class="user-info__info">
 
                 <span class="fw-bold user_fullnameContainer">
-                  Bright Nwaru
+
                 </span>
 
                 <!-- <ul class="user-info-dropdown">
@@ -127,7 +127,13 @@
               <a href="../coauth/">
                 <li> <span>0</span> Manuscripts I Have Co-Authored</li>
               </a>
-              <li class="active">Submit New Manuscript
+              <a href="../submit/">
+                <li> Submit New Manuscript</li>
+              </a>
+              <a href="../inreview/">
+                <li> <span>0</span> Manuscripts In Review</li>
+              </a>
+              <li class="active">Submit Revision
                 <ul class="submit-nav" id="sectionNav">
                   <a href="javascript:void(0)" id="article_type_nav">
                     <li> <i class="material-icons">lock</i>Article Type</li>
@@ -148,15 +154,13 @@
                   <a href="javascript:void(0)" id="disclosures_nav" class="disabled">
                     <li><i class="material-icons">lock</i>Disclosures</li>
                   </a>
-                  <a href="javascript:void(0)" id="review_submit_nav" class="disabled ">
-                    <li class="scroll-top"><i class="material-icons">lock</i>Review & Submit</li>
+                  <a href="javascript:void(0)" id="review_submit_nav" class="disabled">
+                    <li><i class="material-icons">lock</i>Review & Submit</li>
                   </a>
 
                 </ul>
               </li>
-              <a href="../inreview/">
-                <li> <span>0</span> Manuscripts In Review</li>
-              </a>
+
               <!-- <a href=""><li>Logout</li></a> -->
 
             </ul>
@@ -185,6 +189,9 @@
                       <div class="message" id="message_container">
                       </div>
                       <div id="article-type" class="form-section">
+                        <!-- Manuscript ID  -->
+                        <input type="hidden" id="manuscript_id" name="manuscript_id">
+                        <!-- End Manuscrupt Id  -->
                         <h3 class="manu_head">Article Type & Discipline</h3>
                         <span class="manu_head">Choose Article Type:</span>
 
@@ -242,10 +249,9 @@
                       </div>
 
                       <div id="upload-manuscript" class="form-section hidden">
-                        <div>
+                        <h3 class="manu_head">Upload Manuscript Files</h3> <br>
 
-                          <h3 class="manu_head">Upload Manuscript Files</h3> <br>
-
+                        <div id="manuscriptFileContainer">
                           <label for="">Main Manuscript File:</label>
                           <input type="file" class="form-control" name="manuscript_file">
                         </div>
@@ -260,17 +266,17 @@
                           <input type="file" class="form-control" name="tables">
                         </div>
 
-                        <div id="">
+                        <div id="figuresContainer">
                           <label for="">Figuresx:</label>
                           <input type="file" class="form-control" name="figures">
                         </div>
 
-                        <div>
+                        <div id="supplementaryMaterialContainer">
                           <label for="">Supplementary Material:</label>
                           <input type="file" class="form-control" name="supplementary_materials">
                         </div>
 
-                        <div>
+                        <div id="graphicAbstractContainer">
                           <label for="">Graphic Abstract:</label>
                           <input type="file" class="form-control" name="graphic_abstract">
                         </div> <br>
@@ -284,7 +290,7 @@
 
                       <div id="title" class="form-section hidden">
                         <b style="text-align: center;">Manuscript Title</b>
-                        <input type="text" class="form-control" placeholder="Full Title" name="manuscript_full_title"> <br>
+                        <input type="text" class="form-control" placeholder="Full Title" name="manuscript_full_title" id="manuscript_full_title"> <br>
 
                         <button type="button" class="submit-next" onclick="showNext('abstract', 'title', 'title_nav', 'abstract_nav', 'upload-manuscript', 3,3)" disabled>Next</button>
 
@@ -319,23 +325,21 @@
                             <div style="margin-right: 10px;">
                               <label for="">First Name:</label>
                               <input type="text" class="form-control hd" placeholder="First Name..." name="loggedIn_authors_first_name" id="loggedIn_firstname" readonly>
-                              </div>
-                              <!-- <div style="display: flex;"> -->
-                                <div style="margin-right: 10px;">
-                                    <label for="">MiddleName:</label>
-                                      <input type="text" class="form-control" placeholder="Middle name" name="loggedIn_authors_other_name" id="loggedIn_othername" readonly>
-                                    <!-- </div> -->
-                                </div>
-                            <div style="margin-right: 10px;">
-                                <label for="">Last Name:</label>
-                                <input type="text" class="form-control hd" placeholder="Last Name..." name="loggedIn_authors_last_name" id="loggedIn_lastname" readonly>
                             </div>
-
+                            <!-- <div style="display: flex;"> -->
                             <div style="margin-right: 10px;">
-                                <label for="">ORCID ID”:</label>
-                                <input type="text" class="form-control hd" placeholder="ORCID ID..." name="loggedIn_authors_ORCID" id="loggedIn_orcid">
+                              <label for="">Last Name:</label>
+                              <input type="text" class="form-control hd" placeholder="Last Name..." name="loggedIn_authors_last_name" id="loggedIn_lastname" readonly>
                             </div>
-                        
+                            <div style="margin-right: 10px;">
+                              <label for="">Other Name:</label>
+                              <input type="text" class="form-control" placeholder="Other Name..." name="loggedIn_authors_other_name" id="loggedIn_othername" readonly>
+                              <!-- </div> -->
+                            </div>
+                            <div style="margin-right: 10px;">
+                              <label for="">ORCID ID”:</label>
+                              <input type="text" class="form-control hd" placeholder="ORCID ID..." name="loggedIn_authors_ORCID" id="loggedIn_orcid">
+                          </div>
 
                             <div style="margin-right: 10px;">
                               <label for="">Affiliation(s):</label>
@@ -353,7 +357,7 @@
 
                             <div>
                               <label for="">Corresponding Author's Emmail:</label>
-                              <input type="text" class="form-control hd" placeholder="Corresponding Author Email..." name="corresponding_author" id="loggedIn_email">
+                              <input type="text" class="form-control hd" placeholder="Corresponding Author Email..." name="corresponding_author" id="loggedIn_email" readonly>
                             </div>
 
                           </div>
@@ -378,7 +382,7 @@
                             or submitted elsewhere, with exception of submission to preprint servers.</span>
                         </div>
                         <div class="bg-body border rounded-bottom">
-                          <input type="checkbox" name="" required><span>I am aware that ASFIRJ requires that all authors disclose all potential sources of conflict of
+                          <input type="checkbox" name="" id="" required><span>I am aware that ASFIRJ requires that all authors disclose all potential sources of conflict of
                             interest in regarding the submitted manuscript and I confirm that all authors have done so.</span>
                         </div>
                         <div class="bg-body border rounded-bottom">
@@ -402,27 +406,26 @@
                             original.</span>
                         </div>
                         <div class="bg-body border rounded-bottom">
-                          <input type="checkbox" name="" id="disclosure_confirm" required><span>I confirm that I am willing to pay ASFIRJ’s APC for the submitted manuscript if it is accepted for
+                          <input type="checkbox" name="" id="" required><span>I confirm that I am willing to pay ASFIRJ’s APC for the submitted manuscript if it is accepted for
                             publication in the journal as indicated at <a href="https://asfirj.org/aboutus.html" style="color:blueviolet;">asfirj.org/aboutus.html</a>.</span>
                         </div>
                         <br>
 
 
-
+                        <input type="hidden" name="review_status">
+                        <input type="submit" id="submitForm" hidden>
+                        
                         <button type="button" class="submit-next" style="width: 30%; padding: 10px;" onclick="reviewAll(6)">Review & Submit</button>
 
-                        <input type="hidden" name="review_status" >
-                        <input type="submit" id="submitForm" hidden>
-        
                         <button type="button" name="review_stat" style="margin: 20px; background-color: blueviolet; border: none; padding: 15px 20px 15px 20px; border-radius: 8px; color: white; font-weight: bold; text-align: center;" onclick="setStatus('saved_for_later')" hidden> 
                             Save For Later
                         </button>
                             or
-                        <button type="button" name="review_stat" style="margin: 20px; background-color: blueviolet; border: none; padding: 15px 20px 15px 20px; border-radius: 8px; color: white; font-weight: bold;" onclick="setStatus('review_submitted')" hidden>
+                        <button type="button" name="review_stat" style="margin: 20px; background-color: blueviolet; border: none; padding: 15px 20px 15px 20px; border-radius: 8px; color: white; font-weight: bold;" onclick="setStatus('submitted')" hidden>
                             Submit
                         </button>
 
-                 
+                        
                         
                  
                       </div>
@@ -463,37 +466,10 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
 
     <script type="module" src="../../../js/forms/quill.js"></script>
-    <script>
-      const authorsArray = document.getElementById("authorsArray")
-      var app = new Vue({
-        el: '#app',
-        data: {
-          keywords: [],
-          saisie: "",
-        },
-        methods: {
-          removeFromArray: function(index) {
 
-            authorsArray.value.split(",").filter(x => {
-
-            });
-
-            this.keywords.splice(index, 1);
-            this.saisie = this.keywords;
-          },
-        },
-        watch: {
-          saisie: function() {
-            this.keywords = this.saisie.split(",").filter(x => {
-              return x.trim() != '';
-            });
-          }
-        }
-      })
-    </script>
+    <script src="../../../js/forms/updateDraft.js" type="module"></script>
 
     <script src="../../../js/forms/checkField.js" type="module"></script>
-    <script src="../../../js/forms/uploadManuscript.js" type="module"></script>
     <script type="module" src="../../../js/dashboards/author.js"></script>
 </body>
 

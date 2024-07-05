@@ -1,6 +1,5 @@
 import { parentDirectoryName, submissionsEndpoint } from "../constants.js";
 import { SetCookies, daysToKeep, hoursToKeep } from "../setCookie.js";
-console.log("login")
 const loginForm = document.getElementById("loginForm")
 loginForm.addEventListener("submit", function(e) {
     e.preventDefault()

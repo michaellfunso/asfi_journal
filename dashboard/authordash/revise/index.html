@@ -337,7 +337,10 @@
                               <input type="text" class="form-control" placeholder="Other Name..." name="loggedIn_authors_other_name" id="loggedIn_othername" readonly>
                               <!-- </div> -->
                             </div>
-
+                            <div style="margin-right: 10px;">
+                              <label for="">ORCID ID”:</label>
+                              <input type="text" class="form-control hd" placeholder="ORCID ID..." name="loggedIn_authors_ORCID" id="loggedIn_orcid">
+                          </div>
                             <div style="margin-right: 10px;">
                               <label for="">Affiliation(s):</label>
                               <div style="display: flex;">
@@ -409,10 +412,22 @@
                         <br>
 
 
-
+                        <input type="hidden" name="review_status">
+                        <input type="submit" id="submitForm" hidden>
+                        
                         <button type="button" class="submit-next" style="width: 30%; padding: 10px;" onclick="reviewAll(6)">Review & Submit</button>
 
-                        <input type="submit" id="submit_manuscript" style="margin: 20px; background-color: blueviolet; border: none; padding: 15px 20px 15px 20px; border-radius: 8px; color: white; font-weight: bold;" value="Submit" hidden>
+                        <button type="button" name="review_stat" style="margin: 20px; background-color: blueviolet; border: none; padding: 15px 20px 15px 20px; border-radius: 8px; color: white; font-weight: bold; text-align: center;" onclick="setStatus('saved_for_later')" hidden> 
+                            Save For Later
+                        </button>
+                            or
+                        <button type="button" name="review_stat" style="margin: 20px; background-color: blueviolet; border: none; padding: 15px 20px 15px 20px; border-radius: 8px; color: white; font-weight: bold;" onclick="setStatus('review_submitted')" hidden>
+                            Submit
+                        </button>
+
+                        
+                        
+                 
                       </div>
 
 

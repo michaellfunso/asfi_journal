@@ -32,6 +32,20 @@ if(user){
                     .then(data =>{
                         if(data){
                             const ArticlesInfo = data.articles
+                            let StatusMain = ""
+                            if(ArticlesInfo.status === "returned_for_revision"){
+                          
+                                          StatusMain = "Returned For Revision"
+                            }
+
+                       
+
+                            if(ArticlesInfo.status === "submitted_for_review" || ArticlesInfo.status === "review_submitted"){
+                                StatusMain = "Under Review"
+                            }else{
+                                StatusMain = ArticlesInfo.status
+                            }
+                            
                                 ArticlesContainer.innerHTML += `         <tr id="queue_0" name="queue_0" role="row" class="odd">
                          
                                 <td data-label="status">              
@@ -41,7 +55,7 @@ if(user){
                                              </p>
                                          </div>
                                          <ul>
-                                             <li>${ArticlesInfo.status}</li>
+                                             <li>${StatusMain}</li>
                                          </ul>
                                
                                        <br>

@@ -5,7 +5,9 @@
     display: block;
 }
 .header-logo img{ max-width: 100%; }
-
+.sub-head{
+    text-transform: uppercase;
+}
 /* Headroom css */
 .sticky-header{
     width: 100%;

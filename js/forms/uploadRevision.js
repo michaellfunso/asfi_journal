@@ -30,9 +30,9 @@ const disciplineContainer = document.getElementById("disciplineContainer")
 const email = UserData.email 
 const discipline = document.querySelector('#discipline')
 discipline.addEventListener("change", function(){
-    console.log(discipline.value)
+    
     if(discipline.value == "other" || discipline.value == "Other"){
-        console.log("VAlue")
+       
         discipline.removeAttribute("name")
         disciplineContainer.innerHTML = `<input class='form-control' name="discipline" placeholder="Specify Your discipline" required/>`
     }else{
@@ -86,7 +86,7 @@ uploadForm.addEventListener("submit", function(e) {
     .then(data => {
         console.log(data); // Log server response
         if(data.status === "success"){
-            alert("Upload Successful")
+            alert("Revision Submitted Successfully")
             window.location.href = "/dashboard/authordash/manuscripts"
         }else if(data.status === "error"){
             alert(data.message)

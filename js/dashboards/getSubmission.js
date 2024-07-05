@@ -47,8 +47,8 @@ function getSupplement(articeID) {
                     const DateUploaded = formatTimestamp(Article.date_submitted)
                     
                     const ArticleID = Article.article_id
-                    filesContainer.innerHTML += `<a href="https://cp.asfirj.org/uploadedFiles/${coverLetter}" style="color:#333; text-decoration: underline;">View Cover Letter</a><br>
-                            <b>Manuscript File </b><i>a combination of all files submitted, (i.e tables, figues, supplementary materials)</i>: <a href="https://cp.asfirj.org/uploadedFiles/${ManuscriptFile}" style="color:#333; text-decoration: underline;">View Manuscript File</a>`
+                    filesContainer.innerHTML += `<a href="https://cp.asfirj.org/uploadedFiles/${coverLetter}" style="color:#333; text-decoration: underline;" target=_blank>View Cover Letter</a><br>
+                            <b>Manuscript File </b><i>a combination of all files submitted, (i.e tables, figues, supplementary materials)</i>: <a href="https://cp.asfirj.org/uploadedFiles/${ManuscriptFile}" style="color:#333; text-decoration: underline;" target=_blank>View Manuscript File</a>`
                     const correspondingAuthorsEmailContainer = document.getElementById("correspondingAuthorsEmail")
                     correspondingAuthorsEmailContainer.innerHTML +=  ` <a style="color:#333;" href="mailto:${correspondingAuthorsEmail}">${correspondingAuthorsEmail}</a>`
                     ArticleTypeContainer.innerText  = ArticleType

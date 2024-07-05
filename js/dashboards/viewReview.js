@@ -47,20 +47,20 @@ if(user){
             reviewIdContainer.innerText = reviewId
             one_paragraph_comment.innerText = oneParagraph
             if(oneParagraphFile !== "" && oneParagraphFile != ""){
-                one_paragraph_file_container.innerHTML += `<a style="color:#333; text-decoration:underline; "href=${submissionsEndpoint}/uploads/reviews/${oneParagraphFile}>Open File</a>`
+                one_paragraph_file_container.innerHTML += `<a style="color:#333; text-decoration:underline; "href=${submissionsEndpoint}/uploads/reviews/${oneParagraphFile} target=_blank>Open File</a>`
             }else{
                 one_paragraph_file_container.innerHTML = `<span>No Files attached</span>`
             }
 
             if(specificCommentFile !== "" && specificCommentFile !=""){
-                speicic_comment_container.innerHTML = `<a style="color:#333; text-decoration:underline; "href=${submissionsEndpoint}/uploads/reviews/${specificCommentFile}>Open File</a>`
+                speicic_comment_container.innerHTML = `<a style="color:#333; text-decoration:underline; "href=${submissionsEndpoint}/uploads/reviews/${specificCommentFile} target=_blank>Open File</a>`
             }else{
                 speicic_comment_container.innerHTML = `<span>No Files attached</span>`
 
             }
 
             if(generalCommentFile !== "" && generalCommentFile != ""){
-                general_comment_file_container.innerHTML += `<a style="color:#333; text-decoration:underline; "href=${submissionsEndpoint}/uploads/reviews/${generalCommentFile}>Open File</a>`
+                general_comment_file_container.innerHTML += `<a style="color:#333; text-decoration:underline; "href=${submissionsEndpoint}/uploads/reviews/${generalCommentFile} target=_blank>Open File</a>`
             }else{
                 general_comment_file_container.innerHTML = `<span>No Files attached</span>`
             }

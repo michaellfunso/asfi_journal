@@ -44,9 +44,9 @@ Submission Preview</span>
                    <ul style="color: #404040;">
   <li>This is the final stage of the submission process.</li>
   <li>On this page, all items you have inputted for your submission are displayed.</li>
-  <li>Before clicking the Submit button, please carefully check to ensure that all items, including uploaded files, are correct.</li>
+  <li>Before clicking the <b>Submit</b> button, please carefully check to ensure that all items, including uploaded files, are correct.</li>
   <li>If anything is incorrect, you can use the navigation on the left to go back to the respective section and make the corrections.</li>
-  <li>Once you are satisfied that all items are correct, please click the Submit button to submit the manuscript.</li>
+  <li>Once you are satisfied that all items are correct, please click the <b>Submit</b> button to submit the manuscript.</li>
   <li>Once the manuscript is submitted, all authors will receive a confirmation email.</li>
 </ul>
 `,

@@ -12,11 +12,10 @@ const affiliation_city = document.getElementById("affiliation_city")
 const password = document.getElementById("password")
 const disciplineMain = document.querySelector(".discipline")
 const discipline = document.querySelector('#discipline')
+const orcid = document.getElementById("orcid");
 if(discipline){
 discipline.addEventListener("change", function(){
-    console.log(discipline.value)
     if(discipline.value == "other" || discipline.value == "Other"){
-        console.log("VAlue")
         discipline.removeAttribute("name")
         disciplineContainer.innerHTML = `<input class='form-control discipline' name="discipline" placeholder="Specify Your discipline" required/>`
     }else{
@@ -57,7 +56,6 @@ registerForm.addEventListener("submit", function(e){
     e.preventDefault();
 const availableForReview = document.querySelector('input[name="review"]:checked');
 
-    console.log(availableForReview.value)
     if(!password.value){
         message_container.innerHTML =`<div class="alert-danger">Password Can not be empty</div>`
     }else if(password.value != password2.value){
@@ -68,6 +66,7 @@ const availableForReview = document.querySelector('input[name="review"]:checked'
             firstname:firstname.value,
             lastname:lastname.value,
             othername: othername.value,
+            orcid:orcid.value,
             discipline:disciplineMain.value,
             email: email.value,
             affiliations: affiliation.value,

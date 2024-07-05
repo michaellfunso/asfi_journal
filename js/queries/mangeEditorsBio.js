@@ -50,7 +50,6 @@ method:"GET"
 const Editor  = data.editor
 // Parse the Quill content from the JSON data
 const quillContent = JSON.parse(Editor[0].bio);
-const quillContentStr = JSON.stringify(quillContent);
 
 
 // Create a Quill instance in "read-only" mode to render the content as HTML

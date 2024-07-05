@@ -1,4 +1,18 @@
+const FilesArray = [];
 
+function removeFile(fieldName, fieldContainerId, label){
+    const fileContainer = document.getElementById(fieldContainerId)
+    fileContainer.setAttribute("style", "color:black;")
+
+    // Remove file from FilesArray
+    const index = FilesArray.findIndex(fileObject => fileObject.fieldName === fieldName);
+    if (index > -1) {
+        FilesArray.splice(index, 1);
+    }
+ 
+  fileContainer.innerHTML = ` <label for="${fieldName}">${label}:</label>
+                          <input type="file" class="form-control" name="${fieldName}">`  
+}
 
 function navigateSection(sectionId) {
     var currentSection = document.querySelector('.form-section:not(.hidden)');
@@ -27,12 +41,35 @@ function updateNavigationList(currentSectionId, Nextitem) {
     Lock.innerHTML = "<span></span>";
 }
 
+function NavigationNext(nextSection, navItemId, Nextitem 
+    ,  headerMessageIndex){
+    const OttherSections = document.querySelectorAll(".form-section")
+    OttherSections.forEach(Section => {
+        Section.classList.add('hidden');
+        // const buttons = document.getElementById(prevSection);
+        if(Section){
+            Section.querySelector(".submit-next").style.display="none";
+        }
+    })
+    document.getElementById(nextSection).classList.remove('hidden');
+    document.getElementById(nextSection).classList.add('fade-in');
+    document.getElementById(nextSection).querySelector(".submit-next").style.display="block";
 
+    updateNavigationList(navItemId, Nextitem)
+ 
+    scrollTo(0, 0);  // Scroll to the top of the page if needed
+            // HEader messages 
+            const headerMessageContainer = document.getElementById("headerMessage")
+        headerMessageContainer.innerHTML = headerMessages[headerMessageIndex]
+
+}
         function showNext(nextSection, currentSection, navItemId, Nextitem, prevSection, headerMessageIndex) {
     document.getElementById(currentSection).classList.add('hidden');
     document.getElementById(nextSection).classList.remove('hidden');
     document.getElementById(nextSection).classList.add('fade-in');
     updateNavigationList(navItemId, Nextitem)
+    document.getElementById(nextSection).querySelector(".submit-next").style.display="block";
+
     const buttons = document.getElementById(prevSection);
     if(buttons){
         buttons.querySelector(".submit-next").style.display="none";
@@ -47,7 +84,7 @@ function updateNavigationList(currentSectionId, Nextitem) {
 function reviewAll(index) {
     const hiddenItms = document.querySelectorAll(".form-section");
     const removeButton = document.querySelectorAll(".submit-next");
-    const showSubmit = document.querySelector("#submit_manuscript");
+    const showSubmit = document.querySelectorAll('button[name="review_stat"]');
     hiddenItms.forEach(item=>{
         item.classList.remove('hidden');
     })
@@ -59,10 +96,22 @@ function reviewAll(index) {
 
     headerMessageContainer.innerHTML = headerMessages[index]
 
-    showSubmit.removeAttribute('hidden');
+    showSubmit.forEach(submitbutton =>{
+        submitbutton.removeAttribute('hidden');
+
+    })
+
 
 }
+function setStatus(status){
+    const reviewStatus  = document.querySelector('input[name="review_status"]')
+    const submitForm = document.getElementById("submitForm")
+    
 
+    reviewStatus.value = status
+    submitForm.click()
+
+}
 function addAuthorInput() {
     var authorContainer = document.getElementById('author-information');
     var addAuthor = document.getElementById('addAuthor');
@@ -83,14 +132,28 @@ function addAuthorInput() {
             <option value="Miss">Miss</option>
         </select>
     </div>
-    <div style="margin-right: 10px;">
-        <label for="">Full Name:</label>
-        <div style="display: flex;">
-            <input type="text" class="form-control" placeholder="Full Name..." name="authors_first_name[]">
-        <input type="text" class="form-control" placeholder="Last Name..." name="authors_last_name[]">
-        <input type="text" class="form-control" placeholder="Other Name..." name="authors_other_name[]">
-        </div>
-    </div>
+
+
+                    <div style="margin-right: 10px;">
+                              <label for="">First Name:</label>
+                              <input type="text" class="form-control hd" placeholder="First Name..." name="authors_first_name[]" >
+                              </div>
+                              <!-- <div style="display: flex;"> -->
+                                <div style="margin-right: 10px;">
+                                    <label for="">MiddleName:</label>
+                                      <input type="text" class="form-control" placeholder="Middle name" name="authors_other_name[]" >
+                                    <!-- </div> -->
+                                </div>
+                            <div style="margin-right: 10px;">
+                                <label for="">Last Name:</label>
+                                <input type="text" class="form-control hd" placeholder="Last Name..." name="authors_last_name[]" >
+                            </div>
+
+                            <div style="margin-right: 10px;">
+                                <label for="">ORCID ID”:</label>
+                                <input type="text" class="form-control hd" placeholder="ORCID ID..." name="authors_orcid[]”">
+                            </div>
+
     <div style="margin-right: 10px;">
                             <label for="">Affiliation:</label>
                             <div style="display: flex;">
