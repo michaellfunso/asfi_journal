@@ -41,7 +41,7 @@ const article_type_nav = document.getElementById("article_type_nav")
 const upload_manuscript_nav = document.getElementById("upload_manuscript_nav")
 const title_nav = document.getElementById("title_nav")
 const abstract_nav = document.getElementById("abstract_nav")
-
+const authorsContainer = document.getElementById("addAuthor")
 
 // Get the Article Id from the search Parameter 
 const articleId = GetParameters(window.location.href).get("a");
@@ -70,6 +70,86 @@ if (articleId) {
                     const figures = Article.figures
                     const supplementaryMaterials = Article.supplementary_material
                     const graphicAbstract = Article.graphic_abstract
+
+                    // gEt the authors 
+                    fetch(`${submissionsEndpoint}/backend/accounts/articleAuthors.php?articleID=${articleId}`, {
+                        method: "GET"
+                    }).then(res => res.json())
+                        .then(data => {
+                            if (data) {
+                                const AllAuthors = data.authorsList
+
+                                AllAuthors.forEach(author => {
+                                    // Create new input fields for the new author
+                                    var newAuthorInputs = document.createElement('div');
+                                    const authorsFullname = author.authors_fullname;
+                                    const authorsArray = authorsFullname.split(' ');
+                                    
+                                    newAuthorInputs.innerHTML = `
+        
+            <div style="display: flex; justify-content: space-between; width: 150%;">
+        <div style="margin-right: 10px;">
+            <label for="prefix">Prefix:</label>
+            <select name="authors_prefix[]" class="form-control">
+                <option value="${authorsArray[0]}">${authorsArray[0]}</option>
+                <option value="">Select an Option</option>
+                <option value="Prof">Prof.</option>
+                <option value="Dr">Dr.</option>
+                <option value="Mr">Mr.</option>
+                <option value="Mrs">Mrs.</option>
+                <option value="Miss">Miss</option>
+            </select>
+        </div>
+    
+    
+                        <div style="margin-right: 10px;">
+                                  <label for="">First Name:</label>
+                                  <input type="text" class="form-control hd" placeholder="First Name..." name="authors_first_name[]" value="${authorsArray[1]}" >
+                                  </div>
+                                  <!-- <div style="display: flex;"> -->
+                                    <div style="margin-right: 10px;">
+                                        <label for="">MiddleName:</label>
+                                          <input type="text" class="form-control" placeholder="Middle name" name="authors_other_name[]" value="${authorsArray[3]}">
+                                        <!-- </div> -->
+                                    </div>
+                                <div style="margin-right: 10px;">
+                                    <label for="">Last Name:</label>
+                                    <input type="text" class="form-control hd" placeholder="Last Name..." name="authors_last_name[]" value="${authorsArray[2]}">
+                                </div>
+    
+                                <div style="margin-right: 10px;">
+                                    <label for="">ORCID ID”:</label>
+                                    <input type="text" class="form-control hd" placeholder="ORCID ID..." name="authors_orcid[]” value="${author.orcid_id}">
+                                </div>
+    
+        <div style="margin-right: 10px;">
+                                <label for="">Affiliation:</label>
+                                <div style="display: flex;">
+                                <input type="text" class="form-control" placeholder="Affiliation..." name="affiliation[]" value="${author.affiliations}">
+                                <input type="text" class="form-control" placeholder="Affiliation City..." name="affiliation_city[]" value="${author.affiliation_city}">
+                                <input type="text" class="form-control" placeholder="Affiliation Country..." name="affiliation_country[]" value="${author.affiliation_country}">
+                                </div>
+                            </div>
+                    
+                            <div style="border-bottom: 1px solid #404040; margin-bottom: 12px;">
+                                <label for="">Email:</label>
+                                <input type="email" class="form-control" placeholder="Email..." name="email[]" value="${author.authors_email}">
+                            </div>
+                            <div style="width: 20px; height: 20px; color:white; font-weight:bold; background-color: red; border-radius:6px; display-flex; justify-content: center; align-item: center">x</div>
+            </div>
+    
+        `;
+
+                                    // Append the new author inputs to the container
+                                    authorsContainer.appendChild(newAuthorInputs);
+                                })
+
+
+
+                            } else {
+                                console.log("Server Error")
+                            }
+                        })
 
                     // if manuscript_file Exists, add manuscript_file to the list 
                     if (manuscript_file && manuscript_file != null) {
@@ -115,11 +195,11 @@ if (articleId) {
 
                     }
                     const Title = document.getElementById("title")
-                        if (title != "" && title) {
-                            const nextButton = Title.querySelector(".submit-next")
-                            nextButton.removeAttribute("disabled")
-                            title_nav.setAttribute("onclick", "NavigationNext('title', 'title_nav', 'abstract_nav', 2)")
-                        }
+                    if (title != "" && title) {
+                        const nextButton = Title.querySelector(".submit-next")
+                        nextButton.removeAttribute("disabled")
+                        title_nav.setAttribute("onclick", "NavigationNext('title', 'title_nav', 'abstract_nav', 2)")
+                    }
 
 
 
@@ -196,7 +276,7 @@ if (articleId) {
                             appendFileToForm(files.file, files.fieldName)
                         })
 
-                        // body.removeAttribute("id")
+                        body.removeAttribute("id")
 
 
                         fetch(`${submissionsEndpoint}/draft/`, {

@@ -327,16 +327,16 @@
                               <label for="">First Name:</label>
                               <input type="text" class="form-control hd" placeholder="First Name..." name="loggedIn_authors_first_name" id="loggedIn_firstname" readonly>
                             </div>
-                            <!-- <div style="display: flex;"> -->
+                            <div style="margin-right: 10px;">
+                              <label for="">Middle Name:</label>
+                              <input type="text" class="form-control" placeholder="Other Name..." name="loggedIn_authors_other_name" id="loggedIn_othername" readonly>
+                              <!-- </div> -->
+                            </div>
                             <div style="margin-right: 10px;">
                               <label for="">Last Name:</label>
                               <input type="text" class="form-control hd" placeholder="Last Name..." name="loggedIn_authors_last_name" id="loggedIn_lastname" readonly>
                             </div>
-                            <div style="margin-right: 10px;">
-                              <label for="">Other Name:</label>
-                              <input type="text" class="form-control" placeholder="Other Name..." name="loggedIn_authors_other_name" id="loggedIn_othername" readonly>
-                              <!-- </div> -->
-                            </div>
+                        
                             <div style="margin-right: 10px;">
                               <label for="">ORCID ID”:</label>
                               <input type="text" class="form-control hd" placeholder="ORCID ID..." name="loggedIn_authors_ORCID" id="loggedIn_orcid">
@@ -417,11 +417,11 @@
                         
                         <button type="button" class="submit-next" style="width: 30%; padding: 10px;" onclick="reviewAll(6)">Review & Submit</button>
 
-                        <button type="button" name="review_stat" style="margin: 20px; background-color: blueviolet; border: none; padding: 15px 20px 15px 20px; border-radius: 8px; color: white; font-weight: bold; text-align: center;" onclick="setStatus('saved_for_later')" hidden> 
+                        <button type="button" name="review_stat" style="margin: 20px; background-color: blueviolet; border: none; padding: 15px 20px 15px 20px; border-radius: 8px; color: white; font-weight: bold; text-align: center;" onclick="setStatus('revision_saved')" hidden> 
                             Save For Later
                         </button>
                             or
-                        <button type="button" name="review_stat" style="margin: 20px; background-color: blueviolet; border: none; padding: 15px 20px 15px 20px; border-radius: 8px; color: white; font-weight: bold;" onclick="setStatus('review_submitted')" hidden>
+                        <button type="button" name="review_stat" style="margin: 20px; background-color: blueviolet; border: none; padding: 15px 20px 15px 20px; border-radius: 8px; color: white; font-weight: bold;" onclick="setStatus('revision_submitted')" hidden>
                             Submit
                         </button>
 

@@ -151,7 +151,7 @@ function addAuthorInput() {
 
                             <div style="margin-right: 10px;">
                                 <label for="">ORCID ID”:</label>
-                                <input type="text" class="form-control hd" placeholder="ORCID ID..." name="authors_orcid[]”">
+                                <input type="text" class="form-control hd" placeholder="ORCID ID..." name="authors_orcid[]">
                             </div>
 
     <div style="margin-right: 10px;">

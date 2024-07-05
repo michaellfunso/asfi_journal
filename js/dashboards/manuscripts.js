@@ -48,13 +48,13 @@ if(user){
                                 StatusMain = ArticlesInfo.status
                             }
 
-                            if(ArticlesInfo.status === "submitted_for_review" || ArticlesInfo.status === "review_submitted"){
+                            if(ArticlesInfo.status === "submitted_for_review" || ArticlesInfo.status === "review_submitted" || ArticlesInfo.status === "revision_submitted"){
                                 StatusMain = "Under Review"
                                 viewSubmission = ` <a role="link" tabindex="0" href="../content?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
                                               view submission
                                           </a> `
-                            }else if(ArticlesInfo.status === "saved_for_later"){
-                                console.log(ArticlesInfo.status)
+                            }else if(ArticlesInfo.status === "saved_for_later" || ArticlesInfo.status === "revision_saved"){
+                             
                                 RevisionAction = ` <br>
                                 <a role="link" tabindex="0" href="../edit?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
                                     Continue Submission
