@@ -1,4 +1,4 @@
-import { parentDirectoryName, submissionsEndpoint, url } from "../constants.js";
+import { editorsDomainEndpoint, parentDirectoryName, submissionsEndpoint, url } from "../constants.js";
 import { GetCookie } from "../setCookie.js";
 import { GetAccountData } from "./accountData.js";
 
@@ -49,7 +49,7 @@ const editorNavbar = `   <div style="display: flex;">
                     <a href="${parentDirectoryName}/dashboard/authordash" class="nav-active"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
                     <a href="${parentDirectoryName}/dashboard/authordash/manuscripts" ><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
                     <a href="${parentDirectoryName}/dashboard/reviewerdash" ><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-bell text--danger'></i> Review </span></a>
-                    <a href="https://editors.asfirj.org" ><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-edit text--danger'></i> Editorial Assignments </span></a>
+                    <a href="${editorsDomainEndpoint}?e=${email}" target=_blank><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-edit text--danger'></i> Editorial Assignments </span></a>
                 </div>
             </div>`
 

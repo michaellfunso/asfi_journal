@@ -1,4 +1,4 @@
-import { submissionsEndpoint } from "../constants.js"
+import { parentDirectoryName, submissionsEndpoint } from "../constants.js"
 
 const prefix  = document.getElementById("prefix")
 const registerForm = document.getElementById("registerForm")
@@ -89,6 +89,7 @@ body.removeAttribute("id")
             if(data){
             if(data.status === "error"){
                 message_container.innerHTML =`<div class="alert-danger">${data.message}</div>`
+                alert(data.message)
                 body.setAttribute("id", "formNotSubmitted")
 
             }else if(data.status === "success"){
