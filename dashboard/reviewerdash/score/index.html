@@ -598,6 +598,32 @@
 
     }
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const firstTableInputs = document.querySelectorAll('.first-table .scores input');
+        const secondTableInputs = document.querySelectorAll('.second-table .scores input');
+        const totalScore1 = document.getElementById('total-score1');
+        const totalScore2 = document.getElementById('total-score2');
+
+        function calculateTotalScore(inputs, totalScoreElement) {
+            let total = 0;
+            inputs.forEach(input => {
+                if (input.checked) {
+                    total += parseInt(input.value, 10);
+                }
+            });
+            totalScoreElement.textContent = total;
+        }
+
+        firstTableInputs.forEach(input => {
+            input.addEventListener('change', () => calculateTotalScore(firstTableInputs, totalScore1));
+        });
+
+        secondTableInputs.forEach(input => {
+            input.addEventListener('change', () => calculateTotalScore(secondTableInputs, totalScore2));
+        });
+    });
+</script>
         </form>
             
 
