@@ -30,6 +30,8 @@ function GetEditors() {
                         sectionContainer.innerHTML = ` <span>${sectionName}</span>`;
                         editorsContainer.appendChild(sectionContainer);
 
+                        const mainSectionContainer = document.createElement("div")
+
                         // Find each discipline related to that section 
                         fetch(`${EndPoint}/editorsSections/editorialFields.php?field=${sectionName}`, {
                             method: "GET"
@@ -41,9 +43,11 @@ function GetEditors() {
                                     uniqueDisciplines.forEach(discipline => {
                                         const disciplineContainer = document.createElement('div');
                                         disciplineContainer.classList.add('edit-subject');
-                                        disciplineContainer.setAttribute("style", "display:flex; flex-wrap:wrap;")
+                                        // disciplineContainer.setAttribute("style", "display:flex; flex-wrap:wrap;")
+                                        mainSectionContainer.setAttribute("style", "display:flex; flex-wrap:wrap;")
+
                                         // disciplineContainer.innerHTML = `<h3>${discipline.discipline}</h3>`;
-                                        sectionContainer.appendChild(disciplineContainer);
+                                        mainSectionContainer.appendChild(disciplineContainer);
 
                                         // Get Editors related to that discipline 
                                         fetch(`${EndPoint}/editorsSections/sectionalEditors.php?discipline=${discipline.discipline}&field=${sectionName}`, {
@@ -66,7 +70,9 @@ function GetEditors() {
                                                   
                                                          </div>
                                                           </div>`;
-                                                        disciplineContainer.appendChild(editorContainer);
+                                                        mainSectionContainer.appendChild(editorContainer);
+                        sectionContainer.appendChild(mainSectionContainer);
+
                                                     });
                                                 } else {
                                                     console.log(data.message);
