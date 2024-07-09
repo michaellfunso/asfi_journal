@@ -57,13 +57,14 @@ function GetEditors() {
                                                         const editorContainer = document.createElement('div');
                                                         editorContainer.classList.add('edit-head-container');
                                                         editorContainer.innerHTML = `
-                                                        <div class="indi-editors" onclick="openModal('${editor.prefix}', '${editor.fullname}', '${editor.country}','${editor.photo}', '${editor.discipline}', '${editor.id}', '${editor.field}')">        
+                                                        <div class="indi-editors" >        
                                                         <div class="avatar" style="background-image: url('./useruploads/editors/${editor.photo}')"></div>
-                                                         <div class="editor-info" id=${editor.photo}>
+                                                         <div class="editor-info" id="${editor.photo}" onclick="openModal('${editor.prefix}', '${editor.fullname}', '${editor.country}','${editor.photo}', '${editor.discipline}', '${editor.id}', '${editor.field}')">
                                                          <h4 style="font-size:14px;">${editor.prefix} ${editor.fullname}</h4>    
                                                          <p style="margin-left:8px;" style="background:green;">  ${discipline.discipline}, ${editor.country}</p>
-                                                  
-                                                         </div>
+                                                      
+                                                         </div>   
+                                                         <button class="btn btn-danger rounded" style="height:fit-content; width:fit-content;" onclick="DeleteEditor('${editor.id}')"><i class="fa fa-trash"></i></button>
                                                           </div>`;
                                                         disciplineContainer.appendChild(editorContainer);
                                                     });
@@ -144,3 +145,21 @@ EditAuthorForm.addEventListener("submit", function(e){
     });
 })
 
+const deleteEditor = document.getElementById("deleteEditor")
+deleteEditor.addEventListener("submit", function(e){
+    e.preventDefault()
+
+    const formData = new FormData(deleteEditor)
+    fetch(`${parentDirectoryName}/actions/deleteEditor/`,{
+        method:"POST",
+        body:formData
+    }).then(res => res.json())
+    .then(data =>{
+        if(data.success){
+            alert(data.success)
+        }else{
+            alert(data.error)
+        }
+        window.location.reload()
+    })
+})

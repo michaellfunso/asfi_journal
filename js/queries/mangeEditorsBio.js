@@ -12,6 +12,24 @@
            modal1.classList.add("show"); // Add the 'show' class
        }
 
+       function DeleteEditor(userID){
+
+        odalContent = modal1.querySelector("form")
+
+        odalContent.innerHTML = `
+        <span class="close" onclick="closeModal1()">&times;</span>
+            <input type="hidden" value=${userID} name="editorId"/>
+        <div class="editor-info submit-body" style="display:flex; flex-direction:column;">
+        <label for="verifyCode">Enter Verification code to delete</label>
+
+            <input class="form-control" name="verifyCode" type="password" placeholder="Enter Verification Code" required/>
+
+
+            <button type="submit"  class="signin-btn btn-danger" >Delete</button>
+        </div>`
+        modal1.classList.add("show");
+       }
+
        function openModal(prefix, fullname, country, photo, discipline, id, field) {
            modalContent = modal.querySelector("form")
            GetBio(fullname)
