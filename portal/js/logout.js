@@ -1,5 +1,5 @@
-import { parentDirectoryName } from "../../js/constants";
-import { DeleteCookie, GetCookie } from "../../js/setCookie";
+import { parentDirectoryName } from "../../js/constants.js";
+import { DeleteCookie, GetCookie } from "../../js/setCookie.js";
 
 const User = GetCookie("user")
 if(User){

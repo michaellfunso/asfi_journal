@@ -114,8 +114,8 @@
                     
                     
                     <ul class="submit-nav">
-                        <a href=""><li style="background-color: #320359;"> <span>0</span> Review and Score</li></a>
-                        <a href="./submitted/"><li > <span>0</span> Reviews Submitted</li></a>
+                        <a href=""><li style="background-color: #320359;"> <span class="reviewsCount">0</span> Review and Score</li></a>
+                        <a href="./submitted/"><li > <span class="submittedReviewsCount">0</span> Reviews Submitted</li></a>
                         <!-- <a href=""><li>Submit New Manuscript</li></a> -->
                         <!-- <a href="./invitations.html"><li> <span>0</span> Invitations</li></a> -->
                         <a href="../../../portal/logout/"><li>Logout</li></a>
@@ -288,7 +288,7 @@
      
         })
     </script>
-  
+    <script type="module" src="../../js/dashboards/countItems.js"></script>
 </body>
 
 </html>

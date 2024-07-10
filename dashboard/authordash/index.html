@@ -187,7 +187,7 @@
                         </span>
                         <div class="dashboard-card__header-content">
                             <h6 class="dashboard-card__header-title"> NEW SUBMISSION </h6>
-                            <span class="dashboard-card__header-currency" id="total_deposit_balance"> 0 </span>
+                            <span class="dashboard-card__header-currency newSubmissionsCount" > 0 </span>
                         </div>
                     </div>
                 </div>
@@ -201,7 +201,7 @@
                         </span>
                         <div class="dashboard-card__header-content">
                             <h6 class="dashboard-card__header-title"> MANUSCRIPTS IN REVIEW </h6>
-                            <span class="dashboard-card__header-currency" id="total_withdrawals">0 </span>
+                            <span class="dashboard-card__header-currency inReviewCount">0 </span>
                         </div>
                     </div>
                    
@@ -216,7 +216,7 @@
                         </span>
                         <div class="dashboard-card__header-content">
                             <h6 class="dashboard-card__header-title"> ACCEPTED MANUSCRIPTS </h6>
-                            <span class="dashboard-card__header-currency" id="total_interest_balance"> 0 </span>
+                            <span class="dashboard-card__header-currency acceptedCount" > 0 </span>
                         </div>
                     </div>
                 </div>
@@ -230,14 +230,13 @@
                         </span>
                         <div class="dashboard-card__header-content">
                             <h6 class="dashboard-card__header-title"> PUBLISHED MANUSCRIPTS </h6>
-                            <span class="dashboard-card__header-currency" id="total_deposit_balance"> 0 </span>
+                            <span class="dashboard-card__header-currency publishedCount" > 0 </span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xxl-4 col-xl-6 col-sm-6">
+            <!-- <div class="col-xxl-4 col-xl-6 col-sm-6">
                 <div class="dashboard-card">
-                    <!-- <div class="dashboard-card__shape"></div> -->
                     <div class="dashboard-card__header">
                         <span class="dashboard-card__header-icon">
                             <i class="fas fa-trash"></i>
@@ -248,7 +247,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="col-xxl-4 col-xl-6 col-sm-6">
                 <div class="dashboard-card">
                     <!-- <div class="dashboard-card__shape"></div> -->
@@ -288,6 +287,7 @@
     <link rel="stylesheet" href="../../assets/global/css/iziToast.min.css">
 <script src="../../assets/global/js/iziToast.min.js"></script>
 <script type="module" src="../../js/dashboards/author.js"></script>
+<script type="module" src="../../js/dashboards/countItems.js"></script>
 </body>
 
 </html>

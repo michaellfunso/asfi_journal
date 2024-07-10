@@ -119,12 +119,17 @@
                     
                     
                     <ul class="submit-nav">
-                        <a href=""><li style="background-color: #320359;"> <span>0</span> Manuscripts</li></a>
-                        <a href="../coauth/"><li> <span>0</span> Manuscripts I Have Co-Authored</li></a>
+                        <a href="../manuscripts/">
+                            <span class="newSubmissionsCount">0</span> Manuscripts</li></a>
+                          <a href="../coauth/">
+                            <span class="coAuhtoredCount">0</span> Manuscripts I Have Co-Authored</li></a>
+                          <a href="../submit/">
+                            <li> Submit New Manuscript</li>
+                          </a>
                         <a href="../submit/"><li>Submit New Manuscript</li></a>
-                        <a href="../inreview/"><li> <span>0</span> Manuscripts In Review</li></a>
-                        <a href="../../../portal/logout/"><li>Logout</li></a>
-                        
+                        <a href="../inreview/">
+                            <li> <span class="inReviewCount">0</span> Manuscripts In Review</li></a>
+                          <a href="../../../portal/logout/"><li>Logout</li></a>
                     </ul>
                 </div>
             </div>
@@ -198,7 +203,7 @@
 
     <script src="../../../assets/global/js/firebase/firebase-8.3.2.js"></script>
 
-
+    <script type="module" src="../../../js/dashboards/countItems.js"></script>
 
     
 </body>
