@@ -61,6 +61,39 @@
 	<link rel="stylesheet" href="../../front/public/css/main.css">
 	<link rel="stylesheet" href="../../front/public/css/responsive.css">
 	<script src="../../front/public/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+	<style>
+		.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 9999;
+  display: none;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #9834db;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  margin: auto;
+  margin-top: 20%;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+	</style>
 </head>
 
 <body class="header-1 business">
@@ -69,6 +102,10 @@
 	<div class="site-preloader-wrap">
 		<div class="spinner"></div>
 	</div><!-- /.site-preloader-wrap -->
+	<div class="preloader" id="preloader">
+		<div class="loader"></div>
+	  </div>
+	  
 
 	<header class="header header-one">
 		<div class="primary-header-one primary-header">
@@ -350,6 +387,21 @@
 	})();
 	</script>
 	<!--End of Tawk.to Script-->
+	<script>
+		const preloader = document.getElementById("preloader");
+
+// Show preloader when submission is made
+document.addEventListener("submit", () => {
+  preloader.style.display = "block";
+});
+
+// Hide preloader when submission is complete
+document.addEventListener(" submission-complete", () => {
+  preloader.style.display = "none";
+});
+
+
+	</script>
 	</div>
 </div></section>
  
