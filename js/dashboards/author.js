@@ -20,7 +20,7 @@ if(url.pathname === `${parentDirectoryName}/dashboard/authordash/` || url.pathna
 homeActive = "nav-active"
 authorActive = "not-active"
 reviewerActive = "not-active"
-inboxActive = "nav-active"
+inboxActive = "not-active"
 
 }else if(authordashPattern.test(url.pathname)){
     homeActive = "not-active"
