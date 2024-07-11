@@ -76,6 +76,11 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/brands.min.css">
 	<script src="./front/public/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+	<style>
+		.footer-section a {
+			color: #dbdadaa9;
+		}
+	</style>
 </head>
 
 <body class="header-1 business">
