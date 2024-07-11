@@ -249,12 +249,12 @@
                           <h3 class="manu_head">Upload Manuscript Files</h3> <br>
 
                           <label for="">Main Manuscript File:</label>
-                          <input type="file" class="form-control" name="manuscript_file">
+                          <input type="file" class="form-control requiredFiles" name="manuscript_file">
                         </div>
 
                         <div id="coverLetterContainer">
                           <label for="">Cover Letter:</label>
-                          <input type="file" class="form-control" name="cover_letter">
+                          <input type="file" class="form-control requiredFiles" name="cover_letter">
                         </div>
 
                         <div id="tablesContainer">
@@ -419,7 +419,7 @@
                         <button type="button" name="review_stat" style="margin: 20px; background-color: blueviolet; border: none; padding: 15px 20px 15px 20px; border-radius: 8px; color: white; font-weight: bold; text-align: center;" onclick="setStatus('saved_for_later')" hidden> 
                             Save For Later
                         </button>
-                            or
+                            
                         <button type="button" name="review_stat" style="margin: 20px; background-color: blueviolet; border: none; padding: 15px 20px 15px 20px; border-radius: 8px; color: white; font-weight: bold;" onclick="setStatus('review_submitted')" hidden>
                             Submit
                         </button>

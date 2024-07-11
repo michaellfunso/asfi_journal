@@ -29,7 +29,7 @@ headerMessageContainer.innerHTML = headerMessages[0]
 
 
 const upload_manuscript = document.getElementById("upload-manuscript")
-const FIleFIelds = upload_manuscript.querySelectorAll("input[type=file]")
+const FIleFIelds = upload_manuscript.querySelectorAll(".requiredFiles")
 
 FIleFIelds.forEach(field =>{
     field.addEventListener("change", function(){
