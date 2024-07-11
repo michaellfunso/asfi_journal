@@ -1320,8 +1320,9 @@ body{
     width: 30%;
     position: sticky;
     top: 90px;
-    height: 1500px;
+    height: 1600px;
 }
+
 
 .submission-header-dash {
     border-right: 1px solid rgba(0, 0, 0, 0.37);
