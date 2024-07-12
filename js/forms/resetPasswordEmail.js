@@ -19,7 +19,7 @@ fetch(`${EndPoint}/sendMail.php`, {
     method : "POST",
     body: JSON.stringify(FormDataInput),
     headers:{
-        'Content-tyoe' : 'application/JSON'
+        'Content-type' : 'application/JSON'
     } 
 }).then(res => res.json())
 .then(data =>{
