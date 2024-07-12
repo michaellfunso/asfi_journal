@@ -39,5 +39,5 @@ if(resetToken && emailToken){
         
     })
 }else{
-     window.location.href = `${parentDirectoryName}/portal/resetPassword`
+ window.location.href = `${parentDirectoryName}/portal/login`
 }
