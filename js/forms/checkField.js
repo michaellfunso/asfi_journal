@@ -13,9 +13,11 @@ const author_information_nav = document.getElementById("author_information_nav")
 const disclosures_nav = document.getElementById("disclosures_nav")
 const review_submit_nav = document.getElementById("review_submit_nav")
 
+const authorContainer = document.getElementById('author-container');
+
 prefix.addEventListener("change", function() {
 if(prefix.value != "" && prefix.value){
-const nextButton = article_type.querySelector(".submit-next")
+const nextButton = article_type.querySelector(".nextManuscript")
 nextButton.removeAttribute("disabled")
 article_type_nav.setAttribute("onclick","NavigationNext('article-type', 'article_type_nav','upload_manuscript_nav',0)")
 }
@@ -47,7 +49,8 @@ FIleFIelds.forEach(field =>{
         }
 
         if(field.value != "" && field.value){
-            const nextButton = upload_manuscript.querySelector(".submit-next")
+         
+            const nextButton = upload_manuscript.querySelector(".nextManuscript")
             nextButton.removeAttribute("disabled")
             // nextSection, currentSection, navItemId, Nextitem, prevSection, headerMessageIndex
             upload_manuscript_nav.setAttribute("onclick","NavigationNext('upload-manuscript', 'upload_manuscript_nav', 'title_nav',1)")
@@ -66,7 +69,7 @@ const Titles = Title.querySelectorAll("input[type=text]")
 Titles.forEach(titles =>{
     titles.addEventListener("change", function(){
     if(titles.value != "" && titles.value){
-    const nextButton = Title.querySelector(".submit-next")
+    const nextButton = Title.querySelector(".nextManuscript")
     nextButton.removeAttribute("disabled")
     title_nav.setAttribute("onclick","NavigationNext('title', 'title_nav', 'abstract_nav', 2)")
     }
@@ -77,7 +80,7 @@ Titles.forEach(titles =>{
 const Abstract = document.getElementById("abstract")
 
 quill.on('text-change', function(delta, oldDelta, source) {
-        const nextButton = Abstract.querySelector(".submit-next")
+        const nextButton = Abstract.querySelector(".nextManuscript")
         nextButton.removeAttribute("disabled")
         abstract_nav.setAttribute("onclick","NavigationNext('abstract', 'abstract_nav','author_information_nav', 3)")
   });
@@ -90,7 +93,7 @@ const userEmailContainer = document.getElementById("logged_email")
 
 // Author_information.addEventListener("change", function() {
     // if(userEmailContainer.value != "" && userEmailContainer.value){
-    const nextButton = Author_information.querySelector(".submit-next")
+    const nextButton = Author_information.querySelector(".nextManuscript")
     nextButton.removeAttribute("disabled")
     author_information_nav.setAttribute("onclick","NavigationNext('author-information', 'author_information_nav', 'disclosures_nav', 4)")
     // }else{
@@ -103,4 +106,3 @@ const userEmailContainer = document.getElementById("logged_email")
     // disclosure_confirm.addEventListener("change", function() {
     //     disclosures_nav.setAttribute("onclick","NavigationNext('disclosures', 'disclosures_nav', 'review_submit_nav', 2)")
     // })
-  

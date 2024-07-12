@@ -51,9 +51,28 @@
   <link rel="stylesheet" href="../../../assets/templates/metro_hyip/css/color.php?color=EB4830&secondColor=">
   <link rel="stylesheet" href="../../../front/public/css/header.css">
   <link rel="stylesheet" href="../../../front/public/css/loader.css">
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
   <script src="../../../js/forms/headerMessages.js"> </script>
   <script src="../../../js/forms/submissionHeader.js"> </script>
+
+  <style>
+    .drag-handle {
+            width: 20px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+            cursor: grab;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .drag-handle::before {
+            content: '≡';
+            font-size: 16px;
+            color: #666;
+        }
+  </style>
 
 </head>
 
@@ -152,7 +171,7 @@
                     <li><i class="material-icons">lock</i>Disclosures</li>
                   </a>
                   <a href="javascript:void(0)" id="review_submit_nav" class="disabled ">
-                    <li class="scroll-top"><i class="material-icons">lock</i>Review & Submit</li>
+                    <li><i class="material-icons">lock</i>Review & Submit</li>
                   </a>
 
                 </ul>
@@ -236,7 +255,7 @@
                           <option value="Other">Other (please specify)</option>
                         </select>
                         <div id="disciplineContainer"></div>
-                        <button type="button" class="submit-next" onclick="showNext('upload-manuscript', 'article-type', 'article_type_nav', 'upload_manuscript_nav', 0, 1)" disabled>Next</button>
+                        <button type="button" class="submit-next nextManuscript" onclick="showNext('upload-manuscript', 'article-type', 'article_type_nav', 'upload_manuscript_nav', 0, 1)" disabled>Next</button>
 
 
 
@@ -277,8 +296,15 @@
                           <input type="file" class="form-control" name="graphic_abstract">
                         </div> <br>
 
-
-                        <button type="button" class="submit-next" onclick="showNext('title', 'upload-manuscript', 'upload_manuscript_nav', 'title_nav', 'article-type', 2,2)" disabled>Next</button>
+                      <div style="display: flex; justify-content: space-around;">
+                        <!-- back button  -->
+                        <button type="button" class="submit-next" onclick="NavigationNext('article-type', 'article_type_nav','upload_manuscript_nav',0)">Back</button>
+                        <!-- end back button  -->
+                        
+                        <!-- next button  -->
+                        <button type="button" class="submit-next nextManuscript" onclick="showNext('title', 'upload-manuscript', 'upload_manuscript_nav', 'title_nav', 'article-type', 2,2)" disabled>Next</button>
+                        <!-- end next button  -->
+                      </div>
 
                       </div>
 
@@ -288,7 +314,16 @@
                         <b style="text-align: center;">Manuscript Title</b>
                         <input type="text" class="form-control" placeholder="Full Title" name="manuscript_full_title"> <br>
 
-                        <button type="button" class="submit-next" onclick="showNext('abstract', 'title', 'title_nav', 'abstract_nav', 'upload-manuscript', 3,3)" disabled>Next</button>
+                        <div style="display: flex; justify-content: space-around;">
+                          <!-- back button  -->
+                          <button type="button" class="submit-next" onclick="NavigationNext('upload-manuscript', 'upload_manuscript_nav', 'title_nav',1)">Back</button>
+                          <!-- end back button  -->
+
+                          <!-- next button  -->
+                          <button type="button" class="submit-next nextManuscript" onclick="showNext('abstract', 'title', 'title_nav', 'abstract_nav', 'upload-manuscript', 3,3)" disabled>Next</button>
+                          <!-- end next button  -->
+                        </div>
+                        
 
                       </div>
 
@@ -303,43 +338,49 @@
                           </div>
                         </div> <br>
 
+                        <div style="display: flex; justify-content: space-around;">
+                          <!-- back button  -->
+                          <button type="button" class="submit-next" onclick="NavigationNext('title', 'title_nav', 'abstract_nav', 2)">Back</button>
+                          <!-- end back button  -->
 
-
-                        <button type="button" class="submit-next" onclick="showNext('author-information', 'abstract', 'abstract_nav', 'author_information_nav', 'title', 4,4)" disabled>Next</button>
+                          <!-- next button  -->
+                          <button type="button" class="submit-next nextManuscript" onclick="showNext('author-information', 'abstract', 'abstract_nav', 'author_information_nav', 'title', 4,4)" disabled>Next</button>
+                          <!-- end next button  -->
+                        </div>
                       </div>
 
                       <div id="author-information" class="form-section hidden">
                         <h3 class="manu_head">Author's Information</h3>
                         <div id="addAuthor" style="width: 100%; overflow-x: scroll;">
-                          <div style="display: flex; justify-content: space-between; width: 150%;">
+                          <div style="display: flex; width: 250%;">
                             <div style="margin-right: 10px;">
                               <label for="prefix">Prefix:</label>
                               <input name="loggedIn_authors_prefix" class="form-control hd" id="author_information_prefix" readonly />
 
                             </div>
 
-                            <div style="margin-right: 10px;">
+                            <div style="margin-right: 10px; width: 300px;">
                               <label for="">First Name:</label>
                               <input type="text" class="form-control hd" placeholder="First Name..." name="loggedIn_authors_first_name" id="loggedIn_firstname" readonly>
                               </div>
                               <!-- <div style="display: flex;"> -->
-                                <div style="margin-right: 10px;">
+                                <div style="margin-right: 10px; width: 300px;">
                                     <label for="">MiddleName:</label>
                                       <input type="text" class="form-control" placeholder="Middle name" name="loggedIn_authors_other_name" id="loggedIn_othername" readonly>
                                     <!-- </div> -->
                                 </div>
-                            <div style="margin-right: 10px;">
+                            <div style="margin-right: 10px; width: 300px;">
                                 <label for="">Last Name:</label>
                                 <input type="text" class="form-control hd" placeholder="Last Name..." name="loggedIn_authors_last_name" id="loggedIn_lastname" readonly>
                             </div>
 
-                            <div style="margin-right: 10px;">
+                            <div style="margin-right: 10px; width: 300px;">
                                 <label for="">ORCID ID”:</label>
                                 <input type="text" class="form-control hd" placeholder="ORCID ID..." name="loggedIn_authors_ORCID" id="loggedIn_orcid">
                             </div>
                         
 
-                            <div style="margin-right: 10px;">
+                            <div style="margin-right: 10px; width: 300px;">
                               <label for="">Affiliation(s):</label>
                               <div style="display: flex;">
                                 <input type="text" class="form-control hd" placeholder="Affiliation..." name="loggedIn_affiliation" id="loggedIn_affiliation" readonly>
@@ -348,13 +389,13 @@
                               </div>
                             </div>
 
-                            <div>
+                            <div style="margin-right: 10px; width: 300px;">
                               <label for="">Email:</label>
                               <input type="text" class="form-control hd" placeholder="Corresponding Author Email..." name="loggedIn_author" id="logged_email" readonly>
                             </div>
 
-                            <div>
-                              <label for="">Corresponding Author's Emmail:</label>
+                            <div style="width: 300px;">
+                              <label for="">Corresponding Author's Email:</label>
                               <input type="text" class="form-control hd" placeholder="Corresponding Author Email..." name="corresponding_author" id="loggedIn_email">
                             </div>
 
@@ -366,7 +407,16 @@
 
                         <button type="button" class="add-author-btn" style="border-radius: 12px; background-color: blueviolet;" onclick="addAuthorInput()">Add an Author</button>
 
-                        <button type="button" class="submit-next" onclick="showNext('disclosures', 'author-information', 'author_information_nav', 'disclosures_nav', 'abstract', 5,5)" disabled>Next</button>
+                        <div style="display: flex; justify-content: space-around;">
+                          <!-- back button  -->
+                          <button type="button" class="submit-next" onclick="NavigationNext('abstract', 'abstract_nav','author_information_nav', 3)">Back</button>
+                          <!-- end back button  -->
+
+                          <!-- next button  -->
+                          <button type="button" class="submit-next nextManuscript" onclick="showNext('disclosures', 'author-information', 'author_information_nav', 'disclosures_nav', 'abstract', 5,5)" disabled>Next</button>
+                          <!-- end next button  -->
+                        </div>
+                        
                       </div>
 
                       <div class="form-section hidden" id="disclosures">
@@ -410,8 +460,16 @@
                         <br>
 
 
+                        <div style="display: flex; justify-content: space-around;">
+                           <!-- back button  -->
+                           <button type="button" class="submit-next" onclick="NavigationNext('author-information', 'author_information_nav', 'disclosures_nav', 4)">Back</button>
+                           <!-- end back button  -->
 
-                        <button type="button" class="submit-next" style="width: 30%; padding: 10px;" onclick="reviewAll(6)">Review & Submit</button>
+                          <!-- next button  -->
+                          <button type="button" class="submit-next" style="width: 30%; padding: 10px;" onclick="reviewAll(6)">Review & Submit</button>
+                          <!-- end next button  -->
+                        </div>
+                        
 
                         <input type="hidden" name="review_status" >
                         <input type="submit" id="submitForm" hidden>
@@ -491,7 +549,7 @@
             });
           }
         }
-      })
+      });
     </script>
 
     <script src="../../../js/forms/checkField.js" type="module"></script>

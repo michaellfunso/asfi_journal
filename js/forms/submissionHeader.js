@@ -63,7 +63,8 @@ function NavigationNext(nextSection, navItemId, Nextitem
         headerMessageContainer.innerHTML = headerMessages[headerMessageIndex]
 
 }
-        function showNext(nextSection, currentSection, navItemId, Nextitem, prevSection, headerMessageIndex) {
+
+function showNext(nextSection, currentSection, navItemId, Nextitem, prevSection, headerMessageIndex) {
     document.getElementById(currentSection).classList.add('hidden');
     document.getElementById(nextSection).classList.remove('hidden');
     document.getElementById(nextSection).classList.add('fade-in');
@@ -118,9 +119,10 @@ function addAuthorInput() {
 
     // Create new input fields for the new author
     var newAuthorInputs = document.createElement('div');
+    newAuthorInputs.className = 'author-container';
     newAuthorInputs.innerHTML = `
-    
-        <div style="display: flex; justify-content: space-between; width: 150%;">
+    <div class="drag-handle"></div>
+        <div style="display: flex; width: 200%;" id="author-container">
     <div style="margin-right: 10px;">
         <label for="prefix">Prefix:</label>
         <select name="authors_prefix[]" class="form-control">
@@ -134,7 +136,7 @@ function addAuthorInput() {
     </div>
 
 
-                    <div style="margin-right: 10px;">
+                    <div style="margin-right: 10px; width: 300px;">
                               <label for="">First Name:</label>
                               <input type="text" class="form-control hd" placeholder="First Name..." name="authors_first_name[]" >
                               </div>
@@ -144,17 +146,17 @@ function addAuthorInput() {
                                       <input type="text" class="form-control" placeholder="Middle name" name="authors_other_name[]" >
                                     <!-- </div> -->
                                 </div>
-                            <div style="margin-right: 10px;">
+                            <div style="margin-right: 10px; width: 300px;">
                                 <label for="">Last Name:</label>
                                 <input type="text" class="form-control hd" placeholder="Last Name..." name="authors_last_name[]" >
                             </div>
 
-                            <div style="margin-right: 10px;">
+                            <div style="margin-right: 10px; width: 300px;">
                                 <label for="">ORCID ID”:</label>
                                 <input type="text" class="form-control hd" placeholder="ORCID ID..." name="authors_orcid[]">
                             </div>
 
-    <div style="margin-right: 10px;">
+    <div style="margin-right: 10px; width: 300px;">
                             <label for="">Affiliation:</label>
                             <div style="display: flex;">
                             <input type="text" class="form-control" placeholder="Affiliation..." name="affiliation[]">
@@ -167,7 +169,7 @@ function addAuthorInput() {
                             <label for="">Email:</label>
                             <input type="email" class="form-control" placeholder="Email..." name="email[]">
                         </div>
-                        <div style="width: 20px; height: 20px; color:white; font-weight:bold; background-color: red; border-radius:6px; display-flex; justify-content: center; align-item: center">x</div>
+                        <div class="remove-author" style="width: 20px; height: 20px; color:white; font-weight:bold; background-color: red; border-radius:6px; display:flex; justify-content: center; align-items: center; text-align: center; line-height: 20px; cursor:pointer;">x</div>
         </div>
 
     `;
@@ -175,4 +177,18 @@ function addAuthorInput() {
     // Append the new author inputs to the container
     addAuthor.appendChild(newAuthorInputs);
 
+    // Add event listener to the "x" button
+    newAuthorInputs.querySelector('.remove-author').addEventListener('click', function() {
+        addAuthor.removeChild(newAuthorInputs);
+    });
+
 }
+// Initialize SortableJS
+document.addEventListener('DOMContentLoaded', function() {
+    var sortable = new Sortable(document.getElementById('addAuthor'), {
+        animation: 150,
+        ghostClass: 'sortable-ghost',
+        handle: '.author-container'
+    });
+});
+  
