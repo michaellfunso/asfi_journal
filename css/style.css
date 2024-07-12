@@ -1818,7 +1818,7 @@ form div .add-author-btn {
 .foot-body ul li,a {
     list-style-type: none;
     text-decoration: none;
-    color: #dbdadaa9;
+    color: #eeeeeed3;
 }
 
 .foot-useful-links {
@@ -1922,6 +1922,14 @@ table tr:nth-child(even) {
 #table-dash tr td ul li {
     margin-top: 8px;
     margin-bottom: 8px;
+}
+
+/* .dash-nav a{
+    color: white;
+} */
+
+.dash-nav a:hover{
+    color: white;
 }
 
 
