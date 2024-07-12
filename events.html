@@ -267,12 +267,14 @@
                   <h3>Newsletter Signup</h3>
                   <p>Signup today for hints, tips and the latest news and updates.</p>
                   <div class="subscribe-form">
-                      <form action="" class="subscribe-form">
-                          <input class="form-control" type="email" name="email" placeholder="Email *" required="">
-                          <input type="hidden" name="action" value="mailchimpsubscribe">
-                          <button class="submit">Subscribe<i class="fas fa-paper-plane"></i></button>
-                          <div class="clearfix"></div>
-                      </form>
+                    <form class="subscribe-form" id="newsLetterForm">
+                        <input class="form-control" type="email" name="email" placeholder="Email *"
+                            required id="subscribeEmail">
+                        <!-- <input type="hidden" name="action" value="mailchimpsubscribe"> -->
+                        <button class="submit">Subscribe<i class="fas fa-paper-plane"></i></button>
+                        <div class="clearfix"></div>
+                    </form>
+                    <script type="module" src="./js/forms/newsLetter.js"></script>
                   </div>
               </div>
           </div>
