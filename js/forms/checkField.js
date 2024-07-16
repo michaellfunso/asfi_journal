@@ -8,8 +8,10 @@ const article_type_nav = document.getElementById("article_type_nav")
 const upload_manuscript_nav = document.getElementById("upload_manuscript_nav")
 const title_nav = document.getElementById("title_nav")
 const abstract_nav = document.getElementById("abstract_nav")
+const keywords_nav = document.getElementById("keywords_nav")
 
 const author_information_nav = document.getElementById("author_information_nav")
+const suggest_reviewers_nav = document.getElementById("suggest_reviewers_nav")
 const disclosures_nav = document.getElementById("disclosures_nav")
 const review_submit_nav = document.getElementById("review_submit_nav")
 
@@ -82,9 +84,22 @@ const Abstract = document.getElementById("abstract")
 quill.on('text-change', function(delta, oldDelta, source) {
         const nextButton = Abstract.querySelector(".nextManuscript")
         nextButton.removeAttribute("disabled")
-        abstract_nav.setAttribute("onclick","NavigationNext('abstract', 'abstract_nav','author_information_nav', 3)")
+        abstract_nav.setAttribute("onclick","NavigationNext('abstract', 'abstract_nav','keywords_nav', 3)")
   });
 
+const Keywords = document.getElementById("keywords")
+const Keyword = Keywords.querySelectorAll("input[type=text]")
+  
+Keyword.forEach(keyword =>{
+      keyword.addEventListener("change", function(){
+      if(keyword.value != "" && keyword.value){
+      const nextButton = Keywords.querySelector(".nextManuscript")
+      nextButton.removeAttribute("disabled")
+      keywords_nav.setAttribute("onclick","NavigationNext('keywords', 'keywords_nav', 'author_information_nav', 4)")
+      }
+  })
+  
+  });
 
 
 const Author_information = document.getElementById("author-information")
@@ -95,7 +110,7 @@ const userEmailContainer = document.getElementById("logged_email")
     // if(userEmailContainer.value != "" && userEmailContainer.value){
     const nextButton = Author_information.querySelector(".nextManuscript")
     nextButton.removeAttribute("disabled")
-    author_information_nav.setAttribute("onclick","NavigationNext('author-information', 'author_information_nav', 'disclosures_nav', 4)")
+    author_information_nav.setAttribute("onclick","NavigationNext('author-information', 'author_information_nav', 'suggest_reviewers_nav', 5)")
     // }else{
     //     console.log(userEmailContainer.value)
     // }
@@ -106,3 +121,17 @@ const userEmailContainer = document.getElementById("logged_email")
     // disclosure_confirm.addEventListener("change", function() {
     //     disclosures_nav.setAttribute("onclick","NavigationNext('disclosures', 'disclosures_nav', 'review_submit_nav', 2)")
     // })
+
+const Suggest_Reviewers = document.getElementById("suggest-reviewers")
+const Suggest_Reviewer = Suggest_Reviewers.querySelectorAll("input[type=text]")
+      
+Suggest_Reviewer.forEach(suggest_Reviewer =>{
+    suggest_Reviewer.addEventListener("change", function(){
+          if(suggest_Reviewer.value != "" && suggest_Reviewer.value){
+          const nextButton = Suggest_Reviewers.querySelector(".nextManuscript")
+          nextButton.removeAttribute("disabled")
+          suggest_reviewers_nav.setAttribute("onclick","NavigationNext('suggest-reviewers', 'suggest_reviewers_nav', 'disclosures_nav', 6)")
+          }
+      })
+      
+      });

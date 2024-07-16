@@ -29,7 +29,15 @@ const headerMessages = {
                   <li>The maximum number of words for the abstract (structured or unstructured) must not exceed 300 words.</li>
               </ul>
               `,
-    4: `  <span class="sub-head" style="color: #404040;">Author's Information</span>
+    4: `  <span class="sub-head" style="color: #404040;">Keywords</span>
+              <ul style="color: #404040;">
+              <li>On this page, Please provide 3-8 keywords that best match the focus of your manuscript.</li>
+              <li>The editorial office will use these to match appropriate subject matter experts for peer review.</li>
+              <li>Since the keywords are used in indexing articles in different databases, please take careful considerations when selecting keywords for your manuscript.</li>
+          </ul>
+          `,
+    
+    5: `  <span class="sub-head" style="color: #404040;">Author's Information</span>
                               <ul style="color: #404040;">
                     
   <li>On this page, please provide demographic information of all authors.</li>
@@ -38,8 +46,18 @@ const headerMessages = {
   <li>Please note that only one affiliation is required for each author, but you can include more than one affiliation for an author in the manuscript file.</li>
 </ul>
 `,
-5:``,
-    6: `  <span class="sub-head" style="color: #404040;">
+6:`<span class="sub-head" style="color: #404040;">Suggest Reviewers</span>
+                              <ul style="color: #404040;">
+                    
+  <li>Please suggest potential reviewers of your manuscript by providing their names, affiliations and emails.</li>
+  <li>Please suggest at least 3 reviewers and arrange them in the order of priority.</li>
+</ul>`,
+7:`<span class="sub-head" style="color: #404040;">Disclosures</span>
+                              <ul style="color: #404040;">
+                    
+  <li>Please select all disclosures.</li>
+</ul>`,
+    8: `  <span class="sub-head" style="color: #404040;">
 Submission Preview</span>
                    <ul style="color: #404040;">
   <li>This is the final stage of the submission process.</li>
