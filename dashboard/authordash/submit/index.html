@@ -56,6 +56,15 @@
   <script src="../../../js/forms/submissionHeader.js"> </script>
 
   <style>
+    #keywords .form-control.required {
+        border-color: red;
+        background-color: #ffe6e6; /* Light red background */
+    }
+
+    #keywords .form-control.valid {
+        border-color: green;
+        background-color: #e6ffe6; /* Light green background */
+    }
     .drag-handle {
             width: 20px;
             height: 20px;
@@ -163,10 +172,15 @@
                   <a href="javascript:void(0)" id="abstract_nav" class="disabled">
                     <li><i class="material-icons">lock</i>Abstract</li>
                   </a>
+                  <a href="javascript:void(0)" id="keywords_nav" class="disabled">
+                    <li><i class="material-icons">lock</i>Keywords</li>
+                  </a>
                   <a href="javascript:void(0)" id="author_information_nav" class="disabled">
                     <li><i class="material-icons">lock</i>Authors</li>
                   </a>
-
+                  <a href="javascript:void(0)" id="suggest_reviewers_nav" class="disabled">
+                    <li><i class="material-icons">lock</i>Suggest Reviewers</li>
+                  </a>
                   <a href="javascript:void(0)" id="disclosures_nav" class="disabled">
                     <li><i class="material-icons">lock</i>Disclosures</li>
                   </a>
@@ -344,9 +358,54 @@
                           <!-- end back button  -->
 
                           <!-- next button  -->
-                          <button type="button" class="submit-next nextManuscript" onclick="showNext('author-information', 'abstract', 'abstract_nav', 'author_information_nav', 'title', 4,4)" disabled>Next</button>
+                          <button type="button" class="submit-next nextManuscript" onclick="showNext('keywords', 'abstract', 'abstract_nav', 'keywords_nav', 'title', 4,4)" disabled>Next</button>
                           <!-- end next button  -->
                         </div>
+                      </div>
+
+                      <div id="keywords" class="form-section hidden">
+                          <h3 class="manu-head">Keywords</h3>
+                          <div>
+                            <label for="">keyword 1</label>
+                            <input type="text" class="form-control keyword-input" name="keyword[]">
+                          </div>
+                          <div>
+                            <label for="">keyword 2</label>
+                            <input type="text" class="form-control keyword-input" name="keyword[]">
+                          </div>
+                          <div>
+                            <label for="">keyword 3</label>
+                            <input type="text" class="form-control keyword-input" name="keyword[]">
+                          </div>
+                          <div>
+                            <label for="">keyword 4</label>
+                            <input type="text" class="form-control keyword-input" name="keyword[]">
+                          </div>
+                          <div>
+                            <label for="">keyword 5</label>
+                            <input type="text" class="form-control keyword-input" name="keyword[]">
+                          </div>
+                          <div>
+                            <label for="">keyword 6</label>
+                            <input type="text" class="form-control keyword-input" name="keyword[]">
+                          </div>
+                          <div>
+                            <label for="">keyword 7</label>
+                            <input type="text" class="form-control keyword-input" name="keyword[]">
+                          </div>
+                          <div>
+                            <label for="">keyword 8</label>
+                            <input type="text" class="form-control keyword-input" name="keyword[]">
+                          </div>
+                          <div style="display: flex; justify-content: space-around;">
+                            <!-- back button  -->
+                            <button type="button" class="submit-next" onclick="NavigationNext('abstract', 'abstract_nav', 'keywords_nav', 3)">Back</button>
+                            <!-- end back button  -->
+  
+                            <!-- next button  -->
+                            <button type="button" class="submit-next nextManuscript" id="nextButton" disabled>Next</button>
+                            <!-- end next button  -->
+                          </div>
                       </div>
 
                       <div id="author-information" class="form-section hidden">
@@ -383,9 +442,9 @@
                             <div style="margin-right: 10px; width: 300px;">
                               <label for="">Affiliation(s):</label>
                               <div style="display: flex;">
-                                <input type="text" class="form-control hd" placeholder="Affiliation..." name="loggedIn_affiliation" id="loggedIn_affiliation" readonly>
-                                <input type="text" class="form-control hd" placeholder="Affiliation City..." name="loggedIn_affiliation_city" id="loggedIn_affiliation_city" readonly>
-                                <input type="text" class="form-control" placeholder="Affiliation Country..." name="loggedIn_affiliation_country" id="loggedIn_affiliation_country" readonly>
+                                <input type="text" class="form-control hd" placeholder="Affiliation..." name="loggedIn_affiliation" id="loggedIn_affiliation" style="margin-right: 5px;" readonly>
+                                <input type="text" class="form-control hd" placeholder="Affiliation City..." name="loggedIn_affiliation_city" id="loggedIn_affiliation_city" style="margin-right: 5px;" readonly>
+                                <input type="text" class="form-control" placeholder="Affiliation Country..." name="loggedIn_affiliation_country" id="loggedIn_affiliation_country" style="margin-right: 5px;" readonly>
                               </div>
                             </div>
 
@@ -409,14 +468,154 @@
 
                         <div style="display: flex; justify-content: space-around;">
                           <!-- back button  -->
-                          <button type="button" class="submit-next" onclick="NavigationNext('abstract', 'abstract_nav','author_information_nav', 3)">Back</button>
+                          <button type="button" class="submit-next" onclick="NavigationNext('keywords', 'keywords_nav','author_information_nav', 4)">Back</button>
                           <!-- end back button  -->
 
                           <!-- next button  -->
-                          <button type="button" class="submit-next nextManuscript" onclick="showNext('disclosures', 'author-information', 'author_information_nav', 'disclosures_nav', 'abstract', 5,5)" disabled>Next</button>
+                          <button type="button" class="submit-next nextManuscript" onclick="showNext('suggest-reviewers', 'author-information', 'author_information_nav', 'suggest_reviewers_nav', 'keywords', 6,6)" disabled>Next</button>
                           <!-- end next button  -->
                         </div>
                         
+                      </div>
+
+                      <div id="suggest-reviewers" class="form-section hidden">
+                        <h3 class="manu_head">Suggest Reviewers</h3>
+                        <div id="suggestReviewer" class="suggestHandle" style="width: 100%; overflow-x: scroll; margin-bottom: 10px;">
+                          <div style="display: flex; width: 200%; justify-content: center; align-items: center;">
+                            <div class="drag-handle"></div>
+                            <div style="margin-right: 10px;">
+                              <label for="fullname">Full Name:</label>
+                              <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
+                            </div>
+                            <div style="margin-right: 10px; width: 900px;">
+                              <label for="">Affiliation(s):</label>
+                              <div style="display: flex;">
+                                <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
+                                <input type="text" class="form-control hd" placeholder="Affiliation City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
+                                <input type="text" class="form-control" placeholder="Affiliation Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;">
+                              </div>
+                            </div>
+
+                            <div style="margin-right: 10px; width: 300px;">
+                              <label for="">Email:</label>
+                              <input type="text" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                        <div id="suggestReviewer" class="suggestHandle" style="width: 100%; overflow-x: scroll; margin-bottom: 10px;">
+                          <div style="display: flex; width: 200%; justify-content: center; align-items: center;">
+                            <div class="drag-handle"></div>
+                            <div style="margin-right: 10px;">
+                              <label for="fullname">Full Name:</label>
+                              <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
+                            </div>
+                            <div style="margin-right: 10px; width: 900px;">
+                              <label for="">Affiliation(s):</label>
+                              <div style="display: flex;">
+                                <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
+                                <input type="text" class="form-control hd" placeholder="Affiliation City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
+                                <input type="text" class="form-control" placeholder="Affiliation Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;">
+                              </div>
+                            </div>
+
+                            <div style="margin-right: 10px; width: 300px;">
+                              <label for="">Email:</label>
+                              <input type="text" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                        <div id="suggestReviewer" class="suggestHandle" style="width: 100%; overflow-x: scroll; margin-bottom: 10px;">
+                          <div style="display: flex; width: 200%; justify-content: center; align-items: center;">
+                            <div class="drag-handle"></div>
+                            <div style="margin-right: 10px;">
+                              <label for="fullname">Full Name:</label>
+                              <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
+                            </div>
+                            <div style="margin-right: 10px; width: 900px;">
+                              <label for="">Affiliation(s):</label>
+                              <div style="display: flex;">
+                                <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
+                                <input type="text" class="form-control hd" placeholder="Affiliation City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
+                                <input type="text" class="form-control" placeholder="Affiliation Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;">
+                              </div>
+                            </div>
+
+                            <div style="margin-right: 10px; width: 300px;">
+                              <label for="">Email:</label>
+                              <input type="text" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                        <div id="suggestReviewer" class="suggestHandle" style="width: 100%; overflow-x: scroll; margin-bottom: 10px;">
+                          <div style="display: flex; width: 200%; justify-content: center; align-items: center;">
+                            <div class="drag-handle"></div>
+                            <div style="margin-right: 10px;">
+                              <label for="fullname">Full Name:</label>
+                              <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
+                            </div>
+                            <div style="margin-right: 10px; width: 900px;">
+                              <label for="">Affiliation(s):</label>
+                              <div style="display: flex;">
+                                <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
+                                <input type="text" class="form-control hd" placeholder="Affiliation City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
+                                <input type="text" class="form-control" placeholder="Affiliation Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;">
+                              </div>
+                            </div>
+
+                            <div style="margin-right: 10px; width: 300px;">
+                              <label for="">Email:</label>
+                              <input type="text" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                        <div id="suggestReviewer" class="suggestHandle" style="width: 100%; overflow-x: scroll; margin-bottom: 20px;">
+                          <div style="display: flex; width: 200%; justify-content: center; align-items: center;">
+                            <div class="drag-handle"></div>
+                            <div style="margin-right: 10px;">
+                              <label for="fullname">Full Name:</label>
+                              <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
+                            </div>
+                            <div style="margin-right: 10px; width: 900px;">
+                              <label for="">Affiliation(s):</label>
+                              <div style="display: flex;">
+                                <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
+                                <input type="text" class="form-control hd" placeholder="Affiliation City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
+                                <input type="text" class="form-control" placeholder="Affiliation Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;">
+                              </div>
+                            </div>
+
+                            <div style="margin-right: 10px; width: 300px;">
+                              <label for="">Email:</label>
+                              <input type="text" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
+                            </div>
+
+                          </div>
+
+                        </div>
+
+
+                        <div style="display: flex; justify-content: space-around;">
+                          <!-- back button  -->
+                          <button type="button" class="submit-next" onclick="NavigationNext('author-information', 'author_information_nav','suggest_reviewers_nav', 5)">Back</button>
+                          <!-- end back button  -->
+
+                          <!-- next button  -->
+                          <button type="button" class="submit-next nextManuscript" id="suggestNextButton" disabled>Next</button>
+                          <!-- end next button  -->
+                        </div>
+
                       </div>
 
                       <div class="form-section hidden" id="disclosures">
@@ -426,35 +625,35 @@
 
                         <!-- Main toolbar -->
                         <div class="bg-body border rounded-bottom">
-                          <input type="checkbox" name="" id="" required><span>I confirm that the manuscript has been submitted solely to ASFIRJ and is not published, in press,
+                          <input type="checkbox" class="disclosure-checkbox" name="" id="" required><span>I confirm that the manuscript has been submitted solely to ASFIRJ and is not published, in press,
                             or submitted elsewhere, with exception of submission to preprint servers.</span>
                         </div>
                         <div class="bg-body border rounded-bottom">
-                          <input type="checkbox" name="" required><span>I am aware that ASFIRJ requires that all authors disclose all potential sources of conflict of
+                          <input type="checkbox" class="disclosure-checkbox" name="" required><span>I am aware that ASFIRJ requires that all authors disclose all potential sources of conflict of
                             interest in regarding the submitted manuscript and I confirm that all authors have done so.</span>
                         </div>
                         <div class="bg-body border rounded-bottom">
-                          <input type="checkbox" name="" id="" required><span>I confirm that the research that yielded the manuscript being submitted meets the ethical
+                          <input type="checkbox" class="disclosure-checkbox" name="" id="" required><span>I confirm that the research that yielded the manuscript being submitted meets the ethical
                             guidelines and adheres to all legal research requirements of the study country.</span>
                         </div>
                         <div class="bg-body border rounded-bottom">
-                          <input type="checkbox" name="" id="" required><span>I have prepared my manuscript and files, including text, tables, and figures, in accordance with
+                          <input type="checkbox" class="disclosure-checkbox" name="" id="" required><span>I have prepared my manuscript and files, including text, tables, and figures, in accordance with
                             ASFIRJ’s style and formatting requirements as described at: <a href="https://asfirj.org/authors.html" style="color: blueviolet;">asfirj.org/authors.html</a>.</span>
                         </div>
                         <div class="bg-body border rounded-bottom">
-                          <input type="checkbox" name="" id="" required><span>I confirm that each of the co-authors acknowledges their participation in the research that yielded
+                          <input type="checkbox" class="disclosure-checkbox" name="" id="" required><span>I confirm that each of the co-authors acknowledges their participation in the research that yielded
                             the manuscript being submitted and agrees to the submission of the manuscript to ASFIRJ.</span>
                         </div>
                         <div class="bg-body border rounded-bottom">
-                          <input type="checkbox" name="" id="" required><span>I confirm that the contributions each author made to the manuscript are specified in the authors’
+                          <input type="checkbox" class="disclosure-checkbox" name="" id="" required><span>I confirm that the contributions each author made to the manuscript are specified in the authors’
                             contribution section of the manuscript.</span>
                         </div>
                         <div class="bg-body border rounded-bottom">
-                          <input type="checkbox" name="" id="" required><span>I confirm that the manuscript being submitted and the data it contains are unpublished and
+                          <input type="checkbox" class="disclosure-checkbox" name="" id="" required><span>I confirm that the manuscript being submitted and the data it contains are unpublished and
                             original.</span>
                         </div>
                         <div class="bg-body border rounded-bottom">
-                          <input type="checkbox" name="" id="disclosure_confirm" required><span>I confirm that I am willing to pay ASFIRJ’s APC for the submitted manuscript if it is accepted for
+                          <input type="checkbox" class="disclosure-checkbox" name="" id="disclosure_confirm" required><span>I confirm that I am willing to pay ASFIRJ’s APC for the submitted manuscript if it is accepted for
                             publication in the journal as indicated at <a href="https://asfirj.org/aboutus.html" style="color:blueviolet;">asfirj.org/aboutus.html</a>.</span>
                         </div>
                         <br>
@@ -462,11 +661,11 @@
 
                         <div style="display: flex; justify-content: space-around;">
                            <!-- back button  -->
-                           <button type="button" class="submit-next" onclick="NavigationNext('author-information', 'author_information_nav', 'disclosures_nav', 4)">Back</button>
+                           <button type="button" class="submit-next" onclick="NavigationNext('suggest-reviewers', 'suggest_reviewers_nav', 'disclosures_nav', 6)">Back</button>
                            <!-- end back button  -->
 
                           <!-- next button  -->
-                          <button type="button" class="submit-next" style="width: 30%; padding: 10px;" onclick="reviewAll(6)">Review & Submit</button>
+                          <button type="button" class="submit-next" style="width: 30%; padding: 10px;" onclick="reviewAll(8)">Review & Submit</button>
                           <!-- end next button  -->
                         </div>
                         
@@ -550,6 +749,14 @@
           }
         }
       });
+      // Initialize SortableJS
+document.addEventListener('DOMContentLoaded', function() {
+    var sortable = new Sortable(document.getElementById('suggest-reviewers'), {
+        animation: 150,
+        ghostClass: 'sortable-ghost',
+        handle: '.suggestHandle'
+    });
+});
     </script>
 
     <script src="../../../js/forms/checkField.js" type="module"></script>
