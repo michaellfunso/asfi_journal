@@ -32,14 +32,7 @@ function GetEditors() {
                         editorsContainer.appendChild(sectionContainer);
 
                         // Find each discipline related to that section 
-                        fetch(`${EndPoint}/editorsSections/editorialFields.php?field=${sectionName}`, {
-                            method: "GET"
-                        }).then(res => res.json())
-                            .then(data => {
-                                if (data.status === "success") {
-                                    const uniqueDisciplines = data.discipline;
-
-                                    uniqueDisciplines.forEach(discipline => {
+                    
                                         const disciplineContainer = document.createElement('div');
                                         disciplineContainer.classList.add('edit-subject');
                                         disciplineContainer.setAttribute("style", "display:flex; flex-wrap:wrap;")
@@ -47,7 +40,7 @@ function GetEditors() {
                                         sectionContainer.appendChild(disciplineContainer);
 
                                         // Get Editors related to that discipline 
-                                        fetch(`${EndPoint}/editorsSections/sectionalEditors.php?discipline=${encodeURIComponent(discipline.discipline)}&field=${ encodeURIComponent(sectionName)}`, {
+                                        fetch(`${EndPoint}/editorsSections/sectionalEditors.php?field=${sectionName}`, {
                                             method: "GET"
                                         }).then(res => res.json())
                                             .then(data => {
@@ -61,7 +54,7 @@ function GetEditors() {
                                                         <div class="avatar" style="background-image: url('./useruploads/editors/${editor.photo}')"></div>
                                                          <div class="editor-info" id="${editor.photo}" onclick="openModal('${editor.prefix}', '${editor.fullname}', '${editor.country}','${editor.photo}', '${editor.discipline}', '${editor.id}', '${editor.field}')">
                                                          <h4 style="font-size:14px;">${editor.prefix} ${editor.fullname}</h4>    
-                                                         <p style="margin-left:8px;" style="background:green;">  ${discipline.discipline}, ${editor.country}</p>
+                                                         <p style="margin-left:8px;" style="background:green;">  ${editor.discipline}, ${editor.country}</p>
                                                       
                                                          </div>   
                                                          <button class="btn btn-danger rounded" style="height:fit-content; width:fit-content;" onclick="DeleteEditor('${editor.id}')"><i class="fa fa-trash"></i></button>
@@ -72,11 +65,7 @@ function GetEditors() {
                                                     console.log(data.message);
                                                 }
                                             });
-                                    });
-                                } else {
-                                    console.log(data.message);
-                                }
-                            });
+                        
                     });
                 } else {
                     console.log("No Editors");

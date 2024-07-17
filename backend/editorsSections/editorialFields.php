@@ -6,7 +6,7 @@ include "../db.php";
 $field  = $_GET["field"];
 
 if(isset($field)){
-$stmt= $con->prepare("SELECT DISTINCT(`discipline`) FROM `editors_list` WHERE `field` =?");
+$stmt= $con->prepare("SELECT DISTINCT(`discipline`) FROM `editors_list` WHERE `field` =?  ORDER BY `id` ASC");
 if(!$stmt){
     echo $stmt->error;
 }
