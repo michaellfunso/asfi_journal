@@ -47,7 +47,7 @@ function GetEditors() {
                                         sectionContainer.appendChild(disciplineContainer);
 
                                         // Get Editors related to that discipline 
-                                        fetch(`${EndPoint}/editorsSections/sectionalEditors.php?discipline=${discipline.discipline}&field=${sectionName}`, {
+                                        fetch(`${EndPoint}/editorsSections/sectionalEditors.php?discipline="${discipline.discipline}"&field="${sectionName}"`, {
                                             method: "GET"
                                         }).then(res => res.json())
                                             .then(data => {
