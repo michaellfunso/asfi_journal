@@ -3842,7 +3842,7 @@ select option {
 
 @media (max-width: 1699px) {
     .dashboard-fluid .dashboard-header {
-        padding: 0 20px;
+        padding: 10px;
     }
 }
 
@@ -3962,7 +3962,7 @@ select option {
 
 @media screen and (max-width: 1199px) {
     .dashboard-fluid .dashboard-body {
-        padding: 25px 15px;
+        padding: 0;
     }
 }
 

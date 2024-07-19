@@ -123,9 +123,9 @@
             <ul class="submit-nav">
               <a href="../manuscripts/">
                 <li style="background-color: #320359;">  
-                <span class="newSubmissionsCount">0</span> Submiited Manuscripts</li></a>
+                <span class="newSubmissionsCount">0</span> Submitted Manuscripts</li></a>
               <a href="../coauth/">
-                <span class="coAuhtoredCount">0</span> Manuscripts I Have Co-Authored</li></a>
+                <li><span class="coAuhtoredCount">0</span> Manuscripts I Have Co-Authored</li></a>
               <a href="../submit/">
                 <li> Submit New Manuscript</li>
               </a>
@@ -145,14 +145,19 @@
                   <a href="javascript:void(0)" id="abstract_nav" class="disabled">
                     <li><i class="material-icons">lock</i>Abstract</li>
                   </a>
+                  <a href="javascript:void(0)" id="keywords_nav" class="disabled">
+                    <li><i class="material-icons">lock</i>Keywords</li>
+                  </a>
                   <a href="javascript:void(0)" id="author_information_nav" class="disabled">
                     <li><i class="material-icons">lock</i>Authors</li>
                   </a>
-
+                  <a href="javascript:void(0)" id="suggest_reviewers_nav" class="disabled">
+                    <li><i class="material-icons">lock</i>Suggest Reviewers</li>
+                  </a>
                   <a href="javascript:void(0)" id="disclosures_nav" class="disabled">
                     <li><i class="material-icons">lock</i>Disclosures</li>
                   </a>
-                  <a href="javascript:void(0)" id="review_submit_nav" class="disabled">
+                  <a href="javascript:void(0)" id="review_submit_nav" class="disabled ">
                     <li><i class="material-icons">lock</i>Review & Submit</li>
                   </a>
 
@@ -210,7 +215,7 @@
                           <option value="Insight">Insight</option>
                         </select>
                         <label for="discipline">Discipline</label>
-                        <select id="discipline" name="discipline" required class="form-control">
+                        <select id="discipline" name="discipline" class="form-control">
                           <option value="">Select a Discipline</option>
                           <option value="Agricultural sciences">Agricultural sciences</option>
                           <option value="Allied Health Sciences">Allied Health Sciences</option>
@@ -239,7 +244,7 @@
                           <option value="Other">Other (please specify)</option>
                         </select>
                         <div id="disciplineContainer"></div>
-                        <button type="button" class="submit-next" onclick="showNext('upload-manuscript', 'article-type', 'article_type_nav', 'upload_manuscript_nav', 0, 1)" disabled>Next</button>
+                        <button type="button" class="submit-next nextManuscript" onclick="showNext('upload-manuscript', 'article-type', 'article_type_nav', 'upload_manuscript_nav', 0, 1)" disabled>Save & Continue</button>
 
 
 
@@ -281,7 +286,15 @@
                         </div> <br>
 
 
-                        <button type="button" class="submit-next" onclick="showNext('title', 'upload-manuscript', 'upload_manuscript_nav', 'title_nav', 'article-type', 2,2)" disabled>Next</button>
+                        <div style="display: flex; justify-content: space-around;">
+                          <!-- back button  -->
+                          <button type="button" class="submit-next" onclick="NavigationNext('article-type', 'article_type_nav','upload_manuscript_nav',0)">Back</button>
+                          <!-- end back button  -->
+                          
+                          <!-- next button  -->
+                          <button type="button" class="submit-next nextManuscript" onclick="checkRequiredFiles()" disabled>Save & Continue</button>
+                          <!-- end next button  -->
+                        </div>
 
                       </div>
 
@@ -291,7 +304,15 @@
                         <b style="text-align: center;">Manuscript Title</b>
                         <input type="text" class="form-control" placeholder="Full Title" name="manuscript_full_title"> <br>
 
-                        <button type="button" class="submit-next" onclick="showNext('abstract', 'title', 'title_nav', 'abstract_nav', 'upload-manuscript', 3,3)" disabled>Next</button>
+                        <div style="display: flex; justify-content: space-around;">
+                          <!-- back button  -->
+                          <button type="button" class="submit-next" onclick="NavigationNext('upload-manuscript', 'upload_manuscript_nav', 'title_nav',1)">Back</button>
+                          <!-- end back button  -->
+
+                          <!-- next button  -->
+                          <button type="button" class="submit-next nextManuscript" onclick="showNext('abstract', 'title', 'title_nav', 'abstract_nav', 'upload-manuscript', 3,3)" disabled>Save & Continue</button>
+                          <!-- end next button  -->
+                        </div>
 
                       </div>
 
@@ -302,118 +323,327 @@
                           <h3 class="manu_head">Abstract</h3><br>
 
                           <!-- Main toolbar -->
-                          <div class="bg-body border rounded-bottom h-400px overflow-hidden" id="quilleditor" style="height: 500px;">
+                          <div class="bg-body border rounded-bottom h-400px overflow-hidden quill-editor" id="quilleditor" style="height: 500px;">
                           </div>
+                          <div id="word-count" class="wordCount"></div><span id="limit-exceed"> </span>
                         </div> <br>
 
 
 
-                        <button type="button" class="submit-next" onclick="showNext('author-information', 'abstract', 'abstract_nav', 'author_information_nav', 'title', 4,4)" disabled>Next</button>
+                        <div style="display: flex; justify-content: space-around;">
+                          <!-- back button  -->
+                          <button type="button" class="submit-next" onclick="NavigationNext('title', 'title_nav', 'abstract_nav', 2)">Back</button>
+                          <!-- end back button  -->
+
+                          <!-- next button  -->
+                          <button type="button" class="submit-next nextManuscript" onclick="showNext('keywords', 'abstract', 'abstract_nav', 'keywords_nav', 'title', 4,4)" disabled>Save & Continue</button>
+                          <!-- end next button  -->
+                        </div>
                       </div>
 
-                      <div id="author-information" class="form-section hidden">
-                        <h3 class="manu_head">Author's Information</h3>
-                        <div id="addAuthor" style="width: 100%; overflow-x: scroll;">
-                          <div style="display: flex; justify-content: space-between; width: 150%;">
+                      <div id="keywords" class="form-section hidden">
+                        <h3 class="manu-head">Keywords</h3>
+                        <div>
+                          <label for="">keyword 1</label>
+                          <input type="text" class="form-control keyword-input" name="keyword[]">
+                        </div>
+                        <div>
+                          <label for="">keyword 2</label>
+                          <input type="text" class="form-control keyword-input" name="keyword[]">
+                        </div>
+                        <div>
+                          <label for="">keyword 3</label>
+                          <input type="text" class="form-control keyword-input" name="keyword[]">
+                        </div>
+                        <div>
+                          <label for="">keyword 4</label>
+                          <input type="text" class="form-control keyword-input" name="keyword[]">
+                        </div>
+                        <div>
+                          <label for="">keyword 5</label>
+                          <input type="text" class="form-control keyword-input" name="keyword[]">
+                        </div>
+                        <div>
+                          <label for="">keyword 6</label>
+                          <input type="text" class="form-control keyword-input" name="keyword[]">
+                        </div>
+                        <div>
+                          <label for="">keyword 7</label>
+                          <input type="text" class="form-control keyword-input" name="keyword[]">
+                        </div>
+                        <div>
+                          <label for="">keyword 8</label>
+                          <input type="text" class="form-control keyword-input" name="keyword[]">
+                        </div>
+                        <div style="display: flex; justify-content: space-around;">
+                          <!-- back button  -->
+                          <button type="button" class="submit-next" onclick="NavigationNext('abstract', 'abstract_nav', 'keywords_nav', 3)">Back</button>
+                          <!-- end back button  -->
+
+                          <!-- next button  -->
+                          <button type="button" class="submit-next nextManuscript" id="nextButton" disabled>Save & Continue</button>
+                          <!-- end next button  -->
+                        </div>
+                    </div>
+
+                    <div id="author-information" class="form-section hidden">
+                      <h3 class="manu_head">Author's Information</h3>
+
+                      <div id="addAuthor" style="width: 100%;">
+                        <div class="authorinfoContainer">
+                          <div class="authorname">
                             <div style="margin-right: 10px;">
                               <label for="prefix">Prefix:</label>
                               <input name="loggedIn_authors_prefix" class="form-control hd" id="author_information_prefix" readonly />
-
                             </div>
 
                             <div style="margin-right: 10px;">
                               <label for="">First Name:</label>
                               <input type="text" class="form-control hd" placeholder="First Name..." name="loggedIn_authors_first_name" id="loggedIn_firstname" readonly>
                             </div>
+                              <!-- <div style="display: flex;"> -->
                             <div style="margin-right: 10px;">
-                              <label for="">Middle Name:</label>
-                              <input type="text" class="form-control" placeholder="Other Name..." name="loggedIn_authors_other_name" id="loggedIn_othername" readonly>
-                              <!-- </div> -->
+                                    <label for="">MiddleName:</label>
+                                      <input type="text" class="form-control" placeholder="Middle name" name="loggedIn_authors_other_name" id="loggedIn_othername" readonly>
+                                    <!-- </div> -->
                             </div>
                             <div style="margin-right: 10px;">
-                              <label for="">Last Name:</label>
-                              <input type="text" class="form-control hd" placeholder="Last Name..." name="loggedIn_authors_last_name" id="loggedIn_lastname" readonly>
+                                <label for="">Last Name:</label>
+                                <input type="text" class="form-control hd" placeholder="Last Name..." name="loggedIn_authors_last_name" id="loggedIn_lastname" readonly>
+                            </div>
+                          </div>  
+                          
+                          <div class="authorinfo">
+                            <div style="margin-right: 10px;">
+                                <label for="">ORCID ID”:</label>
+                                <input type="text" class="form-control hd" placeholder="ORCID ID..." name="loggedIn_authors_ORCID" id="loggedIn_orcid">
                             </div>
                         
-                            <div style="margin-right: 10px;">
-                              <label for="">ORCID ID”:</label>
-                              <input type="text" class="form-control hd" placeholder="ORCID ID..." name="loggedIn_authors_ORCID" id="loggedIn_orcid">
-                          </div>
+
                             <div style="margin-right: 10px;">
                               <label for="">Affiliation(s):</label>
-                              <div style="display: flex;">
-                                <input type="text" class="form-control hd" placeholder="Affiliation..." name="loggedIn_affiliation" id="loggedIn_affiliation" readonly>
-                                <input type="text" class="form-control hd" placeholder="Affiliation City..." name="loggedIn_affiliation_city" id="loggedIn_affiliation_city" readonly>
-                                <input type="text" class="form-control" placeholder="Affiliation Country..." name="loggedIn_affiliation_country" id="loggedIn_affiliation_country" readonly>
+                              <div style="display: flex; width: 250px;">
+                                <input type="text" class="form-control hd" placeholder="Affiliation..." name="loggedIn_affiliation" id="loggedIn_affiliation" style="margin-right: 5px;" readonly>
+                                <input type="text" class="form-control hd" placeholder="City..." name="loggedIn_affiliation_city" id="loggedIn_affiliation_city" style="margin-right: 5px;" readonly>
+                                <input type="text" class="form-control" placeholder="Country..." name="loggedIn_affiliation_country" id="loggedIn_affiliation_country" style="margin-right: 5px;" readonly>
                               </div>
                             </div>
 
-                            <div>
+                            <div style="margin-right: 10px;">
                               <label for="">Email:</label>
-                              <input type="text" class="form-control hd" placeholder="Corresponding Author Email..." name="loggedIn_author" id="logged_email" readonly>
+                              <input type="text" class="form-control hd" placeholder="Email..." name="loggedIn_author" id="logged_email" readonly>
                             </div>
+                          </div>
+                          <div>
+                              <label for="">Corresponding Author's Email:</label>
+                              <input type="text" class="form-control hd" placeholder="Corresponding Author Email..." name="corresponding_author" id="loggedIn_email">
+                          </div>
+                        </div>
+                         <br>
+                      </div>
+                        
+                          <div class="addauthorSearch">
+                            <span>Add Author:</span><input type="search" placeholder="Enter Email of Author..." class="search-space" id="authorSearch">
+                            <button type="button" class="add-author-btn" id="searchAuthor">
+                              <span class="searchText">Search</span><span class="searchloader"></span>
+                            </button>
+                          </div>
+                       
+                         <br>
 
-                            <div>
-                              <label for="">Corresponding Author's Emmail:</label>
-                              <input type="text" class="form-control hd" placeholder="Corresponding Author Email..." name="corresponding_author" id="loggedIn_email" readonly>
+                        <div style="display: flex; justify-content: space-around;">
+                          <!-- back button  -->
+                          <button type="button" class="submit-next" onclick="NavigationNext('keywords', 'keywords_nav','author_information_nav', 4)">Back</button>
+                          <!-- end back button  -->
+
+                          <!-- next button  -->
+                          <button type="button" class="submit-next nextManuscript" onclick="showNext('suggest-reviewers', 'author-information', 'author_information_nav', 'suggest_reviewers_nav', 'keywords', 6,6)" disabled>Save & Continue</button>
+                          <!-- end next button  -->
+                        </div>  
+                    </div>
+
+                    <div id="suggest-reviewers" class="form-section hidden">
+                      <h3 class="manu_head">Suggest Reviewers</h3>
+                      <div id="suggestReviewer" style="width: 100%; overflow-x: scroll; margin-bottom: 10px; padding-bottom: 20px;">
+                        <div class="suggestHandle" style="width: 100%;">
+                          <div class="drag-handle"></div>
+                          <div style="margin-right: 10px;">
+                            <label for="fullname">Full Name:</label>
+                            <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
+                          </div>
+                          <div style="margin-right: 10px;">
+                            <label for="">Affiliation(s):</label>
+                            <div style="display: flex;">
+                              <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
+                              <input type="text" class="form-control hd" placeholder="City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
+                              <input type="text" class="form-control" placeholder="Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;">
                             </div>
-
                           </div>
 
-                        </div> <br>
+                          <div style="margin-right: 10px; width: 300px;">
+                            <label for="">Email:</label>
+                            <input type="text" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
+                          </div>
 
+                        </div>
 
+                        <div class="suggestHandle" style="width: 100%;">
+                          <div class="drag-handle"></div>
+                          <div style="margin-right: 10px;">
+                            <label for="fullname">Full Name:</label>
+                            <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
+                          </div>
+                          <div style="margin-right: 10px;">
+                            <label for="">Affiliation(s):</label>
+                            <div style="display: flex;">
+                              <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
+                              <input type="text" class="form-control hd" placeholder="City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
+                              <input type="text" class="form-control" placeholder="Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;">
+                            </div>
+                          </div>
 
-                        <button type="button" class="add-author-btn" style="border-radius: 12px; background-color: blueviolet;" onclick="addAuthorInput()">Add an Author</button>
+                          <div style="margin-right: 10px; width: 300px;">
+                            <label for="">Email:</label>
+                            <input type="text" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
+                          </div>
 
-                        <button type="button" class="submit-next" onclick="showNext('disclosures', 'author-information', 'author_information_nav', 'disclosures_nav', 'abstract', 5,5)" disabled>Next</button>
+                        </div>
+
+                        <div class="suggestHandle" style="width: 100%;">
+                          <div class="drag-handle"></div>
+                          <div style="margin-right: 10px;">
+                            <label for="fullname">Full Name:</label>
+                            <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
+                          </div>
+                          <div style="margin-right: 10px;">
+                            <label for="">Affiliation(s):</label>
+                            <div style="display: flex;">
+                              <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
+                              <input type="text" class="form-control hd" placeholder="City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
+                              <input type="text" class="form-control" placeholder="Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;">
+                            </div>
+                          </div>
+
+                          <div style="margin-right: 10px; width: 300px;">
+                            <label for="">Email:</label>
+                            <input type="text" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
+                          </div>
+
+                        </div>
+
+                        <div class="suggestHandle" style="width: 100%;">
+                          <div class="drag-handle"></div>
+                          <div style="margin-right: 10px;">
+                            <label for="fullname">Full Name:</label>
+                            <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
+                          </div>
+                          <div style="margin-right: 10px;">
+                            <label for="">Affiliation(s):</label>
+                            <div style="display: flex;">
+                              <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
+                              <input type="text" class="form-control hd" placeholder="City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
+                              <input type="text" class="form-control" placeholder="Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;">
+                            </div>
+                          </div>
+
+                          <div style="margin-right: 10px; width: 300px;">
+                            <label for="">Email:</label>
+                            <input type="text" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
+                          </div>
+
+                        </div>
+
+                        <div class="suggestHandle" style="width: 100%;">
+                          <div class="drag-handle"></div>
+                          <div style="margin-right: 10px;">
+                            <label for="fullname">Full Name:</label>
+                            <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
+                          </div>
+                          <div style="margin-right: 10px;">
+                            <label for="">Affiliation(s):</label>
+                            <div style="display: flex;">
+                              <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
+                              <input type="text" class="form-control hd" placeholder="City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
+                              <input type="text" class="form-control" placeholder="Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;">
+                            </div>
+                          </div>
+
+                          <div style="margin-right: 10px; width: 300px;">
+                            <label for="">Email:</label>
+                            <input type="text" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
+                          </div>
+
+                        </div>
+
                       </div>
 
-                      <div class="form-section hidden" id="disclosures">
+
+                      <div style="display: flex; justify-content: space-around;">
+                        <!-- back button  -->
+                        <button type="button" class="submit-next" onclick="NavigationNext('author-information', 'author_information_nav','suggest_reviewers_nav', 5)">Back</button>
+                        <!-- end back button  -->
+
+                        <!-- next button  -->
+                        <button type="button" class="submit-next nextManuscript" id="suggestNextButton" disabled>Save & Continue</button>
+                        <!-- end next button  -->
+                      </div>
+
+                    </div>
+
+                    <div class="form-section hidden" id="disclosures">
 
 
-                        <h3 class="manu_head">Disclosures</h3><br>
+                      <h3 class="manu_head">Disclosures</h3><br>
 
-                        <!-- Main toolbar -->
-                        <div class="bg-body border rounded-bottom">
-                          <input type="checkbox" name="" id="" required><span>I confirm that the manuscript has been submitted solely to ASFIRJ and is not published, in press,
-                            or submitted elsewhere, with exception of submission to preprint servers.</span>
-                        </div>
-                        <div class="bg-body border rounded-bottom">
-                          <input type="checkbox" name="" id="" required><span>I am aware that ASFIRJ requires that all authors disclose all potential sources of conflict of
-                            interest in regarding the submitted manuscript and I confirm that all authors have done so.</span>
-                        </div>
-                        <div class="bg-body border rounded-bottom">
-                          <input type="checkbox" name="" id="" required><span>I confirm that the research that yielded the manuscript being submitted meets the ethical
-                            guidelines and adheres to all legal research requirements of the study country.</span>
-                        </div>
-                        <div class="bg-body border rounded-bottom">
-                          <input type="checkbox" name="" id="" required><span>I have prepared my manuscript and files, including text, tables, and figures, in accordance with
-                            ASFIRJ’s style and formatting requirements as described at: <a href="https://asfirj.org/authors.html" style="color: blueviolet;">asfirj.org/authors.html</a>.</span>
-                        </div>
-                        <div class="bg-body border rounded-bottom">
-                          <input type="checkbox" name="" id="" required><span>I confirm that each of the co-authors acknowledges their participation in the research that yielded
-                            the manuscript being submitted and agrees to the submission of the manuscript to ASFIRJ.</span>
-                        </div>
-                        <div class="bg-body border rounded-bottom">
-                          <input type="checkbox" name="" id="" required><span>I confirm that the contributions each author made to the manuscript are specified in the authors’
-                            contribution section of the manuscript.</span>
-                        </div>
-                        <div class="bg-body border rounded-bottom">
-                          <input type="checkbox" name="" id="" required><span>I confirm that the manuscript being submitted and the data it contains are unpublished and
-                            original.</span>
-                        </div>
-                        <div class="bg-body border rounded-bottom">
-                          <input type="checkbox" name="" id="" required><span>I confirm that I am willing to pay ASFIRJ’s APC for the submitted manuscript if it is accepted for
-                            publication in the journal as indicated at <a href="https://asfirj.org/aboutus.html" style="color:blueviolet;">asfirj.org/aboutus.html</a>.</span>
-                        </div>
-                        <br>
+                      <!-- Main toolbar -->
+                      <div class="bg-body border rounded-bottom">
+                        <input type="checkbox" class="disclosure-checkbox" name="" id=""><span>I confirm that the manuscript has been submitted solely to ASFIRJ and is not published, in press,
+                          or submitted elsewhere, with exception of submission to preprint servers.</span>
+                      </div>
+                      <div class="bg-body border rounded-bottom">
+                        <input type="checkbox" class="disclosure-checkbox" name=""><span>I am aware that ASFIRJ requires that all authors disclose all potential sources of conflict of
+                          interest in regarding the submitted manuscript and I confirm that all authors have done so.</span>
+                      </div>
+                      <div class="bg-body border rounded-bottom">
+                        <input type="checkbox" class="disclosure-checkbox" name="" id=""><span>I confirm that the research that yielded the manuscript being submitted meets the ethical
+                          guidelines and adheres to all legal research requirements of the study country.</span>
+                      </div>
+                      <div class="bg-body border rounded-bottom">
+                        <input type="checkbox" class="disclosure-checkbox" name="" id=""><span>I have prepared my manuscript and files, including text, tables, and figures, in accordance with
+                          ASFIRJ’s style and formatting requirements as described at: <a href="https://asfirj.org/authors.html" style="color: blueviolet;">asfirj.org/authors.html</a>.</span>
+                      </div>
+                      <div class="bg-body border rounded-bottom">
+                        <input type="checkbox" class="disclosure-checkbox" name="" id=""><span>I confirm that each of the co-authors acknowledges their participation in the research that yielded
+                          the manuscript being submitted and agrees to the submission of the manuscript to ASFIRJ.</span>
+                      </div>
+                      <div class="bg-body border rounded-bottom">
+                        <input type="checkbox" class="disclosure-checkbox" name="" id=""><span>I confirm that the contributions each author made to the manuscript are specified in the authors’
+                          contribution section of the manuscript.</span>
+                      </div>
+                      <div class="bg-body border rounded-bottom">
+                        <input type="checkbox" class="disclosure-checkbox" name="" id=""><span>I confirm that the manuscript being submitted and the data it contains are unpublished and
+                          original.</span>
+                      </div>
+                      <div class="bg-body border rounded-bottom">
+                        <input type="checkbox" class="disclosure-checkbox" name="" id="disclosure_confirm"><span>I confirm that I am willing to pay ASFIRJ’s APC for the submitted manuscript if it is accepted for
+                          publication in the journal as indicated at <a href="https://asfirj.org/aboutus.html" style="color:blueviolet;">asfirj.org/aboutus.html</a>.</span>
+                      </div>
+                      <br>
 
+
+                      <div style="display: flex; justify-content: space-around;">
+                         <!-- back button  -->
+                         <button type="button" class="submit-next" onclick="NavigationNext('suggest-reviewers', 'suggest_reviewers_nav', 'disclosures_nav', 6)">Back</button>
+                         <!-- end back button  -->
+
+                        <!-- next button  -->
+                        <button type="button" class="submit-next" style="width: 30%; padding: 10px;" onclick="reviewAll(8)">Review & Submit</button>
+                        <!-- end next button  -->
+                      </div>
 
                         <input type="hidden" name="review_status">
                         <input type="submit" id="submitForm" hidden>
                         
-                        <button type="button" class="submit-next" style="width: 30%; padding: 10px;" onclick="reviewAll(6)">Review & Submit</button>
 
                         <button type="button" name="review_stat" style="margin: 20px; background-color: blueviolet; border: none; padding: 15px 20px 15px 20px; border-radius: 8px; color: white; font-weight: bold; text-align: center;" onclick="setStatus('revision_saved')" hidden> 
                             Save For Later
@@ -445,11 +675,24 @@
         </div>
       </div>
     </div>
+    <!-- The Modal -->
+<div id="myModal" class="addauthormodal">
+
+  <!-- Modal content -->
+  <div class="addauthormodal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <form id="authorForm">
+   
+    </form>
+  </div>
+
+</div>
 
 
     <script src="../../../assets/global/js/jquery-3.6.0.min.js"></script>
     <script src="../../../assets/global/js/bootstrap.bundle.min.js"></script>
     <script src="../../../assets/templates/metro_hyip/js/main.js"></script>
+    <script type="module" src="../../../js/forms/addAuthorForModal.js"></script>
 
     <script>
       'use strict';

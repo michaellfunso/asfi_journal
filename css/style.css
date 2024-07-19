@@ -1403,7 +1403,6 @@ body{
     width: 80%;
     height: fit-content;
     margin: 0 auto;
-    padding: 20px;
     border-radius: 6px;
     margin-bottom: 26px;
     overflow-y: auto;
@@ -1669,8 +1668,9 @@ form div .submit-next {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    height: 30px;
-    width: 70px;
+    /* height: 30px;
+    width: 70px; */
+    padding: 10px;
     background-color: #310357;
     color: whitesmoke;
     border: none;
@@ -1678,18 +1678,11 @@ form div .submit-next {
 }
 
 form div .add-author-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: smaller;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    height: 20px;
-    padding: 12px;
-
-    background-color: #80078b;
     color: whitesmoke;
     border: none;
+    background-color: blueviolet;
+    padding: 5px;
 }
 
 .material-icons {
@@ -2411,4 +2404,200 @@ table tr:nth-child(even) {
         /* background-color: rgb(24, 24, 3); */
     }
     
+}
+
+
+#keywords .form-control.required {
+    border-color: red;
+    background-color: #ffe6e6; /* Light red background */
+}
+
+#keywords .form-control.valid {
+    border-color: green;
+    background-color: #e6ffe6; /* Light green background */
+}
+.drag-handle {
+        width: 20px;
+        height: 20px;
+        background-color: #ccc;
+        border-radius: 4px;
+        margin-right: 10px;
+        cursor: grab;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .drag-handle::before {
+        content: '≡';
+        font-size: 16px;
+        color: #666;
+    }
+.suggestHandle{
+  margin-left: 0;
+  left: 0;
+  margin-bottom: 20px;
+}
+#limit-exceed p {
+color:red;
+font-weight: bold; /* Adjust font weight */
+animation: fadeOut 40s forwards; /* Animation name and duration */
+}
+
+@keyframes fadeOut {
+0% {
+opacity: 1; /* Start with full opacity */
+}
+100% {
+opacity: 0; /* Fade out to completely transparent */
+}
+}
+.search-space {
+width: 35%;
+height: 30px;
+padding: 5px;
+border: none;
+margin-left: 10px;
+background-color: #e2e2e275;
+border-radius: 5px 0px 0px 5px;
+}
+
+/* CSS styles for modal */
+.addauthormodal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 999999; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.addauthormodal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.close {
+  color: #ff1f1fe1;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 12%;
+  margin-right: 22%;
+}
+.close:hover,
+.close:focus {
+  color: #fc3030;
+  text-decoration: none;
+  cursor: pointer;
+}
+.addauthormodal-content .modalbtn {
+  text-align: center;
+  margin-top: 10px;
+}
+.addauthormodal-content button {
+  width: 50%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: blueviolet;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+.addauthormodal-content form button:hover {
+  background-color: #45a049;
+}
+
+/* Loader styling */
+.searchloader {
+  border: 4px solid rgb(255, 255, 255);
+  border-radius: 50%;
+  border-top: 4px solid #007bff; /* Loader color */
+  width: 15px;
+  height: 15px;
+  animation: spin 1s linear infinite;
+   /* Margin between button text and loader */
+  display: none; /* Initially hidden */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+#authorForm .error {
+  /* Style for fields with errors (red border) */
+  border-color: red;
+}
+
+.authorname{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  margin-top: 10px;
+}
+.authorname div{
+  flex: 1 1 100px;
+}
+
+.authorinfo{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+.authorinfo div{
+  flex: 1 1 100px;
+}
+
+.authorinfoContainer .authorname{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+.authorinfoContainer .authorname div{
+  flex: 1 1 100px;
+}
+.authorinfoContainer .authorinfo{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+.authorinfoContainer .authorinfo div{
+  flex: 1 1 100px;
+}
+.addauthorSearch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modalAff{
+  display: flex;  
+  width: 250px;
+}
+@media  screen and (max-width: 720px) {
+  .modalAff{
+  display: flex;  
+  width: 200px;
+}
+.addauthormodal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.dash-nav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+}
+.dash-nav a{
+    margin: 5px;
+}
 }

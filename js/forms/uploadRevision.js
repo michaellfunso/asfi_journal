@@ -77,7 +77,12 @@ uploadForm.addEventListener("submit", function(e) {
     body.removeAttribute("id")
     // formData.append('article_content', JSON.stringify(quill.getContents().ops));
     // console.log(JSON.stringify(quill.getContents().ops))
-
+    const SubmissionSTatus = document.querySelector('input[name="review_status"]')
+    if(SubmissionSTatus.value === "revision_submitted"){
+        body.removeAttribute("id")
+    }else{
+        body.setAttribute("id", "formNotSubmitted")
+    }
     fetch(`${submissionsEndpoint}/submitRevision/`, {
         method: 'POST',
         body: formData
@@ -86,8 +91,12 @@ uploadForm.addEventListener("submit", function(e) {
     .then(data => {
         console.log(data); // Log server response
         if(data.status === "success"){
-            alert("Revision Submitted Successfully")
+            if(SubmissionSTatus.value === "revision_submitted"){
+            alert("Manuscript Submitted Successfully")
             window.location.href = "/dashboard/authordash/manuscripts"
+            }else[
+                alert("Progress Has been saved")
+            ]
         }else if(data.status === "error"){
             alert(data.message)
             body.setAttribute("id", "formNotSubmitted")
