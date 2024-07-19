@@ -22,10 +22,11 @@ if(user){
 
 
             if(articlesList.length > 0){
-                articlesList.forEach(article => {
+                for(let i=0; i<articlesList.length; i++){
+                // articlesList.forEach(article => {
                     fetch(`${submissionsEndpoint}/backend/accounts/getArticleInfo.php`, {
                         method:"POST",
-                        body:JSON.stringify({id:article.revision_id}),
+                        body:JSON.stringify({id:articlesList[i].revision_id}),
                         headers:{
                             "Content-type" : "application/JSON"
                         }
@@ -100,7 +101,8 @@ if(user){
                         }
                     })
            
-                });
+                // });
+            }
             }else{
                 ArticlesContainer.innerHTML = `<tr>
                

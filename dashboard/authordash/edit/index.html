@@ -57,7 +57,7 @@
   <script src="../../../js/forms/submissionHeader.js"> </script>
 </head>
 
-<body id="formNotSubmitted">
+<body id="formNotSubmitted" style="font-weight: bold; color:black">
 
   <div class="preloader">
     <div class="loader-p"></div>
@@ -291,7 +291,7 @@
                           <!-- end back button  -->
                           
                           <!-- next button  -->
-                          <button type="button" class="submit-next nextManuscript" onclick="checkRequiredFiles()" disabled>Save & Continue</button>
+                          <button type="button" class="submit-next nextManuscript" onclick="checkRequiredFiles()">Save & Continue</button>
                           <!-- end next button  -->
                         </div>
 
@@ -309,7 +309,7 @@
                           <!-- end back button  -->
 
                           <!-- next button  -->
-                          <button type="button" class="submit-next nextManuscript" onclick="showNext('abstract', 'title', 'title_nav', 'abstract_nav', 'upload-manuscript', 3,3)" disabled>Save & Continue</button>
+                          <button type="button" class="submit-next nextManuscript" onclick="showNext('abstract', 'title', 'title_nav', 'abstract_nav', 'upload-manuscript', 3,3)" >Save & Continue</button>
                           <!-- end next button  -->
                         </div>
 
@@ -335,7 +335,7 @@
                           <!-- end back button  -->
 
                           <!-- next button  -->
-                          <button type="button" class="submit-next nextManuscript" onclick="showNext('keywords', 'abstract', 'abstract_nav', 'keywords_nav', 'title', 4,4)" disabled>Save & Continue</button>
+                          <button type="button" class="submit-next nextManuscript" onclick="showNext('keywords', 'abstract', 'abstract_nav', 'keywords_nav', 'title', 4,4)" >Save & Continue</button>
                           <!-- end next button  -->
                         </div>
                       </div>
@@ -380,7 +380,7 @@
                           <!-- end back button  -->
 
                           <!-- next button  -->
-                          <button type="button" class="submit-next nextManuscript" id="nextButton" disabled>Save & Continue</button>
+                          <button type="button" class="submit-next nextManuscript" id="nextButton" >Save & Continue</button>
                           <!-- end next button  -->
                         </div>
                     </div>
@@ -456,7 +456,7 @@
                           <!-- end back button  -->
 
                           <!-- next button  -->
-                          <button type="button" class="submit-next nextManuscript" onclick="showNext('suggest-reviewers', 'author-information', 'author_information_nav', 'suggest_reviewers_nav', 'keywords', 6,6)" disabled>Save & Continue</button>
+                          <button type="button" class="submit-next nextManuscript" onclick="showNext('suggest-reviewers', 'author-information', 'author_information_nav', 'suggest_reviewers_nav', 'keywords', 6,6)" >Save & Continue</button>
                           <!-- end next button  -->
                         </div>  
                     </div>
@@ -464,116 +464,10 @@
                     <div id="suggest-reviewers" class="form-section hidden">
                       <h3 class="manu_head">Suggest Reviewers</h3>
                       <div id="suggestReviewer" style="width: 100%; overflow-x: scroll; margin-bottom: 10px; padding-bottom: 20px;">
-                        <div class="suggestHandle" style="width: 100%;">
-                          <div class="drag-handle"></div>
-                          <div style="margin-right: 10px;">
-                            <label for="fullname">Full Name:</label>
-                            <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
-                          </div>
-                          <div style="margin-right: 10px;">
-                            <label for="">Affiliation(s):</label>
-                            <div style="display: flex;">
-                              <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
-                              <input type="text" class="form-control hd" placeholder="City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
-                              <input type="text" class="form-control" placeholder="Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;">
-                            </div>
-                          </div>
-
-                          <div style="margin-right: 10px; width: 300px;">
-                            <label for="">Email:</label>
-                            <input type="text" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
-                          </div>
-
-                        </div>
-
-                        <div class="suggestHandle" style="width: 100%;">
-                          <div class="drag-handle"></div>
-                          <div style="margin-right: 10px;">
-                            <label for="fullname">Full Name:</label>
-                            <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
-                          </div>
-                          <div style="margin-right: 10px;">
-                            <label for="">Affiliation(s):</label>
-                            <div style="display: flex;">
-                              <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
-                              <input type="text" class="form-control hd" placeholder="City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
-                              <input type="text" class="form-control" placeholder="Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;">
-                            </div>
-                          </div>
-
-                          <div style="margin-right: 10px; width: 300px;">
-                            <label for="">Email:</label>
-                            <input type="text" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
-                          </div>
-
-                        </div>
-
-                        <div class="suggestHandle" style="width: 100%;">
-                          <div class="drag-handle"></div>
-                          <div style="margin-right: 10px;">
-                            <label for="fullname">Full Name:</label>
-                            <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
-                          </div>
-                          <div style="margin-right: 10px;">
-                            <label for="">Affiliation(s):</label>
-                            <div style="display: flex;">
-                              <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
-                              <input type="text" class="form-control hd" placeholder="City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
-                              <input type="text" class="form-control" placeholder="Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;">
-                            </div>
-                          </div>
-
-                          <div style="margin-right: 10px; width: 300px;">
-                            <label for="">Email:</label>
-                            <input type="text" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
-                          </div>
-
-                        </div>
-
-                        <div class="suggestHandle" style="width: 100%;">
-                          <div class="drag-handle"></div>
-                          <div style="margin-right: 10px;">
-                            <label for="fullname">Full Name:</label>
-                            <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
-                          </div>
-                          <div style="margin-right: 10px;">
-                            <label for="">Affiliation(s):</label>
-                            <div style="display: flex;">
-                              <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
-                              <input type="text" class="form-control hd" placeholder="City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
-                              <input type="text" class="form-control" placeholder="Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;">
-                            </div>
-                          </div>
-
-                          <div style="margin-right: 10px; width: 300px;">
-                            <label for="">Email:</label>
-                            <input type="text" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
-                          </div>
-
-                        </div>
-
-                        <div class="suggestHandle" style="width: 100%;">
-                          <div class="drag-handle"></div>
-                          <div style="margin-right: 10px;">
-                            <label for="fullname">Full Name:</label>
-                            <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
-                          </div>
-                          <div style="margin-right: 10px;">
-                            <label for="">Affiliation(s):</label>
-                            <div style="display: flex;">
-                              <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
-                              <input type="text" class="form-control hd" placeholder="City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
-                              <input type="text" class="form-control" placeholder="Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;">
-                            </div>
-                          </div>
-
-                          <div style="margin-right: 10px; width: 300px;">
-                            <label for="">Email:</label>
-                            <input type="text" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
-                          </div>
-
-                        </div>
-
+                    
+                   
+               
+             
                       </div>
 
 
@@ -583,7 +477,7 @@
                         <!-- end back button  -->
 
                         <!-- next button  -->
-                        <button type="button" class="submit-next nextManuscript" id="suggestNextButton" disabled>Save & Continue</button>
+                        <button type="button" class="submit-next nextManuscript" id="suggestNextButton" >Save & Continue</button>
                         <!-- end next button  -->
                       </div>
 

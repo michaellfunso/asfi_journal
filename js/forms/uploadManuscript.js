@@ -54,6 +54,8 @@ uploadForm.addEventListener("submit", function(e) {
     console.log("formSubmitted")
     const formData = new FormData(uploadForm);
     formData.append('abstract', JSON.stringify(quill.getContents().ops));
+    
+  
 
 
 

@@ -1,6 +1,8 @@
-import { EndPoint, GetParameters, submissionsEndpoint } from "../constants.js";
+import { EndPoint, GetParameters, parentDirectoryName, submissionsEndpoint } from "../constants.js";
 import { GetAccountData } from "../dashboards/accountData.js";
 import { GetCookie } from "../setCookie.js";
+import { GetKeywords } from "./getKeywords.js";
+import { GetSuggestedReviewers } from "./getSuggestedReviewers.js";
 import { quill } from "./quill.js";
 // Function to Add new file fields or links if the file exists 
 // Teh array to contain fiels has been created in submissionHeader.js 
@@ -261,10 +263,78 @@ if (articleId) {
                     emailContainer.value = email
                     loggedContainer.value = email
 
-                    body.setAttribute("id", "formNotSubmitted")
+                    // const Get the Keywords 
+                    const Keywords = await GetKeywords(articleId)
+                    const KeywordsContainer = document.querySelectorAll('input[name="keyword[]"]')
+
+                    // Update the value of the keyword fields  /
+                    for(let i=0; i<Keywords.length; i++){
+                        KeywordsContainer[i].value = Keywords[i].keyword
+                    }
+
+                    // Get the Suggested reviewers 
+                    const SuggesteReviewers = await GetSuggestedReviewers(articleId);
+                    // const suggestedReviewersContainer = document.querySelectorAll("")
+                    const suggestedReviewersContainer = document.getElementById("suggestReviewer")
+
+
+                    for(let i=0; i<SuggesteReviewers.length; i++){
+                        suggestedReviewersContainer.innerHTML +=`        <div class="suggestHandle" style="width: 100%;">
+                          <div class="drag-handle"></div>
+                          <div style="margin-right: 10px;">
+                            <label for="fullname">Full Name:</label>
+                            <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id="" value="${SuggesteReviewers[i].fullname}"/>
+                          </div>
+                          <div style="margin-right: 10px;">
+                            <label for="">Affiliation(s):</label>
+                            <div style="display: flex;">
+                              <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;" value="${SuggesteReviewers[i].affiliation}">
+                              <input type="text" class="form-control hd" placeholder="City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;" value="${SuggesteReviewers[i].affiliation_city}">
+                              <input type="text" class="form-control" placeholder="Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;" value="${SuggesteReviewers[i].affiliation_country}">
+                            </div>
+                          </div>
+
+                          <div style="margin-right: 10px; width: 300px;">
+                            <label for="">Email:</label>
+                            <input type="text" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email" value="${SuggesteReviewers[i].email}">
+                          </div>
+
+                        </div>
+`
+                    }
+                    // Add other empty fields 
+                    for(let i=0; i<5-SuggesteReviewers.length; i++){
+                        suggestedReviewersContainer.innerHTML+=`     <div class="suggestHandle" style="width: 100%;">
+                          <div class="drag-handle"></div>
+                          <div style="margin-right: 10px;">
+                            <label for="fullname">Full Name:</label>
+                            <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
+                          </div>
+                          <div style="margin-right: 10px;">
+                            <label for="">Affiliation(s):</label>
+                            <div style="display: flex;">
+                              <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
+                              <input type="text" class="form-control hd" placeholder="City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
+                              <input type="text" class="form-control" placeholder="Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;">
+                            </div>
+                          </div>
+
+                          <div style="margin-right: 10px; width: 300px;">
+                            <label for="">Email:</label>
+                            <input type="text" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
+                          </div>
+
+                        </div>
+`
+                    }
+
+                
+                    const SubmissionSTatus = document.querySelector('input[name="review_status"]')
+
 
                     uploadForm.addEventListener("submit", function (e) {
                         e.preventDefault();
+
                         const formData = new FormData(uploadForm);
                         formData.append('abstract', JSON.stringify(quill.getContents().ops));
 
@@ -276,8 +346,11 @@ if (articleId) {
                             appendFileToForm(files.file, files.fieldName)
                         })
 
-                        body.removeAttribute("id")
-
+                        if(SubmissionSTatus.value === "submitted"){
+                            body.removeAttribute("id")
+                        }else{
+                            body.setAttribute("id", "formNotSubmitted")
+                        } 
 
                         fetch(`${submissionsEndpoint}/draft/`, {
                             method: 'POST',
@@ -285,10 +358,15 @@ if (articleId) {
                         })
                             .then(response => response.json())
                             .then(data => {
+                                if(data){
                                 console.log(data); // Log server response
                                 if (data.status === "success") {
-                                    alert("Manuscript Updated Successfully")
-                                    window.location.href = "/dashboard/authordash/manuscripts"
+                                    if(SubmissionSTatus.value === "submitted"){
+                                        alert("Manuscript Updated Successfully")
+                                        window.location.href = "/dashboard/authordash/manuscripts"
+                                        }else[
+                                            alert("Progress Has been saved")
+                                        ]
                                 } else if (data.status === "error") {
                                     alert(data.message)
                                     body.setAttribute("id", "formNotSubmitted")
@@ -296,9 +374,12 @@ if (articleId) {
                                     alert("Internal Server Error")
                                     body.setAttribute("id", "formNotSubmitted")
                                 }
+                                }
 
                             })
                             .catch(error => {
+                                alert("Internal Server Error")
+                                body.setAttribute("id", "formNotSubmitted")
                                 console.error('Error:', error);
                             });
                     });
@@ -312,6 +393,8 @@ if (articleId) {
             }
         })
 
+}else{
+    window.location.href = `${parentDirectoryName}/dashboard/authordash`
 }
 
 const nextButton = article_typeMain.querySelector(".submit-next")

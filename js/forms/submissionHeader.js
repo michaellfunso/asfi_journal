@@ -70,17 +70,22 @@ function checkRequiredFiles() {
     var manuscriptFile = document.querySelector('input[name="manuscript_file"]');
     var coverLetterFile = document.querySelector('input[name="cover_letter"]');
     
+
     // Check if manuscript file is uploaded
+    if(manuscriptFile){
     if (manuscriptFile.files.length === 0) {
       alert('Please upload the manuscript file.');
       return; // Exit function if manuscript file is missing
     }
+    }
 
     // Check if cover letter is uploaded
+    if(coverLetterFile){
     if (coverLetterFile.files.length === 0) {
       alert('Please upload the cover letter.');
       return; // Exit function if cover letter is missing
     }
+}
     
     // Proceed to the next step if both files are uploaded
     showNext('title', 'upload-manuscript', 'upload_manuscript_nav', 'title_nav', 'article-type', 2, 2);
