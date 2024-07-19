@@ -1,3 +1,4 @@
+
 const FilesArray = [];
 
 function removeFile(fieldName, fieldContainerId, label){
@@ -62,6 +63,27 @@ function NavigationNext(nextSection, navItemId, Nextitem
             const headerMessageContainer = document.getElementById("headerMessage")
         headerMessageContainer.innerHTML = headerMessages[headerMessageIndex]
 
+}
+
+// Function to check if both manuscript file and cover letter are uploaded
+function checkRequiredFiles() {
+    var manuscriptFile = document.querySelector('input[name="manuscript_file"]');
+    var coverLetterFile = document.querySelector('input[name="cover_letter"]');
+    
+    // Check if manuscript file is uploaded
+    if (manuscriptFile.files.length === 0) {
+      alert('Please upload the manuscript file.');
+      return; // Exit function if manuscript file is missing
+    }
+
+    // Check if cover letter is uploaded
+    if (coverLetterFile.files.length === 0) {
+      alert('Please upload the cover letter.');
+      return; // Exit function if cover letter is missing
+    }
+    
+    // Proceed to the next step if both files are uploaded
+    showNext('title', 'upload-manuscript', 'upload_manuscript_nav', 'title_nav', 'article-type', 2, 2);
 }
 
 
@@ -172,7 +194,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+function setStatus(status){
+    const reviewStatus  = document.querySelector('input[name="review_status"]')
+    const submitForm = document.querySelector("#submitForm")
+    
 
+    reviewStatus.value = status
+    submitForm.click()
+}
 
 function showNext(nextSection, currentSection, navItemId, Nextitem, prevSection, headerMessageIndex) {
     document.getElementById(currentSection).classList.add('hidden');
@@ -181,6 +210,7 @@ function showNext(nextSection, currentSection, navItemId, Nextitem, prevSection,
     updateNavigationList(navItemId, Nextitem)
     document.getElementById(nextSection).querySelector(".submit-next").style.display="block";
 
+    setStatus('saved_for_later');
     const buttons = document.getElementById(prevSection);
     if(buttons){
         buttons.querySelector(".submit-next").style.display="none";
@@ -201,7 +231,7 @@ function reviewAll(index) {
     const checkboxes = document.querySelectorAll('.disclosure-checkbox');
     let allChecked = true;
 
-    // Reset styles
+    // // Reset styles
     checkboxes.forEach(checkbox => {
         checkbox.parentElement.style.borderColor = '';
     });
@@ -243,20 +273,14 @@ function reviewAll(index) {
         headerMessageContainer.innerHTML = headerMessages[headerMessageIndex]
 }
 
-function setStatus(status){
-    const reviewStatus  = document.querySelector('input[name="review_status"]')
-    const submitForm = document.getElementById("submitForm")
-    
 
-    reviewStatus.value = status
-    submitForm.click()
 
-}
-function addAuthorInput() {
+
+function addAuthorInput(prefix, firstName, middleName, lastName, orcid, affiliation, affiliationCity, affiliationCountry, email) {
     var authorContainer = document.getElementById('author-information');
     var addAuthor = document.getElementById('addAuthor');
-
-    // Create new input fields for the new author
+   
+    // Create fields for the new author
     var newAuthorInputs = document.createElement('div');
     newAuthorInputs.className = 'author-container';
     newAuthorInputs.innerHTML = `
@@ -265,48 +289,43 @@ function addAuthorInput() {
     <div style="margin-right: 10px;">
         <label for="prefix">Prefix:</label>
         <select name="authors_prefix[]" class="form-control">
-            <option value="">Select an Option</option>
-            <option value="Prof">Prof.</option>
-            <option value="Dr">Dr.</option>
-            <option value="Mr">Mr.</option>
-            <option value="Mrs">Mrs.</option>
-            <option value="Miss">Miss</option>
+            <option value="${prefix.value}"></option>
         </select>
     </div>
 
 
                     <div style="margin-right: 10px; width: 300px;">
                               <label for="">First Name:</label>
-                              <input type="text" class="form-control hd" placeholder="First Name..." name="authors_first_name[]" >
+                              <input type="text" class="form-control hd" placeholder="First Name..." name="authors_first_name[]" value="${firstName.value}" >
                               </div>
                               <!-- <div style="display: flex;"> -->
                                 <div style="margin-right: 10px;">
                                     <label for="">MiddleName:</label>
-                                      <input type="text" class="form-control" placeholder="Middle name" name="authors_other_name[]" >
+                                      <input type="text" class="form-control" placeholder="Middle name" name="authors_other_name[]" value="${middleName.value}" >
                                     <!-- </div> -->
                                 </div>
                             <div style="margin-right: 10px; width: 300px;">
                                 <label for="">Last Name:</label>
-                                <input type="text" class="form-control hd" placeholder="Last Name..." name="authors_last_name[]" >
+                                <input type="text" class="form-control hd" placeholder="Last Name..." name="authors_last_name[]" value="${lastName.value}">
                             </div>
 
                             <div style="margin-right: 10px; width: 300px;">
                                 <label for="">ORCID ID”:</label>
-                                <input type="text" class="form-control hd" placeholder="ORCID ID..." name="authors_orcid[]">
+                                <input type="text" class="form-control hd" placeholder="ORCID ID..." name="authors_orcid[]" value="${orcid.value}">
                             </div>
 
     <div style="margin-right: 10px; width: 300px;">
                             <label for="">Affiliation:</label>
                             <div style="display: flex;">
-                            <input type="text" class="form-control" placeholder="Affiliation..." name="affiliation[]">
-                            <input type="text" class="form-control" placeholder="Affiliation City..." name="affiliation_city[]">
-                            <input type="text" class="form-control" placeholder="Affiliation Country..." name="affiliation_country[]">
+                            <input type="text" class="form-control" placeholder="Affiliation..." name="affiliation[]" value="${affiliation.value}">
+                            <input type="text" class="form-control" placeholder="Affiliation City..." name="affiliation_city[]" value="${affiliationCity.value}">
+                            <input type="text" class="form-control" placeholder="Affiliation Country..." name="affiliation_country[]" value="${affiliationCountry.value}">
                             </div>
                         </div>
                 
                         <div style="border-bottom: 1px solid #404040; margin-bottom: 12px;">
                             <label for="">Email:</label>
-                            <input type="email" class="form-control" placeholder="Email..." name="email[]">
+                            <input type="email" class="form-control" placeholder="Email..." name="email[]" value="${email.value}">
                         </div>
                         <div class="remove-author" style="width: 20px; height: 20px; color:white; font-weight:bold; background-color: red; border-radius:6px; display:flex; justify-content: center; align-items: center; text-align: center; line-height: 20px; cursor:pointer;">x</div>
         </div>
@@ -327,7 +346,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var sortable = new Sortable(document.getElementById('addAuthor'), {
         animation: 150,
         ghostClass: 'sortable-ghost',
-        handle: '.author-container'
+        handle: '.drag-handle'
     });
 });
-  

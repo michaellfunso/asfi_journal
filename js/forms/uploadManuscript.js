@@ -51,15 +51,21 @@ body.setAttribute("id", "formNotSubmitted")
 
 uploadForm.addEventListener("submit", function(e) {
     e.preventDefault();
+    console.log("formSubmitted")
     const formData = new FormData(uploadForm);
     formData.append('abstract', JSON.stringify(quill.getContents().ops));
 
 
 
-    body.removeAttribute("id")
+    
     // formData.append('article_content', JSON.stringify(quill.getContents().ops));
     // console.log(JSON.stringify(quill.getContents().ops))
-
+const SubmissionSTatus = document.querySelector('input[name="review_status"]')
+if(SubmissionSTatus.value === "submitted"){
+    body.removeAttribute("id")
+}else{
+    body.setAttribute("id", "formNotSubmitted")
+}
     fetch(`${submissionsEndpoint}/submit/`, {
         method: 'POST',
         body: formData
@@ -67,8 +73,12 @@ uploadForm.addEventListener("submit", function(e) {
     .then(response => response.json())
     .then(data => {
         if(data.status === "success"){
+            if(SubmissionSTatus.value === "submitted"){
             alert("Manuscript Submitted Successfully")
             window.location.href = "/dashboard/authordash/manuscripts"
+            }else[
+                alert("Progress Has been saved")
+            ]
         }else if(data.status === "error"){
             alert(data.message)
             body.setAttribute("id", "formNotSubmitted")

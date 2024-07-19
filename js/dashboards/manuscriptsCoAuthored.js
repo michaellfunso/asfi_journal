@@ -69,7 +69,7 @@ if(user){
                                      
                                      </td>
                                                            
-                                     <td data-label="title" style="white-space:pre-wrap">${ArticlesInfo.title}<br><em>Files Archived</em> <i class="fa fa-question-circle" data-content="The Journal has elected to delete the files associated with the draft revision/resubmission of this manuscript. In order to continue, you must click the &quot;create revision/resubmission&quot;" data-original-title="Files Archived" data-toggle="popover" style="font-size:small; vertical-align:middle;"></i>
+                                     <td data-label="title" style="white-space:pre-wrap">${ArticlesInfo.title}<br>
                                     
                               </td>
                                      <td>${ArticlesInfo.corresponding_authors_email}</td>
@@ -94,3 +94,5 @@ if(user){
 }else{
     console.log("Not Logged In")
 }
+
+{/* <em>Files Archived</em> <i class="fa fa-question-circle" data-content="The Journal has elected to delete the files associated with the draft revision/resubmission of this manuscript. In order to continue, you must click the &quot;create revision/resubmission&quot;" data-original-title="Files Archived" data-toggle="popover" style="font-size:small; vertical-align:middle;"></i> */}

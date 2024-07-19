@@ -25,6 +25,39 @@ article_type_nav.setAttribute("onclick","NavigationNext('article-type', 'article
 }
 })
 
+document.addEventListener('DOMContentLoaded', function() {
+    var articleTypeSelect = document.getElementById('article_type');
+    var disciplineSelect = document.getElementById('discipline');
+    var nextButton = document.querySelector('.nextManuscript');
+  
+    // Function to check if both fields are selected
+    function checkSelection() {
+      // Check if both article type and discipline are selected
+      if (articleTypeSelect.value !== '' && disciplineSelect.value !== '') {
+        nextButton.disabled = false; // Enable the Next button
+      } else {
+        nextButton.disabled = true; // Disable the Next button if either is not selected
+      }
+    }
+  
+    // Event listener for change on both select fields
+    articleTypeSelect.addEventListener('change', checkSelection);
+    disciplineSelect.addEventListener('change', checkSelection);
+  
+    // Event listener for Next button click
+    nextButton.addEventListener('click', function(event) {
+      // Prevent form submission if fields are not selected
+      if (articleTypeSelect.value === '') {
+        event.preventDefault(); // Prevent default action (form submission)
+        alert('Please select Article Type before proceeding.'); // Alert user
+      }
+      if (disciplineSelect.value === '') {
+        event.preventDefault(); // Prevent default action (form submission)
+        alert('Please select Discipline before proceeding.'); // Alert user
+      }
+    });
+  });
+
 
 const headerMessageContainer = document.getElementById("headerMessage")
 
