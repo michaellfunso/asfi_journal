@@ -84,12 +84,14 @@ if (articleId) {
                                 AllAuthors.forEach(author => {
                                     // Create new input fields for the new author
                                     var newAuthorInputs = document.createElement('div');
+                                    newAuthorInputs.className = 'author-container';
                                     const authorsFullname = author.authors_fullname;
                                     const authorsArray = authorsFullname.split(' ');
                                     
                                     newAuthorInputs.innerHTML = `
+                                    <div style="display: flex; justify-content: space-between;"><div class="drag-handle"></div><div class="remove-author" style="width: 20px; height: 20px; color:white; font-weight:bold; background-color: red; border-radius:6px; display:flex; justify-content: center; align-items: center; text-align: center; line-height: 20px; cursor:pointer;">x</div></div>
         
-            <div style="display: flex; justify-content: space-between; width: 150%;">
+            <div class="authorname" id="author-container">
         <div style="margin-right: 10px;">
             <label for="prefix">Prefix:</label>
             <select name="authors_prefix[]" class="form-control">
@@ -104,7 +106,7 @@ if (articleId) {
         </div>
     
     
-                        <div style="margin-right: 10px;">
+                                 <div style="margin-right: 10px;">
                                   <label for="">First Name:</label>
                                   <input type="text" class="form-control hd" placeholder="First Name..." name="authors_first_name[]" value="${authorsArray[1]}" >
                                   </div>
@@ -118,26 +120,27 @@ if (articleId) {
                                     <label for="">Last Name:</label>
                                     <input type="text" class="form-control hd" placeholder="Last Name..." name="authors_last_name[]" value="${authorsArray[2]}">
                                 </div>
-    
+                            </div>
+    <div class="authorinfo">
                                 <div style="margin-right: 10px;">
                                     <label for="">ORCID ID”:</label>
                                     <input type="text" class="form-control hd" placeholder="ORCID ID..." name="authors_orcid[]” value="${author.orcid_id}">
                                 </div>
     
-        <div style="margin-right: 10px;">
+                            <div style="margin-right: 10px;">
                                 <label for="">Affiliation:</label>
-                                <div style="display: flex;">
+                                <div class="modalAff">
                                 <input type="text" class="form-control" placeholder="Affiliation..." name="affiliation[]" value="${author.affiliations}">
-                                <input type="text" class="form-control" placeholder="Affiliation City..." name="affiliation_city[]" value="${author.affiliation_city}">
-                                <input type="text" class="form-control" placeholder="Affiliation Country..." name="affiliation_country[]" value="${author.affiliation_country}">
+                                <input type="text" class="form-control" placeholder="City..." name="affiliation_city[]" value="${author.affiliation_city}">
+                                <input type="text" class="form-control" placeholder="Country..." name="affiliation_country[]" value="${author.affiliation_country}">
                                 </div>
                             </div>
                     
-                            <div style="border-bottom: 1px solid #404040; margin-bottom: 12px;">
+                            <div style="margin-bottom: 12px;">
                                 <label for="">Email:</label>
                                 <input type="email" class="form-control" placeholder="Email..." name="email[]" value="${author.authors_email}">
                             </div>
-                            <div style="width: 20px; height: 20px; color:white; font-weight:bold; background-color: red; border-radius:6px; display-flex; justify-content: center; align-item: center">x</div>
+                        
             </div>
     
         `;
@@ -327,6 +330,20 @@ if (articleId) {
                         </div>
 `
                     }
+// Function to show the popup
+function showProgressSavedPopup() {
+    const popup = document.getElementById('progressSavedPopup');
+    popup.classList.remove('hidden');
+    popup.classList.add('show', 'slide-in');
+
+    // Hide the popup after 3 seconds (adjust as needed)
+    setTimeout(() => {
+        popup.classList.remove('show');
+        popup.classList.add('hidden');
+    }, 3000); // 3000 milliseconds = 3 seconds
+}
+
+
 
                 
                     const SubmissionSTatus = document.querySelector('input[name="review_status"]')
@@ -365,7 +382,8 @@ if (articleId) {
                                         alert("Manuscript Updated Successfully")
                                         window.location.href = "/dashboard/authordash/manuscripts"
                                         }else[
-                                            alert("Progress Has been saved")
+                                            // alert("Progress Has been saved")
+                                            showProgressSavedPopup()
                                         ]
                                 } else if (data.status === "error") {
                                     alert(data.message)

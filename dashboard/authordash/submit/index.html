@@ -54,6 +54,45 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
   <script src="../../../js/forms/headerMessages.js"> </script>
   <script src="../../../js/forms/submissionHeader.js"> </script>
+  <style>
+    
+.popup {
+    position: fixed;
+    top: 30%; /* Adjust top spacing as needed */
+    right: 20px; /* Adjust right spacing as needed */
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    outline: none;
+    border: none;
+    z-index: 9999999;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.popup.show {
+    opacity: 1;
+}
+
+.popup.hidden {
+    display: none;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.popup.slide-in {
+    animation: slideIn 0.3s forwards;
+}
+  </style>
 </head>
 
 <body id="formNotSubmitted" style="color:black;">
@@ -70,6 +109,9 @@
     <div class="spinn"></div>
     <div style="font-weight: bold; color:black">Uploading Documents...please wait...</div>
   </div>
+  <div id="progressSavedPopup" class="popup hidden">
+    Progress has been saved!
+</div>
 
   <div class="body-overlay"></div>
 
@@ -641,14 +683,15 @@
                         <input type="hidden" name="review_status" hidden>
                         <input type="submit" id="submitForm" hidden>
                         
-        
+                        <div style="display: flex; justify-content: space-between;">
                         <button type="button" name="review_stat" style="margin: 20px; background-color: blueviolet; border: none; padding: 15px 20px 15px 20px; border-radius: 8px; color: white; font-weight: bold; text-align: center;" onclick="setStatus('saved_for_later')" hidden> 
                             Save For Later
                         </button>
-                            
+                        <button style="border: none; background-color: transparent;">or</button>
                         <button type="button" name="review_stat" style="margin: 20px; background-color: blueviolet; border: none; padding: 15px 20px 15px 20px; border-radius: 8px; color: white; font-weight: bold;" onclick="setStatus('submitted')" hidden>
                             Submit
-                        </button> 
+                        </button>
+                         </div>
 
                  
                         

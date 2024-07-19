@@ -281,7 +281,7 @@ button.addEventListener("click", function(){
   
                           <div style="margin-right: 10px;">
                               <label for="">Affiliation:</label>
-                              <div style="display: flex;  width: 250px;">
+                              <div class="modalAff">
                               <input type="text" class="form-control" placeholder="Affiliation..." name="affiliation[]" value="${affiliation.value}">
                               <input type="text" class="form-control" placeholder="City..." name="affiliation_city[]" value="${affiliationCity.value}">
                               <input type="text" class="form-control" placeholder="Country..." name="affiliation_country[]" value="${affiliationCountry.value}">

@@ -3820,7 +3820,7 @@ select option {
 }
 
 .dashboard-fluid .dashboard__right {
-    width: calc(100% - 320px);
+    width: calc(100% - 420px);
 }
 
 @media screen and (max-width: 1199px) {

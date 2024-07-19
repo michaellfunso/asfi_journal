@@ -51,10 +51,50 @@
   <link rel="stylesheet" href="../../../assets/templates/metro_hyip/css/color.php?color=EB4830&secondColor=">
   <link rel="stylesheet" href="../../../front/public/css/header.css">
   <link rel="stylesheet" href="../../../front/public/css/loader.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
 
   <script src="../../../js/forms/headerMessages.js"> </script>
 
   <script src="../../../js/forms/submissionHeader.js"> </script>
+  <style>
+    
+.popup {
+    position: fixed;
+    top: 30%; /* Adjust top spacing as needed */
+    right: 20px; /* Adjust right spacing as needed */
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    outline: none;
+    border: none;
+    z-index: 9999999;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.popup.show {
+    opacity: 1;
+}
+
+.popup.hidden {
+    display: none;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.popup.slide-in {
+    animation: slideIn 0.3s forwards;
+}
+  </style>
 </head>
 
 <body id="formNotSubmitted" style="font-weight: bold; color:black">
@@ -66,6 +106,9 @@
     <div class="spinn"></div>
     <div style="font-weight: bold; color:black">Uploading Documents...please wait...</div>
   </div>
+  <div id="progressSavedPopup" class="popup hidden">
+    Progress has been saved!
+</div>
 
   <div class="body-overlay"></div>
 
@@ -538,14 +581,16 @@
                         <input type="hidden" name="review_status">
                         <input type="submit" id="submitForm" hidden>
                       
-
+                       <div style="display: flex; justify-content: space-between;">
                         <button type="button" name="review_stat" style="margin: 20px; background-color: blueviolet; border: none; padding: 15px 20px 15px 20px; border-radius: 8px; color: white; font-weight: bold; text-align: center;" onclick="setStatus('saved_for_later')" hidden> 
-                            Save For Later
-                        </button>
-                            or
-                        <button type="button" name="review_stat" style="margin: 20px; background-color: blueviolet; border: none; padding: 15px 20px 15px 20px; border-radius: 8px; color: white; font-weight: bold;" onclick="setStatus('submitted')" hidden>
-                            Submit
-                        </button>
+                          Save For Later 
+                      </button> 
+                      <button style="border: none; background-color: transparent;">or</button>
+                      <button type="button" name="review_stat" style="margin: 20px; background-color: blueviolet; border: none; padding: 15px 20px 15px 20px; border-radius: 8px; color: white; font-weight: bold;" onclick="setStatus('submitted')" hidden>
+                          Submit
+                      </button>
+                       </div>
+                        
 
                         
                         
@@ -601,6 +646,61 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
 
     <script type="module" src="../../../js/forms/quill.js"></script>
+    <script>
+      const authorsArray = document.getElementById("authorsArray")
+      var app = new Vue({
+        el: '#app',
+        data: {
+          keywords: [],
+          saisie: "",
+        },
+        methods: {
+          removeFromArray: function(index) {
+
+            authorsArray.value.split(",").filter(x => {
+
+            });
+
+            this.keywords.splice(index, 1);
+            this.saisie = this.keywords;
+          },
+        },
+        watch: {
+          saisie: function() {
+            this.keywords = this.saisie.split(",").filter(x => {
+              return x.trim() != '';
+            });
+          }
+        }
+      });
+      // Initialize SortableJS
+document.addEventListener('DOMContentLoaded', function() {
+    var sortable = new Sortable(document.getElementById('suggestReviewer'), {
+        animation: 150,
+        ghostClass: 'sortable-ghost',
+        handle: '.drag-handle'
+    });
+});
+    </script>
+      <script>
+        // Get the modal
+      var modal = document.getElementById('myModal');
+    
+    // Function to open the modal
+    function openModal() {
+      modal.style.display = "block";
+    }
+    
+    // Function to close the modal
+    function closeModal() {
+      modal.style.display = "none";
+    }
+    
+    
+    
+      // Close the modal after submission (optional)
+      closeModal();
+        </script>
 
     <script src="../../../js/forms/updateDraft.js" type="module"></script>
 
