@@ -1675,6 +1675,7 @@ form div .submit-next {
     color: whitesmoke;
     border: none;
     border-radius: 6px;
+    /* cursor: pointer; */
 }
 
 form div .add-author-btn {
@@ -1943,6 +1944,7 @@ table tr:nth-child(even) {
     .main-submit-container {
         display: flex;
         flex-direction: column;
+        height: 100vh;
     }
 
     .submit-container {
@@ -1958,10 +1960,6 @@ table tr:nth-child(even) {
     }
     .contact-section .general-contact {
         font-size: 12px;
-    }
-
-    .submit-body form div {
-        margin: 0;
     }
 }
 
@@ -2377,6 +2375,7 @@ table tr:nth-child(even) {
     .main-submit-container {
         padding: 0px;
         padding-top: 30px;
+        height: 100vh;
     }
 
     #author-submit-manuscript {
@@ -2417,15 +2416,15 @@ table tr:nth-child(even) {
     background-color: #e6ffe6; /* Light green background */
 }
 .drag-handle {
-        width: 20px;
-        height: 20px;
-        background-color: #ccc;
-        border-radius: 4px;
-        margin-right: 10px;
-        cursor: grab;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 4px;
+    margin: 0 auto;
+    cursor: grab;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     }
     .drag-handle::before {
         content: '≡';
@@ -2433,9 +2432,22 @@ table tr:nth-child(even) {
         color: #666;
     }
 .suggestHandle{
-  margin-left: 0;
-  left: 0;
-  margin-bottom: 20px;
+    margin-left: 0;
+    left: 0;
+    margin-bottom: 20px;
+    background-color: rgba(247, 247, 247, 0.767);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.author-container{
+    margin-left: 0;
+    left: 0;
+    margin-bottom: 20px;
+    background-color: rgba(247, 247, 247, 0.767);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 #limit-exceed p {
 color:red;
@@ -2572,6 +2584,8 @@ border-radius: 5px 0px 0px 5px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 30px;
+  margin-bottom: 80px;
 }
 .modalAff{
   display: flex;  
@@ -2600,4 +2614,11 @@ border-radius: 5px 0px 0px 5px;
 .dash-nav a{
     margin: 5px;
 }
+}
+
+.disabled{
+    opacity: 0.6; /* Reduce opacity to make it visually less prominent */
+    background-color: #9329e9ad;
+    cursor: not-allowed;
+    
 }

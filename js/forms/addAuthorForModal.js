@@ -182,7 +182,6 @@ button.addEventListener("click", function(){
          // Validate all required fields before proceeding
     var prefixValue = document.getElementById('addAuthorPrefix');
     var fname = document.getElementById('add-author-fname');
-    var mname = document.getElementById('add-author-mname');
     var lname = document.getElementById('add-author-lname');
     var orcidValue = document.getElementById('add-author-orcid');
     var aff = document.getElementById('add-author-aff');
@@ -205,12 +204,6 @@ button.addEventListener("click", function(){
     } else {
       fname.classList.remove('error');
     }
-    if (!mname.value.trim()) {
-        mname.classList.add('error');
-        valid = false;
-      } else {
-        mname.classList.remove('error');
-      }
     if (!lname.value.trim()) {
       lname.classList.add('error');
       valid = false;
@@ -260,7 +253,7 @@ button.addEventListener("click", function(){
             <div style="margin-right: 10px;">
                 <label for="prefix">Prefix:</label>
                 <select name="authors_prefix[]" class="form-control">
-                    <option value="${prefix.value}"></option>
+                    <option value="${prefix.value}">${prefix.value}</option>
                 </select>
             </div>
   
@@ -295,7 +288,7 @@ button.addEventListener("click", function(){
                               </div>
                           </div>
                   
-                          <div style="border-bottom: 1px solid #404040; margin-bottom: 12px;">
+                          <div style="margin-bottom: 12px;">
                               <label for="">Email:</label>
                               <input type="email" class="form-control" placeholder="Email..." name="email[]" value="${email.value}">
                           </div>

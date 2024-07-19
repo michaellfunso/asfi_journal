@@ -17,9 +17,14 @@ const review_submit_nav = document.getElementById("review_submit_nav")
 
 const authorContainer = document.getElementById('author-container');
 
+if(prefix.value === "" && !prefix.value){
+    const nextButton = article_type.querySelector(".nextManuscript")
+    nextButton.classList.add("disabled")
+}
 prefix.addEventListener("change", function() {
 if(prefix.value != "" && prefix.value){
 const nextButton = article_type.querySelector(".nextManuscript")
+nextButton.classList.remove("disabled")
 nextButton.removeAttribute("disabled")
 article_type_nav.setAttribute("onclick","NavigationNext('article-type', 'article_type_nav','upload_manuscript_nav',0)")
 }
@@ -69,6 +74,10 @@ const upload_manuscript = document.getElementById("upload-manuscript")
 const FIleFIelds = upload_manuscript.querySelectorAll(".requiredFiles")
 
 FIleFIelds.forEach(field =>{
+    if(field.value === "" && !field.value){
+        const nextButton = upload_manuscript.querySelector(".nextManuscript")
+        nextButton.classList.add("disabled")
+    }
     field.addEventListener("change", function(){
         const FileSize = field.files[0].size
         const FileType = field.files[0].type
@@ -86,6 +95,7 @@ FIleFIelds.forEach(field =>{
         if(field.value != "" && field.value){
          
             const nextButton = upload_manuscript.querySelector(".nextManuscript")
+            nextButton.classList.remove("disabled")
             nextButton.removeAttribute("disabled")
             // nextSection, currentSection, navItemId, Nextitem, prevSection, headerMessageIndex
             upload_manuscript_nav.setAttribute("onclick","NavigationNext('upload-manuscript', 'upload_manuscript_nav', 'title_nav',1)")
@@ -102,9 +112,14 @@ const Title = document.getElementById("title")
 const Titles = Title.querySelectorAll("input[type=text]")
 
 Titles.forEach(titles =>{
+    if(titles.value === "" && !titles.value){
+        const nextButton = Title.querySelector(".nextManuscript")
+        nextButton.classList.add("disabled")
+    }
     titles.addEventListener("change", function(){
     if(titles.value != "" && titles.value){
     const nextButton = Title.querySelector(".nextManuscript")
+    nextButton.classList.remove("disabled")
     nextButton.removeAttribute("disabled")
     title_nav.setAttribute("onclick","NavigationNext('title', 'title_nav', 'abstract_nav', 2)")
     }
@@ -113,9 +128,15 @@ Titles.forEach(titles =>{
 })
 
 const Abstract = document.getElementById("abstract")
+var text = quill.getText().trim();
+if(text.length === 0){
+    const nextButton = Abstract.querySelector(".nextManuscript")
+    nextButton.classList.add("disabled")
+}
 
 quill.on('text-change', function(delta, oldDelta, source) {
         const nextButton = Abstract.querySelector(".nextManuscript")
+        nextButton.classList.remove("disabled")
         nextButton.removeAttribute("disabled")
         abstract_nav.setAttribute("onclick","NavigationNext('abstract', 'abstract_nav','keywords_nav', 3)")
   });
@@ -124,9 +145,14 @@ const Keywords = document.getElementById("keywords")
 const Keyword = Keywords.querySelectorAll("input[type=text]")
   
 Keyword.forEach(keyword =>{
+    if(keyword.value === "" && !keyword.value){
+        const nextButton = Keywords.querySelector(".nextManuscript")
+        nextButton.classList.add("disabled")
+    }
       keyword.addEventListener("change", function(){
       if(keyword.value != "" && keyword.value){
       const nextButton = Keywords.querySelector(".nextManuscript")
+      nextButton.classList.remove("disabled")
       nextButton.removeAttribute("disabled")
       keywords_nav.setAttribute("onclick","NavigationNext('keywords', 'keywords_nav', 'author_information_nav', 4)")
       }
@@ -159,9 +185,14 @@ const Suggest_Reviewers = document.getElementById("suggest-reviewers")
 const Suggest_Reviewer = Suggest_Reviewers.querySelectorAll("input[type=text]")
       
 Suggest_Reviewer.forEach(suggest_Reviewer =>{
+    if(suggest_Reviewer.value === "" && !suggest_Reviewer.value){
+        const nextButton = Suggest_Reviewers.querySelector(".nextManuscript")
+        nextButton.classList.add("disabled")
+    }
     suggest_Reviewer.addEventListener("change", function(){
           if(suggest_Reviewer.value != "" && suggest_Reviewer.value){
           const nextButton = Suggest_Reviewers.querySelector(".nextManuscript")
+          nextButton.classList.remove("disabled")
           nextButton.removeAttribute("disabled")
           suggest_reviewers_nav.setAttribute("onclick","NavigationNext('suggest-reviewers', 'suggest_reviewers_nav', 'disclosures_nav', 6)")
           }
