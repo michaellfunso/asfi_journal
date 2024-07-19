@@ -3,25 +3,24 @@
 include "../CORS-setup.php";
 include "../db.php";
 
-$discipline  = $_GET["discipline"];
+// $discipline  = $_GET["discipline"];
 $field = $_GET["field"];
 
-if(isset($discipline)){
-$stmt= $con->prepare("SELECT * FROM `editors_list` WHERE `discipline` =? AND `field` = ?");
+if(isset($field)){
+$stmt= $con->prepare("SELECT * FROM `editors_list` WHERE `field` = ?");
 if(!$stmt){
     echo $stmt->error;
 }
-$stmt->bind_param("ss", $discipline, $field);
+$stmt->bind_param("s", $field);
 
 $stmt->execute();
 $result = $stmt->get_result();
 
-$disciplines = array();
+$editors = array();
 while($row = $result->fetch_assoc()){
-    $disciplines[] = $row;
-
+    $editors[] = $row;
 }
 
-$response = array("status" => "success", "editors" => $disciplines);
+$response = array("status" => "success", "editors" => $editors);
 echo json_encode($response);
 }

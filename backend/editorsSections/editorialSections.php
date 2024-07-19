@@ -3,7 +3,7 @@
 include "../CORS-setup.php";
 include "../db.php";
 
-$stmt= $con->prepare("SELECT DISTINCT(`field`) FROM `editors_list`");
+$stmt= $con->prepare("SELECT DISTINCT(`field`) FROM `editors_list` ORDER BY `id` ASC");
 if(!$stmt){
     echo $stmt->error;
 }

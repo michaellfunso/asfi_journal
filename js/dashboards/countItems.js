@@ -6,7 +6,7 @@ const newSubmissionsCount = document.querySelectorAll(".newSubmissionsCount")
 const acceptedCount = document.querySelectorAll(".acceptedCount")
 const publishedCount = document.querySelectorAll(".publishedCount")
 const reviewsCount = document.querySelectorAll(".reviewsCount")
-const coAuthoredCount = document.querySelectorAll(".coAuthoredCount")
+const coAuthoredCount = document.querySelectorAll(".coAuhtoredCount")
 const submittedReviewsCount = document.querySelectorAll(".submittedReviewsCount")
 
 const user = GetCookie("user")
