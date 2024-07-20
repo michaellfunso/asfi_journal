@@ -886,6 +886,13 @@
         font-size: 20px;
         height: 50px;
     }
+    .close {
+        position: absolute;
+        top: 5px;
+        right: -30px;
+        cursor: pointer;
+        color: red;
+    }
 }
 
 @media only screen and (min-width: 993px) and (max-width: 1199px) {

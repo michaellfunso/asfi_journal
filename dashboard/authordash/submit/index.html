@@ -362,8 +362,12 @@
                         </div>
 
                         <div>
-                          <label for="">Graphic Abstract:</label>
+                          <label for="">Point-by-Point Response to Reviewers (for revised manuscripts):</label>
                           <input type="file" class="form-control" name="graphic_abstract">
+                        </div>
+                        <div>
+                          <label for="">Main Manuscript File with Tracked Changes (for revised manuscripts):</label>
+                          <input type="file" class="form-control" name="tracked_revisedmanuscript_file">
                         </div> <br>
 
                       <div style="display: flex; justify-content: space-around;">
@@ -423,35 +427,35 @@
                       <div id="keywords" class="form-section hidden">
                           <h3 class="manu-head">Keywords</h3>
                           <div>
-                            <label for="">keyword 1</label>
+                            <label for="">Keyword 1</label>
                             <input type="text" class="form-control keyword-input" name="keyword[]">
                           </div>
                           <div>
-                            <label for="">keyword 2</label>
+                            <label for="">Keyword 2</label>
                             <input type="text" class="form-control keyword-input" name="keyword[]">
                           </div>
                           <div>
-                            <label for="">keyword 3</label>
+                            <label for="">Keyword 3</label>
                             <input type="text" class="form-control keyword-input" name="keyword[]">
                           </div>
                           <div>
-                            <label for="">keyword 4</label>
+                            <label for="">Keyword 4</label>
                             <input type="text" class="form-control keyword-input" name="keyword[]">
                           </div>
                           <div>
-                            <label for="">keyword 5</label>
+                            <label for="">Keyword 5</label>
                             <input type="text" class="form-control keyword-input" name="keyword[]">
                           </div>
                           <div>
-                            <label for="">keyword 6</label>
+                            <label for="">Keyword 6</label>
                             <input type="text" class="form-control keyword-input" name="keyword[]">
                           </div>
                           <div>
-                            <label for="">keyword 7</label>
+                            <label for="">Keyword 7</label>
                             <input type="text" class="form-control keyword-input" name="keyword[]">
                           </div>
                           <div>
-                            <label for="">keyword 8</label>
+                            <label for="">Keyword 8</label>
                             <input type="text" class="form-control keyword-input" name="keyword[]">
                           </div>
                           <div style="display: flex; justify-content: space-around;">
@@ -500,18 +504,21 @@
                           
   
                               <div style="margin-right: 10px;">
-                                <label for="">Affiliation(s):</label>
-                                <div style="display: flex; width: 250px;">
-                                  <input type="text" class="form-control hd" placeholder="Affiliation..." name="loggedIn_affiliation" id="loggedIn_affiliation" style="margin-right: 5px;" readonly>
-                                  <input type="text" class="form-control hd" placeholder="City..." name="loggedIn_affiliation_city" id="loggedIn_affiliation_city" style="margin-right: 5px;" readonly>
-                                  <input type="text" class="form-control" placeholder="Country..." name="loggedIn_affiliation_country" id="loggedIn_affiliation_country" style="margin-right: 5px;" readonly>
-                                </div>
+                                  <label for="">Affiliation(s):</label>
+                                  <input type="text" class="form-control hd" placeholder="Affiliation..." name="loggedIn_affiliation" id="loggedIn_affiliation" readonly>
                               </div>
-  
                               <div style="margin-right: 10px;">
-                                <label for="">Email:</label>
-                                <input type="text" class="form-control hd" placeholder="Email..." name="loggedIn_author" id="logged_email" readonly>
+                                <label for="">City:</label>
+                                <input type="text" class="form-control hd" placeholder="City..." name="loggedIn_affiliation_city" id="loggedIn_affiliation_city"  readonly>
                               </div>
+                              <div style="margin-right: 10px;">
+                                <label for="">Country:</label>
+                                <input type="text" class="form-control" placeholder="Country..." name="loggedIn_affiliation_country" id="loggedIn_affiliation_country" readonly>
+                              </div>
+                            </div>
+                            <div>
+                              <label for="">Email:</label>
+                              <input type="text" class="form-control hd" placeholder="Email..." name="loggedIn_author" id="logged_email" readonly>
                             </div>
                             <div>
                                 <label for="">Corresponding Author's Email:</label>
@@ -522,7 +529,7 @@
                         </div>
                           
                             <div class="addauthorSearch">
-                              <span>Add Author:</span><input type="search" placeholder="Enter Email of Author..." class="search-space" id="authorSearch">
+                              <span style="font-weight: bold;">Add Author:</span><input type="search" placeholder="Enter Email of Author..." class="search-space" id="authorSearch">
                               <button type="button" class="add-author-btn" id="searchAuthor">
                                 <span class="searchText">Search</span><span class="searchloader"></span>
                               </button>

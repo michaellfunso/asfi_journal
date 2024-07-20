@@ -72,7 +72,7 @@ function showErrorPopup(message) {
     setTimeout(() => {
         errorpopup.classList.remove('show');
         errorpopup.classList.add('hidden');
-    }, 3000); // 3000 milliseconds = 3 seconds
+    }, 8000); // 8000 milliseconds = 8 seconds
 }
 
 

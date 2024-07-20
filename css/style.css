@@ -2452,7 +2452,7 @@ table tr:nth-child(even) {
 #limit-exceed p {
 color:red;
 font-weight: bold; /* Adjust font weight */
-animation: fadeOut 40s forwards; /* Animation name and duration */
+animation: fadeOut 60s forwards; /* Animation name and duration */
 }
 
 @keyframes fadeOut {

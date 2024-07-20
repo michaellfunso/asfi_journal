@@ -1,6 +1,21 @@
 import { submissionsEndpoint } from "../constants.js";
 import { GetCookie, hoursToKeep, SetCookies } from "../setCookie.js";
 
+// Function to show the popup
+function showErrorPopup(message) {
+  const errorpopup = document.getElementById('errorPopup');
+  errorpopup.innerHTML = `<p>${message}</p>`
+  errorpopup.classList.remove('hidden');
+  errorpopup.classList.add('show', 'slide-in');
+
+  // Hide the popup after 3 seconds (adjust as needed)
+  setTimeout(() => {
+      errorpopup.classList.remove('show');
+      errorpopup.classList.add('hidden');
+  }, 8000); // 8000 milliseconds = 8 seconds
+}
+
+
 let authorEmailsAdded
 authorEmailsAdded = []
 
@@ -22,6 +37,7 @@ function closeModal() {
 // Function to open the modal
 const authorForm = document.getElementById("authorForm")
 function openEmptyModal(email){
+  showErrorPopup("Author not found, please create details for this author below")
     modal.style.display = "block";
     authorForm.innerHTML = ` <h3 style="text-align: center;">
  Create details for this author
@@ -62,21 +78,23 @@ function openEmptyModal(email){
             <input type="text" id="add-author-orcid" class="form-control hd" placeholder="ORCID ID..." name="authors_orcid[]">
         </div>
     
-
-        <div style="margin-right: 10px;">
-          <label for="">Affiliation(s):</label>
-          <div class="modalAff">
-            <input type="text" id="add-author-aff" class="form-control" placeholder="Affiliation..." name="affiliation[]" style="margin-right: 5px;">
-            <input type="text" id="add-author-aff-city" class="form-control" placeholder="City..." name="affiliation_city[]" style="margin-right: 5px;">
-            <input type="text" id="add-author-aff-country" class="form-control" placeholder="Country..." name="affiliation_country[]" style="margin-right: 5px;">
-          </div>
-        </div>
-
-        <div style="margin-right: 10px; width:">
+ <div style="margin-right: 10px;">
+                                  <label for="">Affiliation(s):</label>
+                                  <input type="text" id="add-author-aff" class="form-control" placeholder="Affiliation..." name="affiliation[]" style="margin-right: 5px;">
+                              </div>
+                              <div style="margin-right: 10px;">
+                                <label for="">City:</label>
+                                <input type="text" id="add-author-aff-city" class="form-control" placeholder="City..." name="affiliation_city[]" style="margin-right: 5px;">
+                              </div>
+                              <div style="margin-right: 10px;">
+                                <label for="">Country:</label>
+                                 <input type="text" id="add-author-aff-country" class="form-control" placeholder="Country..." name="affiliation_country[]" style="margin-right: 5px;">
+                              </div>
+      </div>
+      <div>
           <label for="">Email:</label>
           <input type="email" id="add-author-email" class="form-control" placeholder="Email..." name="email[]" readonly value="${email}">
         </div>
-      </div>
       <div class="modalbtn"><button type="button" id="addAuthormodal" class="addAuthormodal">Add Author</button></div>
       `
       getCreateAuthor()
@@ -119,21 +137,23 @@ function openModal(prefix, firstname, lastname, othername, orcid, email, affilia
             <input type="text" id="add-author-orcid" class="form-control hd" placeholder="ORCID ID..." name="authors_orcid[]" value="${orcid}">
         </div>
     
-
-        <div style="margin-right: 10px;">
-          <label for="">Affiliation(s):</label>
-          <div class="modalAff">
-            <input type="text" id="add-author-aff" class="form-control" placeholder="Affiliation..." name="affiliation[]" style="margin-right: 5px;" value="${affiliation}">
-            <input type="text" id="add-author-aff-city" class="form-control" placeholder="City..." name="affiliation_city[]" style="margin-right: 5px;" value="${affiliationCity}">
-            <input type="text" id="add-author-aff-country" class="form-control" placeholder="Country..." name="affiliation_country[]" style="margin-right: 5px;" value="${affiliationCountry}">
-          </div>
-        </div>
-
-        <div style="margin-right: 10px;">
+       <div style="margin-right: 10px;">
+                                  <label for="">Affiliation(s):</label>
+                                  <input type="text" id="add-author-aff" class="form-control" placeholder="Affiliation..." name="affiliation[]" style="margin-right: 5px;" value="${affiliation}">
+                              </div>
+                              <div style="margin-right: 10px;">
+                                <label for="">City:</label>
+                                <input type="text" id="add-author-aff-city" class="form-control" placeholder="City..." name="affiliation_city[]" style="margin-right: 5px;" value="${affiliationCity}">
+                              </div>
+                              <div style="margin-right: 10px;">
+                                <label for="">Country:</label>
+                                <input type="text" id="add-author-aff-country" class="form-control" placeholder="Country..." name="affiliation_country[]" style="margin-right: 5px;" value="${affiliationCountry}">
+                              </div>
+      </div>
+      <div>
           <label for="">Email:</label>
           <input type="email" id="add-author-email" class="form-control" placeholder="Email..." name="email[]" value="${email}">
         </div>
-      </div>
       <div class="modalbtn"><button type="button"id="addAuthormodal" class="addAuthormodal">Add Author</button></div>
       `
       getCreateAuthor()
@@ -279,19 +299,23 @@ button.addEventListener("click", function(){
                                   <input type="text" class="form-control hd" placeholder="ORCID ID..." name="authors_orcid[]" value="${orcid.value}">
                               </div>
   
-                          <div style="margin-right: 10px;">
-                              <label for="">Affiliation:</label>
-                              <div class="modalAff">
-                              <input type="text" class="form-control" placeholder="Affiliation..." name="affiliation[]" value="${affiliation.value}">
-                              <input type="text" class="form-control" placeholder="City..." name="affiliation_city[]" value="${affiliationCity.value}">
-                              <input type="text" class="form-control" placeholder="Country..." name="affiliation_country[]" value="${affiliationCountry.value}">
+
+                              <div style="margin-right: 10px;">
+                                  <label for="">Affiliation(s):</label>
+                                  <input type="text" class="form-control" placeholder="Affiliation..." name="affiliation[]" value="${affiliation.value}">
                               </div>
-                          </div>
-                  
-                          <div style="margin-bottom: 12px;">
+                              <div style="margin-right: 10px;">
+                                <label for="">City:</label>
+                               <input type="text" class="form-control" placeholder="City..." name="affiliation_city[]" value="${affiliationCity.value}">
+                              </div>
+                              <div style="margin-right: 10px;">
+                                <label for="">Country:</label>
+                                <input type="text" class="form-control" placeholder="Country..." name="affiliation_country[]" value="${affiliationCountry.value}">
+                              </div>
+                        </div>
+                        <div style="margin-bottom: 12px;">
                               <label for="">Email:</label>
                               <input type="email" class="form-control" placeholder="Email..." name="email[]" value="${email.value}">
-                          </div>
                         </div>
   
       `;
@@ -311,7 +335,7 @@ button.addEventListener("click", function(){
   // }
   closeModal()
     } else {
-      alert('Please fill in all fields!');
+      showErrorPopup('Please fill in all fields!');
     }
   });
    
@@ -335,7 +359,7 @@ async function fetchAuthorData() {
 
   if(emailINSearch != "" && emailINSearch != ' '){
     if(await CheckIfEmailExists(emailINSearch)){
-        alert("This Author has already been added")
+      showErrorPopup("This Author has already been added")
          // Hide loader and enable button
          searchText.style.display = "inline-block";
          loader.style.display = "none";
@@ -371,7 +395,7 @@ async function fetchAuthorData() {
       });
     }
   }else{
-    alert("Field should not be empty")
+    showErrorPopup("Field should not be empty")
      // Hide loader and enable button
      searchText.style.display = "inline-block";
      loader.style.display = "none";

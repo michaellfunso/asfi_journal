@@ -28,7 +28,7 @@ function showErrorPopup(message) {
   setTimeout(() => {
       errorpopup.classList.remove('show');
       errorpopup.classList.add('hidden');
-  }, 3000); // 3000 milliseconds = 3 seconds
+  }, 8000); // 8000 milliseconds = 8 seconds
 }
 
 if(prefix.value === "" && !prefix.value){
@@ -64,17 +64,15 @@ document.addEventListener('DOMContentLoaded', function() {
     disciplineSelect.addEventListener('change', checkSelection);
   
     // Event listener for Next button click
-    nextButton.addEventListener('click', function(event) {
+    nextButton.addEventListener('click', function() {
       // Prevent form submission if fields are not selected
       if (articleTypeSelect.value === '') {
         showErrorPopup('Please select Article Type before proceeding.');
-        event.preventDefault(); // Prevent default action (form submission)
         
        // Alert user
       }
       if (disciplineSelect.value === '') {
         showErrorPopup('Please select Discipline before proceeding.');
-        event.preventDefault(); // Prevent default action (form submission)
         
       }
     });

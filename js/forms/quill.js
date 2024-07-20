@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (wordCount > 300 || text.length > 3000) {
       wordCountElement.style.display = "none";
       // Update word count display with truncated count
-      limitExceed.innerHTML = `<p>Word Limit Exceeded, Maximum of 300 Words!</p>`;
+      limitExceed.innerHTML = `<p>Word Limit Exceeded. Abstract has been trimmed to expected limit, please recheck and adjust accordingly. Maximum of 300 Words!</p>`;
       // Calculate truncated text within limits
       var truncatedText = text.substring(0, 3000);
       var lastSpaceIndex = truncatedText.lastIndexOf(' ');
