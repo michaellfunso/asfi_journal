@@ -2,6 +2,20 @@ import { parentDirectoryName, submissionsEndpoint } from "../constants.js";
 import { SetCookies, daysToKeep, hoursToKeep } from "../setCookie.js";
 const loginForm = document.getElementById("loginForm")
 const preloader = document.querySelector(".preloader");
+// Function to show the popup
+function showErrorPopup(message) {
+    const errorpopup = document.getElementById('errorPopup');
+    errorpopup.innerHTML = `<p>${message}</p>`
+    errorpopup.classList.remove('hidden');
+    errorpopup.classList.add('show', 'slide-in');
+
+    // Hide the popup after 3 seconds (adjust as needed)
+    setTimeout(() => {
+        errorpopup.classList.remove('show');
+        errorpopup.classList.add('hidden');
+    }, 3000); // 3000 milliseconds = 3 seconds
+}
+
 loginForm.addEventListener("submit", function(e) {
     e.preventDefault()
 
@@ -26,7 +40,7 @@ loginForm.addEventListener("submit", function(e) {
             window.location.href = parentDirectoryName+"/dashboard"
         }else{
             preloader.style.display = "none";
-            alert(data.message)
+            showErrorPopup(data.message)
             console.log(data.message)
         }
     })

@@ -17,6 +17,20 @@ const review_submit_nav = document.getElementById("review_submit_nav")
 
 const authorContainer = document.getElementById('author-container');
 
+// Function to show the popup
+function showErrorPopup(message) {
+  const errorpopup = document.getElementById('errorPopup');
+  errorpopup.innerHTML = `<p>${message}</p>`
+  errorpopup.classList.remove('hidden');
+  errorpopup.classList.add('show', 'slide-in');
+
+  // Hide the popup after 3 seconds (adjust as needed)
+  setTimeout(() => {
+      errorpopup.classList.remove('show');
+      errorpopup.classList.add('hidden');
+  }, 3000); // 3000 milliseconds = 3 seconds
+}
+
 if(prefix.value === "" && !prefix.value){
     const nextButton = article_type.querySelector(".nextManuscript")
     nextButton.classList.add("disabled")
@@ -53,12 +67,15 @@ document.addEventListener('DOMContentLoaded', function() {
     nextButton.addEventListener('click', function(event) {
       // Prevent form submission if fields are not selected
       if (articleTypeSelect.value === '') {
+        showErrorPopup('Please select Article Type before proceeding.');
         event.preventDefault(); // Prevent default action (form submission)
-        alert('Please select Article Type before proceeding.'); // Alert user
+        
+       // Alert user
       }
       if (disciplineSelect.value === '') {
+        showErrorPopup('Please select Discipline before proceeding.');
         event.preventDefault(); // Prevent default action (form submission)
-        alert('Please select Discipline before proceeding.'); // Alert user
+        
       }
     });
   });
@@ -83,11 +100,12 @@ FIleFIelds.forEach(field =>{
         const FileType = field.files[0].type
         if(field.files[0]){
         if(FileSize > 50000000){
-            alert("File is too large")
+          showErrorPopup("File size is too large")
         }
         if (!(FileType === "application/msword" || FileType === "application/vnd.openxmlformats-officedocument.wordprocessingml.document" || FileType === "application/pdf")){
 
-            alert("Invalid file type. Please upload a Word document (.doc, .docx) or a PDF file (.pdf).");
+            
+            showErrorPopup("Invalid file type. Please upload a Word document (.doc, .docx) or a PDF file (.pdf).");
             field.value = ''; // Clear the file input
 
         }

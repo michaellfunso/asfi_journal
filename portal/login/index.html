@@ -93,6 +93,44 @@
   }
 }
 
+
+.errorpopup {
+    position: fixed;
+    top: 30%; /* Adjust top spacing as needed */
+    right: 20px; /* Adjust right spacing as needed */
+    padding: 10px 20px;
+    background-color: #e22424;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    outline: none;
+    border: none;
+    z-index: 9999999;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.errorpopup.show {
+    opacity: 1;
+}
+
+.errorpopup.hidden {
+    display: none;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.errorpopup.slide-in {
+    animation: slideIn 0.3s forwards;
+}
+
 	</style>
 </head>
 
@@ -105,7 +143,9 @@
 	<div class="preloader" id="preloader">
 		<div class="loader"></div>
 	  </div>
-	  
+	  <div id="errorPopup" class="errorpopup hidden">
+  
+	  </div>
 
 	<header class="header header-one">
 		<div class="primary-header-one primary-header">

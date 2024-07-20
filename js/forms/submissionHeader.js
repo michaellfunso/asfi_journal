@@ -65,6 +65,20 @@ function NavigationNext(nextSection, navItemId, Nextitem
 
 }
 
+// Function to show the popup
+function showErrorPopup(message) {
+    const errorpopup = document.getElementById('errorPopup');
+    errorpopup.innerHTML = `<p>${message}</p>`
+    errorpopup.classList.remove('hidden');
+    errorpopup.classList.add('show', 'slide-in');
+
+    // Hide the popup after 3 seconds (adjust as needed)
+    setTimeout(() => {
+        errorpopup.classList.remove('show');
+        errorpopup.classList.add('hidden');
+    }, 3000); // 3000 milliseconds = 3 seconds
+}
+
 // Function to check if both manuscript file and cover letter are uploaded
 function checkRequiredFiles() {
     var manuscriptFile = document.querySelector('input[name="manuscript_file"]');
@@ -74,7 +88,7 @@ function checkRequiredFiles() {
     // Check if manuscript file is uploaded
     if(manuscriptFile){
     if (manuscriptFile.files.length === 0) {
-      alert('Please upload the manuscript file.');
+        showErrorPopup('Please upload your manuscript file.');
       return; // Exit function if manuscript file is missing
     }
     }
@@ -82,7 +96,7 @@ function checkRequiredFiles() {
     // Check if cover letter is uploaded
     if(coverLetterFile){
     if (coverLetterFile.files.length === 0) {
-      alert('Please upload the cover letter.');
+        showErrorPopup('Please upload your cover letter file.');
       return; // Exit function if cover letter is missing
     }
 }
@@ -128,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 input.classList.add('required');
                 input.classList.remove('valid');
             });
-            alert('Please fill in at least 3 keywords before proceeding.');
+            showErrorPopup("Please fill in at least 3 keywords before proceeding.");
             return; // Prevent proceeding
         }
 
@@ -142,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     input.classList.add('valid'); // Mark filled fields as valid
                 }
             });
-            alert('Please fill at least 3 keywords before proceeding.');
+            showErrorPopup("Please fill in at least 3 keywords before proceeding.");
             return; // Prevent proceeding
         }
 
@@ -191,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             // Alert the user with detailed message
-            alert(alertMessage);
+            showErrorPopup(alertMessage);
         } else {
             // Proceed to the next step
             // Assuming there is a function showNext() defined elsewhere
@@ -250,7 +264,7 @@ function reviewAll(index) {
     });
 
     if (!allChecked) {
-        alert('Please confirm all disclosures before proceeding.');
+        showErrorPopup('Please confirm all disclosures before proceeding.');
         return; // Prevent further action
     }
 
