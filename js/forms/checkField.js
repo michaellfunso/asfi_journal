@@ -139,12 +139,12 @@ const Title = document.getElementById("title")
 const Titles = Title.querySelectorAll("input[type=text]")
 
 Titles.forEach(titles =>{
-    if(titles.value === "" && !titles.value){
-        const nextButton = Title.querySelector(".nextManuscript")
-        nextButton.classList.add("disabled")
-    }
+  if(titles.value === "" && !titles.value){
+    const nextButton = Title.querySelector(".nextManuscript")
+    nextButton.classList.add("disabled")
+}
     titles.addEventListener("change", function(){
-    if(titles.value != "" && titles.value){
+     if(titles.value != "" && titles.value){
     const nextButton = Title.querySelector(".nextManuscript")
     nextButton.classList.remove("disabled")
     nextButton.removeAttribute("disabled")
@@ -152,7 +152,7 @@ Titles.forEach(titles =>{
     }
 })
 
-})
+});
 
 const Abstract = document.getElementById("abstract")
 var text = quill.getText().trim();

@@ -111,6 +111,9 @@ if(SubmissionSTatus.value === "submitted"){
         }else if(data.status === "error"){
             showErrorPopup(data.message)
             body.setAttribute("id", "formNotSubmitted")
+            if(data.message === "A submission already exists with this title"){
+                NavigationNext('title', 'title_nav', 'abstract_nav', 2)
+            }
         }else{
             showErrorPopup("Internal Server Error")
             body.setAttribute("id", "formNotSubmitted")
