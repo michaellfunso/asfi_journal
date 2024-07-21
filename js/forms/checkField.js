@@ -45,16 +45,27 @@ article_type_nav.setAttribute("onclick","NavigationNext('article-type', 'article
 })
 
 document.addEventListener('DOMContentLoaded', function() {
-    var articleTypeSelect = document.getElementById('article_type');
-    var disciplineSelect = document.getElementById('discipline');
-    var nextButton = document.querySelector('.nextManuscript');
+    const articleTypeSelect = document.getElementById('article_type');
+    const disciplineSelect = document.getElementById('discipline');
+    const nextButton = document.querySelector('.nextManuscript');
   
     // Function to check if both fields are selected
     function checkSelection() {
       // Check if both article type and discipline are selected
       if (articleTypeSelect.value !== '' && disciplineSelect.value !== '') {
+        nextButton.classList.remove("disabled")
         nextButton.disabled = false; // Enable the Next button
-      } else {
+      } else if(articleTypeSelect.value === ""){
+        showErrorPopup('Please select Article Type before proceeding.');
+        nextButton.classList.add("disabled")
+        nextButton.disabled = true;
+      }else if(disciplineSelect.value === ""){
+        showErrorPopup('Please select Discipline before proceeding.');
+        nextButton.classList.add("disabled")
+        nextButton.disabled = true;
+      }
+       else {
+        nextButton.classList.add("disabled")
         nextButton.disabled = true; // Disable the Next button if either is not selected
       }
     }
@@ -66,12 +77,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Event listener for Next button click
     nextButton.addEventListener('click', function() {
       // Prevent form submission if fields are not selected
-      if (articleTypeSelect.value === '') {
+      if (articleTypeSelect.value === '' && !articleTypeSelect.value) {
         showErrorPopup('Please select Article Type before proceeding.');
         
        // Alert user
       }
-      if (disciplineSelect.value === '') {
+      if (disciplineSelect.value === '' && !disciplineSelect.value) {
         showErrorPopup('Please select Discipline before proceeding.');
         
       }
