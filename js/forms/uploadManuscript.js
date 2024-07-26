@@ -80,21 +80,16 @@ function showErrorPopup(message) {
 
 uploadForm.addEventListener("submit", function(e) {
     e.preventDefault();
-    console.log("formSubmitted")
+   
     const formData = new FormData(uploadForm);
     formData.append('abstract', JSON.stringify(quill.getContents().ops));
-    
-  
 
 
-
-    
-    // formData.append('article_content', JSON.stringify(quill.getContents().ops));
-    // console.log(JSON.stringify(quill.getContents().ops))
 const SubmissionSTatus = document.querySelector('input[name="review_status"]')
 if(SubmissionSTatus.value === "submitted"){
     body.removeAttribute("id")
 }else{
+    console.log("formSubmitted")
     body.setAttribute("id", "formNotSubmitted")
 }
     fetch(`${submissionsEndpoint}/submit/`, {
@@ -106,7 +101,7 @@ if(SubmissionSTatus.value === "submitted"){
         if(data.status === "success"){
             if(SubmissionSTatus.value === "submitted"){
             alert("Manuscript Submitted Successfully")
-            window.location.href = "/dashboard/authordash/manuscripts"
+            // window.location.href = "/dashboard/authordash/manuscripts"
             }else[
                 showProgressSavedPopup()
             ]

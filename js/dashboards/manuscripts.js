@@ -24,16 +24,16 @@ if(user){
             if(articlesList.length > 0){
                 for(let i=0; i<articlesList.length; i++){
                 // articlesList.forEach(article => {
-                    fetch(`${submissionsEndpoint}/backend/accounts/getArticleInfo.php`, {
-                        method:"POST",
-                        body:JSON.stringify({id:articlesList[i].revision_id}),
-                        headers:{
-                            "Content-type" : "application/JSON"
-                        }
-                    }).then(res => res.json())
-                    .then(data =>{
-                        if(data){
-                            const ArticlesInfo = data.articles
+                    // fetch(`${submissionsEndpoint}/backend/accounts/getArticleInfo.php`, {
+                    //     method:"POST",
+                    //     body:JSON.stringify({id:articlesList[i].revision_id}),
+                    //     headers:{
+                    //         "Content-type" : "application/JSON"
+                    //     }
+                    // }).then(res => res.json())
+                    // .then(data =>{
+                    //     if(data){
+                            const ArticlesInfo = articlesList[i]
                             let RevisionAction = ""
                             let StatusMain = ""
                             let viewSubmission = ""
@@ -98,8 +98,8 @@ if(user){
                                      <td class="whitespace-nowrap" data-label="submitted">${formatTimestamp(ArticlesInfo.date_submitted)}
                                      </td>
                                 </tr>`
-                        }
-                    })
+                    //     }
+                    // })
            
                 // });
             }

@@ -2,8 +2,8 @@
 
 /* ========================= Css Variables Start ======================== */
 :root {
-    --heading-font: "Rajdhani", sans-serif;
-    --body-font: "Roboto", sans-serif;
+    --heading-font: "Montserrat", sans-serif;
+    --body-font: "Montserrat", sans-serif;
     --heading-one: clamp(1.5rem, 2.8vw + 1rem, 3.625rem);
     --heading-two: clamp(1.375rem, 1.7vw + 1rem, 2.5rem);
     --heading-three: clamp(1.25rem, .8vw + 1rem, 1.75rem);

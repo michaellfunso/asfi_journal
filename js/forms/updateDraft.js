@@ -342,10 +342,7 @@ function showProgressSavedPopup() {
         popup.classList.add('hidden');
     }, 3000); // 3000 milliseconds = 3 seconds
 }
-
-
-
-                
+   
                     const SubmissionSTatus = document.querySelector('input[name="review_status"]')
 
 

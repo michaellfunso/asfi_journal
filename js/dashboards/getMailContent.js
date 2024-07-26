@@ -1,6 +1,7 @@
 // import { GetParameters, submissionsEndpoint } from "../constants.js";
 
 import { GetParameters, submissionsEndpoint } from "../constants.js";
+import { formatTimestamp } from "../formatDate.js";
 import { GetCookie } from "../setCookie.js";
 
 // import { GetCookie } from "../setCookie.js";
@@ -15,6 +16,10 @@ function GetEmailContent(emailID){
             contentDiv.innerHTML = `<div>
                 <p><b>${data.emails.subject}</b></p> 
                 <p>${data.emails.article_id}</p>
+                <p>From: ${data.emails.sender}</p>
+        
+                <p>To: ${data.emails.recipient}</p>
+                <p>${formatTimestamp(data.emails.date_sent)}</p>
                                   </div>`
 
  

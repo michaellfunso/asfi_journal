@@ -8,10 +8,28 @@ const publishedCount = document.querySelectorAll(".publishedCount")
 const reviewsCount = document.querySelectorAll(".reviewsCount")
 const coAuthoredCount = document.querySelectorAll(".coAuhtoredCount")
 const submittedReviewsCount = document.querySelectorAll(".submittedReviewsCount")
+const inboxCount = document.querySelectorAll(".inboxCount")
 
 const user = GetCookie("user")
 
 if(user){
+    if(inboxCount){
+        
+        
+        fetch(`${submissionsEndpoint}/backend/accounts/emailList.php?u_id=${user}`, {
+
+        }).then(res=>res.json())
+        .then(data=>{
+            if(data){
+                if(data.emails){
+                    const EmailList = data.emails 
+                    inboxCount.forEach(inbox =>{
+                        inbox.innerText = EmailList.length
+                    })
+                }
+            }
+        })
+    }
 if(inReviewCount){
     // GEt the REviesCount from database 
     fetch(`${submissionsEndpoint}/backend/accounts/InReviewCount.php?u_id=${user}`)
