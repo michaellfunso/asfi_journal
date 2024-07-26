@@ -44,7 +44,7 @@ function openEmptyModal(email){
  </h3>
  <div class="authorname">
         <div style="margin-right: 10px;">
-          <label for="prefix">Prefix:</label>
+          <label for="prefix"><span style="color: #e22424;">*</span>Prefix:</label>
           <select name="authors_prefix[]" id="addAuthorPrefix" class="form-control">
             <option value="">Select</option>
             <option value="Prof">Prof.</option>
@@ -57,7 +57,7 @@ function openEmptyModal(email){
         </div>
 
         <div style="margin-right: 10px;">
-          <label for="">First Name:</label>
+          <label for=""><span style="color: #e22424;">*</span>First Name:</label>
           <input type="text" id="add-author-fname" class="form-control hd" placeholder="First Name..." name="authors_first_name[]" >
         </div>
           <!-- <div style="display: flex;"> -->
@@ -67,7 +67,7 @@ function openEmptyModal(email){
                 <!-- </div> -->
         </div>
         <div style="margin-right: 10px;">
-            <label for="">Last Name:</label>
+            <label for=""><span style="color: #e22424;">*</span>Last Name:</label>
             <input type="text" id="add-author-lname" class="form-control hd" placeholder="Last Name..." name="authors_last_name[]" >
         </div>
       </div>  
@@ -79,20 +79,20 @@ function openEmptyModal(email){
         </div>
     
  <div style="margin-right: 10px;">
-                                  <label for="">Affiliation(s):</label>
+                                  <label for=""><span style="color: #e22424;">*</span>Affiliation(s):</label>
                                   <input type="text" id="add-author-aff" class="form-control" placeholder="Affiliation..." name="affiliation[]" style="margin-right: 5px;">
                               </div>
                               <div style="margin-right: 10px;">
-                                <label for="">City:</label>
+                                <label for=""><span style="color: #e22424;">*</span>City:</label>
                                 <input type="text" id="add-author-aff-city" class="form-control" placeholder="City..." name="affiliation_city[]" style="margin-right: 5px;">
                               </div>
                               <div style="margin-right: 10px;">
-                                <label for="">Country:</label>
+                                <label for=""><span style="color: #e22424;">*</span>Country:</label>
                                  <input type="text" id="add-author-aff-country" class="form-control" placeholder="Country..." name="affiliation_country[]" style="margin-right: 5px;">
                               </div>
       </div>
       <div>
-          <label for="">Email:</label>
+          <label for=""><span style="color: #e22424;">*</span>Email:</label>
           <input type="email" id="add-author-email" class="form-control" placeholder="Email..." name="email[]" readonly value="${email}">
         </div>
       <div class="modalbtn"><button type="button" id="addAuthormodal" class="addAuthormodal">Add Author</button></div>
@@ -103,7 +103,7 @@ function openModal(prefix, firstname, lastname, othername, orcid, email, affilia
   modal.style.display = "block";
   authorForm.innerHTML = `   <div class="authorname">
         <div style="margin-right: 10px;">
-          <label for="prefix">Prefix:</label>
+          <label for="prefix"><span style="color: #e22424;">*</span>Prefix:</label>
           <select name="authors_prefix[]" id="addAuthorPrefix" class="form-control">
             <option value="${prefix}">${prefix}</option>
             <option value="Prof">Prof.</option>
@@ -116,7 +116,7 @@ function openModal(prefix, firstname, lastname, othername, orcid, email, affilia
         </div>
 
         <div style="margin-right: 10px;">
-          <label for="">First Name:</label>
+          <label for=""><span style="color: #e22424;">*</span>First Name:</label>
           <input type="text" id="add-author-fname" class="form-control hd" placeholder="First Name..." name="authors_first_name[]" value="${firstname}">
         </div>
           <!-- <div style="display: flex;"> -->
@@ -126,7 +126,7 @@ function openModal(prefix, firstname, lastname, othername, orcid, email, affilia
                 <!-- </div> -->
         </div>
         <div style="margin-right: 10px;">
-            <label for="">Last Name:</label>
+            <label for=""><span style="color: #e22424;">*</span>Last Name:</label>
             <input type="text" id="add-author-lname" class="form-control hd" placeholder="Last Name..." name="authors_last_name[]" value="${lastname}">
         </div>
       </div>  
@@ -138,20 +138,20 @@ function openModal(prefix, firstname, lastname, othername, orcid, email, affilia
         </div>
     
        <div style="margin-right: 10px;">
-                                  <label for="">Affiliation(s):</label>
+                                  <label for=""><span style="color: #e22424;">*</span>Affiliation(s):</label>
                                   <input type="text" id="add-author-aff" class="form-control" placeholder="Affiliation..." name="affiliation[]" style="margin-right: 5px;" value="${affiliation}">
                               </div>
                               <div style="margin-right: 10px;">
-                                <label for="">City:</label>
+                                <label for=""><span style="color: #e22424;">*</span>City:</label>
                                 <input type="text" id="add-author-aff-city" class="form-control" placeholder="City..." name="affiliation_city[]" style="margin-right: 5px;" value="${affiliationCity}">
                               </div>
                               <div style="margin-right: 10px;">
-                                <label for="">Country:</label>
+                                <label for=""><span style="color: #e22424;">*</span>Country:</label>
                                 <input type="text" id="add-author-aff-country" class="form-control" placeholder="Country..." name="affiliation_country[]" style="margin-right: 5px;" value="${affiliationCountry}">
                               </div>
       </div>
       <div>
-          <label for="">Email:</label>
+          <label for=""><span style="color: #e22424;">*</span>Email:</label>
           <input type="email" id="add-author-email" class="form-control" placeholder="Email..." name="email[]" value="${email}">
         </div>
       <div class="modalbtn"><button type="button"id="addAuthormodal" class="addAuthormodal">Add Author</button></div>
@@ -230,12 +230,6 @@ button.addEventListener("click", function(){
     } else {
       lname.classList.remove('error');
     }
-    if (!orcidValue.value.trim()) {
-      orcidValue.classList.add('error');
-      valid = false;
-    } else {
-      orcidValue.classList.remove('error');
-    }
     if (!aff.value.trim()) {
       aff.classList.add('error');
       valid = false;
@@ -271,7 +265,7 @@ button.addEventListener("click", function(){
           
           <div class="authorname" id="author-container">
             <div style="margin-right: 10px;">
-                <label for="prefix">Prefix:</label>
+                <label for="prefix"><sapn style="color: #e22424;">*</span>Prefix:</label>
                 <select name="authors_prefix[]" class="form-control">
                     <option value="${prefix.value}">${prefix.value}</option>
                 </select>
@@ -279,7 +273,7 @@ button.addEventListener("click", function(){
   
   
                       <div style="margin-right: 10px;">
-                                <label for="">First Name:</label>
+                                <label for=""><span style="color: #e22424;">*</span>First Name:</label>
                                 <input type="text" class="form-control hd" placeholder="First Name..." name="authors_first_name[]" value="${firstName.value}" >
                                 </div>
                                 <!-- <div style="display: flex;"> -->
@@ -289,7 +283,7 @@ button.addEventListener("click", function(){
                                       <!-- </div> -->
                                   </div>
                               <div style="margin-right: 10px;">
-                                  <label for="">Last Name:</label>
+                                  <label for=""><span style="color: #e22424;">*</span>Last Name:</label>
                                   <input type="text" class="form-control hd" placeholder="Last Name..." name="authors_last_name[]" value="${lastName.value}">
                               </div>
            </div>
@@ -301,20 +295,20 @@ button.addEventListener("click", function(){
   
 
                               <div style="margin-right: 10px;">
-                                  <label for="">Affiliation(s):</label>
+                                  <label for=""><span style="color: #e22424;">*</span>Affiliation(s):</label>
                                   <input type="text" class="form-control" placeholder="Affiliation..." name="affiliation[]" value="${affiliation.value}">
                               </div>
                               <div style="margin-right: 10px;">
-                                <label for="">City:</label>
+                                <label for=""><span style="color: #e22424;">*</span>City:</label>
                                <input type="text" class="form-control" placeholder="City..." name="affiliation_city[]" value="${affiliationCity.value}">
                               </div>
                               <div style="margin-right: 10px;">
-                                <label for="">Country:</label>
+                                <label for=""><span style="color: #e22424;">*</span>Country:</label>
                                 <input type="text" class="form-control" placeholder="Country..." name="affiliation_country[]" value="${affiliationCountry.value}">
                               </div>
                         </div>
                         <div style="margin-bottom: 12px;">
-                              <label for="">Email:</label>
+                              <label for=""><span style="color: #e22424;">*</span>Email:</label>
                               <input type="email" class="form-control" placeholder="Email..." name="email[]" value="${email.value}">
                         </div>
   
