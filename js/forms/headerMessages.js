@@ -45,6 +45,7 @@ const headerMessages = {
   <li>You can also provide the ORCID ID for the authors that have it.</li>
   <li>Please ensure that the email addresses of all authors are correct.</li>
   <li>Please note that only one affiliation is required for each author, but you can include more than one affiliation for an author in the manuscript file.</li>
+  <li>If you are currently an ASFI member, please include your ASFI Membership ID.</li>
 </ul>
 `,
 6:`<span class="sub-head" style="color: #404040;">Suggest Reviewers</span>

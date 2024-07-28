@@ -95,11 +95,15 @@ function openEmptyModal(email){
           <label for=""><span style="color: #e22424;">*</span>Email:</label>
           <input type="email" id="add-author-email" class="form-control" placeholder="Email..." name="email[]" readonly value="${email}">
         </div>
+        <div>
+                              <label for="">ASFI Membership ID:</label>
+                              <input type="text" class="form-control" placeholder="Membership ID..." name="membership_id[]" id="membership-id">
+                            </div>
       <div class="modalbtn"><button type="button" id="addAuthormodal" class="addAuthormodal">Add Author</button></div>
       `
       getCreateAuthor()
 }
-function openModal(prefix, firstname, lastname, othername, orcid, email, affiliation, affiliationCountry, affiliationCity) {
+function openModal(prefix, firstname, lastname, othername, orcid, email, affiliation, affiliationCountry, affiliationCity, membershipID) {
   modal.style.display = "block";
   authorForm.innerHTML = `   <div class="authorname">
         <div style="margin-right: 10px;">
@@ -154,6 +158,10 @@ function openModal(prefix, firstname, lastname, othername, orcid, email, affilia
           <label for=""><span style="color: #e22424;">*</span>Email:</label>
           <input type="email" id="add-author-email" class="form-control" placeholder="Email..." name="email[]" value="${email}">
         </div>
+        <div>
+                              <label for="">ASFI Membership ID:</label>
+                              <input type="text" class="form-control hd" placeholder="Membership ID..." name="membership_id[]" id="membership_id" value="${membershipID}">
+                            </div>
       <div class="modalbtn"><button type="button"id="addAuthormodal" class="addAuthormodal">Add Author</button></div>
       `
       getCreateAuthor()
@@ -188,6 +196,7 @@ const affiliation = document.getElementById('add-author-aff');
 const affiliationCity = document.getElementById('add-author-aff-city');
 const affiliationCountry = document.getElementById('add-author-aff-country');
 const email = document.getElementById('add-author-email');
+const membershipID = document.getElementById('membership-id')
 const addAuthormodal = document.querySelectorAll(".addAuthormodal")
 addAuthormodal.forEach(button =>{
 
@@ -203,7 +212,6 @@ button.addEventListener("click", function(){
     var prefixValue = document.getElementById('addAuthorPrefix');
     var fname = document.getElementById('add-author-fname');
     var lname = document.getElementById('add-author-lname');
-    var orcidValue = document.getElementById('add-author-orcid');
     var aff = document.getElementById('add-author-aff');
     var affCity = document.getElementById('add-author-aff-city');
     var affCountry = document.getElementById('add-author-aff-country');
@@ -311,6 +319,10 @@ button.addEventListener("click", function(){
                               <label for=""><span style="color: #e22424;">*</span>Email:</label>
                               <input type="email" class="form-control" placeholder="Email..." name="email[]" value="${email.value}">
                         </div>
+                        <div>
+                              <label for="">ASFI Membership ID:</label>
+                              <input type="text" class="form-control hd" placeholder="Membership ID..." name="membership_id[]" id="membership_id" value="${membershipID.value}">
+                            </div>
   
       `;
   
@@ -367,7 +379,7 @@ async function fetchAuthorData() {
         if (profileDetails) {
          
             // SetCookies("emailsAdded", JSON.stringify(authorEmailsAdded), hoursToKeep)
-            openModal(profileDetails.prefix, profileDetails.firstname, profileDetails.lastname, profileDetails.othername, profileDetails.orcid_id, profileDetails.email, profileDetails.affiliations, profileDetails.affiliation_country, profileDetails.affiliation_city);
+            openModal(profileDetails.prefix, profileDetails.firstname, profileDetails.lastname, profileDetails.othername, profileDetails.orcid_id, profileDetails.email, profileDetails.affiliations, profileDetails.affiliation_country, profileDetails.affiliation_city, profileDetails.membershipID);
         } else {
             openEmptyModal(emailINSearch)
         }
