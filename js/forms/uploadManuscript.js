@@ -101,7 +101,7 @@ if(SubmissionSTatus.value === "submitted"){
         if(data.status === "success"){
             if(SubmissionSTatus.value === "submitted"){
             alert("Manuscript Submitted Successfully")
-            // window.location.href = "/dashboard/authordash/manuscripts"
+            window.location.href = "/dashboard/authordash/manuscripts"
             }else[
                 showProgressSavedPopup()
             ]
