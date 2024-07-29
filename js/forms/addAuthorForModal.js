@@ -160,7 +160,7 @@ function openModal(prefix, firstname, lastname, othername, orcid, email, affilia
         </div>
         <div>
                               <label for="">ASFI Membership ID:</label>
-                              <input type="text" class="form-control hd" placeholder="Membership ID..." name="membership_id[]" id="membership_id" value="${membershipID}">
+                              <input type="text" class="form-control hd" placeholder="Membership ID..." name="membership_id[]" value="${membershipID}">
                             </div>
       <div class="modalbtn"><button type="button"id="addAuthormodal" class="addAuthormodal">Add Author</button></div>
       `
@@ -321,7 +321,7 @@ button.addEventListener("click", function(){
                         </div>
                         <div>
                               <label for="">ASFI Membership ID:</label>
-                              <input type="text" class="form-control hd" placeholder="Membership ID..." name="membership_id[]" id="membership_id" value="${membershipID.value}">
+                              <input type="text" class="form-control hd" placeholder="Membership ID..." name="membership_id[]" value="${membershipID.value}">
                             </div>
   
       `;
@@ -379,7 +379,7 @@ async function fetchAuthorData() {
         if (profileDetails) {
          
             // SetCookies("emailsAdded", JSON.stringify(authorEmailsAdded), hoursToKeep)
-            openModal(profileDetails.prefix, profileDetails.firstname, profileDetails.lastname, profileDetails.othername, profileDetails.orcid_id, profileDetails.email, profileDetails.affiliations, profileDetails.affiliation_country, profileDetails.affiliation_city, profileDetails.membershipID);
+            openModal(profileDetails.prefix, profileDetails.firstname, profileDetails.lastname, profileDetails.othername, profileDetails.orcid_id, profileDetails.email, profileDetails.affiliations, profileDetails.affiliation_country, profileDetails.affiliation_city, profileDetails.asfi_membership_id);
         } else {
             openEmptyModal(emailINSearch)
         }
