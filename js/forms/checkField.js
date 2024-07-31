@@ -1,3 +1,4 @@
+import { fetchOrcidData } from "../dashboards/fetchOrcidId.js";
 import { quill } from "./quill.js";
 
 
@@ -226,3 +227,23 @@ Suggest_Reviewer.forEach(suggest_Reviewer =>{
       })
       
       });
+
+
+
+      // Find Orcid URLS 
+      function RunOrcidQuery(){
+      const OrcidInputFields = document.querySelectorAll('.orcidID')
+      console.log(OrcidInputFields)
+      OrcidInputFields.forEach(field =>{
+        field.addEventListener("change", function(){
+          if(field.value !== ""){
+            field.value = fetchOrcidData(field.value)
+          }
+        })
+      })
+    }
+    RunOrcidQuery()
+
+    export {
+      RunOrcidQuery
+    } 

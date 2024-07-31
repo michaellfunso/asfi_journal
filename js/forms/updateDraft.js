@@ -1,6 +1,7 @@
 import { EndPoint, GetParameters, parentDirectoryName, submissionsEndpoint } from "../constants.js";
 import { GetAccountData } from "../dashboards/accountData.js";
 import { GetCookie } from "../setCookie.js";
+import { RunOrcidQuery } from "./checkField.js";
 import { GetKeywords } from "./getKeywords.js";
 import { GetSuggestedReviewers } from "./getSuggestedReviewers.js";
 import { quill } from "./quill.js";
@@ -123,8 +124,8 @@ if (articleId) {
                             </div>
     <div class="authorinfo">
                                 <div style="margin-right: 10px;">
-                                    <label for="">ORCID ID”:</label>
-                                    <input type="text" class="form-control hd" placeholder="ORCID ID..." name="authors_orcid[]” value="${author.orcid_id}">
+                                    <label for="">ORCID ID:</label>
+                                    <input type='text' class='form-control hd orcidID' value='${author.orcid_id}' name='authors_orcid[]'>
                                 </div>
     
                             <div style="margin-right: 10px;">
@@ -150,6 +151,7 @@ if (articleId) {
                                 })
 
 
+                                RunOrcidQuery()
 
                             } else {
                                 console.log("Server Error")
@@ -415,7 +417,6 @@ function showProgressSavedPopup() {
 const nextButton = article_typeMain.querySelector(".submit-next")
 nextButton.removeAttribute("disabled")
 article_type_nav.setAttribute("onclick", "NavigationNext('article-type', 'article_type_nav','upload_manuscript_nav',0)")
-
 
 
 

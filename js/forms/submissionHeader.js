@@ -330,7 +330,7 @@ function addAuthorInput(prefix, firstName, middleName, lastName, orcid, affiliat
 
                             <div style="margin-right: 10px; width: 300px;">
                                 <label for="">ORCID ID”:</label>
-                                <input type="text" class="form-control hd" placeholder="ORCID ID..." name="authors_orcid[]" value="${orcid.value}">
+                                <input type="text" class="form-control hd orcidID" placeholder="ORCID ID..." name="authors_orcid[]" value="${orcid.value}">
                             </div>
 
     <div style="margin-right: 10px; width: 300px;">
@@ -358,7 +358,7 @@ function addAuthorInput(prefix, firstName, middleName, lastName, orcid, affiliat
     newAuthorInputs.querySelector('.remove-author').addEventListener('click', function() {
         addAuthor.removeChild(newAuthorInputs);
     });
-
+    // RunOrcidQuery();
 }
 // Initialize SortableJS
 document.addEventListener('DOMContentLoaded', function() {
@@ -368,3 +368,5 @@ document.addEventListener('DOMContentLoaded', function() {
         handle: '.drag-handle'
     });
 });
+
+

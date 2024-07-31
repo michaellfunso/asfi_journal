@@ -1,5 +1,6 @@
 import { submissionsEndpoint } from "../constants.js";
 import { GetCookie, hoursToKeep, SetCookies } from "../setCookie.js";
+import { RunOrcidQuery } from "./checkField.js";
 
 // Function to show the popup
 function showErrorPopup(message) {
@@ -75,7 +76,7 @@ function openEmptyModal(email){
       <div class="authorinfo">
         <div style="margin-right: 10px;">
             <label for="">ORCID ID”:</label>
-            <input type="text" id="add-author-orcid" class="form-control hd" placeholder="ORCID ID..." name="authors_orcid[]">
+            <input type="text" id="add-author-orcid" class="form-control hd orcidID" placeholder="ORCID ID..." name="authors_orcid[]">
         </div>
     
  <div style="margin-right: 10px;">
@@ -102,6 +103,7 @@ function openEmptyModal(email){
       <div class="modalbtn"><button type="button" id="addAuthormodal" class="addAuthormodal">Add Author</button></div>
       `
       getCreateAuthor()
+      RunOrcidQuery()
 }
 function openModal(prefix, firstname, lastname, othername, orcid, email, affiliation, affiliationCountry, affiliationCity, membershipID) {
   modal.style.display = "block";
@@ -138,7 +140,7 @@ function openModal(prefix, firstname, lastname, othername, orcid, email, affilia
       <div class="authorinfo">
         <div style="margin-right: 10px;">
             <label for="">ORCID ID”:</label>
-            <input type="text" id="add-author-orcid" class="form-control hd" placeholder="ORCID ID..." name="authors_orcid[]" value="${orcid}">
+            <input type="text" id="add-author-orcid" class="form-control hd orcidID" placeholder="ORCID ID..." name="authors_orcid[]" value="${orcid}">
         </div>
     
        <div style="margin-right: 10px;">
@@ -165,6 +167,7 @@ function openModal(prefix, firstname, lastname, othername, orcid, email, affilia
       <div class="modalbtn"><button type="button"id="addAuthormodal" class="addAuthormodal">Add Author</button></div>
       `
       getCreateAuthor()
+      RunOrcidQuery()
 }
 
 
@@ -296,7 +299,7 @@ button.addEventListener("click", function(){
                     <div class="authorinfo">
                               <div style="margin-right: 10px;">
                                   <label for="">ORCID ID”:</label>
-                                  <input type="text" class="form-control hd" placeholder="ORCID ID..." name="authors_orcid[]" value="${orcid.value}">
+                                  <input type="text" class="form-control hd orcidID" placeholder="ORCID ID..." name="authors_orcid[]" value="${orcid.value}">
                               </div>
   
 
@@ -326,7 +329,8 @@ button.addEventListener("click", function(){
   
       // Append the new author inputs to the container
       addAuthor.appendChild(newAuthorInputs);
-  
+
+      RunOrcidQuery()
       // Add event listener to the "x" button
       newAuthorInputs.querySelector('.remove-author').addEventListener('click', function() {
           authorEmailsAdded.filter((email) => email.email !== email.value)
@@ -341,6 +345,7 @@ button.addEventListener("click", function(){
     } else {
       showErrorPopup('Please fill in all fields!');
     }
+
   });
    
 })
@@ -354,6 +359,7 @@ var loader = document.querySelector('.searchloader');
 var searchText = document.querySelector('.searchText');
 
 async function fetchAuthorData() {
+  RunOrcidQuery()
     var emailINSearch = document.getElementById('authorSearch').value;
 
     // Show loader
@@ -412,4 +418,5 @@ async function fetchAuthorData() {
   searchAuthor.addEventListener("click", function() {
    
     fetchAuthorData()
+    RunOrcidQuery()
 })
