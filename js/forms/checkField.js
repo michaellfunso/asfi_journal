@@ -209,16 +209,19 @@ const userEmailContainer = document.getElementById("logged_email")
     //     disclosures_nav.setAttribute("onclick","NavigationNext('disclosures', 'disclosures_nav', 'review_submit_nav', 2)")
     // })
 
-const Suggest_Reviewers = document.getElementById("suggest-reviewers")
-const Suggest_Reviewer = Suggest_Reviewers.querySelectorAll("input[type=text]")
+const Suggest_Reviewers = document.getElementById("suggest-reviewers");
+const Suggest_Reviewer = Suggest_Reviewers.querySelectorAll("input[type=text]");
+const Suggest_Reviewer_Email = Suggest_Reviewers.querySelectorAll("input[type=email]");
+
       
 Suggest_Reviewer.forEach(suggest_Reviewer =>{
     if(suggest_Reviewer.value === "" && !suggest_Reviewer.value){
         const nextButton = Suggest_Reviewers.querySelector(".nextManuscript")
         nextButton.classList.add("disabled")
-    }
+    } 
+    
     suggest_Reviewer.addEventListener("change", function(){
-          if(suggest_Reviewer.value != "" && suggest_Reviewer.value){
+      if(suggest_Reviewer.value && suggest_Reviewer.value != ""){
           const nextButton = Suggest_Reviewers.querySelector(".nextManuscript")
           nextButton.classList.remove("disabled")
           nextButton.removeAttribute("disabled")
@@ -228,22 +231,39 @@ Suggest_Reviewer.forEach(suggest_Reviewer =>{
       
       });
 
-
-
-      // Find Orcid URLS 
-      function RunOrcidQuery(){
-      const OrcidInputFields = document.querySelectorAll('.orcidID')
-      console.log(OrcidInputFields)
-      OrcidInputFields.forEach(field =>{
-        field.addEventListener("change", function(){
-          if(field.value !== ""){
-            field.value = fetchOrcidData(field.value)
-          }
-        })
-      })
+const matchingEmail = [];
+Suggest_Reviewer_Email.forEach(email_keyword => {
+  email_keyword.addEventListener("change", function() {
+    const emailValue = email_keyword.value.trim();
+    
+    if (matchingEmail.includes(emailValue)) {
+      const nextButton = Suggest_Reviewers.querySelector(".nextManuscript");
+      nextButton.classList.add("disabled");
+      nextButton.setAttribute("disabled", "disabled");
+      suggest_reviewers_nav.removeAttribute("onclick");
+      showErrorPopup('This email has already been filled!');
+    } else {
+      matchingEmail.push(emailValue);
     }
-    RunOrcidQuery()
+  });
+});
 
-    export {
-      RunOrcidQuery
-    } 
+
+
+ // Find Orcid URLS 
+ function RunOrcidQuery(){
+  const OrcidInputFields = document.querySelectorAll('.orcidID')
+  console.log(OrcidInputFields)
+  OrcidInputFields.forEach(field =>{
+    field.addEventListener("change", function(){
+      if(field.value !== ""){
+        field.value = fetchOrcidData(field.value)
+      }
+    })
+  })
+}
+RunOrcidQuery()
+
+export {
+  RunOrcidQuery
+} 

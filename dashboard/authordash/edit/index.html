@@ -135,7 +135,7 @@
   </style>
 </head>
 
-<body id="formNotSubmitted" style="font-weight: bold; color:black">
+<body id="formNotSubmitted" style="color:black;">
 
   <div class="preloader">
     <div class="loader-p"></div>
@@ -220,28 +220,28 @@
                   <a href="javascript:void(0)" id="article_type_nav">
                     <li> <i class="material-icons">lock</i>Article Type</li>
                   </a>
-                  <a href="javascript:void(0)" id="upload_manuscript_nav" class="disabled">
+                  <a href="javascript:void(0)" id="upload_manuscript_nav">
                     <li><i class="material-icons">lock</i>Upload Manuscript</li>
                   </a>
-                  <a href="javascript:void(0)" id="title_nav" class="disabled">
+                  <a href="javascript:void(0)" id="title_nav">
                     <li><i class="material-icons">lock</i>Title</li>
                   </a>
-                  <a href="javascript:void(0)" id="abstract_nav" class="disabled">
+                  <a href="javascript:void(0)" id="abstract_nav">
                     <li><i class="material-icons">lock</i>Abstract</li>
                   </a>
-                  <a href="javascript:void(0)" id="keywords_nav" class="disabled">
+                  <a href="javascript:void(0)" id="keywords_nav" onclick="NavigationNext('keywords', 'keywords_nav', 'author_information_nav', 4)">
                     <li><i class="material-icons">lock</i>Keywords</li>
                   </a>
-                  <a href="javascript:void(0)" id="author_information_nav" class="disabled">
+                  <a href="javascript:void(0)" id="author_information_nav">
                     <li><i class="material-icons">lock</i>Authors</li>
                   </a>
-                  <a href="javascript:void(0)" id="suggest_reviewers_nav" class="disabled">
+                  <a href="javascript:void(0)" id="suggest_reviewers_nav" onclick="NavigationNext('suggest-reviewers', 'suggest_reviewers_nav', 'disclosures_nav', 6)">
                     <li><i class="material-icons">lock</i>Suggest Reviewers</li>
                   </a>
-                  <a href="javascript:void(0)" id="disclosures_nav" class="disabled">
+                  <a href="javascript:void(0)" id="disclosures_nav" onclick="NavigationNext('disclosures', 'disclosures_nav', 'review_submit_nav', 7)">
                     <li><i class="material-icons">lock</i>Disclosures</li>
                   </a>
-                  <a href="javascript:void(0)" id="review_submit_nav" class="disabled ">
+                  <a href="javascript:void(0)" id="review_submit_nav">
                     <li><i class="material-icons">lock</i>Review & Submit</li>
                   </a>
 
@@ -522,7 +522,7 @@
                         </div>
                         <div>
                           <label for="">Email:</label>
-                          <input type="text" class="form-control hd" placeholder="Email..." name="loggedIn_author" id="logged_email" readonly>
+                          <input type="email" class="form-control hd" placeholder="Email..." name="loggedIn_author" id="logged_email" readonly>
                         </div>
                         <div>
                           <label for="">ASFI Membership ID:</label>
@@ -530,7 +530,7 @@
                         </div>
                           <div>
                               <label for="">Corresponding Author's Email:</label>
-                              <input type="text" class="form-control hd" placeholder="Corresponding Author Email..." name="corresponding_author" id="loggedIn_email">
+                              <input type="email" class="form-control hd" placeholder="Corresponding Author Email..." name="corresponding_author" id="loggedIn_email">
                           </div>
                         </div>
                          <br>

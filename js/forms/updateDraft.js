@@ -121,8 +121,7 @@ if (articleId) {
                                     <label for="">Last Name:</label>
                                     <input type="text" class="form-control hd" placeholder="Last Name..." name="authors_last_name[]" value="${authorsArray[2]}">
                                 </div>
-                            </div>
-    <div class="authorinfo">
+                           
                                 <div style="margin-right: 10px;">
                                     <label for="">ORCID ID:</label>
                                     <input type='text' class='form-control hd orcidID' value='${author.orcid_id}' name='authors_orcid[]'>
@@ -130,19 +129,29 @@ if (articleId) {
     
                             <div style="margin-right: 10px;">
                                 <label for="">Affiliation:</label>
-                                <div class="modalAff">
+                                
                                 <input type="text" class="form-control" placeholder="Affiliation..." name="affiliation[]" value="${author.affiliations}">
-                                <input type="text" class="form-control" placeholder="City..." name="affiliation_city[]" value="${author.affiliation_city}">
-                                <input type="text" class="form-control" placeholder="Country..." name="affiliation_country[]" value="${author.affiliation_country}">
-                                </div>
                             </div>
+                            <div style="margin-right: 10px;">
+                                <label for="">Affiliation City:</label>
+                                <input type="text" class="form-control" placeholder="City..." name="affiliation_city[]" value="${author.affiliation_city}">
+                            </div>
+                             <div style="margin-right: 10px;">
+                                <label for="">Affiliation Country:</label>
+                                <input type="text" class="form-control" placeholder="Country..." name="affiliation_country[]" value="${author.affiliation_country}">
+                            </div>
+                        </div>
                     
                             <div style="margin-bottom: 12px;">
                                 <label for="">Email:</label>
                                 <input type="email" class="form-control" placeholder="Email..." name="email[]" value="${author.authors_email}">
                             </div>
+                            <div style="margin-bottom: 12px;">
+                                <label for="">ASFI Membership ID:</label>
+                                <input type="text" class="form-control" placeholder="Membership ID..." name="membershipID[]" value="${author.asfi_membership_id}">
+                            </div>
                         
-            </div>
+            
     
         `;
 
@@ -301,7 +310,7 @@ if (articleId) {
 
                           <div style="margin-right: 10px; width: 300px;">
                             <label for="">Email:</label>
-                            <input type="text" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email" value="${SuggesteReviewers[i].email}">
+                            <input type="email" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email" value="${SuggesteReviewers[i].email}">
                           </div>
 
                         </div>
@@ -326,7 +335,7 @@ if (articleId) {
 
                           <div style="margin-right: 10px; width: 300px;">
                             <label for="">Email:</label>
-                            <input type="text" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
+                            <input type="email" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
                           </div>
 
                         </div>
