@@ -160,7 +160,7 @@ function openModal(prefix, firstname, lastname, othername, orcid, email, affilia
         </div>
         <div>
                               <label for="">ASFI Membership ID:</label>
-                              <input type="text" class="form-control hd" placeholder="Membership ID..." name="membership_id[]" value="${membershipID}">
+                              <input type="text" class="form-control hd" placeholder="Membership ID..." name="membership_id[]" id="membership-id" value="${membershipID}">
                             </div>
       <div class="modalbtn"><button type="button"id="addAuthormodal" class="addAuthormodal">Add Author</button></div>
       `
@@ -277,9 +277,7 @@ button.addEventListener("click", function(){
                 <select name="authors_prefix[]" class="form-control">
                     <option value="${prefix.value}">${prefix.value}</option>
                 </select>
-            </div>
-  
-  
+            </div>  
                       <div style="margin-right: 10px;">
                                 <label for=""><span style="color: #e22424;">*</span>First Name:</label>
                                 <input type="text" class="form-control hd" placeholder="First Name..." name="authors_first_name[]" value="${firstName.value}" >

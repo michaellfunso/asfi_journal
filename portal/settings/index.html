@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="ASFI Research Journal">
 	<meta name="author" content="Weperch LLC">
-<title> ASFI Research Journal - Register</title>
+<title> ASFI Research Journal - Update Account</title>
     <meta name="title" Content="ASFI Research Journal - Reviewers">
 
     <meta name="description" content="ASFI Research Journal is an international journal, accepting contributions from all countries of the world. ASFIRJ publishes original papers, expert reviews, systematic reviews and meta-analyses, position papers, guidelines, protocols, data, editorials, news and commentaries, research letters.">
@@ -72,7 +72,7 @@
     </div>
     <div class="overlayX" >    
         <div class="spinn"></div>
-       <div style="font-weight: bold; color:black">Uploading Documents...please wait...</div>
+       <div style="font-weight: bold; color:black">Please wait...</div>
     </div>
 
 	<header class="header header-one">
@@ -107,15 +107,15 @@
 							</li>
 							<!-- <li><a href="../../terms.html" class='menu-item'>Terms</a></li> -->
 							<li><a href="../../contact.html" class='menu-item'>Contact Us</a></li>
-							<li class="header-right">
+							<!-- <li class="header-right">
 									<a class="header-btn" href="../../submitManuscriptSignIn.html"><p>Submit Manuscript</p> </a>
-							</li>
+							</li> -->
 						</ul>
 					</div><!-- /.header-menu-wrap -->
 
 					<div class="header-right">
 						<!-- <a class='header-btn' href='user/register.html'>Create Account<span></span></a> -->
-							<a class="header-btn" href="submitManuscriptSignIn.html"><p>Submit Manuscript</p> </a>
+							<!-- <a class="header-btn" href="submitManuscriptSignIn.html"><p>Submit Manuscript</p> </a> -->
 						<!-- Burger menu -->
 						<div class="mobile-menu-icon">
 							<div class="burger-menu">
@@ -133,16 +133,18 @@
 
         <div class="main-submit-container">
             <div class="submission-header">
-                <h3>Submission Portal</h3>
+                <h3>Account Settings</h3>
                 <ul class="submit-nav">
-                    <a href=""><li class="active">SignUp</li></a>
-                    <a href="../login/"><li>SignIn</li></a>
+                    <a href=""><li class="active">Account Settings</li></a>
+                    <a href="../../dashboard/"><li>Back to Dashboard</li></a>
+                    <!-- <a href="../../dashboard/reviewerdash/"><li>Reviewer Dashboard</li></a> -->
                 </ul>
             </div>
             <div class="submit-container">
                 <div class="submit-body">
                     <form id="registerForm">
-                        <h3 style="text-align: center;">Reviewer Sign Up</h3> <br>
+                        <input type="hidden" readonly name="userId" id="userId">
+                        <h3 style="text-align: center;">Update Account Info</h3> <br>
                         <div>
                             <label for="prefix">Prefix:</label>
 							<div class="message" id="message_container">   
@@ -164,7 +166,7 @@
                             <label for="">First Name:</label>
                             <input type="text" class="form-control" placeholder="First Name..." name="first_name" id="first_name" required>
                         </div>
-                       
+
                         <div>
                             <label for="">Last Name:</label>
                             <input type="text" class="form-control" placeholder="Last Name..." name="last_name" id="last_name" required>
@@ -172,12 +174,12 @@
 
                         <div>
                             <label for="">Other Name:</label>
-                            <input type="text" class="form-control" placeholder="Other Name..." name="other_name" id="other_name">
+                            <input type="text" class="form-control " placeholder="Other Name..." name="other_name" id="other_name">
                         </div>
 
                         <div>
                             <label for="">Email</label>
-                            <input type="email" class="form-control" placeholder="Email..." name="email" id="email" required>
+                            <input type="email" class="bg-grey form-control" placeholder="Email..." name="email" id="email" required readonly style="background-color: rgb(211, 211, 211);">
                         </div>
                         
                         <div>
@@ -195,6 +197,10 @@
                         <div>
                             <label for="">ORCID Id:</label>
                             <input type="text" class="form-control" placeholder="Orcid Id..." name="orcid" id="orcid" >
+                        </div>
+                        <div>
+                            <label for="">ASFI Membership Id:</label>
+                            <input type="text" class="form-control" placeholder="Orcid Id..." name="asfi_membership_id" id="asfi_membership_id" >
                         </div>
 						<div>
 							<label for="discipline">Discipline</label>
@@ -228,35 +234,23 @@
 							</select>
                             <div id="disciplineContainer"></div>
 						</div>
-                        <!-- <div>
+                        <div>
                             <p>Are you available to review for ASFIRJ? (optional)</p>
                             <div class="review-option">
-                                <span>Yes</span> <input type="radio" id="reviewYes" name="review" value="yes">
-                                <span>No</span> <input type="radio" id="reviewNo" name="review" value="no">
+                                <span>Yes</span> <input type="radio" id="reviewYes" name="is_available_for_review" value="yes">
+                                <span>No</span> <input type="radio" id="reviewNo" name="is_available_for_review" value="no">
                             </div>
-                        </div> -->
-                        <div>
-                            <label for="">Create Password:</label>
-                            <input type="password" class="form-control" placeholder="Create Password..." name="password" id="password">
                         </div>
-                        <div>
-                            <label for="">Confirm Password:</label>
-                            <input type="password" class="form-control" placeholder="Confirm Password..." name="password2" id="password2">
+                
+                        
+                        <div style="text-align: center;">
+                            <!-- <input type="submit" class="signin-btn" value="Update Account"> -->
+                            <button class="signin-btn" >Done</button>
+                        
+      
                         </div>
-                        
-                        
-                        <input type="submit" class="signin-btn" value="Sign Up">
-                    </form>
+                                          </form>
                 </div>
-            </div>
-            <div class="submit-research-container">
-                <h4 class="sub-head">PUBLISH YOUR RESEARCH</h4>
-                <div class="submit-research">
-                    <div class="sub-manuscript">
-                        <a href=""><button type="button">Submit Manuscript</button></a>
-                    </div>
-                </div>
-
             </div>
 
         </div>
@@ -467,7 +461,7 @@
 <script src="../../front/public/js/vendor/wow.min.js"></script>
 <script src="../../front/public/js/main.js"></script>
 <script type="module" src="../../js/general.js"></script>
-<script type="module" src="../../js/forms/createReviewerAccount.js"></script>
+<script type="module" src="../../js/forms/updateAccount.js"></script>
 
 </body>
 </html>

@@ -1,5 +1,6 @@
 import { GetParameters, submissionsEndpoint } from "../constants.js";
 import { formatTimestamp } from "../formatDate.js";
+import { GetKeywords } from "../forms/getKeywords.js";
 // import { quill } from "../forms/quill.js";
 const manu_title = document.getElementById("manu_title");
 const published_date = document.getElementById("published_date")
@@ -27,7 +28,7 @@ function getSupplement(articeID) {
             "Content-type" : "application/JSON"
         }
     }).then(res => res.json())
-        .then(data => {
+        .then(async data => {
             if (data.articles) {
                 const Article = data.articles
 
@@ -97,6 +98,8 @@ function getSupplement(articeID) {
                                 console.log("Server Error")
                             }
                         })
+                    
+                        
 
                     // Parse the Quill content from the JSON data
                     const quillContent = JSON.parse(unstructuredAbstract);
@@ -125,6 +128,16 @@ function getSupplement(articeID) {
 
                     // Render the Quill content as HTML in the "content" div
                     renderQuillAsHTML('content', quillContent);
+                    const keywordsContainer = document.getElementById("keywordsContainer");
+            
+                    const keywords = await GetKeywords(articeID)
+                    for(let i=0; i<keywords.length;i++){
+                        if(i === (keywords.length - 1)){
+                            keywordsContainer.innerHTML += `${keywords[i].keyword}`
+                        }else{
+                            keywordsContainer.innerHTML += `${keywords[i].keyword}, `
+                        }
+                    }
 
                 } else {
                     alert("File Not found on server")
