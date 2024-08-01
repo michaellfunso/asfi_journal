@@ -253,7 +253,6 @@ Suggest_Reviewer_Email.forEach(email_keyword => {
  // Find Orcid URLS 
  function RunOrcidQuery(){
   const OrcidInputFields = document.querySelectorAll('.orcidID')
-  console.log(OrcidInputFields)
   OrcidInputFields.forEach(field =>{
     field.addEventListener("change", function(){
       if(field.value !== ""){
