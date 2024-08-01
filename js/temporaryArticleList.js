@@ -82,49 +82,59 @@ function UpdateTemporaryArticles(ArticleLst, currentPage, totalPages) {
 
                             ArticleListContainer.innerHTML += `
                             
-                    <div class="article-wrapper wow fadeInLeft" data-wow-delay="200ms" )>
-                    <div class="article-img" style="background-image: url(./useruploads/article_images/${CoverPhoto}); background-repeat: no-repeat; background-size: cover;">
-                    </div>
-                    <div class="dot-pattern"></div>
-                    <div class='content article-content'>
-                        <div class="article-content1">
-                        <p class="article-type">${ArticleType}</p>
-                        <a href="./content?sid=${ArticleId}" title="${ArticleTitle}" class="article-title" style="color: rgba(24, 24, 24, 0.918);">${ArticleTitle}</a>
-                        <p class="article-authors" title="${AuthorsName}">${AuthorsName}</p>
-                        <p style="color: #310357; font-style:italic;"><a style="color: #310357;"  href="./content?sid=${ArticleId}&title=${ArticleTitle}">Read more</a></p>
-
-                        </div>
-                        <div class="article-content2">
-                        <p class="article-p-date">PUBLISHED <span>${date_uploaded}</span></p>
-
-                        </div>
-                    
-                    </div>
-                    </div>`
+                    <div class="issue-item wow fadeInLeft" data-wow-delay="200ms">
+				<div class="doi-access-wrapper"><span class="item-category">${ArticleType}</span></div>
+				<a href="./content?sid=${ArticleId}" class="issue-item__title visitable">
+					<h3 lang="en" class="issue-item__title issue-item__title__en">${ArticleTitle}</h3></a>
+					<div class="loa comma">
+					<p class="article-authors" title="${AuthorsName}">${AuthorsName}</p>
+					</div>
+						<ul class="rlist--inline separator issue-item__details">
+							<li><label>First Published:</label><span class="bold"> &nbsp;${date_uploaded}</span></li>
+						</ul>
+						<div class="content-item-format-links">
+							<ul class="rlist--inline separator">
+							<li><a href="./content?sid=${ArticleId}&title=${ArticleTitle}#content" title="Abstract" aria-label="Abstract for ${ArticleTitle}">Abstract</a></li>
+							<li><a href="./content?sid=${ArticleId}&title=${ArticleTitle}#fulltext" title="Full text" aria-label="Full text for ${ArticleTitle}">Full text</a></li>
+							<li><a href="../useruploads/manuscripts/${ArticleFile}" title="ePDF" class="downloadLink" aria-label="PDF for ${ArticleTitle}" download="${ArticleTitle}.pdf">PDF</a></li>
+							<li><a href="" title="References" aria-label="References for ${ArticleTitle}">References</a></li>
+						</ul>
+					</div>
+			</div>`
                     
                         }
 
                         if (ArticleListFront) {
                             ArticleListFront.innerHTML += `
-                        <div class="article-wrapper-home wow fadeInLeft" data-wow-delay="200ms" title="${ArticleTitle}">
-                            <div class="article-img" style="background-image: url(./useruploads/article_images/${CoverPhoto}); background-repeat: no-repeat; background-size: cover;">
-                            </div>
-                            <div class="dot-pattern"></div>
-                            <div class='content article-content'>
-                                <div class="article-content1">
-                                <p class="article-type">${ArticleType}</p>
-                                <a href="./content?sid=${ArticleId}" title="${ArticleTitle}" class="article-title" style="color: rgba(24, 24, 24, 0.918);">${ArticleTitle}</a>
-                                <p class="article-authors" title="${AuthorsName}">${AuthorsName}</p>
-                                <p style="color: #310357; font-style:italic;">
-                                <a style="color: #310357;" href="./content?sid=${ArticleId}&title=${ArticleTitle}">Read more</a></p>
-
-                                </div>
-                                <div class="article-content2">
-                                <p class="article-p-date">PUBLISHED <span>${date_uploaded}</span></p>
-                                </div>
-                            </div>
-                        </div>`
+                        <div class="issue-item wow fadeInLeft" data-wow-delay="200ms">
+				<div class="doi-access-wrapper"><span class="item-category">${ArticleType}</span></div>
+				<a href="./content?sid=${ArticleId}" class="issue-item__title visitable">
+					<h3 lang="en" class="issue-item__title issue-item__title__en">${ArticleTitle}</h3></a>
+					<div class="loa comma">
+					<p class="article-authors" title="${AuthorsName}">${AuthorsName}</p>
+					</div>
+						<ul class="rlist--inline separator issue-item__details">
+							<li><label>First Published:</label><span class="bold"> &nbsp;${date_uploaded}</span></li>
+						</ul>
+						<div class="content-item-format-links">
+							<ul class="rlist--inline separator">
+							<li><a href="./content?sid=${ArticleId}&title=${ArticleTitle}#content" title="Abstract" aria-label="Abstract for ${ArticleTitle}">Abstract</a></li>
+							<li><a href="./content?sid=${ArticleId}&title=${ArticleTitle}#fulltext" title="Full text" aria-label="Full text for ${ArticleTitle}">Full text</a></li>
+							<li><a href="../useruploads/manuscripts/${ArticleFile}" title="ePDF" class="downloadLink" aria-label="PDF for ${ArticleTitle}" download="${ArticleTitle}.pdf">PDF</a></li>
+							<li><a href="" title="References" aria-label="References for ${ArticleTitle}">References</a></li>
+						</ul>
+					</div>
+			</div>`
                         }
+                        // const downloadLinks = document.querySelectorAll(".downloadLink");
+                        // downloadLinks.forEach(link =>{
+                        //     link.setAttribute("href", `../useruploads/manuscripts/${ArticleFile}`)
+                        //     link.setAttribute("download", `${ArticleTitle}.pdf`)
+                        
+                        //     link.addEventListener("click", function(){
+                        //         DownloadItem(buffer)
+                        //     })
+                        // })
                     } else {
                         console.log("Server Error")
                     }
