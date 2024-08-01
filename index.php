@@ -576,10 +576,10 @@
   <ul class="unordered-bordered-list">
     <li><a href="./editors.html">Meet the Editors</a></li>
     <li><a href="https://asfischolar.org" target="_blank">ASFI Scholar</a></li>
-	<div class="DST-iframe-nojobs"> <iframe id="mdgxWidgetiFrame" style="height: 400px; border-radius: 15px;" src="http://asfischolar.org/home" frameborder="0"></iframe> </div>
+	<div class="DST-iframe-nojobs"> <iframe id="mdgxWidgetiFrame" style="height: 400px; width:100%; border-radius: 15px;" src="http://asfischolar.org/home" frameborder="0"></iframe> </div>
 	<li><a href="https://africansciencefrontiers.com/" target="_blank">African Science Frontiers
 	Initiatives</a></li>
-	<div class="DST-iframe-nojobs"> <iframe id="mdgxWidgetiFrame" style="height: 400px; border-radius: 15px;" src="https://africansciencefrontiers.com/" frameborder="0"></iframe> </div>
+	<div class="DST-iframe-nojobs"> <iframe id="mdgxWidgetiFrame" style="height: 400px; width:100%; border-radius: 15px;" src="https://africansciencefrontiers.com/" frameborder="0"></iframe> </div>
 
 </div>
 
