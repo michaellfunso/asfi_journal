@@ -64,7 +64,7 @@ function getSupplement(articeID) {
                     }else{
                         ActionsContainer.innerHTML = `
                         <h4>Actions</h4>
-                        <i>There are not actions available yet, an Action will be available once a decision is made or a review is submitted</i>`
+                        <i>There are no actions available yet</i>`
                     }
                  
                     // gEt the authors 

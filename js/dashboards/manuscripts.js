@@ -38,36 +38,48 @@ if(user){
                             let StatusMain = ""
                             let viewSubmission = ""
                             if(ArticlesInfo.status === "returned_for_revision"){
+                                viewSubmission = `  `
                                 RevisionAction = ` <br>
                                           <a role="link" tabindex="0" href="../revise?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
                                               Submit Revision
                                           </a> `
-                                          StatusMain = "Returned For Revision"
+                                StatusMain = "Returned For Revision"
 
-                            }else{
-                                RevisionAction = ''
-                                StatusMain = ArticlesInfo.status
+                            }else if(ArticlesInfo.status === "returned_for_correction"){
+                                viewSubmission = `  `
+                                RevisionAction = ` <br>
+                                <a role="link" tabindex="0" href="../correct?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
+                                    Submit Correction
+                                </a> `
+                                StatusMain = "Returned For Correction"
                             }
 
                             if(ArticlesInfo.status === "submitted_for_review" || ArticlesInfo.status === "review_submitted" || ArticlesInfo.status === "revision_submitted"){
+                                RevisionAction = ``
                                 StatusMain = "Under Review"
                                 viewSubmission = ` <a role="link" tabindex="0" href="../content?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
-                                              view submission
+                                              View submission
                                           </a> `
                             }else if(ArticlesInfo.status === "saved_for_later" || ArticlesInfo.status === "revision_saved"){
-                             
                                 RevisionAction = ` <br>
                                 <a role="link" tabindex="0" href="../edit?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
                                     Continue Submission
                                 </a> `
                                 viewSubmission = ``
                                 StatusMain = "Manuscript Saved as Draft"
-                            }else{
+                            }else if(ArticlesInfo.status === "submitted" ){
+                                RevisionAction = ``
                                 viewSubmission = ` <a role="link" tabindex="0" href="../content?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
                                               view submission
                                           </a> `
-                                StatusMain = ArticlesInfo.status
-                            
+                                StatusMain = "Submitted"
+                            }else if(ArticlesInfo.status === "correction_saved"){
+                                RevisionAction = ` <br>
+                                <a role="link" tabindex="0" href="../edit?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
+                                    Continue Submission
+                                </a> `
+                                viewSubmission = ``
+                                StatusMain = "Manuscript Saved as Draft"
                             }
                                 ArticlesContainer.innerHTML += `
                                 <tr id="queue_0" name="queue_0" role="row" class="odd">
@@ -96,6 +108,9 @@ if(user){
                               </td>
 
                                      <td class="whitespace-nowrap" data-label="submitted">${formatTimestamp(ArticlesInfo.date_submitted)}
+                                     </td>
+
+                                       <td class="whitespace-nowrap" data-label="submitted">${formatTimestamp(ArticlesInfo.process_start_date)}
                                      </td>
                                 </tr>`
                     //     }

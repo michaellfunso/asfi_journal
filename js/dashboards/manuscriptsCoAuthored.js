@@ -36,14 +36,13 @@ if(user){
                             if(ArticlesInfo.status === "returned_for_revision"){
                           
                                           StatusMain = "Returned For Revision"
-                            }
-
-                       
-
-                            if(ArticlesInfo.status === "submitted_for_review" || ArticlesInfo.status === "review_submitted"){
+                            }else if(ArticlesInfo.status === "submitted_for_review" || ArticlesInfo.status === "review_submitted" || ArticlesInfo.status === "revision_submitted"){
+                             
                                 StatusMain = "Under Review"
-                            }else{
-                                StatusMain = ArticlesInfo.status
+                             
+                            }else if(ArticlesInfo.status === "submitted" ){
+                       
+                                StatusMain = "Submitted"
                             }
                             
                                 ArticlesContainer.innerHTML += `         <tr id="queue_0" name="queue_0" role="row" class="odd">
