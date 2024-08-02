@@ -1,6 +1,6 @@
 function articlesNavigation(totalPagesBooks, currentpages) {
     const pagination_container = document.getElementById("pagination_container");
-
+if(pagination_container){
     let Previous = "";
     let AfterPrevious = "";
     let EndPage = "";
@@ -70,7 +70,7 @@ function articlesNavigation(totalPagesBooks, currentpages) {
    <br/>
       <span id="bookPageInfo">Page ${currentpages} of ${totalPagesBooks}</span>`;
 }
-
+}
 export {
     articlesNavigation
 };
