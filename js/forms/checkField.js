@@ -225,7 +225,7 @@ Suggest_Reviewer.forEach(suggest_Reviewer =>{
           const nextButton = Suggest_Reviewers.querySelector(".nextManuscript")
           nextButton.classList.remove("disabled")
           nextButton.removeAttribute("disabled")
-          suggest_reviewers_nav.setAttribute("onclick","NavigationNext('suggest-reviewers', 'suggest_reviewers_nav', 'disclosures_nav', 6)")
+          suggest_reviewers_nav.setAttribute("onclick","NavigationNext('suggest-reviewers', 'suggest_reviewers_nav', 'disclosures_nav', 6)");
           }
       })
       
@@ -240,10 +240,16 @@ Suggest_Reviewer_Email.forEach(email_keyword => {
       const nextButton = Suggest_Reviewers.querySelector(".nextManuscript");
       nextButton.classList.add("disabled");
       nextButton.setAttribute("disabled", "disabled");
-      suggest_reviewers_nav.removeAttribute("onclick");
       showErrorPopup('This email has already been filled!');
-    } else {
+    }
+    else if(!matchingEmail.includes(emailValue)) {
+      const nextButton = Suggest_Reviewers.querySelector(".nextManuscript");
+      nextButton.classList.remove("disabled");
+      nextButton.removeAttribute("disabled", "disabled");
       matchingEmail.push(emailValue);
+    }
+    else if(emailValue == ""){
+      matchingEmail.pop(emailValue);
     }
   });
 });
