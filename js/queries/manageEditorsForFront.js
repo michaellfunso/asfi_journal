@@ -52,6 +52,7 @@ function GetEditors() {
                                                         editorContainer.innerHTML = `
                                                         <div class="indi-editors" >        
                                                         <div class="avatar" style="background-image: url('./useruploads/editors/${editor.photo}')"></div>
+                                                        
                                                          <div class="editor-info" id="${editor.photo}" onclick="openModal('${editor.prefix}', '${editor.fullname}', '${editor.country}','${editor.photo}', '${editor.discipline}', '${editor.id}', '${editor.field}')">
                                                          <h4 style="font-size:14px;">${editor.prefix} ${editor.fullname}</h4>    
                                                          <p style="margin-left:8px;" style="background:green;">  ${editor.discipline}, ${editor.country}</p>

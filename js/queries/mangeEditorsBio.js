@@ -35,8 +35,15 @@
            GetBio(fullname)
 
            modalContent.innerHTML = `
-           <span class="close" onclick="closeModal()">&times;</span>
-           <div class="avatar" style="background-image: url('./useruploads/editors/${photo}')"></div>
+           
+           <div class="avatar" style="background-image: url('./useruploads/editors/${photo}')">
+           </div>
+            <div>
+            <input class="form-control" name="photo" type="file"/>
+           </div>
+            
+
+           
    <div class="editor-info submit-body" style="display:flex; flex-direction:column;">
    <select name="prefix"  class="form-control" >
    <option value=${prefix}>${prefix} </option>
