@@ -26,7 +26,7 @@ console.log(InvitationFor, email, ArticleId, Accept, Reject, Action)
     .then(data=>{
         if(data.status === "success"){
             alert(data.message)
-            window.location.href = `${parentDirectoryName}portal/reviewerSignup/?e=${email}`
+            window.location.href = `${parentDirectoryName}/portal/reviewerSignup/?e=${email}`
         }else{
             alert(data.message)
         }

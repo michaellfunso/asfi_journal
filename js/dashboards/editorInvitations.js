@@ -18,7 +18,7 @@ if(InvitationFor && email && ArticleId && (Accept || Reject)){
     }
     if(InvitationFor === "edit"){
 
-    fetch(`${submissionsEndpoint}/backend/editors/invitations?u_id=${email}&a_id=${ArticleId}&invite_for=${InvitationFor}&action=${Action}`, {
+    fetch(`${submissionsEndpoint}/backend/editors/invitations/index.php?u_id=${email}&a_id=${ArticleId}&invite_for=${InvitationFor}&action=${Action}`, {
         method:"GET",
     }).then(res=>res.json())
     .then(data=>{

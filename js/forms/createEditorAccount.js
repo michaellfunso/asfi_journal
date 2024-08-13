@@ -7,7 +7,7 @@ if(EmailQuery){
 const Accountexists = await CheckeditorExists(EmailQuery)
 
 if(Accountexists){
-    window.location.href = `${parentDirectoryName}portal/login`
+    window.location.href = `${parentDirectoryName}/portal/login`
 }else{
 const prefix  = document.getElementById("prefix")
 const registerForm = document.getElementById("registerForm")
