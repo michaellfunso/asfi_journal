@@ -54,10 +54,41 @@ function getSupplement(articeID) {
                     correspondingAuthorsEmailContainer.innerHTML +=  ` <a style="color:#333;" href="mailto:${correspondingAuthorsEmail}">${correspondingAuthorsEmail}</a>`
                     ArticleTypeContainer.innerText  = ArticleType
                     DiscisplineContainer.innerText = discipline
-                    statusContainer.innerText = status
+            
                     // Add the HTML content to the page 
                     manu_title.innerText = ArticleTitle
                     published_date.innerText = `${DateUploaded}`
+
+                    if(status === "returned_for_revision"){
+                     
+                        statusContainer.innerText= "Returned For Revision"
+
+                    }else if(status === "returned_for_correction"){
+                
+                        statusContainer.innerText= "Returned For Correction"
+                    }
+
+                    if(status === "submitted_for_review" || status === "review_submitted" || status === "revision_submitted"){
+                       
+                        statusContainer.innerText= "Under Review"
+               
+                    }else if(status === "saved_for_later" || status === "revision_saved"){
+                        statusContainer.innerText= "Manuscript Saved as Draft"
+                    }else if(status === "submitted" ){
+                   
+                        statusContainer.innerText= "Submitted"
+                    }else if(status === "correction_saved"){
+                    
+                        statusContainer.innerText= "Manuscript Saved as Draft"
+                    }else if(status === "accepted"){
+                    
+                        statusContainer.innerText= "Approved By Editor"
+                    }else{
+                        RevisionAction = ``
+                 
+                        statusContainer.innerText= `${status}`
+                    }
+
 
                     if(Status === "review_submitted"){
                         ActionsContainer.innerHTML += ` <br> <a href="../reviews?a=${articeID}" style="color: #333; text-decoration: underline; font-style: italic;">View Reviews</a> <br>`

@@ -52,9 +52,7 @@ if(user){
                                     Submit Correction
                                 </a> `
                                 StatusMain = "Returned For Correction"
-                            }
-
-                            if(ArticlesInfo.status === "submitted_for_review" || ArticlesInfo.status === "review_submitted" || ArticlesInfo.status === "revision_submitted"){
+                            }else if(ArticlesInfo.status === "submitted_for_review" || ArticlesInfo.status === "review_submitted" || ArticlesInfo.status === "revision_submitted"){
                                 RevisionAction = ``
                                 StatusMain = "Under Review"
                                 viewSubmission = ` <a role="link" tabindex="0" href="../content?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
@@ -70,7 +68,7 @@ if(user){
                             }else if(ArticlesInfo.status === "submitted" ){
                                 RevisionAction = ``
                                 viewSubmission = ` <a role="link" tabindex="0" href="../content?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
-                                              view submission
+                                              View submission
                                           </a> `
                                 StatusMain = "Submitted"
                             }else if(ArticlesInfo.status === "correction_saved"){
@@ -80,6 +78,18 @@ if(user){
                                 </a> `
                                 viewSubmission = ``
                                 StatusMain = "Manuscript Saved as Draft"
+                            }else if(ArticlesInfo.status === "accepted"){
+                                RevisionAction = `  `
+                                viewSubmission = ` <a role="link" tabindex="0" href="../content?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
+                                View submission
+                            </a> `
+                                StatusMain = "Accepted By Editor"
+                            }else{
+                                RevisionAction = ``
+                                viewSubmission = ` <a role="link" tabindex="0" href="../content?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
+                                View submission
+                            </a>`
+                                StatusMain = `${ArticlesInfo.status}`
                             }
                                 ArticlesContainer.innerHTML += `
                                 <tr id="queue_0" name="queue_0" role="row" class="odd">

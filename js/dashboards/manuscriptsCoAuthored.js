@@ -59,7 +59,7 @@ if(user){
                                
                                        <br>
                                           <a role="link" tabindex="0" href="../content?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
-                                              view submission
+                                              View submission
                                           </a>    
                                          
                                      </td>

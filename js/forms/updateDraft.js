@@ -61,7 +61,7 @@ if (articleId) {
             if (data.success) {
                 const Article = data.articles
                 const ArticleStatus = Article.status
-                if (ArticleStatus === "saved_for_later" || ArticleStatus === "Saved" || ArticleStatus === "Drafted") {
+                if (ArticleStatus === "saved_for_later" || ArticleStatus === "Saved" || ArticleStatus === "Drafted" || ArticleStatus === "returned_for_correction") {
 
                     const articleType = Article.article_type
                     const abstract = Article.abstract
@@ -341,18 +341,18 @@ if (articleId) {
                         </div>
 `
                     }
-// Function to show the popup
-function showProgressSavedPopup() {
-    const popup = document.getElementById('progressSavedPopup');
-    popup.classList.remove('hidden');
-    popup.classList.add('show', 'slide-in');
+                        // Function to show the popup
+                        function showProgressSavedPopup() {
+                            const popup = document.getElementById('progressSavedPopup');
+                            popup.classList.remove('hidden');
+                            popup.classList.add('show', 'slide-in');
 
-    // Hide the popup after 3 seconds (adjust as needed)
-    setTimeout(() => {
-        popup.classList.remove('show');
-        popup.classList.add('hidden');
-    }, 3000); // 3000 milliseconds = 3 seconds
-}
+                            // Hide the popup after 3 seconds (adjust as needed)
+                            setTimeout(() => {
+                                popup.classList.remove('show');
+                                popup.classList.add('hidden');
+                            }, 3000); // 3000 milliseconds = 3 seconds
+                        }
    
                     const SubmissionSTatus = document.querySelector('input[name="review_status"]')
 
