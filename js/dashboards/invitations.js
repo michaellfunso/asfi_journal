@@ -20,7 +20,7 @@ console.log(InvitationFor, email, ArticleId, Accept, Reject, Action)
     if(InvitationFor === "review"){
 
 
-    fetch(`${submissionsEndpoint}/backend/reviewers/invitations?u_id=${email}&a_id=${ArticleId}&invite_for=${InvitationFor}&action=${Action}`, {
+    fetch(`${submissionsEndpoint}/backend/reviewers/invitations/index.php?u_id=${email}&a_id=${ArticleId}&invite_for=${InvitationFor}&action=${Action}`, {
         method:"GET",
     }).then(res=>res.json())
     .then(data=>{
@@ -38,7 +38,7 @@ console.log(InvitationFor, email, ArticleId, Accept, Reject, Action)
             invite_for: InvitationFor,
             action:Action,
         }
-        fetch(`${submissionsEndpoint}/backend/editors/invitations`, {
+        fetch(`${submissionsEndpoint}/backend/editors/invitations/index.php`, {
             method:"POST",
             body:JSON.stringify(Formbody),
             headers:{
