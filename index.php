@@ -296,7 +296,7 @@
 							<!-- <li><a href="./terms.html" class='menu-item'>Terms</a></li> -->
 							<li><a href="./contact.html" class='menu-item'>Contact Us</a></li>
 							<li class="header-right">
-								<a class="header-btn" href="./comingsoon.html">
+								<a class="header-btn" href="/portal">
 									<p>Submit Manuscript</p>
 								</a>
 							</li>
@@ -305,7 +305,7 @@
 
 					<div class="header-right">
 						<!-- <a class='header-btn' href='user/register.html'>Create Account<span></span></a> -->
-						<a class="header-btn" href="./comingsoon.html">
+						<a class="header-btn" href="/portal">
 							<p>Submit Manuscript</p>
 						</a>
 						<!-- Burger menu -->
@@ -519,8 +519,8 @@
 
 
         
-        <div class="journal-side-section journal-actions-container"><a href="./comingsoon.html"><button
-							style="background-color: #80078b; color: white; height: 60px; width: 70%;  margin: auto; margin-top: 20px;"><i aria-hidden="true" class="fas fa-book"></i> Submit
+        <div class="journal-side-section journal-actions-container"><a href="/portal"><button
+							style="background-color: #80078b; color: white; height: 60px; width: 100%;  margin: auto; margin-top: 20px; font-size: 20px;"><i aria-hidden="true" class="fas fa-book"></i> Submit
 							Manuscript</button></a></div> <br>
 
     
@@ -670,7 +670,7 @@
 			</div>
 			<div class="article-side">
 				<div style="display: flex; flex-direction: column;">
-					<a href="./comingsoon.html"><button
+					<a href="/portal"><button
 							style="background-color: #80078b; color: white; height: 60px; width: 90%;  margin: auto; margin-top: 20px;">Submit
 							Manuscript</button></a>
 					<a href="#news"><button

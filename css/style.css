@@ -2622,3 +2622,9 @@ border-radius: 5px 0px 0px 5px;
     cursor: not-allowed;
     
 }
+
+#status{
+    font-size: 25px;
+    color: blueviolet;
+    font-weight: bold;
+}
