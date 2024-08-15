@@ -83,3 +83,5 @@ useruploads/*/
 useruploads/
 
 *.pdf
+
+backend/db.php
