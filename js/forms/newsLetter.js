@@ -34,7 +34,7 @@ newsLetterForm.forEach(form =>{
 
 form.addEventListener("submit", function(e){
     e.preventDefault()
-    const subscribeEmail = form.querySelectorAll(".subscribeEmail")
+    const subscribeEmail = form.querySelector("#subscribeEmail")
 
     // Show preloader when submission starts
     preloader.style.display = "block";
@@ -44,9 +44,9 @@ form.addEventListener("submit", function(e){
     fetch(`${submissionsEndpoint}/backend/email/subscribeToNewsLetter/`, {
         method:"POST",
         body: JSON.stringify({email:subscribeEmail.value}),
-        // headers:{
-        //     "Content-type" : "application/JSON"
-        // }
+        headers:{
+            "Content-type" : "application/JSON"
+        }
     }).then(res=>res.json())
     .then(data =>{
         if(data.status === "success"){
