@@ -502,7 +502,7 @@
         <div id="etoc-signup" role="status" aria-atomic="true" class="alert-sign-up"><div class="alert-sign-up__box pb-0"><i aria-hidden="true" class="fas fa-envelope"></i><h3>Sign up for email alerts</h3></div>
 		<div class="alert-sign-up__content form-content">
 		<div class="subscribe-form">
-								<form class="subscribe-form" id="newsLetterForm">
+								<form class="subscribe-form newsLetterForm" id="newsLetterForm">
 								<p class="form-instructions small">Enter your email to receive alerts when new articles and issues are published.</p>
 									<input class="form-control" style="border: 1px solid black; color: black;" type="email" name="email" placeholder="Email... "
 										required id="subscribeEmail">
@@ -973,7 +973,7 @@
 							<h3>Newsletter Signup</h3>
 							<p>Signup today for hints, tips and the latest news and updates.</p>
 							<div class="subscribe-form">
-								<form class="subscribe-form" id="newsLetterForm">
+								<form class="subscribe-form newsLetterForm" id="newsLetterForm">
 									<input class="form-control" type="email" name="email" placeholder="Email *"
 										required id="subscribeEmail">
 									<!-- <input type="hidden" name="action" value="mailchimpsubscribe"> -->

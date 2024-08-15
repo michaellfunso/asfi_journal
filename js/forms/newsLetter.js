@@ -1,7 +1,6 @@
 import { submissionsEndpoint } from "../constants.js";
 
-const newsLetterForm = document.getElementById("newsLetterForm")
-const subscribeEmail = document.getElementById("subscribeEmail")
+const newsLetterForm = document.querySelectorAll(".newsLetterForm")
 
 // Function to show the popup
 function showErrorPopup(message) {
@@ -31,13 +30,16 @@ function showSuccessPopup(message) {
     }, 8000); // 8000 milliseconds = 8 seconds
 }
 
-newsLetterForm.addEventListener("submit", function(e){
+newsLetterForm.forEach(form =>{
+
+form.addEventListener("submit", function(e){
     e.preventDefault()
+    const subscribeEmail = form.querySelectorAll(".subscribeEmail")
 
     // Show preloader when submission starts
     preloader.style.display = "block";
 
-    const formData = new FormData(newsLetterForm);
+    const formData = new FormData(form);
 
     fetch(`${submissionsEndpoint}/backend/email/subscribeToNewsLetter/`, {
         method:"POST",
@@ -62,4 +64,6 @@ newsLetterForm.addEventListener("submit", function(e){
         showErrorPopup(data.message);
         console.error('Error:', error);
     });
+})
+
 })
