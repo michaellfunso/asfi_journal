@@ -155,19 +155,47 @@ Titles.forEach(titles =>{
 
 });
 
-const Abstract = document.getElementById("abstract")
+const Abstract = document.getElementById("abstract");
+const nextabButton = Abstract.querySelector(".nextManuscript");
 var text = quill.getText().trim();
 if(text.length === 0){
     const nextButton = Abstract.querySelector(".nextManuscript")
-    nextButton.classList.add("disabled")
+    nextabButton.classList.add("disabled")
 }
 
-quill.on('text-change', function(delta, oldDelta, source) {
-        const nextButton = Abstract.querySelector(".nextManuscript")
-        nextButton.classList.remove("disabled")
-        nextButton.removeAttribute("disabled")
-        abstract_nav.setAttribute("onclick","NavigationNext('abstract', 'abstract_nav','keywords_nav', 3)")
-  });
+    // Event listener for text change in Quill editor
+    quill.on('text-change', function(delta, oldDelta, source) {
+        if (source === 'user') { // Check if change is from user input
+          var wordCountElement = document.getElementById('word-count');
+          var limitExceed = document.getElementById('limit-exceed');
+      
+              var context = quill.getText().trim(); // Get plain text from Quill editor
+              var words = context.split(/\s+/); // Split text into words
+              var wordCount = words.length;
+      
+              // Update word count display
+              wordCountElement.textContent = 'Word Count: ' + wordCount + ' words';
+      
+              // Check if exceeded maximum limit (300 words or 3000 characters)
+              if (wordCount > 300 || text.length > 3000) {
+                  limitExceed.innerHTML = `<p>Word Limit Exceeded. Please adjust to expected limit before proceeding. Maximum of 300 Words!</p>`;
+                  // Disable the button
+                  nextabButton.classList.add("disabled");
+                  nextabButton.setAttribute("disabled", true);
+              } else {
+                  // Hide limit exceeded message
+                  limitExceed.innerHTML = " ";
+                  wordCountElement.textContent = 'Word Count: ' + wordCount + ' words';
+                  
+                  // Enable the button if the word count is within limit and text is not empty
+                  if (wordCount > 0) {
+                      nextabButton.classList.remove("disabled");
+                      nextabButton.removeAttribute("disabled");
+                      abstract_nav.setAttribute("onclick", "NavigationNext('abstract', 'abstract_nav','keywords_nav', 3)");
+                  }
+              }
+        }
+    });
 
 const Keywords = document.getElementById("keywords")
 const Keyword = Keywords.querySelectorAll("input[type=text]")
@@ -212,24 +240,24 @@ const userEmailContainer = document.getElementById("logged_email")
 const Suggest_Reviewers = document.getElementById("suggest-reviewers");
 const Suggest_Reviewer = Suggest_Reviewers.querySelectorAll("input[type=text]");
 const Suggest_Reviewer_Email = Suggest_Reviewers.querySelectorAll("input[type=email]");
+suggest_reviewers_nav.setAttribute("onclick","NavigationNext('suggest-reviewers', 'suggest_reviewers_nav', 'disclosures_nav', 6)");
 
       
-Suggest_Reviewer.forEach(suggest_Reviewer =>{
-    if(suggest_Reviewer.value === "" && !suggest_Reviewer.value){
-        const nextButton = Suggest_Reviewers.querySelector(".nextManuscript")
-        nextButton.classList.add("disabled")
-    } 
+// Suggest_Reviewer.forEach(suggest_Reviewer =>{
+//     // if(suggest_Reviewer.value === "" && !suggest_Reviewer.value){
+//     //     const nextButton = Suggest_Reviewers.querySelector(".nextManuscript")
+//     //     nextButton.classList.add("disabled")
+//     // } 
     
-    suggest_Reviewer.addEventListener("change", function(){
-      if(suggest_Reviewer.value && suggest_Reviewer.value != ""){
-          const nextButton = Suggest_Reviewers.querySelector(".nextManuscript")
-          nextButton.classList.remove("disabled")
-          nextButton.removeAttribute("disabled")
-          suggest_reviewers_nav.setAttribute("onclick","NavigationNext('suggest-reviewers', 'suggest_reviewers_nav', 'disclosures_nav', 6)");
-          }
-      })
+//     suggest_Reviewer.addEventListener("change", function(){
+//       if(suggest_Reviewer.value && suggest_Reviewer.value != ""){
+//           const nextButton = Suggest_Reviewers.querySelector(".nextManuscript")
+
+//           suggest_reviewers_nav.setAttribute("onclick","NavigationNext('suggest-reviewers', 'suggest_reviewers_nav', 'disclosures_nav', 6)");
+//           }
+//       })
       
-      });
+//       });
 
 const matchingEmail = [];
 Suggest_Reviewer_Email.forEach(email_keyword => {

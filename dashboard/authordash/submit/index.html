@@ -561,16 +561,16 @@
                       </div>
 
                       <div id="suggest-reviewers" class="form-section hidden">
-                        <h3 class="manu_head"><span style="color: #e22424;">*</span>Suggest Reviewers</h3>
+                        <h3 class="manu_head">Suggest Reviewers (Optional)</h3>
                         <div id="suggestReviewer" style="width: 100%; overflow-x: scroll; margin-bottom: 10px; padding-bottom: 20px;">
                           <div class="suggestHandle" style="width: 100%;">
                             <div class="drag-handle"></div>
                             <div style="margin-right: 10px;">
-                              <label for="fullname"><span style="color: #e22424;">*</span>Full Name:</label>
+                              <label for="fullname">Full Name:</label>
                               <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
                             </div>
                             <div style="margin-right: 10px;">
-                              <label for=""><span style="color: #e22424;">*</span>Affiliation(s):</label>
+                              <label for="">Affiliation(s):</label>
                               <div style="display: flex;">
                                 <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
                                 <input type="text" class="form-control hd" placeholder="City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
@@ -579,7 +579,7 @@
                             </div>
 
                             <div style="margin-right: 10px; width: 300px;">
-                              <label for=""><span style="color: #e22424;">*</span>Email:</label>
+                              <label for="">Email:</label>
                               <input type="email" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
                             </div>
 
@@ -588,11 +588,11 @@
                           <div class="suggestHandle" style="width: 100%;">
                             <div class="drag-handle"></div>
                             <div style="margin-right: 10px;">
-                              <label for="fullname"><span style="color: #e22424;">*</span>Full Name:</label>
+                              <label for="fullname">Full Name:</label>
                               <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
                             </div>
                             <div style="margin-right: 10px;">
-                              <label for=""><span style="color: #e22424;">*</span>Affiliation(s):</label>
+                              <label for="">Affiliation(s):</label>
                               <div style="display: flex;">
                                 <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
                                 <input type="text" class="form-control hd" placeholder="City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
@@ -601,29 +601,7 @@
                             </div>
 
                             <div style="margin-right: 10px; width: 300px;">
-                              <label for=""><span style="color: #e22424;">*</span>Email:</label>
-                              <input type="email" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
-                            </div>
-
-                          </div>
-
-                          <div class="suggestHandle" style="width: 100%;">
-                            <div class="drag-handle"></div>
-                            <div style="margin-right: 10px;">
-                              <label for="fullname"><span style="color: #e22424;">*</span>Full Name:</label>
-                              <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
-                            </div>
-                            <div style="margin-right: 10px;">
-                              <label for=""><span style="color: #e22424;">*</span>Affiliation(s):</label>
-                              <div style="display: flex;">
-                                <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
-                                <input type="text" class="form-control hd" placeholder="City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
-                                <input type="text" class="form-control" placeholder="Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;">
-                              </div>
-                            </div>
-
-                            <div style="margin-right: 10px; width: 300px;">
-                              <label for=""><span style="color: #e22424;">*</span>Email:</label>
+                              <label for="">Email:</label>
                               <input type="email" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
                             </div>
 
@@ -672,7 +650,28 @@
                             </div>
 
                           </div>
-                          <p style="color: #e22424;">* Indicates Mandatory Fields</p>
+
+                          <div class="suggestHandle" style="width: 100%;">
+                            <div class="drag-handle"></div>
+                            <div style="margin-right: 10px;">
+                              <label for="fullname">Full Name:</label>
+                              <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
+                            </div>
+                            <div style="margin-right: 10px;">
+                              <label for="">Affiliation(s):</label>
+                              <div style="display: flex;">
+                                <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
+                                <input type="text" class="form-control hd" placeholder="City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
+                                <input type="text" class="form-control" placeholder="Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;">
+                              </div>
+                            </div>
+
+                            <div style="margin-right: 10px; width: 300px;">
+                              <label for="">Email:</label>
+                              <input type="email" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
+                            </div>
+
+                          </div>
                         </div>
 
 
@@ -682,7 +681,7 @@
                           <!-- end back button  -->
 
                           <!-- next button  -->
-                          <button type="button" class="submit-next nextManuscript" id="suggestNextButton" disabled>Save & Continue</button>
+                          <button type="button" class="submit-next nextManuscript" id="suggestNextButton">Save & Continue</button>
                           <!-- end next button  -->
                         </div>
 

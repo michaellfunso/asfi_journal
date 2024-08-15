@@ -48,7 +48,7 @@ const headerMessages = {
   <li>If you are currently an ASFI member, please include your ASFI Membership ID.</li>
 </ul>
 `,
-6:`<span class="sub-head" style="color: #404040;">Suggest Reviewers</span>
+6:`<span class="sub-head" style="color: #404040;">Suggest Reviewers (Optional)</span>
                               <ul style="color: #404040;">
                     
   <li>Please suggest potential reviewers of your manuscript by providing their names, affiliations and emails.</li>

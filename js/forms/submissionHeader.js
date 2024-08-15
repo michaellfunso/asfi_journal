@@ -196,21 +196,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Check if at least 3 sections are filled
-        if (reviewerSections.length - unfilledSections.length < 3) {
-            // Construct alert message for unfilled sections
-            let alertMessage = 'Please fill out all fields of at least three Reviewers information sections.\n\n';
-            unfilledSections.forEach(sectionIndex => {
-                alertMessage += `- Section ${sectionIndex}\n`;
-            });
-
-            // Alert the user with detailed message
-            showErrorPopup(alertMessage);
-        } else {
-            // Proceed to the next step
+ 
             // Assuming there is a function showNext() defined elsewhere
             showNext('disclosures', 'suggest-reviewers', 'suggest_reviewers_nav', 'disclosures_nav', 'author-information', 7, 7);
-        }
     });
 });
 function setStatus(status){
