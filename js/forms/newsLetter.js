@@ -51,6 +51,7 @@ form.addEventListener("submit", function(e){
     .then(data =>{
         if(data.status === "success"){
             preloader.style.display = "none";
+            alert(data.message)
             showSuccessPopup(data.message)
         }else{
             preloader.style.display = "none";
