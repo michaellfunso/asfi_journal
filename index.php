@@ -98,6 +98,9 @@
 }
 .doi-access-wrapper {
     padding-top: 20px;
+	display: flex;
+    justify-content: space-between;
+    width: 80%;
 }
 .issue-item{
 	margin-top: 10px;
@@ -339,7 +342,7 @@
 
 		</ol>
 		<div class="carousel-inner" role="listbox">
-		<div class='item' style='background-image: url(./images/articleImages/CALL.jpg); background-size:cover;'>
+		<!-- <div class='item' style='background-image: url(./images/articleImages/CALL.jpg); background-size:cover;'>
                 <div class='carousel-caption article-info1'>
 
                     <div class=' big'>
@@ -364,7 +367,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 	
 			<?php include "./backend/homeSlideArticles.php" ?>
 
@@ -400,7 +403,7 @@
 </div>
     
     
-        <div data-widget-def="general-rich-text" data-widget-id="d20463a9-168a-4748-812e-a58e0f483c96" class="clearfix my-4">
+        <!-- <div data-widget-def="general-rich-text" data-widget-id="d20463a9-168a-4748-812e-a58e0f483c96" class="clearfix my-4">
    
             <h2 class="section__mainHeader--mid">
                 Virtual Issues
@@ -411,7 +414,7 @@
 </div>
 
 
-        </div>
+        </div> -->
     
     
         <div data-widget-def="UX3Tabs" data-widget-id="01cbe741-499a-4611-874e-1061f1f4679e" class="tabs--defult-style">
@@ -1054,7 +1057,9 @@
 	<div id="scrollup">
 		<button id="scroll-top" class="scroll-to-top"><i class="fas fa-chevron-up"></i></button>
 	</div>
-
+	<script>
+		
+	</script>
 	<script src="./front/public/js/vendor/jquery-1.12.4.min.js"></script>
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
@@ -1079,6 +1084,41 @@
 	<script src="./js/queries/allArticles.js" type="module"></script>
 
 	<script src="./front/public/js/main.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+  const shareButtons = document.querySelectorAll('.shareButton');
+
+  if (shareButtons) {
+    console.log('Share buttons found');
+
+    shareButtons.forEach(shareButton => {
+      shareButton.addEventListener('click', async function() {
+        alert('Share button clicked');
+
+        if (navigator.share) {
+          console.log('Web Share API supported');
+
+          try {
+            await navigator.share({
+              title: 'Check out this article: ' + document.title,
+              text: `Check out this article by ${AuthorsName}:`,
+              url: window.location.href,
+            });
+            console.log('Content shared successfully');
+          } catch (error) {
+            console.error('Error sharing content:', error);
+          }
+        } else {
+          console.log('Web Share API not supported on this browser.');
+          alert('Sharing is not supported on this browser.');
+        }
+      });
+    });
+  } else {
+    console.error('Share buttons not found in the document.');
+  }
+});
+	</script>
 
 	<js-file>
 		<!-- Bootstrap core JavaScript
