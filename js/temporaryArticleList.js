@@ -29,7 +29,9 @@ function UpdateTemporaryArticles(ArticleLst, currentPage, totalPages) {
         ArticleListFront.innerHTML = ""
     }
     if (ArticleLst.length > 0) {
-        ArticleLst.forEach(article => {
+        for(let b=0; b<ArticleLst.length; b++){
+            const article = ArticleLst[b]
+    
             const ArticleTitle = article.manuscript_full_title
             const RunningTitle = article.manuscript_running_title
             const ArticleFile = article.manuscript_file
@@ -147,7 +149,7 @@ function UpdateTemporaryArticles(ArticleLst, currentPage, totalPages) {
                         console.log("Server Error")
                     }
                 })
-        });
+        };
 
 
     } else {
