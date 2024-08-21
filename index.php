@@ -100,7 +100,7 @@
     padding-top: 20px;
 	display: flex;
     justify-content: space-between;
-    width: 80%;
+    /* width: 80%; */
 }
 .issue-item{
 	margin-top: 10px;
@@ -112,10 +112,13 @@
     padding: 0;
     margin: 0;
 	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
 }
 .content-item-format-links .rlist--inline li {
 	margin-right: 10px;
 	font-weight: bold;
+	color: #310357;
 }
 .content-item-format-links .rlist--inline li a{
 	padding-right: 10px;
@@ -248,6 +251,33 @@
     animation: slideIn 0.3s forwards;
 }
 
+.share-options {
+  /* position: absolute; */
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  z-index: 1000;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.share-options ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.share-options li {
+  margin: 5px 0;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.share-options li:hover {
+  color: #007bff;
+}
+.shareButton{
+	cursor: pointer;
+}
 	</style>
 </head>
 
@@ -447,7 +477,6 @@
 
 			</div>
 <a href="" title="More articles" class="more-widget-link" style="display:flex; justify-content: flex-end; margin-bottom: 20px; margin-top: 6px; margin-right: 16px;">More articles</a>
-
 </div>
 </div></div>
 
@@ -1085,38 +1114,68 @@
 
 	<script src="./front/public/js/main.js"></script>
 	<script>
-		document.addEventListener('DOMContentLoaded', function() {
-  const shareButtons = document.querySelectorAll('.shareButton');
+document.addEventListener('DOMContentLoaded', function() {
+  // Event delegation for Share button
+  document.body.addEventListener('click', function(event) {
+    if (event.target && event.target.classList.contains('shareButton')) {
+      // Toggle the display of the share options
+      const shareOptions = event.target.closest('.issue-item').querySelector('.share-options');
+      if (shareOptions) {
+        shareOptions.style.display = (shareOptions.style.display === 'none' || shareOptions.style.display === '') ? 'block' : 'none';
+      }
+    }
+  });
 
-  if (shareButtons) {
-    console.log('Share buttons found');
+  // Event delegation for specific platform sharing
+  document.body.addEventListener('click', function(event) {
+    if (event.target && event.target.classList.contains('shareOption')) {
+      // Find the article details
+      const articleElement = event.target.closest('.issue-item');
+      const articleTitle = articleElement.querySelector('.issue-item__title').innerText;
+      const articleUrl = articleElement.querySelector('.issue-item__title').closest('a').href;
 
-    shareButtons.forEach(shareButton => {
-      shareButton.addEventListener('click', async function() {
-        alert('Share button clicked');
+      // Determine the sharing platform
+      let shareUrl = '';
+      switch (event.target.dataset.platform) {
+        case 'asfischolar':
+          shareUrl = `https://asfischolar.com/share?url=${encodeURIComponent(articleUrl)}`;
+          break;
+        case 'twitter':
+          shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(articleTitle)}&url=${encodeURIComponent(articleUrl)}`;
+          break;
+		  case 'instagram':
+          // Copy the text to the clipboard
+          const textToCopy = `Check out this article: ${articleTitle}\n${articleUrl}`;
+          navigator.clipboard.writeText(textToCopy).then(() => {
+            alert('Copied to clipboard. You can now paste it into Instagram or anywhere else.');
+            console.log('Copied to clipboard:', textToCopy);
+          }).catch(err => {
+            console.error('Failed to copy text:', err);
+          });
+          return; // No need to open a URL
+        case 'facebook':
+          shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleUrl)}`;
+          break;
+        case 'linkedin':
+          shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(articleUrl)}&title=${encodeURIComponent(articleTitle)}`;
+          break;
+        case 'whatsapp':
+          shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(articleTitle)} ${encodeURIComponent(articleUrl)}`;
+          break;
+        default:
+          alert('Sharing is not supported on this platform.');
+          return; // Stop further execution for unknown platforms
+      }
+      // Open the share URL in a new window
+      window.open(shareUrl, '_blank', 'width=600,height=400');
 
-        if (navigator.share) {
-          console.log('Web Share API supported');
-
-          try {
-            await navigator.share({
-              title: 'Check out this article: ' + document.title,
-              text: `Check out this article by ${AuthorsName}:`,
-              url: window.location.href,
-            });
-            console.log('Content shared successfully');
-          } catch (error) {
-            console.error('Error sharing content:', error);
-          }
-        } else {
-          console.log('Web Share API not supported on this browser.');
-          alert('Sharing is not supported on this browser.');
-        }
-      });
-    });
-  } else {
-    console.error('Share buttons not found in the document.');
-  }
+      // Hide the share options after sharing
+      const shareOptions = articleElement.querySelector('.share-options');
+      if (shareOptions) {
+        shareOptions.style.display = 'none';
+      }
+    }
+  });
 });
 	</script>
 
