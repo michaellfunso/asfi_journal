@@ -52,6 +52,7 @@ function UpdateIssues(ArticleLst, currentPage, totalPages) {
             const isOpenAccess = article.is_open_access
             let AddEditorsChoice = ""
             let AddOpenAccess = ""
+            let openAccessFOrFront = ""
             
 
             if(isEditorsChoice && isEditorsChoice === "yes"){
@@ -62,8 +63,10 @@ function UpdateIssues(ArticleLst, currentPage, totalPages) {
 
             if(isOpenAccess && isOpenAccess === "yes"){
                 AddOpenAccess = `<span><img src="../images/20181007070735!Open_Access_logo_PLoS_white.svg" style="width:10px;" alt=""> Open Access</span>`
+                openAccessFOrFront = `<span><img src="./images/20181007070735!Open_Access_logo_PLoS_white.svg" style="width:10px;" alt=""> Open Access</span>`
             }else{
                 AddOpenAccess = ""
+                openAccessFOrFront = ""
             }
 
             const maxLength = 50;
@@ -155,7 +158,7 @@ function UpdateIssues(ArticleLst, currentPage, totalPages) {
                             ArticleListFront.innerHTML += `
                         <div class="issue-item wow fadeInLeft" data-wow-delay="200ms">
 				<div class="doi-access-wrapper"><span class="item-category">${ArticleType}</span>
-                <span style="margin-right:60px;">${AddOpenAccess} ${AddEditorsChoice}</span>
+                <span style="margin-right:60px;">${openAccessFOrFront} ${AddEditorsChoice}</span>
                 </div>
 				<a href="./content?sid=${ArticleId}" class="issue-item__title visitable">
 					<h3 lang="en" class="issue-item__title issue-item__title__en">${ArticleTitle}</h3></a>
