@@ -52,7 +52,8 @@ function UpdateTemporaryArticles(ArticleLst, currentPage, totalPages) {
             const isOpenAccess = article.is_open_access
             let AddEditorsChoice = ""
             let AddOpenAccess = ""
-            
+            let openAccessFOrFront = ""
+        
 
             if(isEditorsChoice && isEditorsChoice === "yes"){
                 AddEditorsChoice = `<span style="margin-left: 50px;">Editor's Choice <svg style="width:20px;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.965 8.521C19.988 8.347 20 8.173 20 8c0-2.379-2.143-4.288-4.521-3.965C14.786 2.802 13.466 2 12 2s-2.786.802-3.479 2.035C6.138 3.712 4 5.621 4 8c0 .173.012.347.035.521C2.802 9.215 2 10.535 2 12s.802 2.785 2.035 3.479A3.976 3.976 0 0 0 4 16c0 2.379 2.138 4.283 4.521 3.965C9.214 21.198 10.534 22 12 22s2.786-.802 3.479-2.035C17.857 20.283 20 18.379 20 16c0-.173-.012-.347-.035-.521C21.198 14.785 22 13.465 22 12s-.802-2.785-2.035-3.479zm-9.01 7.895-3.667-3.714 1.424-1.404 2.257 2.286 4.327-4.294 1.408 1.42-5.749 5.706z" fill="#4d91f7" class="fill-000000"></path></svg></span>`;
@@ -61,9 +62,11 @@ function UpdateTemporaryArticles(ArticleLst, currentPage, totalPages) {
             }
 
             if(isOpenAccess && isOpenAccess === "yes"){
-                AddOpenAccess = `<span><img src="./images/20181007070735!Open_Access_logo_PLoS_white.svg" style="width:10px;" alt=""> Open Access</span>`
+                AddOpenAccess = `<span><img src="../images/20181007070735!Open_Access_logo_PLoS_white.svg" style="width:10px;" alt=""> Open Access</span>`
+                openAccessFOrFront = `<span><img src="./images/20181007070735!Open_Access_logo_PLoS_white.svg" style="width:10px;" alt=""> Open Access</span>`
             }else{
                 AddOpenAccess = ""
+                openAccessFOrFront = ""
             }
 
             const maxLength = 50;
@@ -112,7 +115,7 @@ function UpdateTemporaryArticles(ArticleLst, currentPage, totalPages) {
                             
                     <div class="issue-item wow fadeInLeft" data-wow-delay="200ms">
 				<div class="doi-access-wrapper"><span class="item-category">${ArticleType}</span><span style="margin-right:60px;">${AddOpenAccess} ${AddEditorsChoice}</span></div>
-				<a href="./content?sid=${ArticleId}" class="issue-item__title visitable">
+				<a href="../content?sid=${ArticleId}" class="issue-item__title visitable">
 					<h3 lang="en" class="issue-item__title issue-item__title__en">${ArticleTitle}</h3></a>
 					<div class="loa comma">
 					<p class="article-authors" title="${AuthorsName}">${AuthorsName}</p>
@@ -122,8 +125,8 @@ function UpdateTemporaryArticles(ArticleLst, currentPage, totalPages) {
 						</ul>
 						<div class="content-item-format-links">
 							<ul class="rlist--inline separator">
-							<li><a href="./content?sid=${ArticleId}&title=${ArticleTitle}#content" title="Abstract" aria-label="Abstract for ${ArticleTitle}">Abstract</a></li>
-							<li><a href="./content?sid=${ArticleId}&title=${ArticleTitle}#fulltext" title="Full text" aria-label="Full text for ${ArticleTitle}">Full text</a></li>
+							<li><a href="../content?sid=${ArticleId}&title=${ArticleTitle}#content" title="Abstract" aria-label="Abstract for ${ArticleTitle}">Abstract</a></li>
+							<li><a href="../content?sid=${ArticleId}&title=${ArticleTitle}#fulltext" title="Full text" aria-label="Full text for ${ArticleTitle}">Full text</a></li>
 							<li><a href="../useruploads/manuscripts/${ArticleFile}" target="_blank" title="ePDF" class="downloadLink" aria-label="PDF for ${ArticleTitle}">PDF</a></li>
 							<li><a href="" title="References" aria-label="References for ${ArticleTitle}">References</a></li>
                             <li title="Views" aria-label="Views for ${ArticleTitle}"><span>${viewsCount}</span> Views</li>
@@ -155,7 +158,7 @@ function UpdateTemporaryArticles(ArticleLst, currentPage, totalPages) {
                             ArticleListFront.innerHTML += `
                         <div class="issue-item wow fadeInLeft" data-wow-delay="200ms">
 				<div class="doi-access-wrapper"><span class="item-category">${ArticleType}</span>
-                <span style="margin-right:60px;">${AddOpenAccess} ${AddEditorsChoice}</span>
+                <span style="margin-right:60px;">${openAccessFOrFront} ${AddEditorsChoice}</span>
                 </div>
 				<a href="./content?sid=${ArticleId}" class="issue-item__title visitable">
 					<h3 lang="en" class="issue-item__title issue-item__title__en">${ArticleTitle}</h3></a>

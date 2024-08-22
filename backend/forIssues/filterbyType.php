@@ -1,6 +1,6 @@
 <?php
 
-include "./db.php";
+include "../db.php";
 
 
 // $data = json_decode(file_get_contents("php://input"),true);
@@ -11,7 +11,7 @@ $type = $_GET["type"];
 if(isset($type)){
     $searchQuery = $type;    
         try {
-            $stmt = $con->prepare("SELECT * FROM `journals` WHERE `article_type` = ? AND `is_publication` = 'no'");
+            $stmt = $con->prepare("SELECT * FROM `journals` WHERE `article_type` = ? AND `is_publication` = 'yes'");
     
         
             if (!$stmt) {
