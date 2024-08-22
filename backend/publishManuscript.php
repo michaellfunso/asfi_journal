@@ -26,7 +26,6 @@ $dateSubmitted = $_POST["date_submitted"];
 $dateReviewed = $_POST["date_reviewed"];
 $dateAccepted = $_POST["date_accepted"];
 $datePublished = $_POST["date_published"];
-$HyperLink = $_POST["Hyperlink"];
 
 if(isset($_POST["editor-choice"])){
 $editorsChoice = $_POST["editor-choice"];
@@ -38,6 +37,12 @@ if(isset($_POST["open-access"])){
 $openAccess = $_POST["open-access"];
 }else{
 $openAccess = "no";
+}
+
+if(isset($_POST["Hyperlink"])){
+    $HyperLink = $_POST["Hyperlink"];
+}else{
+    $HyperLink = "N/A";
 }
 
 $quillContent = json_decode($_POST['article_content'], true);
