@@ -1143,16 +1143,6 @@ document.addEventListener('DOMContentLoaded', function() {
         case 'twitter':
           shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(articleTitle)}&url=${encodeURIComponent(articleUrl)}`;
           break;
-		  case 'instagram':
-          // Copy the text to the clipboard
-          const textToCopy = `Check out this article: ${articleTitle}\n${articleUrl}`;
-          navigator.clipboard.writeText(textToCopy).then(() => {
-            alert('Copied to clipboard. You can now paste it into Instagram or anywhere else.');
-            console.log('Copied to clipboard:', textToCopy);
-          }).catch(err => {
-            console.error('Failed to copy text:', err);
-          });
-          return; // No need to open a URL
         case 'facebook':
           shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleUrl)}`;
           break;
@@ -1162,6 +1152,16 @@ document.addEventListener('DOMContentLoaded', function() {
         case 'whatsapp':
           shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(articleTitle)} ${encodeURIComponent(articleUrl)}`;
           break;
+		case 'instagram':
+			// Copy the text to the clipboard
+			const textToCopy = `Check out this article: ${articleTitle}\n${articleUrl}`;
+			navigator.clipboard.writeText(textToCopy).then(() => {
+				alert('Copied to clipboard. You can now paste it into Instagram or anywhere else.');
+				console.log('Copied to clipboard:', textToCopy);
+			}).catch(err => {
+				console.error('Failed to copy text:', err);
+			});
+			return; // No need to open a URL
         default:
           alert('Sharing is not supported on this platform.');
           return; // Stop further execution for unknown platforms
