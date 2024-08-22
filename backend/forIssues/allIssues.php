@@ -11,7 +11,7 @@ $items_per_page = $_GET["limit"];
 $offset = ($page - 1) * $items_per_page;
 
 
-
+$totalPages = 0;
 if (isset($_GET["k"])) {
     $searchQuery = $_GET["k"];
 
@@ -78,8 +78,6 @@ if (isset($_GET["k"])) {
         $resultC = $stmt->get_result();
 
     try {
-
-
             $journalCount = mysqli_num_rows($resultC);
             $stmt = $con->prepare("SELECT * FROM `journals` WHERE `is_publication` = 'yes' ORDER BY `id` DESC LIMIT ? OFFSET ?");
 
