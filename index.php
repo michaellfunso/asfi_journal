@@ -312,8 +312,8 @@
 							<li class="dropdown">
 								<a href="#" class='menu-item'>Browse Issues</a>
 								<ul class="dropdown-menu">
-									<li><a href="./issues.html" class='menu-item'>Issues</a></li>
-									<li><a href="./supplements.html" class='menu-item'>Supplements</a></li>
+									<li><a href="./issues" class='menu-item'>Issues</a></li>
+									<li><a href="./supplements" class='menu-item'>Supplements</a></li>
 								</ul>
 							</li>
 							<li><a href="./editors.html" class='menu-item'>Meet The Editors</a></li>
@@ -462,8 +462,8 @@
 				style="margin-left: 70%; position: absolute; margin-top: -40px; text-decoration: underline;">
 				<span>Read More</span>
 				<div class="dropdown-content">
-					<a href="./issues.html">Issues</a>
-					<a href="./supplements.html">Supplements</a>
+					<a href="./issues">Issues</a>
+					<a href="./supplements">Supplements</a>
 				</div>
 			</div>
 			<div class="tab__content"><div id="pane-01cbe741-499a-4611-874e-1061f1f4679e01" aria-labelledby="pane-01cbe741-499a-4611-874e-1061f1f4679e01con" role="tabpanel" class="tab__pane" aria-hidden="false">
@@ -476,7 +476,7 @@
         <div data-mathjax="" class="top-content" id="article_items_container">
 
 			</div>
-<a href="" title="More articles" class="more-widget-link" style="display:flex; justify-content: flex-end; margin-bottom: 20px; margin-top: 6px; margin-right: 16px;">More articles</a>
+<a href="./issues" title="More articles" class="more-widget-link" style="display:flex; justify-content: flex-end; margin-bottom: 20px; margin-top: 6px; margin-right: 16px;">More articles</a>
 </div>
 </div></div>
 
