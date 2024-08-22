@@ -18,15 +18,17 @@ if(InvitationFor && email && ArticleId && (Accept || Reject)){
     }
 console.log(InvitationFor, email, ArticleId, Accept, Reject, Action)
     if(InvitationFor === "review"){
-
-
     fetch(`${submissionsEndpoint}/backend/reviewers/invitations.php?u_id=${email}&a_id=${ArticleId}&invite_for=${InvitationFor}&action=${Action}`, {
         method:"GET",
     }).then(res=>res.json())
     .then(data=>{
-        if(data.status === "success"){
+        if(data.status === "success" ){
             alert(data.message)
+            if(Action === "accept"){
             window.location.href = `${parentDirectoryName}/portal/reviewerSignup/?e=${email}`
+            }else{
+                window.location.href = "https://asfirj.org"
+            }
         }else{
             alert(data.message)
         }
@@ -48,7 +50,12 @@ console.log(InvitationFor, email, ArticleId, Accept, Reject, Action)
         .then(data=>{
             if(data.status === "success"){
                 alert(data.message)
+                if(Action === "accept"){
                 window.location.href = `${parentDirectoryName}/portal/reviewerSignup/`
+                   
+                    }else{
+                        window.location.href = "https://asfirj.org"
+                    }
             }else{
                 alert(data.message)
             }

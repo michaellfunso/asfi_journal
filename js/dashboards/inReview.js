@@ -35,6 +35,8 @@ fetch(`${submissionsEndpoint}/backend/accounts/inReview.php`, {
                         StatusMain = "Submission Accepted"
                     }else if(ArticlesInfo.status === 'rejected'){
                         StatusMain = "Submission was Rejected"
+                    }else if(ArticlesInfo.status === 'review_submitted' || ArticlesInfo.status === "submitted_for_review" || ArticlesInfo.status === "review_invite_accepted"){
+                        StatusMain = "Under Review"
                     }
                             ArticlesContainer.innerHTML += `         <tr id="queue_0" name="queue_0" role="row" class="odd">
                      
