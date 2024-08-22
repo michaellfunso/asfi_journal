@@ -115,7 +115,7 @@ function UpdateTemporaryArticles(ArticleLst, currentPage, totalPages) {
                             
                     <div class="issue-item wow fadeInLeft" data-wow-delay="200ms">
 				<div class="doi-access-wrapper"><span class="item-category">${ArticleType}</span><span style="margin-right:60px;">${AddOpenAccess} ${AddEditorsChoice}</span></div>
-				<a href="./content?sid=${ArticleId}" class="issue-item__title visitable">
+				<a href="../content?sid=${ArticleId}" class="issue-item__title visitable">
 					<h3 lang="en" class="issue-item__title issue-item__title__en">${ArticleTitle}</h3></a>
 					<div class="loa comma">
 					<p class="article-authors" title="${AuthorsName}">${AuthorsName}</p>
@@ -125,8 +125,8 @@ function UpdateTemporaryArticles(ArticleLst, currentPage, totalPages) {
 						</ul>
 						<div class="content-item-format-links">
 							<ul class="rlist--inline separator">
-							<li><a href="./content?sid=${ArticleId}&title=${ArticleTitle}#content" title="Abstract" aria-label="Abstract for ${ArticleTitle}">Abstract</a></li>
-							<li><a href="./content?sid=${ArticleId}&title=${ArticleTitle}#fulltext" title="Full text" aria-label="Full text for ${ArticleTitle}">Full text</a></li>
+							<li><a href="../content?sid=${ArticleId}&title=${ArticleTitle}#content" title="Abstract" aria-label="Abstract for ${ArticleTitle}">Abstract</a></li>
+							<li><a href="../content?sid=${ArticleId}&title=${ArticleTitle}#fulltext" title="Full text" aria-label="Full text for ${ArticleTitle}">Full text</a></li>
 							<li><a href="../useruploads/manuscripts/${ArticleFile}" target="_blank" title="ePDF" class="downloadLink" aria-label="PDF for ${ArticleTitle}">PDF</a></li>
 							<li><a href="" title="References" aria-label="References for ${ArticleTitle}">References</a></li>
                             <li title="Views" aria-label="Views for ${ArticleTitle}"><span>${viewsCount}</span> Views</li>
