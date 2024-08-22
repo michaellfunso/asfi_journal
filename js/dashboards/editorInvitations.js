@@ -24,7 +24,7 @@ if(InvitationFor && email && ArticleId && (Accept || Reject)){
     .then(data=>{
         if(data.status === "success"){
             alert(data.message)
-            window.location.href = `${parentDirectoryName}portal/editorSignup/?e=${email}`
+            window.location.href = `${parentDirectoryName}/portal/editorSignup/?e=${email}`
         }else{
             alert(data.message)
         }

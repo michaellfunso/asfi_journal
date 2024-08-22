@@ -255,7 +255,7 @@
                         </div>
                         <div >
                             <label for="">Hyperlink to another published article in the journal (optional):</label>
-                            <input type="text" class="form-control" placeholder="Enter Link..." name="Hyperlink" id="Hyperlink">
+                            <input type="url" class="form-control" placeholder="Enter Link..." name="Hyperlink" id="Hyperlink">
                         </div>
                         <div >
                             <label for="">Date of Manuscript Submitted:</label>
@@ -273,12 +273,16 @@
                             <label for="">Date of Manuscript Published:</label>
                             <input type="date" class="form-control" name="date_published" id="date_published">
                         </div>
-                        <div style="display: flex;">
+                        <div  style="display: flex; align-items: center; height:max-content;">
                             <label for="">Editor's Choice <svg style="width:20px;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.965 8.521C19.988 8.347 20 8.173 20 8c0-2.379-2.143-4.288-4.521-3.965C14.786 2.802 13.466 2 12 2s-2.786.802-3.479 2.035C6.138 3.712 4 5.621 4 8c0 .173.012.347.035.521C2.802 9.215 2 10.535 2 12s.802 2.785 2.035 3.479A3.976 3.976 0 0 0 4 16c0 2.379 2.138 4.283 4.521 3.965C9.214 21.198 10.534 22 12 22s2.786-.802 3.479-2.035C17.857 20.283 20 18.379 20 16c0-.173-.012-.347-.035-.521C21.198 14.785 22 13.465 22 12s-.802-2.785-2.035-3.479zm-9.01 7.895-3.667-3.714 1.424-1.404 2.257 2.286 4.327-4.294 1.408 1.42-5.749 5.706z" fill="#4d91f7" class="fill-000000"></path></svg> :</label>
-                            <input type="checkbox" class="" style="margin-left: 10px; height: 20px; width: 20px;" name="editor-choice" id="editor-choice">
-                            <p style="font: italic;">(Please tick this box only if this article is an Editor's Choice.)</p>
+                            <input type="checkbox" class="" style="margin-left: 10px; height: 20px; width: 20px;" name="editor-choice" value="yes" id="editor-choice">
+                             <div style="font-style: italic; display: flex; margin-left: 5px;"> (Please tick this box only if this article is an Editor's Choice.)</div>
                         </div>
-
+                        <div style="display: flex; align-items: center; height:max-content;"  >
+                            <label for="">Open Access  <img src="../images/20181007070735!Open_Access_logo_PLoS_white.svg" style="width:10px;" alt=""> :</label>
+                            <input type="checkbox" class="" style="margin-left: 10px; height: 20px; width: 20px;" name="open-access" value="yes" id="open-access"/>
+                             <div style="font-style: italic; height:50%; display: flex; margin-left: 5px;"> (Please tick this box only if this article is Open Access.)</div>
+                        </div>
                         <div >
                             <label for="">Verification Code:</label>
                             <input type="password" class="form-control" placeholder="type code..." name="verifyCode" id="verifyCode" required>
@@ -292,56 +296,7 @@
 
         </div>
 
-        <!-- <div class="main-section">
-            <div class="info-1">
-              <div class="info-img">
-                <img src="/public/images/user-avatar.png" alt="">
-              </div>
-              
-              <div class="info">
-                <h4>Benefits for Researchers</h4>
-                <ul>
-                    <li>All types of research can be published rapidly: articles, data
-                        sets, null results, protocols, case reports, incremental findings
-                        and more.
-                    </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="info-2">
-                <div class="info">
-                  <h4>Benefits for Research</h4>
-                  <ul>
-                      <li>Aims to shift the way research and researchers are evaluated.
-                      </li>
-                  </ul>
-                </div>
-                <div class="info-img">
-                    <img src="/public/images/user-avatar.png" alt="">
-                </div>
-                  
-            </div>
-
-            <div class="info-3">
-                <div class="info-img">
-                  <img src="/public/images/user-avatar.png" alt="">
-                </div>
-                
-                <div class="info">
-                  <h4>Benefits for Researchers</h4>
-                  <ul>
-                      <li>All types of research can be published rapidly: articles, data
-                          sets, null results, protocols, case reports, incremental findings
-                          and more.
-                      </li>
-                  </ul>
-                </div>
-            </div>
-        </div> -->
     </main>
-         <!-- Main js -->
-    <!-- <script src="https://asfirj.org/assets/templates/metro_hyip/js/main.js"></script> -->
 
 	<script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -522,7 +477,7 @@
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
 <script type="module" src="../js/forms/quill.js"></script>
-<script type="module" src="../js/forms/createArticle.js"></script>
+<script type="module" src="../js/forms/publish.js"></script>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
 <script>
