@@ -15,7 +15,7 @@ if (isset($_GET["k"])) {
     $searchQuery = $_GET["k"];
 
     try {
-        $stmtCount = $con->prepare("SELECT COUNT(`id`) AS `totalJournals` FROM `journals` WHERE 1");
+        $stmtCount = $con->prepare("SELECT COUNT(`id`) AS `totalJournals` FROM `journals` WHERE `is_publication` = 'no'");
         if (!$stmtCount) {
             throw new Exception("Failed to prepare  Count statement: " . $con->error);
         } else {
@@ -24,7 +24,7 @@ if (isset($_GET["k"])) {
 
             $journalCount = $rowC["totalJournals"];
 
-            $stmt = $con->prepare("SELECT * FROM `journals` WHERE LOWER(`manuscript_full_title`) LIKE CONCAT('%', LOWER(?), '%') COLLATE utf8mb4_general_ci OR LOWER(`manuscript_running_title`) LIKE CONCAT('%', LOWER(?), '%') COLLATE utf8mb4_general_ci ORDER BY `id` DESC ");
+            $stmt = $con->prepare("SELECT * FROM `journals` WHERE LOWER(`manuscript_full_title`) LIKE CONCAT('%', LOWER(?), '%') COLLATE utf8mb4_general_ci OR LOWER(`manuscript_running_title`) LIKE CONCAT('%', LOWER(?), '%') COLLATE utf8mb4_general_ci AND `is_publication` = 'no' ORDER BY `id` DESC ");
 
 
             if (!$stmt) {
@@ -67,7 +67,7 @@ if (isset($_GET["k"])) {
     }
 
 } else {
-    $stmt= $con->prepare("SELECT * FROM `journals` WHERE 1");
+    $stmt= $con->prepare("SELECT * FROM `journals` WHERE `is_publication` = 'no'");
     if (!$stmt) {
         throw new Exception("Failed to prepare Count statement: " . $con->error);
     } else {
@@ -80,7 +80,7 @@ if (isset($_GET["k"])) {
 
 
             $journalCount = mysqli_num_rows($resultC);
-            $stmt = $con->prepare("SELECT * FROM `journals` WHERE 1 ORDER BY `id` DESC LIMIT ? OFFSET ?");
+            $stmt = $con->prepare("SELECT * FROM `journals` WHERE `is_publication` = 'no' ORDER BY `id` DESC LIMIT ? OFFSET ?");
 
 
             if (!$stmt) {

@@ -1,6 +1,6 @@
 <?php
 
-include "./db.php";
+include "../db.php";
 
 
 // $data = json_decode(file_get_contents("php://input"),true);
@@ -11,7 +11,7 @@ $type = $_GET["k"];
 if(isset($type)){
     $searchQuery = $type;    
         try {
-            $stmt = $con->prepare("SELECT * FROM `journals` WHERE `is_publication` = 'no' AND LOWER(`manuscript_full_title`) LIKE CONCAT('%', LOWER(?), '%') OR LOWER(`manuscript_running_title`) LIKE CONCAT('%', LOWER(?), '%') ");
+            $stmt = $con->prepare("SELECT * FROM `journals` WHERE `is_publication` = 'yes' AND LOWER(`manuscript_full_title`) LIKE CONCAT('%', LOWER(?), '%') OR LOWER(`manuscript_running_title`) LIKE CONCAT('%', LOWER(?), '%') ");
     
         
             if (!$stmt) {

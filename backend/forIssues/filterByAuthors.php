@@ -1,6 +1,6 @@
 <?php
 
-include "./db.php";
+include "../db.php";
 
 
 // $data = json_decode(file_get_contents("php://input"),true);
@@ -9,6 +9,7 @@ $author = $_GET["author"];
 
 
 if(isset($author)){
+    
     try {
         $stmt = $con->prepare("SELECT * FROM `authors` WHERE `authors_fullname` = ?");
 
@@ -35,7 +36,7 @@ if(isset($author)){
             $articlesID= $row["article_id"];
 
             // Find Article related to search parameter 
-            $stmt = $con->prepare("SELECT * FROM `journals` WHERE `buffer` = ? AND `is_publication` = 'no'");
+            $stmt = $con->prepare("SELECT * FROM `journals` WHERE `is_publication` = 'yes' AND `buffer` = ? ");
  
     
             if (!$stmt) {
@@ -63,7 +64,7 @@ if(isset($author)){
             $response = array('status'=> 'success', 'articlesList' => $articlesList);
             echo json_encode($response);
             }else{
-                $response = array('status'=> 'error', 'message' => "NO ARTICLES ASSOCIATED", 'articlesList' => []);
+                $response = array('status'=> 'error', 'message' => "NO ARTICLES ISSUES with $author", 'articlesList' => []);
                 echo json_encode($response);
             }
     

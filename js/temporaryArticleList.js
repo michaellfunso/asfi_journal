@@ -61,7 +61,7 @@ function UpdateTemporaryArticles(ArticleLst, currentPage, totalPages) {
             }
 
             if(isOpenAccess && isOpenAccess === "yes"){
-                AddOpenAccess = `<span><img src="./images/20181007070735!Open_Access_logo_PLoS_white.svg" style="width:10px;" alt=""> Open Access</span>`
+                AddOpenAccess = `<span><img src="../images/20181007070735!Open_Access_logo_PLoS_white.svg" style="width:10px;" alt=""> Open Access</span>`
             }else{
                 AddOpenAccess = ""
             }

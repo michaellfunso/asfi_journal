@@ -195,13 +195,13 @@ if ($uploadOk == 0) {
         }
       
         try {
-            $stmt = $con->prepare("INSERT INTO `journals` (`article_type`, `manuscript_file`,  `manuscript_full_title`,`unstructured_abstract`,`manuscriptPhoto`,`corresponding_authors_email`, `buffer`,  `date_reviewed`, `date_submitted`, `date_accepted`, `date_published`, `is_editors_choice`, `hyperlink_to_others`, `is_open_access`) VALUES(?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?)");
-        
+            $stmt = $con->prepare("INSERT INTO `journals` (`article_type`, `manuscript_file`,  `manuscript_full_title`,`unstructured_abstract`,`manuscriptPhoto`,`corresponding_authors_email`, `buffer`,  `date_reviewed`, `date_submitted`, `date_accepted`, `date_published`, `is_editors_choice`, `hyperlink_to_others`, `is_open_access`, `is_publication`) VALUES(?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?, ?)");
+            $isPublication = "yes";
             if (!$stmt) {
                 throw new Exception("Failed to prepare statement: " . $con->error);
             }
         
-            $stmt->bind_param("ssssssssssssss", $articleType, $newFileName, $manuscript, $abstract, $coverImageName, $correspondingAuthorsEmail, $articleID, $dateReviewed, $dateSubmitted, $dateAccepted, $datePublished, $editorsChoice, $HyperLink, $openAccess);
+            $stmt->bind_param("sssssssssssssss", $articleType, $newFileName, $manuscript, $abstract, $coverImageName, $correspondingAuthorsEmail, $articleID, $dateReviewed, $dateSubmitted, $dateAccepted, $datePublished, $editorsChoice, $HyperLink, $openAccess, $isPublication);
         
             if (!$stmt->execute()) {
                 throw new Exception("Failed to execute statement: " . $stmt->error);
