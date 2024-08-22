@@ -36,6 +36,9 @@ uploadForm.addEventListener("submit", function(e) {
 
     })
     .catch(error => {
+        alert(error)
+        body.setAttribute("id", "formNotSubmitted")
+
         console.error('Error:', error);
     });
 });

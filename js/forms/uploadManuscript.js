@@ -118,6 +118,8 @@ if(SubmissionSTatus.value === "submitted"){
 
     })
     .catch(error => {
+        alert(error)
+        body.setAttribute("id", "formNotSubmitted")
         console.error('Error:', error);
     });
 });
