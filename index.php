@@ -97,7 +97,7 @@
     padding: .625rem;
 }
 .doi-access-wrapper {
-    padding-top: 20px;
+    padding-bottom: 15px;
 	display: flex;
     justify-content: space-between;
     /* width: 80%; */
@@ -1154,7 +1154,7 @@ document.addEventListener('DOMContentLoaded', function() {
           break;
 		case 'instagram':
 			// Copy the text to the clipboard
-			const textToCopy = `Check out this article: ${articleTitle}\n${articleUrl}`;
+			const textToCopy = `Check out this article: ${articleUrl}`;
 			navigator.clipboard.writeText(textToCopy).then(() => {
 				alert('Copied to clipboard. You can now paste it into Instagram or anywhere else.');
 				console.log('Copied to clipboard:', textToCopy);
