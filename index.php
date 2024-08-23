@@ -1138,7 +1138,7 @@ document.addEventListener('DOMContentLoaded', function() {
       let shareUrl = '';
       switch (event.target.dataset.platform) {
         case 'asfischolar':
-          shareUrl = `https://asfischolar.com/share?url=${encodeURIComponent(articleUrl)}`;
+          shareUrl = `https://asfischolar.org/share?url=${encodeURIComponent(articleUrl)}`;
           break;
         case 'twitter':
           shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(articleTitle)}&url=${encodeURIComponent(articleUrl)}`;
