@@ -8,8 +8,7 @@ $Feed_IMAGE = mysqli_query($con, $FID_IMAGE);
 $count = mysqli_num_rows($Feed_IMAGE);
 
 if($count > 0){
- 
-
+    
     while($row = mysqli_fetch_assoc($Feed_IMAGE)){
  
         $ArticleTitle = $row['manuscript_full_title'];

@@ -83,7 +83,37 @@ function ArticlePage(page) {
 }
 
 
-
+// document.addEventListener('DOMContentLoaded', function() {
+//     const shareButton = document.querySelectorAll('.shareButton');
+  
+//     if (shareButton) {
+//       console.log('Share button found');
+      
+//       shareButton.addEventListener('click', async function() {
+//         console.log('Share button clicked');
+  
+//         if (navigator.share) {
+//           console.log('Web Share API supported');
+          
+//           try {
+//             await navigator.share({
+//               title: 'Check out this article: ' + document.title,
+//               text: `Check out this article by ${AuthorsName}:`,
+//               url: window.location.href,
+//             });
+//             console.log('Content shared successfully');
+//           } catch (error) {
+//             console.error('Error sharing content:', error);
+//           }
+//         } else {
+//           console.log('Web Share API not supported on this browser.');
+//           alert('Sharing is not supported on this browser.');
+//         }
+//       });
+//     } else {
+//       console.error('Share button not found in the document.');
+//     }
+//   });
 
 
 

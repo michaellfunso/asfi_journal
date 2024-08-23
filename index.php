@@ -80,6 +80,204 @@
 		.footer-section a {
 			color: #dbdadaa9;
 		}
+		.tab__nav {
+    border-bottom: 1px solid #80078b;
+}
+.tab__nav li .active {
+    background-color: #80078b;
+	color: white;
+}
+.tab__nav li {
+    display: inline-block;
+    margin-bottom: .625rem;
+}
+.tab__nav a {
+    font-weight: 600;
+    border: none;
+    padding: .625rem;
+}
+.doi-access-wrapper {
+    padding-bottom: 15px;
+	display: flex;
+    justify-content: space-between;
+    /* width: 80%; */
+}
+.issue-item{
+	margin-top: 10px;
+	border-bottom: 1px solid black;
+	padding-bottom: 20px;
+}
+.rlist--inline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.content-item-format-links .rlist--inline li {
+	margin-right: 10px;
+	font-weight: bold;
+	color: #310357;
+}
+.content-item-format-links .rlist--inline li a{
+	padding-right: 10px;
+	color: #310357;
+}
+.comma p {
+	color: #3b3b3b;
+}
+.issue-item__details {
+	margin-top: 10px;
+}
+.section__mainHeader--mid {
+	font-size: 40px;
+}
+@media (min-width: 768px) {
+    .col-md-8 {
+        -ms-flex: 0 0 66.666667%;
+        flex: 0 0 66.666667%;
+        max-width: 100%;
+    }
+	.col-md-4 {
+        -ms-flex: 0 0 33.333333%;
+        flex: 0 0 33.333333%;
+        max-width: 100%;
+    }
+}
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 9999;
+  display: none;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #9834db;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  margin: auto;
+  margin-top: 20%;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.errorpopup {
+    position: fixed;
+    top: 30%; /* Adjust top spacing as needed */
+    right: 20px; /* Adjust right spacing as needed */
+    padding: 10px 20px;
+    background-color: #e22424;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    outline: none;
+    border: none;
+    z-index: 9999999;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.errorpopup.show {
+    opacity: 1;
+}
+
+.errorpopup.hidden {
+    display: none;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.errorpopup.slide-in {
+    animation: slideIn 0.3s forwards;
+}
+
+.successpopup {
+    position: fixed;
+    top: 30%; /* Adjust top spacing as needed */
+    right: 20px; /* Adjust right spacing as needed */
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    outline: none;
+    border: none;
+    z-index: 9999999;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.successpopup.show {
+    opacity: 1;
+}
+
+.successpopup.hidden {
+    display: none;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.successpopup.slide-in {
+    animation: slideIn 0.3s forwards;
+}
+
+.share-options {
+  /* position: absolute; */
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  z-index: 1000;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.share-options ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.share-options li {
+  margin: 5px 0;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.share-options li:hover {
+  color: #007bff;
+}
+.shareButton{
+	cursor: pointer;
+}
 	</style>
 </head>
 
@@ -89,7 +287,15 @@
 	<div class="site-preloader-wrap">
 		<div class="spinner"></div>
 	</div><!-- /.site-preloader-wrap -->
+	<div class="preloader" id="preloader">
+		<div class="loader"></div>
+	  </div>
+	  <div id="errorPopup" class="errorpopup hidden">
+  
+	  </div>
+	  <div id="successPopup" class="successpopup hidden">
 
+	  </div>
 	<header class="header header-one">
 		<div class="primary-header-one primary-header">
 			<div class="container">
@@ -106,8 +312,8 @@
 							<li class="dropdown">
 								<a href="#" class='menu-item'>Browse Issues</a>
 								<ul class="dropdown-menu">
-									<li><a href="./issues.html" class='menu-item'>Issues</a></li>
-									<li><a href="./supplements.html" class='menu-item'>Supplements</a></li>
+									<li><a href="./issues" class='menu-item'>Issues</a></li>
+									<li><a href="./supplements" class='menu-item'>Supplements</a></li>
 								</ul>
 							</li>
 							<li><a href="./editors.html" class='menu-item'>Meet The Editors</a></li>
@@ -123,7 +329,7 @@
 							<!-- <li><a href="./terms.html" class='menu-item'>Terms</a></li> -->
 							<li><a href="./contact.html" class='menu-item'>Contact Us</a></li>
 							<li class="header-right">
-								<a class="header-btn" href="./submitManuscriptSignIn.html">
+								<a class="header-btn" href="/portal">
 									<p>Submit Manuscript</p>
 								</a>
 							</li>
@@ -132,7 +338,7 @@
 
 					<div class="header-right">
 						<!-- <a class='header-btn' href='user/register.html'>Create Account<span></span></a> -->
-						<a class="header-btn" href="./submitManuscriptSignIn.html">
+						<a class="header-btn" href="/portal">
 							<p>Submit Manuscript</p>
 						</a>
 						<!-- Burger menu -->
@@ -166,7 +372,7 @@
 
 		</ol>
 		<div class="carousel-inner" role="listbox">
-		<div class='item' style='background-image: url(./images/articleImages/CALL.jpg); background-size:cover;'>
+		<!-- <div class='item' style='background-image: url(./images/articleImages/CALL.jpg); background-size:cover;'>
                 <div class='carousel-caption article-info1'>
 
                     <div class=' big'>
@@ -191,7 +397,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 	
 			<?php include "./backend/homeSlideArticles.php" ?>
 
@@ -210,20 +416,231 @@
 
 
 	<section class="article-section bd-bottom padding" style="display: flex; flex-direction: column;">
-		<div style="">
-			<h3 style="width: 100%; display: flex; justify-content: center;">Recent Articles</h3>
+
+
+		<div class="container"><div class="row"><div class=" col-md-12">
+
+
+
+        
+        <div class="gutterless--xs gutterless--sm gutterless--md main-content col-md-8">
+
+
+
+        
+        <div id="rich-text-3643f25c-5be2-4cc8-a718-3728186a2285" class="pb-rich-text">
+        <p><em>ASFIRJ</em>, the official journal of the African Science Frontiers Initiatives (ASFI), stands as an online-only, open-access multidisciplinary journal, dedicated to advancing, impacting, and communicating research from all disciplines, encompassing both basic and applied studies. Within the African scientific community, <em>ASFIRJ</em> endeavors to provide an unparalleled platform, offering an author-friendly approach to scientific publishing from manuscript submission through publication. Our overarching ambition is to emerge as one of Africa's leading research journals, globally competitive, and unwaveringly focused on delivering quality research with significant impact.</p>
+</div>
+    
+    
+        <!-- <div data-widget-def="general-rich-text" data-widget-id="d20463a9-168a-4748-812e-a58e0f483c96" class="clearfix my-4">
+   
+            <h2 class="section__mainHeader--mid">
+                Virtual Issues
+            </h2>
+        
+        <div id="rich-text-d20463a9-168a-4748-812e-a58e0f483c96" class="pb-rich-text">
+        <p><a href="./callfor.html" target="_blank" rel="noopener"><img src="./images/articleImages/CALL.jpg" alt="" width="728" height="186"></a></p>
+</div>
+
+
+        </div> -->
+    
+    
+        <div data-widget-def="UX3Tabs" data-widget-id="01cbe741-499a-4611-874e-1061f1f4679e" class="tabs--defult-style">
+      
+            <h2 class="section__mainHeader--mid">
+                Articles
+            </h2>
+        
+        <div data-ctrl-res="screen-md" class="tab">
+			<ul role="tablist" aria-owns="pane-01cbe741-499a-4611-874e-1061f1f4679e01con pane-01cbe741-499a-4611-874e-1061f1f4679e11con pane-01cbe741-499a-4611-874e-1061f1f4679e21con " class="tab__nav rlist">
+				<li role="presentation" class="tab__nav__item active"><a href="#pane-01cbe741-499a-4611-874e-1061f1f4679e01" aria-controls="pane-01cbe741-499a-4611-874e-1061f1f4679e01" role="tab" data-toggle="tab" id="pane-01cbe741-499a-4611-874e-1061f1f4679e01con" aria-selected="true" class="tab__nav__item__link active" tabindex="0"><span>Most Recent</span></a></li>
+				
+			</ul>
 			<div class="dropdown"
 				style="margin-left: 70%; position: absolute; margin-top: -40px; text-decoration: underline;">
 				<span>Read More</span>
 				<div class="dropdown-content">
-					<a href="./issues.html">Issues</a>
-					<a href="./supplements.html">Supplements</a>
+					<a href="./issues">Issues</a>
+					<a href="./supplements">Supplements</a>
 				</div>
 			</div>
-		</div>
-		<div class="article-items" id="article_items_container">
+			<div class="tab__content"><div id="pane-01cbe741-499a-4611-874e-1061f1f4679e01" aria-labelledby="pane-01cbe741-499a-4611-874e-1061f1f4679e01con" role="tabpanel" class="tab__pane" aria-hidden="false">
 
-		</div>
+
+
+			
+
+        
+        <div data-mathjax="" class="top-content" id="article_items_container">
+
+			</div>
+<a href="./issues" title="More articles" class="more-widget-link" style="display:flex; justify-content: flex-end; margin-bottom: 20px; margin-top: 6px; margin-right: 16px;">More articles</a>
+</div>
+</div></div>
+
+        </div>
+        <div data-widget-def="ux3-layout-widget" data-widget-id="4ce7b335-b48f-47f8-8428-2fb0e72b2ce1">
+        
+    
+        <div>
+    
+        <div data-widget-def="UX3CoverImage" data-widget-id="cc39c68d-547d-4f53-8960-d4d530111a33" class="grid-lg-2 grid-md-2 grid-sm-2 grid-xs-1  cover-image--parentInfo">
+
+        </div>
+    
+
+</div>
+
+        </div>
+
+        <div data-widget-def="ux3-layout-widget" data-widget-id="36675c73-42dc-400d-8e5a-5ac4584ec97c" class="card card--light shadow clearfix">
+        
+
+
+
+        
+        <div><div class="pb-dropzone" data-pb-dropzone="col-0" title="col-0"></div></div>
+
+        </div>
+
+    
+        <div data-widget-def="ux3-layout-widget" data-widget-id="30cc1a9b-0386-4da3-958b-05f8b519dc9c">
+     
+        <div>
+
+        <div data-widget-def="UX3MultiSearchWidget" data-widget-id="268fdf69-aca1-43fb-be55-639e459d204f" class="news grid-lg-2 grid-md-2 grid-sm-2 grid-xs-1 cover-image--parentInfo">
+        
+        
+        <div class="multi-search"><input type="hidden" name="contextual_publication" value="13989995"><input type="hidden" name="contextual_group" value="10.1111/all.v79.8"><div class="multi-search--empty"></div></div>
+
+        </div>
+    
+
+</div>
+
+        </div>
+    
+
+</div><div class="gutterless--xs gutterless--sm gutterless--md col-md-4">
+
+
+        <div data-widget-def="ux3-layout-widget" data-widget-id="ee7a3430-1136-4dfb-922e-2ee614f121aa" class="journal-sidebar">
+    
+        <div>
+      <div>
+      
+        <div id="etoc-signup" role="status" aria-atomic="true" class="alert-sign-up"><div class="alert-sign-up__box pb-0"><i aria-hidden="true" class="fas fa-envelope"></i><h3>Sign up for email alerts</h3></div>
+		<div class="alert-sign-up__content form-content">
+		<div class="subscribe-form">
+								<form class="subscribe-form newsLetterForm" id="newsLetterForm">
+								<p class="form-instructions small">Enter your email to receive alerts when new articles and issues are published.</p>
+									<input class="form-control" style="border: 1px solid black; color: black;" type="email" name="email" placeholder="Email... "
+										required id="subscribeEmail">
+									<!-- <input type="hidden" name="action" value="mailchimpsubscribe"> -->
+									<button class="submit">Subscribe<i class="fas fa-paper-plane"></i></button>
+									<div class="clearfix"></div>
+								</form>
+							</div>
+			
+</div></div>
+</div>
+
+
+
+
+        
+        <div class="journal-side-section journal-actions-container"><a href="/portal"><button
+							style="background-color: #80078b; color: white; height: 60px; width: 100%;  margin: auto; margin-top: 20px; font-size: 20px;"><i aria-hidden="true" class="fas fa-book"></i> Submit
+							Manuscript</button></a></div> <br>
+
+    
+    
+      
+		<div data-widget-def="UX3HTMLWidget" data-widget-id="5e6f26aa-d597-4688-9154-94c250dbfcf6" class="card--bordered my-4 sidebar-society-logo">
+        
+        
+        <div id="societyText"><p>Official journal of the African Science Frontiers Initiatives (ASFI)</p><a href="https://africansciencefrontiers.com/" target="_blank"><img style="width:80%" alt="null" src="https://africansciencefrontiers.com/images/logo2.png"></a></div>
+
+        </div>
+
+		
+ 
+
+
+
+
+        
+        <div class="twitter-timeline twitter-timeline-rendered" style="display: flex; max-width: 100%; margin-top: 0px; margin-bottom: 0px;"><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="Twitter Timeline" style="position: static; visibility: visible; width: 320px; height: 415px; display: block; flex-grow: 1;" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/asfirj1?dnt=false&amp;embedId=twitter-widget-0&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=en&amp;maxHeight=550px&amp;origin=https%3A%2F%2Fonlinelibrary.wiley.com%2Fjournal%2F13989995&amp;sessionId=ef0850769e2f0cd384b358527ce42a35fe64c5e5&amp;showHeader=true&amp;showReplies=false&amp;theme=light&amp;transparent=false&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716"></iframe></div> <script charset="utf-8" src="//platform.twitter.com/widgets.js" async=""></script>
+
+        <section data-widget-def="general-rich-text" data-widget-id="266c820e-8d8d-4461-b70a-ed001b1d9e7e" class="tabs--default-style">
+        
+      
+            <h2 class="section__mainHeader--small">
+                ASFIRJ Author Resources
+            </h2>
+        
+        <div id="rich-text-266c820e-8d8d-4461-b70a-ed001b1d9e7e" class="pb-rich-text">
+        <p>When preparing their submission, authors are encouraged to make use of the below resources which have been developed specifically for&nbsp;<em>Asfirj&nbsp;</em>authors.&nbsp;</p>
+<p><br>a. <a href="./authors.html#ob">What is the submission process?</a></p>
+<p>b. <a href="./authors.html#sr">How to revise a manuscript?</a></p>
+<p>c. <a href="./authors.html#pp">How to organize a manuscript?</a></p>
+<p>d. <a href="./authors.html#fig">Guidelines for specific manuscripts</a></p>
+<hr>
+</div>
+
+
+        </section>
+    
+
+        <div data-widget-def="general-html-asset" data-widget-id="e4a898a9-7e70-47da-bc1a-640268219765" class="mt-4 mb-4">
+    
+    
+        <div data-widget-def="UX3HTMLWidget" data-widget-id="56014d6b-bbc8-4ca7-ac51-490639ea3450" class="my-4">
+        
+       
+            <h2 class="section__mainHeader--small">
+                More from this journal
+            </h2>
+        
+        <div class="journal-side-section journal-resources">
+  <ul class="unordered-bordered-list">
+    <li><a href="./editors.html">Meet the Editors</a></li>
+    <li><a href="https://asfischolar.org" target="_blank">ASFI Scholar</a></li>
+	<div class="DST-iframe-nojobs"> <iframe id="mdgxWidgetiFrame" style="height: 400px; width:100%; border-radius: 15px;" src="https://asfischolar.org/home" frameborder="0"></iframe> </div>
+	<li><a href="https://africansciencefrontiers.com/" target="_blank">African Science Frontiers
+	Initiatives</a></li>
+	<div class="DST-iframe-nojobs"> <iframe id="mdgxWidgetiFrame" style="height: 400px; width:100%; border-radius: 15px;" src="https://africansciencefrontiers.com/" frameborder="0"></iframe> </div>
+
+</div>
+
+  </ul>
+</div>
+
+
+        </div>
+    
+
+</div>
+
+        </div>
+    
+
+</div>
+
+
+
+
+        
+        <div class="col-md-12">
+
+
+
+        
+        
+</div>
+</div></div></div>
 
 
 		<section class="about-section bd-bottom padding article-bottom" style="
@@ -248,7 +665,7 @@
 					<div class="dot-pattern"></div>
 				</div> -->
 
-					<div class="col-md-12 wow fadeInLeft" data-wow-delay="200ms" style="text-align: start;">
+					<div class="col-md-12 wow fadeInLeft" data-wow-delay="200ms" style="text-align: start; padding-left:30px;">
 						<div class='content'>
 							<p>
 								The official journal of the African Science Frontiers Initiatives (ASFI). ASFIRJ stands
@@ -285,7 +702,7 @@
 			</div>
 			<div class="article-side">
 				<div style="display: flex; flex-direction: column;">
-					<a href="./comingsoon.html"><button
+					<a href="/portal"><button
 							style="background-color: #80078b; color: white; height: 60px; width: 90%;  margin: auto; margin-top: 20px;">Submit
 							Manuscript</button></a>
 					<a href="#news"><button
@@ -540,7 +957,7 @@
 						<div class="footer-widget link-widget">
 							<h3>Author</h3>
 							<ul class="widget-links">
-								<!-- <li><i class="fas fa-square-full"></i><a href="./submitManuscriptSignIn.html" class='menu-item'>Submit Manuscript</a></li> -->
+								<!-- <li><i class="fas fa-square-full"></i><a href="./comingsoon.html" class='menu-item'>Submit Manuscript</a></li> -->
 								<li><i class="fas fa-square-full"></i><a href="" class='menu-item'>Print Request</a>
 								</li>
 							</ul>
@@ -588,7 +1005,7 @@
 							<h3>Newsletter Signup</h3>
 							<p>Signup today for hints, tips and the latest news and updates.</p>
 							<div class="subscribe-form">
-								<form class="subscribe-form" id="newsLetterForm">
+								<form class="subscribe-form newsLetterForm" id="newsLetterForm">
 									<input class="form-control" type="email" name="email" placeholder="Email *"
 										required id="subscribeEmail">
 									<!-- <input type="hidden" name="action" value="mailchimpsubscribe"> -->
@@ -669,7 +1086,9 @@
 	<div id="scrollup">
 		<button id="scroll-top" class="scroll-to-top"><i class="fas fa-chevron-up"></i></button>
 	</div>
-
+	<script>
+		
+	</script>
 	<script src="./front/public/js/vendor/jquery-1.12.4.min.js"></script>
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
@@ -691,9 +1110,74 @@
 	<script src="./front/public/js/vendor/wow.min.js"></script>
 
 	<script type="module" src="./js/general.js"></script>
-	<script src="./js/queries/allArticles.js" type="module"></script>
+	<script src="./js/queries/allIssues.js" type="module"></script>
 
 	<script src="./front/public/js/main.js"></script>
+	<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Event delegation for Share button
+  document.body.addEventListener('click', function(event) {
+    if (event.target && event.target.classList.contains('shareButton')) {
+      // Toggle the display of the share options
+      const shareOptions = event.target.closest('.issue-item').querySelector('.share-options');
+      if (shareOptions) {
+        shareOptions.style.display = (shareOptions.style.display === 'none' || shareOptions.style.display === '') ? 'block' : 'none';
+      }
+    }
+  });
+
+  // Event delegation for specific platform sharing
+  document.body.addEventListener('click', function(event) {
+    if (event.target && event.target.classList.contains('shareOption')) {
+      // Find the article details
+      const articleElement = event.target.closest('.issue-item');
+      const articleTitle = articleElement.querySelector('.issue-item__title').innerText;
+      const articleUrl = articleElement.querySelector('.issue-item__title').closest('a').href;
+
+      // Determine the sharing platform
+      let shareUrl = '';
+      switch (event.target.dataset.platform) {
+        case 'asfischolar':
+          shareUrl = `https://asfischolar.org/share?url=${encodeURIComponent(articleUrl)}`;
+          break;
+        case 'twitter':
+          shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(articleTitle)}&url=${encodeURIComponent(articleUrl)}`;
+          break;
+        case 'facebook':
+          shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleUrl)}`;
+          break;
+        case 'linkedin':
+          shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(articleUrl)}&title=${encodeURIComponent(articleTitle)}`;
+          break;
+        case 'whatsapp':
+          shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(articleTitle)} ${encodeURIComponent(articleUrl)}`;
+          break;
+		case 'instagram':
+			// Copy the text to the clipboard
+			const textToCopy = `Check out this article: ${articleUrl}`;
+			navigator.clipboard.writeText(textToCopy).then(() => {
+				alert('Copied to clipboard. You can now paste it into Instagram or anywhere else.');
+				console.log('Copied to clipboard:', textToCopy);
+			}).catch(err => {
+				console.error('Failed to copy text:', err);
+			});
+			return; // No need to open a URL
+        default:
+          alert('Sharing is not supported on this platform.');
+          return; // Stop further execution for unknown platforms
+      }
+      // Open the share URL in a new window
+      window.open(shareUrl, '_blank', 'width=600,height=400');
+
+      // Hide the share options after sharing
+      const shareOptions = articleElement.querySelector('.share-options');
+      if (shareOptions) {
+        shareOptions.style.display = 'none';
+      }
+    }
+  });
+});
+	</script>
 
 	<js-file>
 		<!-- Bootstrap core JavaScript

@@ -68,3 +68,14 @@
     margin: auto;
     
 }
+
+
+.newMessage {
+    background-color: rgba(255, 166, 0, 0.308);
+    border-left: 10px solid orange;
+
+}
+
+.readMessage{
+    background-color: transparent;
+}

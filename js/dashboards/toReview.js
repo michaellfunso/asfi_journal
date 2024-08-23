@@ -20,7 +20,7 @@ for(let i=0; i<reviewActions.length; i++){
         window.location.href = `${parentDirectoryName}/dashboard/reviewerdash/score?a=${currentId.value}`
         }
         if(currentAction.value === "view"){
-        window.location.href = `${parentDirectoryName}/dashboard/authordash/content?a=${currentId.value}`
+        window.location.href = `${parentDirectoryName}/dashboard/reviewerdash/content?a=${currentId.value}`
         }
     })
 }

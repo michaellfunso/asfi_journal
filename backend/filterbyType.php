@@ -11,7 +11,7 @@ $type = $_GET["type"];
 if(isset($type)){
     $searchQuery = $type;    
         try {
-            $stmt = $con->prepare("SELECT * FROM `journals` WHERE `article_type` = ? ");
+            $stmt = $con->prepare("SELECT * FROM `journals` WHERE `article_type` = ? AND `is_publication` = 'no'");
     
         
             if (!$stmt) {

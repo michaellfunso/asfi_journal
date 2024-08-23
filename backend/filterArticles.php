@@ -11,7 +11,7 @@ $type = $_GET["k"];
 if(isset($type)){
     $searchQuery = $type;    
         try {
-            $stmt = $con->prepare("SELECT * FROM `journals` WHERE LOWER(`manuscript_full_title`) LIKE CONCAT('%', LOWER(?), '%') OR LOWER(`manuscript_running_title`) LIKE CONCAT('%', LOWER(?), '%') ");
+            $stmt = $con->prepare("SELECT * FROM `journals` WHERE `is_publication` = 'no' AND LOWER(`manuscript_full_title`) LIKE CONCAT('%', LOWER(?), '%') OR LOWER(`manuscript_running_title`) LIKE CONCAT('%', LOWER(?), '%') ");
     
         
             if (!$stmt) {

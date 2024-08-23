@@ -18,13 +18,13 @@ if(InvitationFor && email && ArticleId && (Accept || Reject)){
     }
     if(InvitationFor === "edit"){
 
-    fetch(`${submissionsEndpoint}/backend/editors/invitations?u_id=${email}&a_id=${ArticleId}&invite_for=${InvitationFor}&action=${Action}`, {
+    fetch(`${submissionsEndpoint}/backend/editors/invitations.php?u_id=${email}&a_id=${ArticleId}&invite_for=${InvitationFor}&action=${Action}`, {
         method:"GET",
     }).then(res=>res.json())
     .then(data=>{
         if(data.status === "success"){
             alert(data.message)
-            window.location.href = `${parentDirectoryName}portal/editorSignup/?e=${email}`
+            window.location.href = `${parentDirectoryName}/portal/editorSignup/?e=${email}`
         }else{
             alert(data.message)
         }

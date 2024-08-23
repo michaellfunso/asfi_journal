@@ -65,22 +65,41 @@ function NavigationNext(nextSection, navItemId, Nextitem
 
 }
 
+// Function to show the popup
+function showErrorPopup(message) {
+    const errorpopup = document.getElementById('errorPopup');
+    errorpopup.innerHTML = `<p>${message}</p>`
+    errorpopup.classList.remove('hidden');
+    errorpopup.classList.add('show', 'slide-in');
+
+    // Hide the popup after 3 seconds (adjust as needed)
+    setTimeout(() => {
+        errorpopup.classList.remove('show');
+        errorpopup.classList.add('hidden');
+    }, 8000); // 8000 milliseconds = 8 seconds
+}
+
 // Function to check if both manuscript file and cover letter are uploaded
 function checkRequiredFiles() {
     var manuscriptFile = document.querySelector('input[name="manuscript_file"]');
     var coverLetterFile = document.querySelector('input[name="cover_letter"]');
     
+
     // Check if manuscript file is uploaded
+    if(manuscriptFile){
     if (manuscriptFile.files.length === 0) {
-      alert('Please upload the manuscript file.');
+        showErrorPopup('Please upload your manuscript file.');
       return; // Exit function if manuscript file is missing
+    }
     }
 
     // Check if cover letter is uploaded
+    if(coverLetterFile){
     if (coverLetterFile.files.length === 0) {
-      alert('Please upload the cover letter.');
+        showErrorPopup('Please upload your cover letter file.');
       return; // Exit function if cover letter is missing
     }
+}
     
     // Proceed to the next step if both files are uploaded
     showNext('title', 'upload-manuscript', 'upload_manuscript_nav', 'title_nav', 'article-type', 2, 2);
@@ -123,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 input.classList.add('required');
                 input.classList.remove('valid');
             });
-            alert('Please fill in at least 3 keywords before proceeding.');
+            showErrorPopup("Please fill in at least 3 keywords before proceeding.");
             return; // Prevent proceeding
         }
 
@@ -137,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     input.classList.add('valid'); // Mark filled fields as valid
                 }
             });
-            alert('Please fill at least 3 keywords before proceeding.');
+            showErrorPopup("Please fill in at least 3 keywords before proceeding.");
             return; // Prevent proceeding
         }
 
@@ -177,21 +196,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Check if at least 3 sections are filled
-        if (reviewerSections.length - unfilledSections.length < 3) {
-            // Construct alert message for unfilled sections
-            let alertMessage = 'Please fill out all fields of at least three Reviewers information sections.\n\n';
-            unfilledSections.forEach(sectionIndex => {
-                alertMessage += `- Section ${sectionIndex}\n`;
-            });
-
-            // Alert the user with detailed message
-            alert(alertMessage);
-        } else {
-            // Proceed to the next step
+ 
             // Assuming there is a function showNext() defined elsewhere
             showNext('disclosures', 'suggest-reviewers', 'suggest_reviewers_nav', 'disclosures_nav', 'author-information', 7, 7);
-        }
     });
 });
 function setStatus(status){
@@ -245,7 +252,7 @@ function reviewAll(index) {
     });
 
     if (!allChecked) {
-        alert('Please confirm all disclosures before proceeding.');
+        showErrorPopup('Please confirm all disclosures before proceeding.');
         return; // Prevent further action
     }
 
@@ -311,7 +318,7 @@ function addAuthorInput(prefix, firstName, middleName, lastName, orcid, affiliat
 
                             <div style="margin-right: 10px; width: 300px;">
                                 <label for="">ORCID ID”:</label>
-                                <input type="text" class="form-control hd" placeholder="ORCID ID..." name="authors_orcid[]" value="${orcid.value}">
+                                <input type="text" class="form-control hd orcidID" placeholder="ORCID ID..." name="authors_orcid[]" value="${orcid.value}">
                             </div>
 
     <div style="margin-right: 10px; width: 300px;">
@@ -339,7 +346,7 @@ function addAuthorInput(prefix, firstName, middleName, lastName, orcid, affiliat
     newAuthorInputs.querySelector('.remove-author').addEventListener('click', function() {
         addAuthor.removeChild(newAuthorInputs);
     });
-
+    // RunOrcidQuery();
 }
 // Initialize SortableJS
 document.addEventListener('DOMContentLoaded', function() {
@@ -349,3 +356,5 @@ document.addEventListener('DOMContentLoaded', function() {
         handle: '.drag-handle'
     });
 });
+
+

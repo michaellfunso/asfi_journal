@@ -1,6 +1,6 @@
 function articlesNavigation(totalPagesBooks, currentpages) {
     const pagination_container = document.getElementById("pagination_container");
-
+if(pagination_container){
     let Previous = "";
     let AfterPrevious = "";
     let EndPage = "";
@@ -59,7 +59,7 @@ function articlesNavigation(totalPagesBooks, currentpages) {
     }
  
     pagination_container.innerHTML = `
-    <ul class="pagination pagination-primary-soft d-inline-block d-md-flex rounded mb-0"  style="flex-direction:row; display:flex; align-items:center; justify-content:center; width:100%;">
+    <ul class="pagination pagination-primary-soft d-md-flex rounded mb-0"  style="flex-direction:row; display:flex; align-items:center; justify-content:center; width:100%;">
         ${Previous}
         ${AfterPrevious}
         ${OtherPages}
@@ -70,7 +70,7 @@ function articlesNavigation(totalPagesBooks, currentpages) {
    <br/>
       <span id="bookPageInfo">Page ${currentpages} of ${totalPagesBooks}</span>`;
 }
-
+}
 export {
     articlesNavigation
 };

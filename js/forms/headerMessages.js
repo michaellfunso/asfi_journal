@@ -1,7 +1,7 @@
 const headerMessages = {
     0: `  <span class="sub-head" style="color: #404040;">PUBLISH YOUR RESEARCH</span>
                               <ul style="color: #404040;">
-                                  <li>The step listing on the left will guide you through the submission steps</li>
+                                  <li>The step listing on each section will guide you through the submission steps</li>
                                   <li>You cannot jump ahead or skip steps.</li>
                                   <li>You may review or revise any previously completed steps before completing your submission</li>
                               </ul>`,
@@ -12,7 +12,8 @@ const headerMessages = {
   <li>The Main Manuscript File can contain the manuscript texts, as well as the tables and figures. The tables and figures can also be uploaded as separate files. If including tables and figures in the Main Manuscript File, they should be placed after the list of references in the manuscript.</li>
   <li>The Main Manuscript and Table (if uploaded separately) files must be uploaded as a Word file.</li>
   <li>The Cover Letter and Supplementary files should be uploaded as PDF files.</li>
-  <li>The Figure and Graphic Abstract files can be uploaded as PDF or picture files.</li>
+  <li>The Figure can be uploaded as PDF or picture file.</li>
+  <li>The Point-by-Point Response to Reviewers (for revised manuscripts) and Main Manuscript File with Tracked Changes should be uploaded as PDF files.</li>
 </ul>
 `,
     2: `  <span class="sub-head" style="color: #404040;">Manuscript Title</span>
@@ -44,9 +45,10 @@ const headerMessages = {
   <li>You can also provide the ORCID ID for the authors that have it.</li>
   <li>Please ensure that the email addresses of all authors are correct.</li>
   <li>Please note that only one affiliation is required for each author, but you can include more than one affiliation for an author in the manuscript file.</li>
+  <li>If you are currently an ASFI member, please include your ASFI Membership ID.</li>
 </ul>
 `,
-6:`<span class="sub-head" style="color: #404040;">Suggest Reviewers</span>
+6:`<span class="sub-head" style="color: #404040;">Suggest Reviewers (Optional)</span>
                               <ul style="color: #404040;">
                     
   <li>Please suggest potential reviewers of your manuscript by providing their names, affiliations and emails.</li>

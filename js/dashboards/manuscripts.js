@@ -22,51 +22,74 @@ if(user){
 
 
             if(articlesList.length > 0){
-                articlesList.forEach(article => {
-                    fetch(`${submissionsEndpoint}/backend/accounts/getArticleInfo.php`, {
-                        method:"POST",
-                        body:JSON.stringify({id:article.revision_id}),
-                        headers:{
-                            "Content-type" : "application/JSON"
-                        }
-                    }).then(res => res.json())
-                    .then(data =>{
-                        if(data){
-                            const ArticlesInfo = data.articles
+                for(let i=0; i<articlesList.length; i++){
+                // articlesList.forEach(article => {
+                    // fetch(`${submissionsEndpoint}/backend/accounts/getArticleInfo.php`, {
+                    //     method:"POST",
+                    //     body:JSON.stringify({id:articlesList[i].revision_id}),
+                    //     headers:{
+                    //         "Content-type" : "application/JSON"
+                    //     }
+                    // }).then(res => res.json())
+                    // .then(data =>{
+                    //     if(data){
+                            const ArticlesInfo = articlesList[i]
                             let RevisionAction = ""
                             let StatusMain = ""
                             let viewSubmission = ""
                             if(ArticlesInfo.status === "returned_for_revision"){
+                                viewSubmission = `  `
                                 RevisionAction = ` <br>
                                           <a role="link" tabindex="0" href="../revise?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
                                               Submit Revision
                                           </a> `
-                                          StatusMain = "Returned For Revision"
+                                StatusMain = "Returned For Revision"
 
-                            }else{
-                                RevisionAction = ''
-                                StatusMain = ArticlesInfo.status
-                            }
-
-                            if(ArticlesInfo.status === "submitted_for_review" || ArticlesInfo.status === "review_submitted" || ArticlesInfo.status === "revision_submitted"){
+                            }else if(ArticlesInfo.status === "returned_for_correction"){
+                                viewSubmission = `  `
+                                RevisionAction = ` <br>
+                                <a role="link" tabindex="0" href="../correct?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
+                                    Submit Correction
+                                </a> `
+                                StatusMain = "Returned For Correction"
+                            }else if(ArticlesInfo.status === "submitted_for_review" || ArticlesInfo.status === "review_submitted" || ArticlesInfo.status === "revision_submitted"){
+                                RevisionAction = ``
                                 StatusMain = "Under Review"
                                 viewSubmission = ` <a role="link" tabindex="0" href="../content?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
-                                              view submission
+                                              View submission
                                           </a> `
                             }else if(ArticlesInfo.status === "saved_for_later" || ArticlesInfo.status === "revision_saved"){
-                             
                                 RevisionAction = ` <br>
                                 <a role="link" tabindex="0" href="../edit?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
                                     Continue Submission
                                 </a> `
                                 viewSubmission = ``
                                 StatusMain = "Manuscript Saved as Draft"
-                            }else{
+                            }else if(ArticlesInfo.status === "submitted" ){
+                                RevisionAction = ``
                                 viewSubmission = ` <a role="link" tabindex="0" href="../content?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
-                                              view submission
+                                              View submission
                                           </a> `
-                                StatusMain = ArticlesInfo.status
-                            
+                                StatusMain = "Submitted"
+                            }else if(ArticlesInfo.status === "correction_saved"){
+                                RevisionAction = ` <br>
+                                <a role="link" tabindex="0" href="../edit?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
+                                    Continue Submission
+                                </a> `
+                                viewSubmission = ``
+                                StatusMain = "Manuscript Saved as Draft"
+                            }else if(ArticlesInfo.status === "accepted"){
+                                RevisionAction = `  `
+                                viewSubmission = ` <a role="link" tabindex="0" href="../content?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
+                                View submission
+                            </a> `
+                                StatusMain = "Accepted By Editor"
+                            }else{
+                                RevisionAction = ``
+                                viewSubmission = ` <a role="link" tabindex="0" href="../content?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
+                                View submission
+                            </a>`
+                                StatusMain = `${ArticlesInfo.status}`
                             }
                                 ArticlesContainer.innerHTML += `
                                 <tr id="queue_0" name="queue_0" role="row" class="odd">
@@ -96,11 +119,15 @@ if(user){
 
                                      <td class="whitespace-nowrap" data-label="submitted">${formatTimestamp(ArticlesInfo.date_submitted)}
                                      </td>
+
+                                       <td class="whitespace-nowrap" data-label="submitted">${formatTimestamp(ArticlesInfo.process_start_date)}
+                                     </td>
                                 </tr>`
-                        }
-                    })
+                    //     }
+                    // })
            
-                });
+                // });
+            }
             }else{
                 ArticlesContainer.innerHTML = `<tr>
                

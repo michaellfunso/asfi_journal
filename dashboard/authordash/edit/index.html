@@ -51,13 +51,91 @@
   <link rel="stylesheet" href="../../../assets/templates/metro_hyip/css/color.php?color=EB4830&secondColor=">
   <link rel="stylesheet" href="../../../front/public/css/header.css">
   <link rel="stylesheet" href="../../../front/public/css/loader.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
 
   <script src="../../../js/forms/headerMessages.js"> </script>
 
   <script src="../../../js/forms/submissionHeader.js"> </script>
+  <style>
+    
+.popup {
+    position: fixed;
+    top: 30%; /* Adjust top spacing as needed */
+    right: 20px; /* Adjust right spacing as needed */
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    outline: none;
+    border: none;
+    z-index: 9999999;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.popup.show {
+    opacity: 1;
+}
+
+.popup.hidden {
+    display: none;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.popup.slide-in {
+    animation: slideIn 0.3s forwards;
+}
+
+
+.errorpopup {
+    position: fixed;
+    top: 30%; /* Adjust top spacing as needed */
+    right: 20px; /* Adjust right spacing as needed */
+    padding: 10px 20px;
+    background-color: #e22424;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    outline: none;
+    border: none;
+    z-index: 9999999;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.errorpopup.show {
+    opacity: 1;
+}
+
+.errorpopup.hidden {
+    display: none;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.errorpopup.slide-in {
+    animation: slideIn 0.3s forwards;
+}
+  </style>
 </head>
 
-<body id="formNotSubmitted">
+<body id="formNotSubmitted" style="color:black;">
 
   <div class="preloader">
     <div class="loader-p"></div>
@@ -66,6 +144,12 @@
     <div class="spinn"></div>
     <div style="font-weight: bold; color:black">Uploading Documents...please wait...</div>
   </div>
+  <div id="progressSavedPopup" class="popup hidden">
+    Progress has been saved!
+</div>
+<div id="errorPopup" class="errorpopup hidden">
+  
+</div>
 
   <div class="body-overlay"></div>
 
@@ -136,28 +220,28 @@
                   <a href="javascript:void(0)" id="article_type_nav">
                     <li> <i class="material-icons">lock</i>Article Type</li>
                   </a>
-                  <a href="javascript:void(0)" id="upload_manuscript_nav" class="disabled">
+                  <a href="javascript:void(0)" id="upload_manuscript_nav">
                     <li><i class="material-icons">lock</i>Upload Manuscript</li>
                   </a>
-                  <a href="javascript:void(0)" id="title_nav" class="disabled">
+                  <a href="javascript:void(0)" id="title_nav">
                     <li><i class="material-icons">lock</i>Title</li>
                   </a>
-                  <a href="javascript:void(0)" id="abstract_nav" class="disabled">
+                  <a href="javascript:void(0)" id="abstract_nav">
                     <li><i class="material-icons">lock</i>Abstract</li>
                   </a>
-                  <a href="javascript:void(0)" id="keywords_nav" class="disabled">
+                  <a href="javascript:void(0)" id="keywords_nav" onclick="NavigationNext('keywords', 'keywords_nav', 'author_information_nav', 4)">
                     <li><i class="material-icons">lock</i>Keywords</li>
                   </a>
-                  <a href="javascript:void(0)" id="author_information_nav" class="disabled">
+                  <a href="javascript:void(0)" id="author_information_nav">
                     <li><i class="material-icons">lock</i>Authors</li>
                   </a>
-                  <a href="javascript:void(0)" id="suggest_reviewers_nav" class="disabled">
+                  <a href="javascript:void(0)" id="suggest_reviewers_nav" onclick="NavigationNext('suggest-reviewers', 'suggest_reviewers_nav', 'disclosures_nav', 6)">
                     <li><i class="material-icons">lock</i>Suggest Reviewers</li>
                   </a>
-                  <a href="javascript:void(0)" id="disclosures_nav" class="disabled">
+                  <a href="javascript:void(0)" id="disclosures_nav" onclick="NavigationNext('disclosures', 'disclosures_nav', 'review_submit_nav', 7)">
                     <li><i class="material-icons">lock</i>Disclosures</li>
                   </a>
-                  <a href="javascript:void(0)" id="review_submit_nav" class="disabled ">
+                  <a href="javascript:void(0)" id="review_submit_nav">
                     <li><i class="material-icons">lock</i>Review & Submit</li>
                   </a>
 
@@ -280,8 +364,12 @@
                         </div>
 
                         <div id="graphicAbstractContainer">
-                          <label for="">Graphic Abstract:</label>
+                          <label for="">Point-by-Point Response to Reviewers (for revised manuscripts):</label>
                           <input type="file" class="form-control" name="graphic_abstract">
+                        </div>
+                        <div id="trackedRevisedmanuscriptContainer">
+                          <label for="">Main Manuscript File with Tracked Changes (for revised manuscripts):</label>
+                          <input type="file" class="form-control" name="tracked_revisedmanuscript_file">
                         </div> <br>
 
 
@@ -291,7 +379,7 @@
                           <!-- end back button  -->
                           
                           <!-- next button  -->
-                          <button type="button" class="submit-next nextManuscript" onclick="checkRequiredFiles()" disabled>Save & Continue</button>
+                          <button type="button" class="submit-next nextManuscript" onclick="checkRequiredFiles()">Save & Continue</button>
                           <!-- end next button  -->
                         </div>
 
@@ -309,7 +397,7 @@
                           <!-- end back button  -->
 
                           <!-- next button  -->
-                          <button type="button" class="submit-next nextManuscript" onclick="showNext('abstract', 'title', 'title_nav', 'abstract_nav', 'upload-manuscript', 3,3)" disabled>Save & Continue</button>
+                          <button type="button" class="submit-next nextManuscript" onclick="showNext('abstract', 'title', 'title_nav', 'abstract_nav', 'upload-manuscript', 3,3)" >Save & Continue</button>
                           <!-- end next button  -->
                         </div>
 
@@ -335,7 +423,7 @@
                           <!-- end back button  -->
 
                           <!-- next button  -->
-                          <button type="button" class="submit-next nextManuscript" onclick="showNext('keywords', 'abstract', 'abstract_nav', 'keywords_nav', 'title', 4,4)" disabled>Save & Continue</button>
+                          <button type="button" class="submit-next nextManuscript" onclick="showNext('keywords', 'abstract', 'abstract_nav', 'keywords_nav', 'title', 4,4)" >Save & Continue</button>
                           <!-- end next button  -->
                         </div>
                       </div>
@@ -343,35 +431,35 @@
                       <div id="keywords" class="form-section hidden">
                         <h3 class="manu-head">Keywords</h3>
                         <div>
-                          <label for="">keyword 1</label>
+                          <label for="">Keyword 1</label>
                           <input type="text" class="form-control keyword-input" name="keyword[]">
                         </div>
                         <div>
-                          <label for="">keyword 2</label>
+                          <label for="">Keyword 2</label>
                           <input type="text" class="form-control keyword-input" name="keyword[]">
                         </div>
                         <div>
-                          <label for="">keyword 3</label>
+                          <label for="">Keyword 3</label>
                           <input type="text" class="form-control keyword-input" name="keyword[]">
                         </div>
                         <div>
-                          <label for="">keyword 4</label>
+                          <label for="">Keyword 4</label>
                           <input type="text" class="form-control keyword-input" name="keyword[]">
                         </div>
                         <div>
-                          <label for="">keyword 5</label>
+                          <label for="">Keyword 5</label>
                           <input type="text" class="form-control keyword-input" name="keyword[]">
                         </div>
                         <div>
-                          <label for="">keyword 6</label>
+                          <label for="">Keyword 6</label>
                           <input type="text" class="form-control keyword-input" name="keyword[]">
                         </div>
                         <div>
-                          <label for="">keyword 7</label>
+                          <label for="">Keyword 7</label>
                           <input type="text" class="form-control keyword-input" name="keyword[]">
                         </div>
                         <div>
-                          <label for="">keyword 8</label>
+                          <label for="">Keyword 8</label>
                           <input type="text" class="form-control keyword-input" name="keyword[]">
                         </div>
                         <div style="display: flex; justify-content: space-around;">
@@ -380,7 +468,7 @@
                           <!-- end back button  -->
 
                           <!-- next button  -->
-                          <button type="button" class="submit-next nextManuscript" id="nextButton" disabled>Save & Continue</button>
+                          <button type="button" class="submit-next nextManuscript" id="nextButton" >Save & Continue</button>
                           <!-- end next button  -->
                         </div>
                     </div>
@@ -415,27 +503,34 @@
                           <div class="authorinfo">
                             <div style="margin-right: 10px;">
                                 <label for="">ORCID ID”:</label>
-                                <input type="text" class="form-control hd" placeholder="ORCID ID..." name="loggedIn_authors_ORCID" id="loggedIn_orcid">
+                                <input type="text" class="form-control hd orcidID" placeholder="ORCID ID..." name="loggedIn_authors_ORCID" id="loggedIn_orcid">
                             </div>
                         
 
                             <div style="margin-right: 10px;">
                               <label for="">Affiliation(s):</label>
-                              <div style="display: flex; width: 250px;">
-                                <input type="text" class="form-control hd" placeholder="Affiliation..." name="loggedIn_affiliation" id="loggedIn_affiliation" style="margin-right: 5px;" readonly>
-                                <input type="text" class="form-control hd" placeholder="City..." name="loggedIn_affiliation_city" id="loggedIn_affiliation_city" style="margin-right: 5px;" readonly>
-                                <input type="text" class="form-control" placeholder="Country..." name="loggedIn_affiliation_country" id="loggedIn_affiliation_country" style="margin-right: 5px;" readonly>
-                              </div>
-                            </div>
-
-                            <div style="margin-right: 10px;">
-                              <label for="">Email:</label>
-                              <input type="text" class="form-control hd" placeholder="Email..." name="loggedIn_author" id="logged_email" readonly>
-                            </div>
+                              <input type="text" class="form-control hd" placeholder="Affiliation..." name="loggedIn_affiliation" id="loggedIn_affiliation" readonly>
                           </div>
+                          <div style="margin-right: 10px;">
+                            <label for="">City:</label>
+                            <input type="text" class="form-control hd" placeholder="City..." name="loggedIn_affiliation_city" id="loggedIn_affiliation_city"  readonly>
+                          </div>
+                          <div style="margin-right: 10px;">
+                            <label for="">Country:</label>
+                            <input type="text" class="form-control" placeholder="Country..." name="loggedIn_affiliation_country" id="loggedIn_affiliation_country" readonly>
+                          </div>
+                        </div>
+                        <div>
+                          <label for="">Email:</label>
+                          <input type="email" class="form-control hd" placeholder="Email..." name="loggedIn_author" id="logged_email" readonly>
+                        </div>
+                        <div>
+                          <label for="">ASFI Membership ID:</label>
+                          <input type="text" class="form-control hd" placeholder="Membership ID..." name="membership_id[]" >
+                        </div>
                           <div>
                               <label for="">Corresponding Author's Email:</label>
-                              <input type="text" class="form-control hd" placeholder="Corresponding Author Email..." name="corresponding_author" id="loggedIn_email">
+                              <input type="email" class="form-control hd" placeholder="Corresponding Author Email..." name="corresponding_author" id="loggedIn_email">
                           </div>
                         </div>
                          <br>
@@ -456,7 +551,7 @@
                           <!-- end back button  -->
 
                           <!-- next button  -->
-                          <button type="button" class="submit-next nextManuscript" onclick="showNext('suggest-reviewers', 'author-information', 'author_information_nav', 'suggest_reviewers_nav', 'keywords', 6,6)" disabled>Save & Continue</button>
+                          <button type="button" class="submit-next nextManuscript" onclick="showNext('suggest-reviewers', 'author-information', 'author_information_nav', 'suggest_reviewers_nav', 'keywords', 6,6)" >Save & Continue</button>
                           <!-- end next button  -->
                         </div>  
                     </div>
@@ -464,116 +559,10 @@
                     <div id="suggest-reviewers" class="form-section hidden">
                       <h3 class="manu_head">Suggest Reviewers</h3>
                       <div id="suggestReviewer" style="width: 100%; overflow-x: scroll; margin-bottom: 10px; padding-bottom: 20px;">
-                        <div class="suggestHandle" style="width: 100%;">
-                          <div class="drag-handle"></div>
-                          <div style="margin-right: 10px;">
-                            <label for="fullname">Full Name:</label>
-                            <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
-                          </div>
-                          <div style="margin-right: 10px;">
-                            <label for="">Affiliation(s):</label>
-                            <div style="display: flex;">
-                              <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
-                              <input type="text" class="form-control hd" placeholder="City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
-                              <input type="text" class="form-control" placeholder="Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;">
-                            </div>
-                          </div>
-
-                          <div style="margin-right: 10px; width: 300px;">
-                            <label for="">Email:</label>
-                            <input type="text" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
-                          </div>
-
-                        </div>
-
-                        <div class="suggestHandle" style="width: 100%;">
-                          <div class="drag-handle"></div>
-                          <div style="margin-right: 10px;">
-                            <label for="fullname">Full Name:</label>
-                            <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
-                          </div>
-                          <div style="margin-right: 10px;">
-                            <label for="">Affiliation(s):</label>
-                            <div style="display: flex;">
-                              <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
-                              <input type="text" class="form-control hd" placeholder="City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
-                              <input type="text" class="form-control" placeholder="Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;">
-                            </div>
-                          </div>
-
-                          <div style="margin-right: 10px; width: 300px;">
-                            <label for="">Email:</label>
-                            <input type="text" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
-                          </div>
-
-                        </div>
-
-                        <div class="suggestHandle" style="width: 100%;">
-                          <div class="drag-handle"></div>
-                          <div style="margin-right: 10px;">
-                            <label for="fullname">Full Name:</label>
-                            <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
-                          </div>
-                          <div style="margin-right: 10px;">
-                            <label for="">Affiliation(s):</label>
-                            <div style="display: flex;">
-                              <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
-                              <input type="text" class="form-control hd" placeholder="City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
-                              <input type="text" class="form-control" placeholder="Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;">
-                            </div>
-                          </div>
-
-                          <div style="margin-right: 10px; width: 300px;">
-                            <label for="">Email:</label>
-                            <input type="text" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
-                          </div>
-
-                        </div>
-
-                        <div class="suggestHandle" style="width: 100%;">
-                          <div class="drag-handle"></div>
-                          <div style="margin-right: 10px;">
-                            <label for="fullname">Full Name:</label>
-                            <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
-                          </div>
-                          <div style="margin-right: 10px;">
-                            <label for="">Affiliation(s):</label>
-                            <div style="display: flex;">
-                              <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
-                              <input type="text" class="form-control hd" placeholder="City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
-                              <input type="text" class="form-control" placeholder="Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;">
-                            </div>
-                          </div>
-
-                          <div style="margin-right: 10px; width: 300px;">
-                            <label for="">Email:</label>
-                            <input type="text" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
-                          </div>
-
-                        </div>
-
-                        <div class="suggestHandle" style="width: 100%;">
-                          <div class="drag-handle"></div>
-                          <div style="margin-right: 10px;">
-                            <label for="fullname">Full Name:</label>
-                            <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
-                          </div>
-                          <div style="margin-right: 10px;">
-                            <label for="">Affiliation(s):</label>
-                            <div style="display: flex;">
-                              <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
-                              <input type="text" class="form-control hd" placeholder="City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
-                              <input type="text" class="form-control" placeholder="Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;">
-                            </div>
-                          </div>
-
-                          <div style="margin-right: 10px; width: 300px;">
-                            <label for="">Email:</label>
-                            <input type="text" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
-                          </div>
-
-                        </div>
-
+                    
+                   
+               
+             
                       </div>
 
 
@@ -583,7 +572,7 @@
                         <!-- end back button  -->
 
                         <!-- next button  -->
-                        <button type="button" class="submit-next nextManuscript" id="suggestNextButton" disabled>Save & Continue</button>
+                        <button type="button" class="submit-next nextManuscript" id="suggestNextButton" >Save & Continue</button>
                         <!-- end next button  -->
                       </div>
 
@@ -644,14 +633,16 @@
                         <input type="hidden" name="review_status">
                         <input type="submit" id="submitForm" hidden>
                       
-
+                       <div style="display: flex; justify-content: space-between;">
                         <button type="button" name="review_stat" style="margin: 20px; background-color: blueviolet; border: none; padding: 15px 20px 15px 20px; border-radius: 8px; color: white; font-weight: bold; text-align: center;" onclick="setStatus('saved_for_later')" hidden> 
-                            Save For Later
-                        </button>
-                            or
-                        <button type="button" name="review_stat" style="margin: 20px; background-color: blueviolet; border: none; padding: 15px 20px 15px 20px; border-radius: 8px; color: white; font-weight: bold;" onclick="setStatus('submitted')" hidden>
-                            Submit
-                        </button>
+                          Save For Later 
+                      </button> 
+                      <button style="border: none; background-color: transparent;">or</button>
+                      <button type="button" name="review_stat" style="margin: 20px; background-color: blueviolet; border: none; padding: 15px 20px 15px 20px; border-radius: 8px; color: white; font-weight: bold;" onclick="setStatus('submitted')" hidden>
+                          Submit
+                      </button>
+                       </div>
+                        
 
                         
                         
@@ -707,6 +698,61 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
 
     <script type="module" src="../../../js/forms/quill.js"></script>
+    <script>
+      const authorsArray = document.getElementById("authorsArray")
+      var app = new Vue({
+        el: '#app',
+        data: {
+          keywords: [],
+          saisie: "",
+        },
+        methods: {
+          removeFromArray: function(index) {
+
+            authorsArray.value.split(",").filter(x => {
+
+            });
+
+            this.keywords.splice(index, 1);
+            this.saisie = this.keywords;
+          },
+        },
+        watch: {
+          saisie: function() {
+            this.keywords = this.saisie.split(",").filter(x => {
+              return x.trim() != '';
+            });
+          }
+        }
+      });
+      // Initialize SortableJS
+document.addEventListener('DOMContentLoaded', function() {
+    var sortable = new Sortable(document.getElementById('suggestReviewer'), {
+        animation: 150,
+        ghostClass: 'sortable-ghost',
+        handle: '.drag-handle'
+    });
+});
+    </script>
+      <script>
+        // Get the modal
+      var modal = document.getElementById('myModal');
+    
+    // Function to open the modal
+    function openModal() {
+      modal.style.display = "block";
+    }
+    
+    // Function to close the modal
+    function closeModal() {
+      modal.style.display = "none";
+    }
+    
+    
+    
+      // Close the modal after submission (optional)
+      closeModal();
+        </script>
 
     <script src="../../../js/forms/updateDraft.js" type="module"></script>
 

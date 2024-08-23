@@ -67,6 +67,19 @@ loggedContainer.value = email
 
 body.setAttribute("id", "formNotSubmitted")
 
+// Function to show the popup
+function showProgressSavedPopup() {
+    const popup = document.getElementById('progressSavedPopup');
+    popup.classList.remove('hidden');
+    popup.classList.add('show', 'slide-in');
+
+    // Hide the popup after 3 seconds (adjust as needed)
+    setTimeout(() => {
+        popup.classList.remove('show');
+        popup.classList.add('hidden');
+    }, 3000); // 3000 milliseconds = 3 seconds
+}
+
 uploadForm.addEventListener("submit", function(e) {
     e.preventDefault();
     const formData = new FormData(uploadForm);
@@ -95,7 +108,7 @@ uploadForm.addEventListener("submit", function(e) {
             alert("Manuscript Submitted Successfully")
             window.location.href = "/dashboard/authordash/manuscripts"
             }else[
-                alert("Progress Has been saved")
+                showProgressSavedPopup()
             ]
         }else if(data.status === "error"){
             alert(data.message)

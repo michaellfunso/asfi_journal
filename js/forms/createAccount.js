@@ -94,6 +94,7 @@ body.removeAttribute("id")
 
             }else if(data.status === "success"){
                 message_container.innerHTML =`<div class="alert-success">${data.message}</div>`
+                alert(data.message)
                 // window.location.href = "/portal/verify"
 body.setAttribute("id", "formNotSubmitted")
                 

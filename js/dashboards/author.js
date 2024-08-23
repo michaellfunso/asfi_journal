@@ -48,6 +48,7 @@ const authorNavbar = `<div style="display: flex;" class="dash-nav">
                     <a href="${parentDirectoryName}/dashboard/authordash" class="${homeActive}"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-home text--danger'></i>Home </span></a>
                     <a href="${parentDirectoryName}/dashboard/authordash/manuscripts" class="${authorActive}"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
                      <a href="${parentDirectoryName}/dashboard/mail/inbox" class="${inboxActive}"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='fa fa-envelope text--danger'></i> Inbox</span></a>
+                       <a href="${parentDirectoryName}/portal/settings" class="${inboxActive}"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='fa fa-user text--danger'></i> Account Details</span></a>
                 </div>
             </div>`
 const reviewerNavbar = `   <div style="display: flex;" class="dash-nav">
@@ -55,7 +56,7 @@ const reviewerNavbar = `   <div style="display: flex;" class="dash-nav">
                     <a href="${parentDirectoryName}/dashboard/authordash/manuscripts" class="${authorActive}" ><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-pen text--danger'></i> Author </span></a>
                     <a href="${parentDirectoryName}/dashboard/reviewerdash" class="${reviewerActive}" ><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-bell text--danger'></i> Review </span></a>
                      <a href="${parentDirectoryName}/dashboard/mail/inbox" class="${inboxActive}"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='fa fa-envelope text--danger'></i> Inbox</span></a>
-                
+                 <a href="${parentDirectoryName}/portal/settings" class="${inboxActive}"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='fa fa-user text--danger'></i> Settings</span></a>
                 </div>
             </div>`
 const editorNavbar = `   <div style="display: flex;" class="dash-nav">
@@ -64,6 +65,7 @@ const editorNavbar = `   <div style="display: flex;" class="dash-nav">
                     <a href="${parentDirectoryName}/dashboard/reviewerdash" ><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-bell text--danger'></i> Review </span></a>
                     <a href="${editorsDomainEndpoint}?e=${email}" target=_blank><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='las la-edit text--danger'></i> Editorial Assignments </span></a>
                      <a href="${parentDirectoryName}/dashboard/mail/inbox" class="${inboxActive}"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='fa fa-envelope text--danger'></i> Inbox</span></a>
+                      <a href="${parentDirectoryName}/portal/settings" class="${inboxActive}"><span class=" fw-bold" style="margin-left: 20px; margin-right: 20px;"> <i class='fa fa-user text--danger'></i> Settings</span></a>
                 </div>
             </div>`
 

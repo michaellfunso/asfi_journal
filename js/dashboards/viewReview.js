@@ -5,7 +5,15 @@ import { GetAccountData } from "./accountData.js";
 const user = GetCookie("user")
 
 const accouuntType = await GetAccountData(user)
-const submisionid = GetParameters(window.location.href).get("s")
+let submisionid = ""
+const S_as_parameter = GetParameters(window.location.href).get("s")
+const A_as_parameter = GetParameters(window.location.href).get("a")
+if(S_as_parameter){
+    submisionid = S_as_parameter
+}else if(A_as_parameter){
+    submisionid = A_as_parameter
+}
+
 const reviewsContentContainer = document.getElementById("reviews_content_container")
 const reviewIdContainer = document.getElementById("reviewIdContainer");
 const totalOverallRating = document.getElementById("totalOverallRating")

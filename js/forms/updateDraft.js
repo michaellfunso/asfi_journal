@@ -1,6 +1,9 @@
-import { EndPoint, GetParameters, submissionsEndpoint } from "../constants.js";
+import { EndPoint, GetParameters, parentDirectoryName, submissionsEndpoint } from "../constants.js";
 import { GetAccountData } from "../dashboards/accountData.js";
 import { GetCookie } from "../setCookie.js";
+import { RunOrcidQuery } from "./checkField.js";
+import { GetKeywords } from "./getKeywords.js";
+import { GetSuggestedReviewers } from "./getSuggestedReviewers.js";
 import { quill } from "./quill.js";
 // Function to Add new file fields or links if the file exists 
 // Teh array to contain fiels has been created in submissionHeader.js 
@@ -58,7 +61,7 @@ if (articleId) {
             if (data.success) {
                 const Article = data.articles
                 const ArticleStatus = Article.status
-                if (ArticleStatus === "saved_for_later" || ArticleStatus === "Saved" || ArticleStatus === "Drafted") {
+                if (ArticleStatus === "saved_for_later" || ArticleStatus === "Saved" || ArticleStatus === "Drafted" || ArticleStatus === "returned_for_correction") {
 
                     const articleType = Article.article_type
                     const abstract = Article.abstract
@@ -82,12 +85,14 @@ if (articleId) {
                                 AllAuthors.forEach(author => {
                                     // Create new input fields for the new author
                                     var newAuthorInputs = document.createElement('div');
+                                    newAuthorInputs.className = 'author-container';
                                     const authorsFullname = author.authors_fullname;
                                     const authorsArray = authorsFullname.split(' ');
                                     
                                     newAuthorInputs.innerHTML = `
+                                    <div style="display: flex; justify-content: space-between;"><div class="drag-handle"></div><div class="remove-author" style="width: 20px; height: 20px; color:white; font-weight:bold; background-color: red; border-radius:6px; display:flex; justify-content: center; align-items: center; text-align: center; line-height: 20px; cursor:pointer;">x</div></div>
         
-            <div style="display: flex; justify-content: space-between; width: 150%;">
+            <div class="authorname" id="author-container">
         <div style="margin-right: 10px;">
             <label for="prefix">Prefix:</label>
             <select name="authors_prefix[]" class="form-control">
@@ -102,7 +107,7 @@ if (articleId) {
         </div>
     
     
-                        <div style="margin-right: 10px;">
+                                 <div style="margin-right: 10px;">
                                   <label for="">First Name:</label>
                                   <input type="text" class="form-control hd" placeholder="First Name..." name="authors_first_name[]" value="${authorsArray[1]}" >
                                   </div>
@@ -116,27 +121,37 @@ if (articleId) {
                                     <label for="">Last Name:</label>
                                     <input type="text" class="form-control hd" placeholder="Last Name..." name="authors_last_name[]" value="${authorsArray[2]}">
                                 </div>
-    
+                           
                                 <div style="margin-right: 10px;">
-                                    <label for="">ORCID ID”:</label>
-                                    <input type="text" class="form-control hd" placeholder="ORCID ID..." name="authors_orcid[]” value="${author.orcid_id}">
+                                    <label for="">ORCID ID:</label>
+                                    <input type='text' class='form-control hd orcidID' value='${author.orcid_id}' name='authors_orcid[]'>
                                 </div>
     
-        <div style="margin-right: 10px;">
+                            <div style="margin-right: 10px;">
                                 <label for="">Affiliation:</label>
-                                <div style="display: flex;">
+                                
                                 <input type="text" class="form-control" placeholder="Affiliation..." name="affiliation[]" value="${author.affiliations}">
-                                <input type="text" class="form-control" placeholder="Affiliation City..." name="affiliation_city[]" value="${author.affiliation_city}">
-                                <input type="text" class="form-control" placeholder="Affiliation Country..." name="affiliation_country[]" value="${author.affiliation_country}">
-                                </div>
                             </div>
+                            <div style="margin-right: 10px;">
+                                <label for="">Affiliation City:</label>
+                                <input type="text" class="form-control" placeholder="City..." name="affiliation_city[]" value="${author.affiliation_city}">
+                            </div>
+                             <div style="margin-right: 10px;">
+                                <label for="">Affiliation Country:</label>
+                                <input type="text" class="form-control" placeholder="Country..." name="affiliation_country[]" value="${author.affiliation_country}">
+                            </div>
+                        </div>
                     
-                            <div style="border-bottom: 1px solid #404040; margin-bottom: 12px;">
+                            <div style="margin-bottom: 12px;">
                                 <label for="">Email:</label>
                                 <input type="email" class="form-control" placeholder="Email..." name="email[]" value="${author.authors_email}">
                             </div>
-                            <div style="width: 20px; height: 20px; color:white; font-weight:bold; background-color: red; border-radius:6px; display-flex; justify-content: center; align-item: center">x</div>
-            </div>
+                            <div style="margin-bottom: 12px;">
+                                <label for="">ASFI Membership ID:</label>
+                                <input type="text" class="form-control" placeholder="Membership ID..." name="membershipID[]" value="${author.asfi_membership_id}">
+                            </div>
+                        
+            
     
         `;
 
@@ -145,6 +160,7 @@ if (articleId) {
                                 })
 
 
+                                RunOrcidQuery()
 
                             } else {
                                 console.log("Server Error")
@@ -261,10 +277,89 @@ if (articleId) {
                     emailContainer.value = email
                     loggedContainer.value = email
 
-                    body.setAttribute("id", "formNotSubmitted")
+                    // const Get the Keywords 
+                    const Keywords = await GetKeywords(articleId)
+                    const KeywordsContainer = document.querySelectorAll('input[name="keyword[]"]')
+
+                    // Update the value of the keyword fields  /
+                    for(let i=0; i<Keywords.length; i++){
+                        KeywordsContainer[i].value = Keywords[i].keyword
+                    }
+
+                    // Get the Suggested reviewers 
+                    const SuggesteReviewers = await GetSuggestedReviewers(articleId);
+                    // const suggestedReviewersContainer = document.querySelectorAll("")
+                    const suggestedReviewersContainer = document.getElementById("suggestReviewer")
+
+
+                    for(let i=0; i<SuggesteReviewers.length; i++){
+                        suggestedReviewersContainer.innerHTML +=`        <div class="suggestHandle" style="width: 100%;">
+                          <div class="drag-handle"></div>
+                          <div style="margin-right: 10px;">
+                            <label for="fullname">Full Name:</label>
+                            <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id="" value="${SuggesteReviewers[i].fullname}"/>
+                          </div>
+                          <div style="margin-right: 10px;">
+                            <label for="">Affiliation(s):</label>
+                            <div style="display: flex;">
+                              <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;" value="${SuggesteReviewers[i].affiliation}">
+                              <input type="text" class="form-control hd" placeholder="City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;" value="${SuggesteReviewers[i].affiliation_city}">
+                              <input type="text" class="form-control" placeholder="Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;" value="${SuggesteReviewers[i].affiliation_country}">
+                            </div>
+                          </div>
+
+                          <div style="margin-right: 10px; width: 300px;">
+                            <label for="">Email:</label>
+                            <input type="email" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email" value="${SuggesteReviewers[i].email}">
+                          </div>
+
+                        </div>
+`
+                    }
+                    // Add other empty fields 
+                    for(let i=0; i<5-SuggesteReviewers.length; i++){
+                        suggestedReviewersContainer.innerHTML+=`     <div class="suggestHandle" style="width: 100%;">
+                          <div class="drag-handle"></div>
+                          <div style="margin-right: 10px;">
+                            <label for="fullname">Full Name:</label>
+                            <input name="suggested_reviewer_fullname[]" type="text" class="form-control" placeholder="Full Name..." id=""/>
+                          </div>
+                          <div style="margin-right: 10px;">
+                            <label for="">Affiliation(s):</label>
+                            <div style="display: flex;">
+                              <input type="text" class="form-control hd" placeholder="Affiliation..." name="suggested_reviewer_affiliation[]" id="suggested_reviewer_affiliation" style="margin-right: 5px;">
+                              <input type="text" class="form-control hd" placeholder="City..." name="suggested_reviewer_city[]" id="suggested_reviewer_city" style="margin-right: 5px;">
+                              <input type="text" class="form-control" placeholder="Country..." name="suggested_reviewer_country[]" id="suggested_reviewer_country" style="margin-right: 5px;">
+                            </div>
+                          </div>
+
+                          <div style="margin-right: 10px; width: 300px;">
+                            <label for="">Email:</label>
+                            <input type="email" class="form-control hd" placeholder="Email..." name="suggested_reviewer_email[]" id="suggested_reviewer_email">
+                          </div>
+
+                        </div>
+`
+                    }
+                        // Function to show the popup
+                        function showProgressSavedPopup() {
+                            const popup = document.getElementById('progressSavedPopup');
+                            popup.classList.remove('hidden');
+                            popup.classList.add('show', 'slide-in');
+
+                            // Hide the popup after 3 seconds (adjust as needed)
+                            setTimeout(() => {
+                                popup.classList.remove('show');
+                                popup.classList.add('hidden');
+                            }, 3000); // 3000 milliseconds = 3 seconds
+                        }
+   
+                    const SubmissionSTatus = document.querySelector('input[name="review_status"]')
+
 
                     uploadForm.addEventListener("submit", function (e) {
                         e.preventDefault();
+
                         const formData = new FormData(uploadForm);
                         formData.append('abstract', JSON.stringify(quill.getContents().ops));
 
@@ -276,8 +371,11 @@ if (articleId) {
                             appendFileToForm(files.file, files.fieldName)
                         })
 
-                        body.removeAttribute("id")
-
+                        if(SubmissionSTatus.value === "submitted"){
+                            body.removeAttribute("id")
+                        }else{
+                            body.setAttribute("id", "formNotSubmitted")
+                        } 
 
                         fetch(`${submissionsEndpoint}/draft/`, {
                             method: 'POST',
@@ -285,10 +383,16 @@ if (articleId) {
                         })
                             .then(response => response.json())
                             .then(data => {
+                                if(data){
                                 console.log(data); // Log server response
                                 if (data.status === "success") {
-                                    alert("Manuscript Updated Successfully")
-                                    window.location.href = "/dashboard/authordash/manuscripts"
+                                    if(SubmissionSTatus.value === "submitted"){
+                                        alert("Manuscript Updated Successfully")
+                                        window.location.href = "/dashboard/authordash/manuscripts"
+                                        }else[
+                                            // alert("Progress Has been saved")
+                                            showProgressSavedPopup()
+                                        ]
                                 } else if (data.status === "error") {
                                     alert(data.message)
                                     body.setAttribute("id", "formNotSubmitted")
@@ -296,9 +400,12 @@ if (articleId) {
                                     alert("Internal Server Error")
                                     body.setAttribute("id", "formNotSubmitted")
                                 }
+                                }
 
                             })
                             .catch(error => {
+                                alert("Internal Server Error")
+                                body.setAttribute("id", "formNotSubmitted")
                                 console.error('Error:', error);
                             });
                     });
@@ -312,12 +419,13 @@ if (articleId) {
             }
         })
 
+}else{
+    window.location.href = `${parentDirectoryName}/dashboard/authordash`
 }
 
 const nextButton = article_typeMain.querySelector(".submit-next")
 nextButton.removeAttribute("disabled")
 article_type_nav.setAttribute("onclick", "NavigationNext('article-type', 'article_type_nav','upload_manuscript_nav',0)")
-
 
 
 

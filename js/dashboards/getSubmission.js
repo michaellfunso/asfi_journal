@@ -1,5 +1,6 @@
 import { GetParameters, submissionsEndpoint } from "../constants.js";
 import { formatTimestamp } from "../formatDate.js";
+import { GetKeywords } from "../forms/getKeywords.js";
 // import { quill } from "../forms/quill.js";
 const manu_title = document.getElementById("manu_title");
 const published_date = document.getElementById("published_date")
@@ -27,7 +28,7 @@ function getSupplement(articeID) {
             "Content-type" : "application/JSON"
         }
     }).then(res => res.json())
-        .then(data => {
+        .then(async data => {
             if (data.articles) {
                 const Article = data.articles
 
@@ -53,17 +54,48 @@ function getSupplement(articeID) {
                     correspondingAuthorsEmailContainer.innerHTML +=  ` <a style="color:#333;" href="mailto:${correspondingAuthorsEmail}">${correspondingAuthorsEmail}</a>`
                     ArticleTypeContainer.innerText  = ArticleType
                     DiscisplineContainer.innerText = discipline
-                    statusContainer.innerText = status
+            
                     // Add the HTML content to the page 
                     manu_title.innerText = ArticleTitle
                     published_date.innerText = `${DateUploaded}`
+
+                    if(status === "returned_for_revision"){
+                     
+                        statusContainer.innerText= "Returned For Revision"
+
+                    }else if(status === "returned_for_correction"){
+                
+                        statusContainer.innerText= "Returned For Correction"
+                    }
+
+                    if(status === "submitted_for_review" || status === "review_submitted" || status === "revision_submitted"){
+                       
+                        statusContainer.innerText= "Under Review"
+               
+                    }else if(status === "saved_for_later" || status === "revision_saved"){
+                        statusContainer.innerText= "Manuscript Saved as Draft"
+                    }else if(status === "submitted" ){
+                   
+                        statusContainer.innerText= "Submitted"
+                    }else if(status === "correction_saved"){
+                    
+                        statusContainer.innerText= "Manuscript Saved as Draft"
+                    }else if(status === "accepted"){
+                    
+                        statusContainer.innerText= "Approved By Editor"
+                    }else{
+                        RevisionAction = ``
+                 
+                        statusContainer.innerText= `${status}`
+                    }
+
 
                     if(Status === "review_submitted"){
                         ActionsContainer.innerHTML += ` <br> <a href="../reviews?a=${articeID}" style="color: #333; text-decoration: underline; font-style: italic;">View Reviews</a> <br>`
                     }else{
                         ActionsContainer.innerHTML = `
                         <h4>Actions</h4>
-                        <i>There are not actions available yet, an Action will be available once a decision is made or a review is submitted</i>`
+                        <i>There are no actions available yet</i>`
                     }
                  
                     // gEt the authors 
@@ -97,6 +129,8 @@ function getSupplement(articeID) {
                                 console.log("Server Error")
                             }
                         })
+                    
+                        
 
                     // Parse the Quill content from the JSON data
                     const quillContent = JSON.parse(unstructuredAbstract);
@@ -125,6 +159,16 @@ function getSupplement(articeID) {
 
                     // Render the Quill content as HTML in the "content" div
                     renderQuillAsHTML('content', quillContent);
+                    const keywordsContainer = document.getElementById("keywordsContainer");
+            
+                    const keywords = await GetKeywords(articeID)
+                    for(let i=0; i<keywords.length;i++){
+                        if(i === (keywords.length - 1)){
+                            keywordsContainer.innerHTML += `${keywords[i].keyword}`
+                        }else{
+                            keywordsContainer.innerHTML += `${keywords[i].keyword}, `
+                        }
+                    }
 
                 } else {
                     alert("File Not found on server")

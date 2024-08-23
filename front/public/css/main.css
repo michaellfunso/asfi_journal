@@ -1,64 +1,52 @@
-@import url('../../css2.html');
 @font-face {
-  font-family: 'Sofia-Pro-Light';
-  src:url('../fonts/sofia-pro/Sofia-Pro-Light.woff') format('woff'),
-        url('../fonts/sofia-pro/Sofia-Pro-Light.woff2') format('woff2'),
-        url('../fonts/sofia-pro/Sofia-Pro-Light.eot'),
-        url('../fonts/sofia-pro/Sofia-Pro-Lightd41d.eot') format('embedded-opentype'),
-        url('../fonts/sofia-pro/Sofia-Pro-Light.otf') format('truetype');
-
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Sofia-Pro-Regular';
-  src:url('../fonts/sofia-pro/Sofia-Pro-Regular.woff') format('woff'),
-        url('../fonts/sofia-pro/Sofia-Pro-Regular.woff2') format('woff2'),
-        url('../fonts/sofia-pro/Sofia-Pro-Regular.eot'),
-        url('../fonts/sofia-pro/Sofia-Pro-Regulard41d.eot') format('embedded-opentype'),
-        url('../fonts/sofia-pro/Sofia-Pro-Regular.otf') format('truetype');
-
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Sofia-Pro-Medium';
-  src:url('../fonts/sofia-pro/Sofia-Pro-Medium.woff') format('woff'),
-        url('../fonts/sofia-pro/Sofia-Pro-Medium.woff2') format('woff2'),
-        url('../fonts/sofia-pro/Sofia-Pro-Medium.eot'),
-        url('../fonts/sofia-pro/Sofia-Pro-Mediumd41d.eot') format('embedded-opentype'),
-        url('../fonts/sofia-pro/Sofia-Pro-Medium.otf') format('truetype');
-
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Sofia-Pro-Semi-Bold';
-  src:url('../fonts/sofia-pro/Sofia-Pro-Semi-Bold.woff') format('woff'),
-        url('../fonts/sofia-pro/Sofia-Pro-Semi-Bold.woff2') format('woff2'),
-        url('../fonts/sofia-pro/Sofia-Pro-Semi-Bold.eot'),
-        url('../fonts/sofia-pro/Sofia-Pro-Semi-Boldd41d.eot') format('embedded-opentype'),
-        url('../fonts/sofia-pro/Sofia-Pro-Semi-Bold.otf') format('truetype');
-
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Sofia-Pro-Bold';
-  src:url('../fonts/sofia-pro/Sofia-Pro-Bold.woff') format('woff'),
-        url('../fonts/sofia-pro/Sofia-Pro-Bold.woff2') format('woff2'),
-        url('../fonts/sofia-pro/Sofia-Pro-Bold.eot'),
-        url('../fonts/sofia-pro/Sofia-Pro-Boldd41d.eot') format('embedded-opentype'),
-        url('../fonts/sofia-pro/Sofia-Pro-Bold.otf') format('truetype');
-
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
+    font-family: 'Poppins-Light';
+    src:url('../fonts/Outfit,Poppins/Poppins/Poppins-Light.ttf') format('ttf'),
+          url('../fonts/Outfit,Poppins/Poppins/Poppins-Light.ttf') format('truetype');
+  
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Poppins-Regular';
+    src:url('../fonts/Outfit,Poppins/Poppins/Poppins-Regular.ttf') format('ttf'),
+          url('../fonts/Outfit,Poppins/Poppins/Poppins-Regular.ttf') format('truetype');
+  
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Poppins-Medium';
+    src:url('../fonts/Outfit,Poppins/Poppins/Poppins-Medium.ttf') format('ttf'),
+          url('../fonts/Outfit,Poppins/Poppins/Poppins-Medium.ttf') format('truetype');
+  
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Poppins-Semi-Bold';
+    src:url('../fonts/Outfit,Poppins/Poppins/Poppins-SemiBold.ttf') format('ttf'),
+          url('../fonts/Outfit,Poppins/Poppins/Poppins-SemiBold.ttf') format('truetype');
+  
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Poppins-Bold';
+    src:url('../fonts/Outfit,Poppins/Poppins/Poppins-Bold.ttf') format('ttf'),
+          url('../fonts/Outfit,Poppins/Poppins/Poppins-Bold.ttf') format('truetype');
+  
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
 
 *{
 	padding: 0;
@@ -67,7 +55,7 @@
 
 body{
     background-color: #fff;
-    font-family: 'Sofia-Pro-Regular', sans-serif;
+    font-family: 'Poppins-Regular', sans-serif;
     font-size: 15px;
     font-style: normal;
     line-height: 28px;
@@ -77,7 +65,7 @@ body{
 }
 
 h1, h2, h3, h4, h5, h6{
-    font-family: 'Sofia-Pro-Bold', sans-serif;
+    font-family: 'Poppins-Bold', sans-serif;
     -webkit-font-smoothing:antialiased;
 	color: #310357;
 }
@@ -400,7 +388,7 @@ button{
 }
 /* ======= Section Heading ======= */
 .section-heading h2{
-    font-family: "Sofia-Pro-Bold";
+    font-family: "Poppins-Bold";
     font-size: 42px;
     line-height: 50px;
     display: block;
@@ -1333,7 +1321,7 @@ a,a:hover, img, .form-control,  .form-control:hover, button{
 }
 .project-content h3 a,
 .project-content h3{
-    font-family: "sofia-pro-bold",sans-serif;
+    font-family: "poppins-bold",sans-serif;
     font-size: 20px;
     line-height: 26px;
     color: #310357;
@@ -1663,7 +1651,7 @@ a,a:hover, img, .form-control,  .form-control:hover, button{
 }
 .testimonials-carousel-4 .testi-item .review:before{ display: none; }
 .testimonials-carousel-4 .testi-item .review p{
-    font-family: "Sofia-Pro-Bold",sans-serif;
+    font-family: "Poppins-Bold",sans-serif;
     font-size: 28px;
     line-height: 36px;
     color: #310357;
@@ -1975,7 +1963,7 @@ a,a:hover, img, .form-control,  .form-control:hover, button{
 }
 .team-info .name{
     background: #fff;
-    font-family: "sofia-pro-bold",sans-serif;
+    font-family: "poppins-bold",sans-serif;
     font-size: 20px;
     color: #310357;
     padding: 8px 15px;
@@ -2329,7 +2317,7 @@ a,a:hover, img, .form-control,  .form-control:hover, button{
     padding: 0;
 }
 .faq-accordion .btn-link{
-    font-family: "sofia-pro-bold",sans-serif;
+    font-family: "poppins-bold",sans-serif;
     font-size: 18px;
     color: #310357;
     letter-spacing: -0.2px;
@@ -2680,7 +2668,7 @@ a,a:hover, img, .form-control,  .form-control:hover, button{
     margin-bottom: 15px;
 }
 .blog-content h3 a{
-    font-family: "sofia-pro-bold",sans-serif;
+    font-family: "poppins-bold",sans-serif;
     color: #310357;
     font-size: 20px;
     line-height: 26px;
@@ -2939,7 +2927,7 @@ blockquote span{
     margin-bottom: 20px;
 }
 .blog-single-wrap .comments-area .comments-meta h4{
-    font-family: "sofia-pro-regular",sans-serif;
+    font-family: "poppins-regular",sans-serif;
     font-size: 18px;
     font-weight: 600;
     letter-spacing: -1px;
@@ -3155,7 +3143,7 @@ blockquote span{
 }
 
 .thumb-post .thumb-post-meta h3{
-    font-family: "sofia-pro-regular",sans-serif;
+    font-family: "poppins-regular",sans-serif;
     font-size: 16px;
     color: #6a7c92;
     letter-spacing: -0.2px;

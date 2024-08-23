@@ -22,28 +22,27 @@ if(user){
 
             if(articlesList.length > 0){
                 articlesList.forEach(article => {
-                    fetch(`${submissionsEndpoint}/backend/accounts/getArticleInfo.php`, {
-                        method:"POST",
-                        body:JSON.stringify({id:article.submission_id}),
-                        headers:{
-                            "Content-type" : "application/JSON"
-                        }
-                    }).then(res => res.json())
-                    .then(data =>{
-                        if(data){
-                            const ArticlesInfo = data.articles
+                    // fetch(`${submissionsEndpoint}/backend/accounts/getArticleInfo.php`, {
+                    //     method:"POST",
+                    //     body:JSON.stringify({id:article.article_id}),
+                    //     headers:{
+                    //         "Content-type" : "application/JSON"
+                    //     }
+                    // }).then(res => res.json())
+                    // .then(data =>{
+                    //     if(data){
+                            const ArticlesInfo =article
                             let StatusMain = ""
                             if(ArticlesInfo.status === "returned_for_revision"){
                           
                                           StatusMain = "Returned For Revision"
-                            }
-
-                       
-
-                            if(ArticlesInfo.status === "submitted_for_review" || ArticlesInfo.status === "review_submitted"){
+                            }else if(ArticlesInfo.status === "submitted_for_review" || ArticlesInfo.status === "review_submitted" || ArticlesInfo.status === "revision_submitted"){
+                             
                                 StatusMain = "Under Review"
-                            }else{
-                                StatusMain = ArticlesInfo.status
+                             
+                            }else if(ArticlesInfo.status === "submitted" ){
+                       
+                                StatusMain = "Submitted"
                             }
                             
                                 ArticlesContainer.innerHTML += `         <tr id="queue_0" name="queue_0" role="row" class="odd">
@@ -60,7 +59,7 @@ if(user){
                                
                                        <br>
                                           <a role="link" tabindex="0" href="../content?a=${ArticlesInfo.revision_id}" hidefocus="true" style="outline: none;">  
-                                              view submission
+                                              View submission
                                           </a>    
                                          
                                      </td>
@@ -77,8 +76,8 @@ if(user){
                                      <td class="whitespace-nowrap" data-label="submitted">${formatTimestamp(ArticlesInfo.date_submitted)}
                                      </td>
                                 </tr>`
-                        }
-                    })
+                    //     }
+                    // })
            
                 });
             }else{
