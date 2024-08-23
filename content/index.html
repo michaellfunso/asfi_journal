@@ -31,13 +31,11 @@
     <meta itemprop="image" content="assets/images/seo/65be1258275121706955352.png">
     
     <meta property="og:type" content="website">
-    <meta property="og:title" content="ASFI Research Journal">
     <meta property="og:description" content="ASFI Research Journal is an international journal, accepting contributions from all countries of the world. ASFIRJ publishes original papers, expert reviews, systematic reviews and meta-analyses, position papers, guidelines, protocols, data, editorials, news and commentaries, research letters.">
-    <meta property="og:image" content="assets/images/seo/65be1258275121706955352.png"/>
+    <meta property="og:image" content="https:/asfirj.org/assets/images/seo/65be1258275121706955352.png"/>
     <meta property="og:image:type" content="png"/>
     <meta property="og:image:width" content="1180" />
     <meta property="og:image:height" content="600" />
-    <meta property="og:url" content="issues">
     
     <meta name="twitter:card" content="summary_large_image">
 
@@ -66,6 +64,14 @@
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
     <!-- END QUILL JS  -->
+     <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </head>
 
 <body class="header-1 business">
@@ -184,6 +190,7 @@
                     
                      
                         <p id="correspondingAuthorsEmail"><b>Corresponding Authors Email:</b> </p>
+                        <p id="hyperlink"></p>
 
                     <a  style="background-color: blueviolet; color: whitesmoke; padding: 12px; text-align: center;" class="downloadLink">Download Full-Text (PDF)</a>
 
@@ -193,7 +200,20 @@
                 </div>
             </div>
             <div class="submit-research-container" style="margin-left: 12px;">
-                <h4 class="sub-head">Issue Information</h4>
+                
+                <div class="sub-head">
+                    <h4>Issue Information</h4>
+                    <span id="issueNumber"></span>
+                    <span id="pageNumber"></span>
+                    <span id="doiNumber"></span>
+                </div>
+                    <div style="display: flex; flex-direction: column; font-size: 13px;">
+                        <span id="dateSubmitted"></span>
+                        <span id="dateReviewed"></span>
+                        <span id="dateAccepted"></span>
+                        <span id="datePublished"></span>
+                    </div> <br>
+                
                 <div class="submit-research">
                     <div class="sub-manuscript" style="background-color: #80078b;">
                         <div style="display: flex; flex-direction: column; color: #80078b; background-color: whitesmoke; border-radius: 4px; padding: 6px; font-weight: bolder;">
@@ -323,6 +343,7 @@
    </div>
    <div class="footer-bottom">
        <div class="container">
+        <div id="google_translate_element"></div>
            <div class="copyright-wrap">
                <p>&copy; <span id="currentYear"> </span> <a href="https://asfirj.org/">ASFI Research Journal</a> All Rights Reserved ||VO.</p>
            </div>

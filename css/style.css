@@ -1266,6 +1266,8 @@ body{
     padding: 0 0 12px 0;
     border-bottom: 4px solid #94939367;
     margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
 }
 
 .sub-manuscript {
@@ -2627,4 +2629,31 @@ border-radius: 5px 0px 0px 5px;
     font-size: 25px;
     color: blueviolet;
     font-weight: bold;
+}
+
+
+.skiptranslate:not(.goog-te-gadget){
+    height: 0px !important;
+    min-height: 0px !important;
+    max-height: 0px !important;
+    min-width: 0px;
+    max-width: 0px;
+    width: 0px !important;
+    display: none !important;
+}
+body{
+    top:0 !important;
+}
+#google_translate_element{
+    position:fixed;
+    left: 0;
+    bottom: 0;
+    border-radius: 24px;
+    border: 1px solid var(--AmasLinkColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+	/* width: 150px; */
+    z-index: 9999;
 }

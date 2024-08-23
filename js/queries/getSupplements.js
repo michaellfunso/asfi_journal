@@ -10,6 +10,15 @@ const authorsListBottom = document.getElementById("authorsListBottom")
 const downloadLinks = document.querySelectorAll(".downloadLink")
 const viewCountContainer = document.getElementById("viewCountContainer")
 const downloadsCountContainer = document.getElementById("downloadsCountContainer")
+const issueNumber = document.getElementById("issueNumber")
+const pageNumber = document.getElementById("pageNumber")
+const doiNumber = document.getElementById("doiNumber")
+const dateSubmitted = document.getElementById("dateSubmitted")
+const dateReviewed = document.getElementById("dateReviewed")
+const dateAccepted = document.getElementById("dateAccepted")
+const datePublished = document.getElementById("datePublished")
+
+                   
 function getSupplement(articeID) {
     fetch(`${EndPoint}/retrieveArticle.php?q=${articeID}`, {
         method: "GET"
@@ -36,16 +45,53 @@ function getSupplement(articeID) {
                     const status = Article[0].status
                     const viewsCount = Article[0].views_count
                     const correspondingAuthorsEmail = Article[0].corresponding_authors_email
+                    const hyperLink = Article[0].hyperlink_to_others
                     const DownloadsCount = Article[0].downloads_count
+                    const Issue = Article[0].issues_number
+                    const Page = Article[0].page_number
+                    const Doi = Article[0].doi_number
                     const DateUploaded = formatTimestamp(Article[0].date_uploaded)
+                    const SubmittedDate = formatTimestamp(Article[0].date_submitted)
+                    const ReviewedDate = formatTimestamp(Article[0].date_reviewed)
+                    const AcceptedDate = formatTimestamp(Article[0].date_accepted)
+                    const PublishedDate = formatTimestamp(Article[0].date_published)
                     
                     const buffer = Article[0].buffer
 
+                    document.addEventListener("DOMContentLoaded", function () {
+                      // Function to create and add a meta tag
+                      function addMetaTag(property, content) {
+                        const metaTag = document.createElement("meta");
+                        metaTag.setAttribute("property", property);
+                        metaTag.setAttribute("content", content);
+                        document.head.appendChild(metaTag);
+                      }
+
+                      // Add the meta tags
+                      addMetaTag("og:title", `${ArticleTitle}`);
+
+                      // Assuming 'articleUrl' is defined or you can replace it with the actual URL
+                        const articleUrl = window.location.href; // You can replace this with your article URL logic
+                        
+                      const encodedUrl = `https:/asfirj.org/content?sid=${articeID}`;
+                      addMetaTag("og:url", encodedUrl);
+                    });
+
                     const correspondingAuthorsEmailContainer = document.getElementById("correspondingAuthorsEmail")
-                    correspondingAuthorsEmailContainer.innerHTML +=  ` <a style="color:#333;" href="mailto:${correspondingAuthorsEmail}">${correspondingAuthorsEmail}</a>`
+                    correspondingAuthorsEmailContainer.innerHTML += ` <a style="color:#333;" href="mailto:${correspondingAuthorsEmail}">${correspondingAuthorsEmail}</a>`
+                    
+                    const hyperlinkContainer = document.getElementById("hyperlink")
+                    hyperlinkContainer.innerHTML += `<a style="color:#333;" href="${hyperLink}">${hyperLink}</a>`
 
                     viewCountContainer.innerText = `${viewsCount} Views`
                     downloadsCountContainer.innerText = `${DownloadsCount} Downloads`
+                     issueNumber.innerText = `Issue Number: ${Issue}`
+                     pageNumber.innerText = `Page Number: ${Page}`
+                     doiNumber.innerText = `DOI Number: ${Doi}`
+                     dateSubmitted.innerText = `Date Submitted: ${SubmittedDate}`
+                     dateReviewed.innerText = `Date Reviewed: ${ReviewedDate}`
+                     dateAccepted.innerText = `Date Accepted: ${AcceptedDate}`
+                     datePublished.innerText = `Date Published: ${PublishedDate}`
                     // Set the download links for the articles 
                     downloadLinks.forEach(link =>{
                         link.setAttribute("href", `../useruploads/manuscripts/${ManuscriptFile}`)
