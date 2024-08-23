@@ -17,7 +17,7 @@ function showEmailContent(emailId) {
     emailContentContainer.innerHTML = ``
     GetEmailContent(emailId)
       // Set Email Status to read 
-      fetch(`${submissionsEndpoint}/backend/email/setStatus?e_id=${emailId}`, {
+      fetch(`${submissionsEndpoint}/backend/email/setStatus/index.php?e_id=${emailId}`, {
 
         
       }).then(res=>res.json())
