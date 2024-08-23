@@ -76,6 +76,13 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/brands.min.css">
 	<script src="./front/public/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+	 <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 	<style>
 		.footer-section a {
 			color: #dbdadaa9;
@@ -1056,6 +1063,7 @@
 		</div>
 		<div class="footer-bottom">
 			<div class="container">
+				<div id="google_translate_element"></div>
 				<div class="copyright-wrap">
 					<p>&copy; <span id="currentYear"> </span> <a href="">ASFI Research Journal</a> All
 						Rights Reserved ||VO.</p>
@@ -1154,7 +1162,7 @@ document.addEventListener('DOMContentLoaded', function() {
           break;
 		case 'instagram':
 			// Copy the text to the clipboard
-			const textToCopy = `Check out this article: ${articleUrl}`;
+			const textToCopy = `${articleUrl}`;
 			navigator.clipboard.writeText(textToCopy).then(() => {
 				alert('Copied to clipboard. You can now paste it into Instagram or anywhere else.');
 				console.log('Copied to clipboard:', textToCopy);

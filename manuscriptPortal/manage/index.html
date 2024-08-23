@@ -62,6 +62,104 @@
 	<link rel="stylesheet" href="../../front/public/css/responsive.css">
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 	<script src="../../front/public/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+     <style>
+		.footer-section a {
+			color: #dbdadaa9;
+		}
+		.tab__nav {
+    border-bottom: 1px solid #80078b;
+}
+.tab__nav li .active {
+    background-color: #80078b;
+	color: white;
+}
+.tab__nav li {
+    display: inline-block;
+    margin-bottom: .625rem;
+}
+.tab__nav a {
+    font-weight: 600;
+    border: none;
+    padding: .625rem;
+}
+.doi-access-wrapper {
+    padding-bottom: 15px;
+	display: flex;
+    justify-content: space-between;
+    /* width: 80%; */
+}
+.issue-item{
+	margin-top: 10px;
+	border-bottom: 1px solid black;
+	padding-bottom: 20px;
+}
+.rlist--inline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+	display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.content-item-format-links .rlist--inline li {
+	margin-right: 10px;
+	font-weight: bold;
+    color: #310357;
+}
+.content-item-format-links .rlist--inline li a{
+	padding-right: 10px;
+	color: #310357;
+}
+.comma p {
+	color: #3b3b3b;
+}
+.issue-item__details {
+	margin-top: 10px;
+}
+.section__mainHeader--mid {
+	font-size: 40px;
+}
+@media (min-width: 768px) {
+    .col-md-8 {
+        -ms-flex: 0 0 66.666667%;
+        flex: 0 0 66.666667%;
+        max-width: 100%;
+    }
+	.col-md-4 {
+        -ms-flex: 0 0 33.333333%;
+        flex: 0 0 33.333333%;
+        max-width: 100%;
+    }
+}
+.share-options {
+  /* position: absolute; */
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  z-index: 1000;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.share-options ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.share-options li {
+  margin: 5px 0;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.share-options li:hover {
+  color: #007bff;
+}
+.shareButton{
+	cursor: pointer;
+}
+
+	</style>
 </head>
 
 <body class="header-1 business">
@@ -171,11 +269,35 @@
             </div>
         </section>
 
-    
-        <section class="article-section bd-bottom padding">
+    <div style="display: flex;">
+    <div style="background-color: rgba(128, 128, 128, 0.089); border-radius: 8px; width: 20%; text-align: center; margin-left: 20px; margin-bottom: 10px; padding: 6px;">
+        <a href="../../manuscriptPortal/manageIssues/" style="color: rgb(85, 84, 84);" >Issues</a>
+        <a href="" style="background-color: blueviolet;padding: 2% 10% 2% 10%; margin-left: 0; color: whitesmoke; border-radius: 8px;">Supplements</a>
+    </div>
+    <span style="margin-left: 10px;">
+        <select class="form--control " name="year">
+            <option value="">Select Year</option>
+            <option value="2023" >2023</option>
+            <option value="2024" >2024</option>
+        </select>
+    </span>
+
+</div> 
+
+        
+
+        <h3 style="text-align: center;">Manage Supplements</h3>
+        
+        <section class="sup-article-section bd-bottom padding">
         <div class="container" id="articleListContainer">
-            
         </div>
+        <nav aria-label="..." style="display: flex; justify-content: center;">
+            <ul class="pagination" id="pagination_container" style="align-items:center; justify-content:center; flex-direction:column; ">
+   
+        
+            </ul>
+          </nav>
+
     </section>
 
     
