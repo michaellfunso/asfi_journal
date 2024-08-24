@@ -46,7 +46,7 @@ if(isset($_POST["Hyperlink"])){
     $HyperLink = "N/A";
 }
 if(isset($_POST["doi_number"])){
-    $dio = $_POST["doi_number"];
+    $doi = $_POST["doi_number"];
 }else{
     $doi = "N/A";
 }

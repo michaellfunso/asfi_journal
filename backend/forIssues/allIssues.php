@@ -25,7 +25,7 @@ if (isset($_GET["k"])) {
 
             $journalCount = $rowC["totalJournals"];
 
-            $stmt = $con->prepare("SELECT * FROM `journals` WHERE LOWER(`manuscript_full_title`) LIKE CONCAT('%', LOWER(?), '%') COLLATE utf8mb4_general_ci OR LOWER(`manuscript_running_title`) LIKE CONCAT('%', LOWER(?), '%') COLLATE utf8mb4_general_ci AND `is_publication` = 'yes' ORDER BY `id` DESC ");
+            $stmt = $con->prepare("SELECT * FROM `journals` WHERE `is_publication` = 'yes' AND LOWER(`manuscript_full_title`) LIKE CONCAT('%', LOWER(?), '%') COLLATE utf8mb4_general_ci OR LOWER(`manuscript_running_title`) LIKE CONCAT('%', LOWER(?), '%') COLLATE utf8mb4_general_ci ORDER BY `id` DESC ");
 
 
             if (!$stmt) {

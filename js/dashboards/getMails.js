@@ -9,11 +9,18 @@ import { GetEmailContent } from "./getMailContent.js"
 // import { GetEmailContent } from "./getEmails.js"
 const emailListContainer = document.getElementById("emailListContainer")
 const user = GetCookie("user")
+const expandForum = document.querySelector(".expand-forum")
+const emailContentContainer = document.getElementById("email-content");
+
+expandForum.addEventListener("click", function(){
+    emailListContainer.classList.toggle('small');
+    emailContentContainer.classList.toggle("wide");
+})
+
 if(user){
 
 function showEmailContent(emailId) {
    
-    const emailContentContainer = document.getElementById("email-content");
     emailContentContainer.innerHTML = ``
     GetEmailContent(emailId)
       // Set Email Status to read 
@@ -60,6 +67,8 @@ fetch(`${submissionsEndpoint}/backend/accounts/emailList.php?u_id=${user}`, {
       const Emailitems = document.querySelectorAll(".email-item")
     Emailitems.forEach(item=>{
         item.addEventListener("click", function(){
+            emailListContainer.classList.toggle('small');
+    emailContentContainer.classList.toggle("wide");
             showEmailContent(item.getAttribute("data-id"))
         })
     })
