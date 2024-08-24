@@ -76,25 +76,23 @@ const quill = new Quill("#quilleditor", {
       [{ font: [] }],
       [{ size: ["small", false, "large", "huge"] }], // Custom dropdown
       ["clean"],
-      // ["table"], // Table embedding (with a plugin)
       // Custom button for uppercase
       [{ uppercase: "uppercase" }],
       [{ lowercase: "lowercase" }],
     ],
-    table: true,
-    handlers: {
-      uppercase: function () {
-        let range = quill.getSelection();
-        if (range) {
-          let format = quill.getFormat(range);
-          if (format.uppercase) {
-            quill.format("uppercase", false);
-          } else {
-            quill.format("uppercase", true);
-          }
-        }
-      },
-    },
+    // handlers: {
+    //   uppercase: function () {
+    //     let range = quill.getSelection();
+    //     if (range) {
+    //       let format = quill.getFormat(range);
+    //       if (format.uppercase) {
+    //         quill.format("uppercase", false);
+    //       } else {
+    //         quill.format("uppercase", true);
+    //       }
+    //     }
+    //   },
+    // },
   },
   theme: "snow",
 });
