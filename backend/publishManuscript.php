@@ -27,6 +27,7 @@ $dateReviewed = $_POST["date_reviewed"];
 $dateAccepted = $_POST["date_accepted"];
 $datePublished = $_POST["date_published"];
 
+
 if(isset($_POST["editor-choice"])){
 $editorsChoice = $_POST["editor-choice"];
 }else{
@@ -44,6 +45,24 @@ if(isset($_POST["Hyperlink"])){
 }else{
     $HyperLink = "N/A";
 }
+if(isset($_POST["doi_number"])){
+    $doi = $_POST["doi_number"];
+}else{
+    $doi = "N/A";
+}
+
+if(isset($_POST["issue_number"])){
+    $issue = $_POST["issue_number"];
+}else{
+    $issue = "N/A";
+}
+
+if(isset($_POST["page_number"])){
+    $page = $_POST["page_number"];
+}else{
+    $page = "N/A";
+}
+
 
 $quillContent = json_decode($_POST['article_content'], true);
 
@@ -195,13 +214,13 @@ if ($uploadOk == 0) {
         }
       
         try {
-            $stmt = $con->prepare("INSERT INTO `journals` (`article_type`, `manuscript_file`,  `manuscript_full_title`,`unstructured_abstract`,`manuscriptPhoto`,`corresponding_authors_email`, `buffer`,  `date_reviewed`, `date_submitted`, `date_accepted`, `date_published`, `is_editors_choice`, `hyperlink_to_others`, `is_open_access`, `is_publication`) VALUES(?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?, ?)");
+            $stmt = $con->prepare("INSERT INTO `journals` (`article_type`, `manuscript_file`,  `manuscript_full_title`,`unstructured_abstract`,`manuscriptPhoto`,`corresponding_authors_email`, `buffer`,  `date_reviewed`, `date_submitted`, `date_accepted`, `date_published`, `is_editors_choice`, `hyperlink_to_others`, `is_open_access`, `is_publication`, `doi_number`, `page_number`, `issues_number` ) VALUES(?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?, ?,?,?,?)");
             $isPublication = "yes";
             if (!$stmt) {
                 throw new Exception("Failed to prepare statement: " . $con->error);
             }
         
-            $stmt->bind_param("sssssssssssssss", $articleType, $newFileName, $manuscript, $abstract, $coverImageName, $correspondingAuthorsEmail, $articleID, $dateReviewed, $dateSubmitted, $dateAccepted, $datePublished, $editorsChoice, $HyperLink, $openAccess, $isPublication);
+            $stmt->bind_param("ssssssssssssssssss", $articleType, $newFileName, $manuscript, $abstract, $coverImageName, $correspondingAuthorsEmail, $articleID, $dateReviewed, $dateSubmitted, $dateAccepted, $datePublished, $editorsChoice, $HyperLink, $openAccess, $isPublication, $doi, $issue, $page);
         
             if (!$stmt->execute()) {
                 throw new Exception("Failed to execute statement: " . $stmt->error);

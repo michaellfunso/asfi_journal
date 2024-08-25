@@ -61,10 +61,6 @@
 	<link rel="stylesheet" href="../front/public/css/main.css">
 	<link rel="stylesheet" href="../front/public/css/responsive.css">
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-<!-- Quill Table Module -->
-<script src="https://cdn.jsdelivr.net/npm/quill-table-ui@1.0.2/dist/table.min.js"></script>
-
-
 	<script src="../front/public/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     <script type="text/javascript">
         function googleTranslateElementInit() {
@@ -546,28 +542,28 @@
 });
 </script>
 <script>
-   document.querySelector('.ql-uppercase').addEventListener('click', function() {
-  let range = quill.getSelection();
-  if (range) {
-    let format = quill.getFormat(range);
-    if (format.uppercase) {
-      quill.format('uppercase', false);
-    } else {
-      quill.format('uppercase', true);
-    }
-  }
-});
-document.querySelector('.ql-lowercase').addEventListener('click', function() {
-  let range = quill.getSelection();
-  if (range) {
-    let format = quill.getFormat(range);
-    if (format.lowercase) {
-      quill.format('lowercase', false);
-    } else {
-      quill.format('lowercase', true);
-    }
-  }
-});
+//    document.querySelector('.ql-uppercase').addEventListener('click', function() {
+//   let range = quill.getSelection();
+//   if (range) {
+//     let format = quill.getFormat(range);
+//     if (format.uppercase) {
+//       quill.format('uppercase', false);
+//     } else {
+//       quill.format('uppercase', true);
+//     }
+//   }
+// });
+// document.querySelector('.ql-lowercase').addEventListener('click', function() {
+//   let range = quill.getSelection();
+//   if (range) {
+//     let format = quill.getFormat(range);
+//     if (format.lowercase) {
+//       quill.format('lowercase', false);
+//     } else {
+//       quill.format('lowercase', true);
+//     }
+//   }
+// });
 </script>
 </body>
 </html>

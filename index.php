@@ -1118,7 +1118,9 @@
 	<script src="./front/public/js/vendor/wow.min.js"></script>
 
 	<script type="module" src="./js/general.js"></script>
-	<script src="./js/queries/allIssues.js" type="module"></script>
+	<script src="./js/queries/allArticles.js" type="module"></script>
+
+	<!-- <script src="./js/queries/allIssues.js" type="module"></script> -->
 
 	<script src="./front/public/js/main.js"></script>
 	<script>

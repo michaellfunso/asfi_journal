@@ -113,7 +113,13 @@ openModal()
                 const unstructuredAbstract = Article[0].unstructured_abstract
                 const correspondingAuthorsEmail = Article[0].corresponding_authors_email
                 const DateUploaded = formatTimestamp(Article[0].date_uploaded)
-                
+                const DOI_number = Article[0].DOI_number
+                const IssueNumber = Article[0].issue_number 
+                const fisrtPublished = Article[0].date_published
+                const dateAccepted = Article[0].date_accepted 
+                const dateReviewed = Article[0].date_reviewed
+                const EditorsChoise = Article[0].is_editors_choice
+                const OpenAccess = Article[0].is_open_access
             
                 const buffer = Article[0].buffer
 
